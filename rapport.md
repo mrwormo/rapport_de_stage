@@ -81,6 +81,68 @@ Avec le développement des infrastrucre Cloud, Ansible, couplé à des outils co
 
 Personnelement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (voir annexe)
 ## Déploiment d'une stack de monitoring par Ansible
+Une de mes missions à été de mettre en place une solution de monitoring déploiable par Ansible pour pouvoir surveiller l'infrastrucre d'un client. La solution de monitoring retenue à été la suivante:
+- Grafana: pour la centralisation des graphique
+- Influxdb comme base de données pour les différents metriques.
+- Telegraf pour la collectes des metriques
+- Loki pour le gestion des logs
+- Promtail pour la recupération des logs
+
+### Présentations des différentes applications qui constitue la stack de monitoring
+Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb -  Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs. C'est une solution efficace, robuste, scalable facilement et extrèmement customisable.
+Nous somme sur une architecture logiciel sur 3 niveaux
+- la collectes des metriques et des logs
+- le stockage des metriques dans la bdd Influxdb
+- l'affichage des graphique dans grafana
+
+#### Télégraf
+Telegraf est un agent de récupération de métriques, 1 seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées au format Prometheus et propose 2 modes de récupération des métriques, via :
+
+- push : la métrique est poussée dans Telegraf par le composant qui l’expose
+- pull : Telegraf récupère la métrique en interrogeant le composant qui l’expose (le mode le plus utilisé)
+
+Les metriques sont par la suite insérées dans la bdd Influxdb
+
+#### Influxdb
+InfluxDB est une Time Series Database (TSDB) écrite en Go. Ces principaux avantages sont les performances, la durée de rétention importante et la scalabilité
+
+#### Loki
+Loki est un aggrégateur de logs, facilement scalable et inspiré de Prometheus. Il utilise un mécanisme de découverte de service et ajoute des tags aux logs au lieu de de les indexer. l'indexation. Pour cette raison, 
+
+les journaux reçus de Promtail se composent du même ensemble de tags que celui des métriques d'application. Ce qui permet une meilleur intégration des logs et des metriques
+(A REVOIR)
+
+
+#### Promtail
+Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées.Il fonctionne en 3 temps:
+
+- Découvre des cibles
+- Attache des tags aux logs
+- pousse les logs vers Loki.
+
+Promtail est très customisable. Nous verons plus loin un exemple de configuration
+
+#### Grafana
+Grafana est un outil supervision moderne. Il permet d'exposer sous formes de dashboards les métriques brutes ou agrégées provenant d’InfluxDB. L'une de ses grande force est qu'il permet de créer très facilement des seuils d’alertes et les actions associées. comme l'envoie de mail pour alerter l'administrateur du S.I
+On accède à Grafana depuis un navigateur Internet, Ce qui est très utile quand on veut monitorer une infrastructure à distance. Plus besoin d'installer de logiciels complet....
+
+### Mise en place des différents éléments.
+Point Important: cette stack peut être très facilement être installé grace à Docker. Personnelement, j'utilise la stack TIG sous docker, le tout orchestré sous k8S pour monitorer mon homelab. (voir annexe pour plus d'info)
+Le choix fait par CGI et d'éviter la conteneurisation pour les environnement de production. Nous sommes donc parti sur une installation en dur des différentes briques de cette stack, le tout déployé par ansible.
+Etant donnée la nature des informations, j'illustrerai par des graphiques de mon homelab
+
+#### composition de l'infrastructure d'implentation de la stack TIG
+cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de machines qui comprend:
+- serveurs d'applications
+- serveurs web nginx
+- plusieurs bdd (MariaDB, MongoDb)
+
+Etant donnée la composition de l'infrastruture, Telegraf qui sera deployé sur chaque machine va pouvoir récupérer une grande variété de metriques tels que:
+- statistique machines: Memoire, CPU, Uptime, Stockage, Disk I/O
+- nginx: load, network I/O, traffic, differentes requetes, nombres de connexions,...
+- dans un autres temps les bdd: erreurs, SQL commands/sec, Heatmap (queries/sec) cache,...
+
+Et Promtail
 
 ## Déploiment d'une stack complexe multi-services, multi-plateformes, multi-fournisseurs
 
