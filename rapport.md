@@ -128,7 +128,9 @@ On accède à Grafana depuis un navigateur Internet, Ce qui est très utile quan
 ### Mise en place des différents éléments.
 Point Important: cette stack peut être très facilement être installé grace à Docker. Personnelement, j'utilise cette solution sous docker, le tout orchestré avec k8S pour monitorer mon homelab. (voir annexe pour plus d'info)
 Le choix fait par CGI et d'éviter la conteneurisation pour les environnement de production. Nous sommes donc parti sur une installation en dur des différentes briques de cette stack, le tout déployé par ansible.
-Etant donnée la nature sensisble des informations, j'illustrerai par des graphiques de mon homelab
+Etant donnée la nature sensisble des informations, j'illustrerai par des graphiques de mon homelab et présenterez dans ce rapport seulement quelques morceaux que je juge important pour la compréhension
+
+Vous trouverez en annexes le playbook dans son intégralité.
 
 #### composition de l'infrastructure d'implentation de la stack TIG
 cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de machines qui comprend:
@@ -230,15 +232,87 @@ Il est important de respecter une structure et de s'y tenir car un projet peut c
 
 ## Le playbook pour le deploiment de la stack
 ### Organisation
-- description de la structure du playbook
-- presentation des fichier de group var, playbook, roles , templates, ...
+Le playbook est organisé de la facon suivante:
+- playbook.yml : nom du playbook qui contient tous les roles
+- /roles: va contenir touts nos roles, templates, et handlers
+- /inventory/hosts.yml: inventaire des machines 
+- /inventory/group_vars/all.yml : variable globales
+... le dossier group_vars contient egalement les dossiers avec les configuration spécifique de promtail pour chaque groupes de machines
 
+la commande suivante permettra de deployer notre stack
+```shell
+ansible-playbook playbook.yml -i inventory/host.yaml
+```
 
+### Role Grafana
 
+Les étapes du role d'installation de grafana sont simple. Avec l'aide des modules adéquats d'ansible, les étapes pour l'installation et la configuration de grafana sont les suivantes:
 
+- creation du groupe et du commpte grafana:monitoring
+- creation des dossier necessaires
+- telechargement du programme et extration dans le dossier d'installation définie precedement
+- creation d'un fichier de configuration grace à un template
+- import d'un dashboard déjà créer précedament
+- ouverture des ports dans le firewall
+- creation du fichier .service al'aide d'un template
+- activation du service et redemarrage
 
+Pour ce rôle, l'utisation de template pour générer le fichier de configuration de grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml  Voici la tasks du role grafana qui utilise le template crée pour generer le fichier service:
 
+```yaml
+- name: "copy grafana systemd service from template"
+  template:                                     <- le nom du module pour utiliser un template
+    src: grafana.service.j2                     <- on selectionne le template en source
+    dest: /etc/systemd/system/grafana.service   <- creation du service avec le template et les variable dans group_vars/all.yml
+```
 
+Un autre aventage d'ansible est l'utilisation de loop 'boucle' pour répéter une même action dans une tache avec des variables différentes. Voici un exemple pour l'ouverture des ports:
+```yaml
+- name: "open firewall port 3000 on the machine and port 25 for SMTP email"
+  firewalld:                    <- le module pour intéragir sur le firewall
+    state: "{{ item.state  }}"  <- on definie une variable pour l'état du port
+    port: "{{ item.port  }}"    <- on definie une variable pour le numéro de port
+    zone:
+    immediate:
+    permanent: yes
+  with_items:                   <- cette option permet d'itérer les item defini plus haut
+    - { state: 'enabled', port:'3000/tcp'  } <- on affecte des valeurs au variables item
+    - { state: 'enabled', port:'25/tcp'  }
+```
+
+Avec ces quelques lignes, on ouvres les ports, dans la zone par defaut (car nous n'avons pas renseigné de zone specifique dans zone), de manière permanente et immédiate.
+
+### Role Influxdb
+
+Les étapes pour l'installation d'influxdb sont sensiblement identique à celle de grafana:
+
+- creation du groupe et du compte influxdb:monitoring
+- creations des dossiers necessaires
+- telechargement du programme et extraction dans le bon dossier
+- creation d'un fichier de configuration et du service à partir d'un template
+- ouverture des ports dans le firewall
+- activation du service
+- pause de quelques seconde
+- configuration d'influxdb en passant une command shell avec les paramêtre definie dans le fichier de variable
+
+la difficulté ici et la dernieres etape. pour automatiser la configuration d'influxdb, on passe une commande shell avec les arguments necessaires pour la creation des elements necessaires à influxdb. 
+
+```yaml
+- name: 'check if folder exist'
+  stat:
+    path: "{{ influxdb_main_folder  }}/.influxdbv2"
+  register: folder_exist                                <- on verifie que le dossier de configuration existe déjà et on enregistre le resultat
+                                                           a l'aide d'un register
+- name: 'configure influxdb as influxdb user and not root'
+  become_user: "{{influxdb_account_name}}"
+  shell: >
+    {{ influxdb_main_folder  }}/influxdb/influx setup --org {{ influxdb_organization  }} --bucket {{ influxdb_bucket  }} --username {{ influxdb_username  }} --password {{ influxdb_password  }} --token {{ influxdb_token  }} --force
+  when: not folder_exist.stat.exists                    <- cet condition permet de lancer la configuration d'infludb seulement si le dossier de configuration n'existe pas.
+```
+
+cette condition permet de s'assurer que le rôle se déroule bien car si on essaie de configurer la base de donnée alors que le dossier de configuration est déja présent, la task va échoué et le playbook ne sera pas déroulé dans son intégralité
+
+Le point que je souhaitais mettre en avant ici est la facilité avec laquelle on peut definir des condition pour lancer, ou non des rôles.
 
 
 
