@@ -154,7 +154,78 @@ sudo yum install epel-release   <- ajout du repo
 sudo yum install ansible   <- installation du packet
 ```
 
+On verifie la bonne installation d'Ansible et des dépendences:
 
+```shell
+marc@pi-master [06:42:03] [/]
+-> % ansible --version
+ansible 2.9.6
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/marc/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
+```
+Ansible a besoin que le port SSH soit ouvert. Verifions que c'est bien le cas et egalement pour facilité et sécuriser la communication SSH, il est recommandé d'activé l'authentification par clé plutôt que par mot de passe
+
+```shell
+sudo firewall-cmd --list-services
+
+dhcpv6-client mdns samba-client ssh
+```
+ssh fait bien partie des services actif dans le firewall
+
+```shell
+ssh-keygen
+ssh-copy-id 'machine_cliente'
+```
+L'authentification par clé est mise en place  l'environnement de base est configurer.
+
+
+#### Notions de base
+Avant de présenter les playbook que j'ai réalisé, il est important de comprendre quelques elements d'Ansible.
+On définie des rôles, qui contiennent des taches à executer à l'aide de différents modules, le tout regroupé dans un playbook, qui va réunir les différents roles. Comme précisé plus haut, tout est ecrit en YAML.
+Il existe de nombreux modules qui permettent de réaliser toutes les actions immaginables.
+Ansible utilise egalement des template, au format jinja2 afin de facilité la creation de fichiers de configurations et la gestion des variables.
+
+Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir plusieurs elements. voici un example simble d'arborescence d'un projet, tiré de la documentation officielle d'ansible:
+
+```shell
+production                # fichier inventaire pour la production
+
+group_vars/
+   group1.yml             # variables assigné à un groupe définie dans l'inventaire. Ici le groupe1
+   group2.yml
+host_vars/
+   hostname1.yml          # variables assigné à une machine specifiquement
+   hostname2.yml
+
+library/                  # dossier pour des modules developé specifiquement
+
+site.yml                  # Playbook nommé site.yml
+webservers.yml            # playbook  nommé webservers.yml
+
+roles/
+    common/               # cette structure de fichier represente un role
+        tasks/            #
+            main.yml      #  <--fichier qui va contenir toutes les taches à effectuer
+        handlers/         #
+            main.yml      #  <-- fichier qui va contenir des taches inactives mais qui seront appliqué si elles sont appelé dans le fichier main.yml avec un 'notify'
+        templates/        # 
+            ntp.conf.j2   #  <------- c'est ici que les templates utilisé par le role sont stockées
+        files/            #
+            bar.txt       #  <-- On stocke les autres fichiers dans le dossier files
+            foo.sh        #  <-- on va par exemple stocker des scripts ou des fichiers txt
+        vars/             #
+            main.yml      #  <-- variables associated with this role
+        defaults/         #
+            main.yml      #  <-- default lower priority variables for this role
+        meta/             #
+            main.yml      #  <-- Ce fichier indique les dépendances necessaires pour ce role
+    webtier/              # same kind of structure as "common" was above, done for the webtier role
+    monitoring/           # ""
+    fooapp/               # ""
+```
 
 
 
