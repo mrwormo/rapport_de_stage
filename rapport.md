@@ -81,7 +81,7 @@ Avec le développement des infrastrucre Cloud, Ansible, couplé à des outils co
 
 Personnelement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (voir annexe)
 
-## Déploiment d'une stack de monitoring par Ansible
+## La solution de monitoring
 Une de mes missions à été de mettre en place une solution de monitoring déploiable par Ansible pour pouvoir surveiller l'infrastrucre d'un client. La solution de monitoring retenue à été la suivante:
 - Grafana: pour la centralisation des graphiques
 - Influxdb comme base de données pour les différents metriques.
@@ -145,7 +145,7 @@ Et Promtail sera en charge de recuperer les logs suivants:
 - logs système
 - logs applicatifs (nginx principalement)
 
-#### Installation d'Ansible
+## Installation d'Ansible
 Ansible est disponible pour un grand nombre de Distribution Linux. Il peut être installé par un gestionnaire de packet ou par PIP car Ansible s'appuis majoritairement sur le language Python.
 Pour l'installer sur CentOs
 
@@ -182,16 +182,16 @@ ssh-copy-id 'machine_cliente'
 L'authentification par clé est mise en place  l'environnement de base est configurer.
 
 
-#### Notions de base
+### Notions de base
 Avant de présenter les playbook que j'ai réalisé, il est important de comprendre quelques elements d'Ansible.
 On définie des rôles, qui contiennent des taches à executer à l'aide de différents modules, le tout regroupé dans un playbook, qui va réunir les différents roles. Comme précisé plus haut, tout est ecrit en YAML.
 Il existe de nombreux modules qui permettent de réaliser toutes les actions immaginables.
 Ansible utilise egalement des template, au format jinja2 afin de facilité la creation de fichiers de configurations et la gestion des variables.
 
-Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir plusieurs elements. voici un example simble d'arborescence d'un projet, tiré de la documentation officielle d'ansible:
+Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir plusieurs elements. voici un example simple d'arborescence d'un projet, que j'ai adapté depuis la documentation officielle d'ansible:
 
 ```shell
-production                # fichier inventaire pour la production
+production.yml                # fichier inventaire pour la production
 
 group_vars/
    group1.yml             # variables assigné à un groupe définie dans l'inventaire. Ici le groupe1
@@ -210,7 +210,7 @@ roles/
         tasks/            #
             main.yml      #  <--fichier qui va contenir toutes les taches à effectuer
         handlers/         #
-            main.yml      #  <-- fichier qui va contenir des taches inactives mais qui seront appliqué si elles sont appelé dans le fichier main.yml avec un 'notify'
+            main.yml      #  <-- fichier qui va contenir des taches inactives qui seront appliqué si elles sont appelé dans le fichier main.yml avec
         templates/        # 
             ntp.conf.j2   #  <------- c'est ici que les templates utilisé par le role sont stockées
         files/            #
@@ -223,12 +223,15 @@ roles/
         meta/             #
             main.yml      #  <-- Ce fichier indique les dépendances necessaires pour ce role
     webtier/              # same kind of structure as "common" was above, done for the webtier role
-    monitoring/           # ""
-    fooapp/               # ""
+    monitoring/           # "" un autre dossier qui contient le role monitoring
 ```
 
+Il est important de respecter une structure et de s'y tenir car un projet peut contenir rapidement beaucoup de fichiers
 
-
+## Le playbook pour le deploiment de la stack
+### Organisation
+- description de la structure du playbook
+- presentation des fichier de group var, playbook, roles , templates, ...
 
 
 
