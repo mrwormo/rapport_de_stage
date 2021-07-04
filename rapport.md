@@ -73,30 +73,31 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 ...Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
 - ansible galaxy: collection de playbook pour un grand nombre de taches. Plus besoin de faire de script bash... Pour des taches comme installer un serveur APACHE, des roles sont disponibles où seul un parametrage des variables du playbook permet d'obtenir un résultat reproductible, previsible et fiable.
 
-Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare metal, VM , cloud). 
+Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , cloud). 
 
-Ansible s'inscrit dans la catégorie IaC: Infrastructure as Code, c'est à dire de gérer la configuration d'une infrastrucre à l'aide de fichier de configuration
+Ansible s'inscrit dans la mouvence IaC: Infrastructure as Code, c'est à dire gérer la configuration d'une infrastrucre à l'aide de fichiers de configuration stockable, versionable dans un flow CI/CD
 
-Avec le développement des infrastrucre Cloud, Ansible, couplé à des outils comme Terraform et Packer permet de gérer un infrastructure Cloud en mode IaC.
+Avec le développement des infrastrucre Cloud, Ansible, couplé à des outils comme Terraform et Packer, permet de gérer un infrastructure Cloud en mode IaC.
 
 Personnelement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (voir annexe)
+
 ## Déploiment d'une stack de monitoring par Ansible
 Une de mes missions à été de mettre en place une solution de monitoring déploiable par Ansible pour pouvoir surveiller l'infrastrucre d'un client. La solution de monitoring retenue à été la suivante:
-- Grafana: pour la centralisation des graphique
+- Grafana: pour la centralisation des graphiques
 - Influxdb comme base de données pour les différents metriques.
 - Telegraf pour la collectes des metriques
 - Loki pour le gestion des logs
 - Promtail pour la recupération des logs
 
 ### Présentations des différentes applications qui constitue la stack de monitoring
-Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb -  Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs. C'est une solution efficace, robuste, scalable facilement et extrèmement customisable.
+Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb -  Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs, est une solution efficace, robuste, scalable facilement et extrèmement customisable.
 Nous somme sur une architecture logiciel sur 3 niveaux
 - la collectes des metriques et des logs
 - le stockage des metriques dans la bdd Influxdb
 - l'affichage des graphique dans grafana
 
 #### Télégraf
-Telegraf est un agent de récupération de métriques, 1 seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées au format Prometheus et propose 2 modes de récupération des métriques, via :
+Telegraf est un agent de récupération de métriques, 1 seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées et propose 2 modes de récupération des métriques, via :
 
 - push : la métrique est poussée dans Telegraf par le composant qui l’expose
 - pull : Telegraf récupère la métrique en interrogeant le composant qui l’expose (le mode le plus utilisé)
@@ -107,11 +108,9 @@ Les metriques sont par la suite insérées dans la bdd Influxdb
 InfluxDB est une Time Series Database (TSDB) écrite en Go. Ces principaux avantages sont les performances, la durée de rétention importante et la scalabilité
 
 #### Loki
-Loki est un aggrégateur de logs, facilement scalable et inspiré de Prometheus. Il utilise un mécanisme de découverte de service et ajoute des tags aux logs au lieu de de les indexer. l'indexation. Pour cette raison, 
-
-les journaux reçus de Promtail se composent du même ensemble de tags que celui des métriques d'application. Ce qui permet une meilleur intégration des logs et des metriques
-(A REVOIR)
-
+Loki est un aggrégateur de logs, facilement scalable et inspiré de Prometheus, un autre outils de monitoring qui peut remplacer Influxdb  dans la stack Il utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de de les indexer, ce qui rend facile leur manipulatiopn et ordonne leur stockage.
+les journaux reçus de Promtail se composent du même ensemble de labels que celui des métriques d'application. Ce qui permet une meilleur intégration des logs et des metriques
+De plus, Loki à besoin de peu de ressources pour fonctionner
 
 #### Promtail
 Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées.Il fonctionne en 3 temps:
@@ -127,9 +126,9 @@ Grafana est un outil supervision moderne. Il permet d'exposer sous formes de das
 On accède à Grafana depuis un navigateur Internet, Ce qui est très utile quand on veut monitorer une infrastructure à distance. Plus besoin d'installer de logiciels complet....
 
 ### Mise en place des différents éléments.
-Point Important: cette stack peut être très facilement être installé grace à Docker. Personnelement, j'utilise la stack TIG sous docker, le tout orchestré sous k8S pour monitorer mon homelab. (voir annexe pour plus d'info)
+Point Important: cette stack peut être très facilement être installé grace à Docker. Personnelement, j'utilise cette solution sous docker, le tout orchestré avec k8S pour monitorer mon homelab. (voir annexe pour plus d'info)
 Le choix fait par CGI et d'éviter la conteneurisation pour les environnement de production. Nous sommes donc parti sur une installation en dur des différentes briques de cette stack, le tout déployé par ansible.
-Etant donnée la nature des informations, j'illustrerai par des graphiques de mon homelab
+Etant donnée la nature sensisble des informations, j'illustrerai par des graphiques de mon homelab
 
 #### composition de l'infrastructure d'implentation de la stack TIG
 cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de machines qui comprend:
@@ -142,7 +141,41 @@ Etant donnée la composition de l'infrastruture, Telegraf qui sera deployé sur 
 - nginx: load, network I/O, traffic, differentes requetes, nombres de connexions,...
 - dans un autres temps les bdd: erreurs, SQL commands/sec, Heatmap (queries/sec) cache,...
 
-Et Promtail
+Et Promtail sera en charge de recuperer les logs suivants:
+- logs système
+- logs applicatifs (nginx principalement)
+
+#### Installation d'Ansible
+Ansible est disponible pour un grand nombre de Distribution Linux. Il peut être installé par un gestionnaire de packet ou par PIP car Ansible s'appuis majoritairement sur le language Python.
+Pour l'installer sur CentOs
+
+```shell
+sudo yum install epel-release   <- ajout du repo
+sudo yum install ansible   <- installation du packet
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Déploiment d'une stack complexe multi-services, multi-plateformes, multi-fournisseurs
 
