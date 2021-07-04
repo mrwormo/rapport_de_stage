@@ -294,6 +294,8 @@ Les étapes pour l'installation d'influxdb sont sensiblement identique à celle 
 - activation du service
 - pause de quelques seconde
 - configuration d'influxdb en passant une command shell avec les paramêtre definie dans le fichier de variable
+- activatio du service
+
 
 la difficulté ici et la dernieres etape. pour automatiser la configuration d'influxdb, on passe une commande shell avec les arguments necessaires pour la creation des elements necessaires à influxdb. 
 
@@ -314,10 +316,90 @@ cette condition permet de s'assurer que le rôle se déroule bien car si on essa
 
 Le point que je souhaitais mettre en avant ici est la facilité avec laquelle on peut definir des condition pour lancer, ou non des rôles.
 
+### Telegraf
+pour compléter notre stack TIG, il nous reste à deployer le role pour Telegraf. Il sera installer sur toutes les machines à monitorer. Les étapes du role sont les suivantes:
+
+- creation du groupe de du compte telegraf:monitoring
+- creation des dossiers necessaires
+- telechargement et extration dans le bon dossier
+- creation d'un fichier de configuration et dun service avec un template
+- activation du service
+
+Les êtapes sont sensiblement les mêmes que pour grafana et influxdb. Le point important ici est le fichier de configuration. Une partie de la configuration sera la même pour toutes les machines (%CPU, %MEM, uptime, %sdd,...).En fonction des specificité des machines, la configuration sera à affiné pour recupérer des metriques specifiques commes des metriques sur nginx, apache, mariadb,...
+Pour cela  2 stratégie sont possible. 
+- deployer la meme configration sur toute les machines et ajouter la configuration specifique manuellement ... ce qui ne parait pas logique quand on veut automatiser.
+- creer des sous dossiers dans group_vars ou host_vars (si déploiment d'une config specifique à une machine) avec dedans un fichier avec les variables necessaires à la configuration specifique des machines.
+ C'est le deuxieme choix qui semble le plus aventageux.
+
+Quand il y a de la configuration specifique à un groupe de machine, il suffit de definir ces variable adéquates dans un fichier dans un dossier qui porte le nom du groupe de machine dans le dosser group_vars.
+
+C'est également le choix qui sera retenue pour le deploiementy de la configuration de promtail.
+
+### Promtail
+L'installation de Promtail suit le même schema que télégraf. Comme cet agent sera deployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un group de machine.
+
+### Loki
+L'installation de Loki est identique à celle de Grafana et de Promtail
+
+### le playbook
+Le playbook var regrouper les differents roles afin de les executer à la suite. Voici comment le role grafana est appelé dans le playbook
+
+```yaml
+- name: install grafana
+  remote_user: "{{ user  }}"  <- variable qui sert à definir le compte utilisé pour executer le role
+  become: true                <-  permet de passer root. Cela est necessaire pour pour copier le service dans le bon repertoire et pour l'activer
+  hosts: monit                <- ici on défini la cible ou le groupe de machine sur laquelle le role sera executé. Grafana est seulement déployer sur le controleur
+  tags: [grafana]             <- definir un tag nous permet si on le veux de choisir les roles a executer en utilisant les tags dans la commande d'ansible
+  roles:
+    - role: install_grafana   <- le nom du dossier qui contient le role grafana.
+```
+On repète le meme schema pour les autres roles.
+
+### le fichier host.yml
+C'est l'un des fichier les plus important. C'est dans ce dernier que l'on va definir la la liste des machines que nous voulons intégrer à ce playbook. Il peut être au format **.ini** mais il peut être egalement ecrit au format **.yml** 
+
+Voici un exemple de fichier hosts:
+
+```yaml
+all:
+  children:
+    monit:                              <- le groupe monitoring,
+      hosts:
+        monitoring-vm1:                  <- le nom de la machine
+          ansible_host: 192.168.0.1     <- l'IP de la machine
+    clients:                            <- le group client qui contient des sous groupes
+      children:
+        bdd:                            <- sous groupe bdd
+          hosts:
+            moodle-bdd-vm1:
+              ansible_host: 192.168.0.2
+            springboard-bdd-vm2:
+              ansible_host: 192.168.0.3
+        nginx:                          <- sous groupe nginx
+          hosts:
+            springboard-nginx01:
+              ansible_host: 192.168.0.4
+            springboard-nginx02:
+              ansible_host: 192.168.0.5
+        apache:                         <- sous groupe apache
+          hosts:
+            moodle-apache01:
+              ansible_host: 192.168.0.6
+```
+
+On a beaucoup de flexibilité et de modularité dans le fichier host pour creer des groupes et des sous groupes. Cela nous permets de pouvoir deploiyer de la configration avec une très grande précision.
 
 
+### InflxQL : syntaxe SQL propre à Influxdb
+- presentation de quelques exemples de creation de requetes
+- presentation des buckets, token, ....
 
+### Ajout des datastore dans Grafana
+- configuration des datastore
 
+### Importation du dashboard
+- exportation du dashboard
+- presentation
 
 
 
