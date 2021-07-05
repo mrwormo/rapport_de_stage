@@ -318,7 +318,7 @@ Les étapes pour l'installation d'influxdb sont sensiblement identique à celle 
 - activatio du service
 
 
-la difficulté ici et la dernieres etape. pour automatiser la configuration d'influxdb, on passe une commande shell avec les arguments necessaires pour la creation des elements necessaires à influxdb. 
+la difficulté ici et la dernieres etape pour automatiser la configuration d'influxdb, on passe une commande shell, avec des arguments issus de variables defini dans group_vars/all.yml,  pour la creation des elements necessaires à influxdb. 
 
 ```yaml
 - name: 'check if folder exist'
