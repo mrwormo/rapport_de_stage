@@ -42,7 +42,7 @@ En France, CGI est organisé en B.U : businness unit. J'ai réaliser mon stage d
 Vous trouverez en annexe un organigrame de la BU.
 
 ## L'équipe Infra
-Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr Arthur Bertinetti* m'ont accueilli dans leur équipe. Le contexte sanitaire a fait que 99% de mon temps de travail été à distance. A partir du mois de Juillet, nous avons pu nous reunir une fois par mois dans les locaux de CGI au Haillan.
+Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire a fait que 99% de mon temps de travail été à distance. A partir du mois de Juillet, nous avons pu nous reunir une fois par mois dans les locaux de CGI au Haillan.
  CGI m''a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
 
 
@@ -68,7 +68,8 @@ Je suis arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dan
 
 ### Pourquoi le besoin d'automatisation ?
 L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervenion humaine. C'est un gain de temps et surtout cela permet de garantir le même résulat pour une opération réalisé n fois avec les mêmes paramêtres: c'est le principe d'idempotence
-On passe plus de temps à écrire des règles d'automatisation mais une fois ces dernières testées et approuvées, on peut s'assurer du résultat et enlever les erreurs humaines (ex; faute de frappe,...)
+
+On passe du temps à écrire des règles d'automatisation mais une fois ces dernières testées et approuvées, on peut s'assurer du résultat et enlever les erreurs humaines (ex; faute de frappe,...)
 
 L'automatisation est un élément clé de l'optimisation de l'environnement informatique dans un monde qui evolue rapidement, l'automatisation joue un rôle essentiel.
 
@@ -80,8 +81,13 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 - utilisation de SSH pour communiquer les taches d'executions sur les machines cibles (pas besoins d'ouvrir de ports spécifiques)
 - utilisation de YAML comme language
 – Grande communautée. 
-...Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
-- ansible galaxy: collection de playbook pour un grand nombre de taches. Plus besoin de faire de script bash... Pour des taches comme installer un serveur APACHE, des roles sont disponibles où seul un parametrage des variables du playbook permet d'obtenir un résultat reproductible, previsible et fiable.
+
+   Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
+
+- ansible galaxy: collection de playbook pour un grand nombre de taches. Plus besoin de faire de script bash.
+
+.. Pour des taches comme installer un serveur APACHE, des roles sont disponibles où seul un parametrage des variables du playbook permet d'obtenir un résultat reproductible, previsible et fiable.
+
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , cloud). 
 
@@ -90,6 +96,7 @@ Ansible s'inscrit dans la mouvence IaC: Infrastructure as Code, c'est à dire g�
 Avec le développement des infrastrucre Cloud, Ansible, couplé à des outils comme Terraform et Packer, permet de gérer un infrastructure Cloud en mode IaC.
 
 Personnelement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (voir annexe)
+Le fait de pouvoir redeployer son infrastructure et sa configuration grace des des fichiers de configuration rend est un atout majeur en cas de problème technique. Une reinstallation d'un service peut etre realisé rapidement.
 
 \ pagebreak
 
@@ -102,12 +109,14 @@ Une de mes missions à été de mettre en place une solution de monitoring dépl
 - Loki pour le gestion des logs
 - Promtail pour la recupération des logs
 
+
 ### Présentations des différentes applications qui constitue la stack de monitoring
 Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb -  Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs, est une solution efficace, robuste, scalable facilement et extrèmement customisable.
 Nous somme sur une architecture logiciel sur 3 niveaux
 - la collectes des metriques et des logs
 - le stockage des metriques dans la bdd Influxdb
 - l'affichage des graphique dans grafana
+
 
 #### Télégraf
 Telegraf est un agent de récupération de métriques, 1 seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées et propose 2 modes de récupération des métriques, via :
@@ -119,13 +128,16 @@ Les metriques sont par la suite insérées dans la bdd Influxdb
 
 \pagebreak
 
+
 #### Influxdb
 InfluxDB est une Time Series Database (TSDB) écrite en Go. Ces principaux avantages sont les performances, la durée de rétention importante et la scalabilité
+
 
 #### Loki
 Loki est un aggrégateur de logs, facilement scalable et inspiré de Prometheus, un autre outils de monitoring qui peut remplacer Influxdb  dans la stack Il utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de de les indexer, ce qui rend facile leur manipulatiopn et ordonne leur stockage.
 les journaux reçus de Promtail se composent du même ensemble de labels que celui des métriques d'application. Ce qui permet une meilleur intégration des logs et des metriques
 De plus, Loki à besoin de peu de ressources pour fonctionner
+
 
 #### Promtail
 Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées.Il fonctionne en 3 temps:
@@ -149,6 +161,7 @@ Vous trouverez en annexes le playbook dans son intégralité.
 
 \pagebreak
 
+
 #### composition de l'infrastructure d'implentation de la stack TIG
 cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de machines qui comprend:
 - serveurs d'applications
@@ -160,13 +173,16 @@ Etant donnée la composition de l'infrastruture, Telegraf qui sera deployé sur 
 - nginx: load, network I/O, traffic, differentes requetes, nombres de connexions,...
 - dans un autres temps les bdd: erreurs, SQL commands/sec, Heatmap (queries/sec) cache,...
 
+
 Et Promtail sera en charge de recuperer les logs suivants:
 - logs système
 - logs applicatifs (nginx principalement)
 
+
 ## Installation d'Ansible
 Ansible est disponible pour un grand nombre de Distribution Linux. Il peut être installé par un gestionnaire de packet ou par PIP car Ansible s'appuis majoritairement sur le language Python.
 Pour l'installer sur CentOs
+
 
 ```shell
 sudo yum install epel-release   <- ajout du repo
@@ -202,10 +218,12 @@ L'authentification par clé est mise en place  l'environnement de base est confi
 
 \pagebreak
 
+
 ### Notions de base
 Avant de présenter les playbook que j'ai réalisé, il est important de comprendre quelques elements d'Ansible.
 On définie des rôles, qui contiennent des taches à executer à l'aide de différents modules, le tout regroupé dans un playbook, qui va réunir les différents roles. Comme précisé plus haut, tout est ecrit en YAML.
 Il existe de nombreux modules qui permettent de réaliser toutes les actions immaginables.
+
 Ansible utilise egalement des template, au format jinja2 afin de facilité la creation de fichiers de configurations et la gestion des variables.
 
 Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir plusieurs elements. voici un example simple d'arborescence d'un projet, que j'ai adapté depuis la documentation officielle d'ansible:
@@ -248,6 +266,7 @@ roles/
 
 Il est important de respecter une structure et de s'y tenir car un projet peut contenir rapidement beaucoup de fichiers
 
+
 ## Le playbook pour le deploiment de la stack
 ### Organisation
 Le playbook est organisé de la facon suivante:
@@ -258,11 +277,19 @@ Le playbook est organisé de la facon suivante:
 ... le dossier group_vars contient egalement les dossiers avec les configuration spécifique de promtail pour chaque groupes de machines
 
 la commande suivante permettra de deployer notre stack
+
 ```shell
 ansible-playbook playbook.yml -i inventory/host.yaml
 ```
 
+il est egalement poissible de redeployer seuelemnt un role en precisant le tag du role dans la commande ci dessus. Ce qui donne par exemple:
+
+```shell
+ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
+```
+
 \pagebreak
+
 
 ### Role Grafana
 
@@ -279,6 +306,7 @@ Les étapes du role d'installation de grafana sont simple. Avec l'aide des modul
 
 Pour ce rôle, l'utisation de template pour générer le fichier de configuration de grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml  Voici la tasks du role grafana qui utilise le template crée pour generer le fichier service:
 
+
 ```yaml
 - name: "copy grafana systemd service from template"
   template:                                     <- le nom du module pour utiliser un template
@@ -287,6 +315,8 @@ Pour ce rôle, l'utisation de template pour générer le fichier de configuratio
 ```
 
 Un autre aventage d'ansible est l'utilisation de loop 'boucle' pour répéter une même action dans une tache avec des variables différentes. Voici un exemple pour l'ouverture des ports:
+
+
 ```yaml
 - name: "open firewall port 3000 on the machine and port 25 for SMTP email"
   firewalld:                    <- le module pour intéragir sur le firewall
@@ -303,6 +333,7 @@ Un autre aventage d'ansible est l'utilisation de loop 'boucle' pour répéter un
 Avec ces quelques lignes, on ouvres les ports, dans la zone par defaut (car nous n'avons pas renseigné de zone specifique dans zone), de manière permanente et immédiate.
 
 \pagebreak
+
 
 ### Role Influxdb
 
@@ -321,6 +352,7 @@ Les étapes pour l'installation d'influxdb sont sensiblement identique à celle 
 
 la difficulté ici et la dernieres etape pour automatiser la configuration d'influxdb, on passe une commande shell, avec des arguments issus de variables defini dans group_vars/all.yml,  pour la creation des elements necessaires à influxdb. 
 
+
 ```yaml
 - name: 'check if folder exist'
   stat:
@@ -334,11 +366,13 @@ la difficulté ici et la dernieres etape pour automatiser la configuration d'inf
   when: not folder_exist.stat.exists                    <- cet condition permet de lancer la configuration d'infludb seulement si le dossier de configuration n'existe pas.
 ```
 
+
 cette condition permet de s'assurer que le rôle se déroule bien car si on essaie de configurer la base de donnée alors que le dossier de configuration est déja présent, la task va échoué et le playbook ne sera pas déroulé dans son intégralité
 
 Le point que je souhaitais mettre en avant ici est la facilité avec laquelle on peut definir des condition pour lancer, ou non des rôles.
 
 \pagebreak
+
 
 ### Telegraf
 pour compléter notre stack TIG, il nous reste à deployer le role pour Telegraf. Il sera installer sur toutes les machines à monitorer. Les étapes du role sont les suivantes:
@@ -350,8 +384,11 @@ pour compléter notre stack TIG, il nous reste à deployer le role pour Telegraf
 - activation du service
 
 Les êtapes sont sensiblement les mêmes que pour grafana et influxdb. Le point important ici est le fichier de configuration. Une partie de la configuration sera la même pour toutes les machines (%CPU, %MEM, uptime, %sdd,...).En fonction des specificité des machines, la configuration sera à affiné pour recupérer des metriques specifiques commes des metriques sur nginx, apache, mariadb,...
+
 Pour cela  2 stratégie sont possible. 
+
 - deployer la meme configration sur toute les machines et ajouter la configuration specifique manuellement ... ce qui ne parait pas logique quand on veut automatiser.
+
 - creer des sous dossiers dans group_vars ou host_vars (si déploiment d'une config specifique à une machine) avec dedans un fichier avec les variables necessaires à la configuration specifique des machines.
  C'est le deuxieme choix qui semble le plus aventageux.
 
@@ -359,16 +396,20 @@ Quand il y a de la configuration specifique à un groupe de machine, il suffit d
 
 C'est également le choix qui sera retenue pour le deploiementy de la configuration de promtail.
 
+
 ### Promtail
 L'installation de Promtail suit le même schema que télégraf. Comme cet agent sera deployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un group de machine.
+
 
 ### Loki
 L'installation de Loki est identique à celle de Grafana et de Promtail
 
 \pagebreak
 
+
 ### le playbook
 Le playbook var regrouper les differents roles afin de les executer à la suite. Voici comment le role grafana est appelé dans le playbook
+
 
 ```yaml
 - name: install grafana
@@ -379,12 +420,15 @@ Le playbook var regrouper les differents roles afin de les executer à la suite.
   roles:
     - role: install_grafana   <- le nom du dossier qui contient le role grafana.
 ```
+
 On repète le meme schema pour les autres roles.
+
 
 ### le fichier host.yml
 C'est l'un des fichier les plus important. C'est dans ce dernier que l'on va definir la la liste des machines que nous voulons intégrer à ce playbook. Il peut être au format **.ini** mais il peut être egalement ecrit au format **.yml** 
 
 Voici un exemple de fichier hosts:
+
 
 ```yaml
 all:
@@ -417,11 +461,18 @@ On a beaucoup de flexibilité et de modularité dans le fichier host pour creer 
 
 \pagebreak
 
+
 ### InflxQL : syntaxe SQL propre à Influxd
-Influxdb est une base de donnée temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de donnée idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toute les 10 secondes. Du fait que ce type de bdd traite une très grande quantité d'informations, et dans un temps très courts, la gestion des données est differentes à celle d'un base de donnée relationnelle. Les bases de données temporelles dispose de reglès de retentions que l'administrateur decide afin de choisir la quantité d'information à stocker/recicler.
+Influxdb est une base de donnée temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de donnée idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toute les 10 secondes. Du fait que ce type de bdd traite une très grande quantité d'informations, et dans un temps très courts, la gestion des données est differentes à celle d'un base de donnée relationnelle. 
+
+Les bases de données temporelles dispose de reglès de retentions que l'administrateur decide afin de choisir la quantité d'information à stocker/recicler.
 
 Depuis la version 2.0 D'influxdb, le language de requete InfluxQL à été remplacé par le language FLUX, qui est plus performant et customizable.
-Flux est une alternative à InfluxQL et à d'autres langages de requete de type SQL pour interroger et analyser des données. Il utilise des modèles de langage fonctionnels, ce qui le rend capable de surmonter bon nombre des limitations d'InfluxQL. Sa syntaxe est en partie inspéré de Javascript. Quelques notion importante pour pouvoir ecrire des requestes avec Flux:
+
+Flux est une alternative à InfluxQL et à d'autres langages de requete de type SQL pour interroger et analyser des données. Il utilise des modèles de langage fonctionnels, ce qui le rend capable de surmonter bon nombre des limitations d'InfluxQL. Sa syntaxe est en partie inspéré de Javascript.
+
+Quelques notion importante pour pouvoir ecrire des requestes avec Flux:
+
 - utilisation de "pipe forward" |> pour enchainer des actions
 - toutes les données sont structuré sous forme de tableau.
 - Un regroupement de tableaux avec une politique de rétention est un Bucket. 
@@ -438,6 +489,7 @@ from(bucket: "bucket-vm")
   |> aggregateWindow(every: 20s, fn: mean, createEmpty: false)
   |> yield(name: "mean")
 ```
+
 
 Utilsation du cpu par machine:
 ```SQL
@@ -458,9 +510,11 @@ Flux est un language très puissant mais le WEBUI d'Influxdb permet d'arriver au
 
 \pagebreak
 
+
 ### Exemple de configuration de l'agent Promtail pour récuperer des logs.
 Afin de compléter notre stack de monitoring pour les logs, il faut configurer promtail pour lui dire quels logs recupérer. C'est ce que l'on appelle "Scrape Job"
 Voici un exemple de configuration de promtail pour récupérer les logs nginx
+
 
 ```yaml
 #scrape job for cron log
@@ -482,6 +536,7 @@ Cette action est realisé dans les options de grafana en lui indiquant le chemin
 
 \pagebreak
 
+
 ### Importation du dashboard
 Le playbook contient également un Dashboard que j'ai créé précédement et qui peut être réutilisé pour chaque nouveau déploiment. Il suffit de le charger dans le menu a gauche et nous avons les graphiques correspondant à chaque requetes d'influxdb
 
@@ -490,9 +545,11 @@ Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suiffit d'a
 ### Interpréter le monitoring
 Grafana permet de créer des alertes en fonction de critères choisis par l'administrateur. On peut par exemple definir l'envoi d'un mail lorsque un seuil est franchi.
 C'est très utile pour surveiller l'espace disque. L'administrateur va definir un seuil d'alerte (ex: 80% Plein) et quand il est atteind, un mail est envoyé.
+
 Plutôt qu'un mail, il est possible de creer des alertes dans Teams, ou Slack en configurant des webhooks.
 
 \pagebreak
+
 
 ### conclusion
 Nous avons ici un system de monitoring complet (metriques + logs système et applicatifs) avec des graphique facilement compréhensible et avec un système d'alerte en place. Ce qui est rassurant pour l'administrateur qui a definit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquences.
