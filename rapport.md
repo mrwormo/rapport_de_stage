@@ -3,10 +3,12 @@
 % Stage du 12/04/2021 au 31/12/2021
 
 # Remerciements
-Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos** et **Mr. Arthur Bertinetti** pour leur patience et leur grande pédagogie. 
-J'ai énormément appris. Ils m'ont fait confiance pour travaillers avec eux sur divers projets et avec une grande autonomie.
+Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**,  **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi benéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
 
-Je remercie également le corps enseignents de l'université de Bordeaux pour leurs cours de qualités. 
+J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur divers projets et avec une grande autonomie.
+
+Je les remercie egalmeent pour la bonne humeur et les temps de rigolade qu'ils ont su me comminiquer et l'envie qu'ils m'ont donne de travailler au sein de leur équipe
+
 
 # Introduction
 
@@ -14,31 +16,36 @@ Dans le cadre de la Licence professionnelle ADSILLH, j'ai éffectué un stage de
 
 Etant donné la diversité des taches réalisées, j'ai choisi comme thème de rapport de stage l'automatisation dans un S.I avec un focus sur le déploiment d'une stack de monitoring ainsi que le déploiement d'un service complexe (centre de formation) que je presenterai rapidement.
 
-Ayant signé un accord de non divulgation, aucunes données confidentielles ne seront présentées dans ce rapport.
+Aucunes données confidentielles ne sera présenté dans ce rapport.
+
+Le but de ce stage etait d'intégrer l'équipe Infrastructure afin de participer au developement du numérique à l'école ainsi que sur le gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme Ansible, Kubernetes, Python, mariadb,...
+
+Au delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et interagir avec chacune des phases du projet sur le terrain. Cette immersion au sein d'un environnement complexe m'a également appris à etre plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement des mes taches auprès de l'équipe que j'ai intégré.
 
 \pagebreak
 
 # Partie 1:
 ## L'entreprise CGI
-CGI est le leader mondial du conseil et des services numériques. Avec plus de 40 ans d'expertise et de savoir faire et présent dans plus de 40 pays, le groupe CGI est implenté dans 21 villes en france avec environs 11 000 salariés. Quelques points clés:
+CGI est l'un des leader mondial du conseil et des services numériques. Avec plus de 40 ans d'expertise et de savoir faire et présent dans plus de 40 pays, le groupe CGI est implenté dans 21 villes en france avec environs 11 000 salariés. Quelques points clés:
 + fondée en 1976 par Serge Godin dans la ville de Québec au Canada
 + Le sigle **« CGI »** signifie **« Conseillers en gestion et informatique »**. En anglais, l’appellation reconnue est **« Consultants to Government and Industry »**.
-+ de nombreux secteurs d'activités (Assurance, Banque, Luxe, Enerrgie, Industrie, Santé, Secteur Public, Logistique, Transport, Télécommunication, ...)
++ de nombreux secteurs d'activités (Assurance, Banque, Luxe, Energie, Industrie, Santé, Secteur Public, Logistique, Transport, Télécommunication, ...)
 + plus de 7,5 MD€ en 2020
-- quelques chiffres sur CGI
-- organigrame france
-- presentation de la BU
+
+Au cous de son histoire CGI a reussi une expansion exponentielle et continue pendant 35 ans grace a une stratégie de rachat et de conquete de nouveaux marchés. Pour plus d'information sur CGI, je vous invité à consulter leur site web.
+
 
 ## La BU
-- l'organigrame
-- la repartition des taches
-  - l'organisation du travail
-  - types de clients
-    - présentation du secteur education nationale
+En France, CGI est organisé en B.U : businness unit. J'ai réaliser mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisement dans le group Local Gov, au service des collectivités locales. Local Gov à pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les acces plus directs aux services et permettre un plus grand benefice de la dematerialisation.
+
+Vous trouverez en annexe un organigrame de la BU.
 
 ## L'équipe Infra
-- a qui je rend des comptes et qui me suit au jours le jours
-- environnement technique de travail
+Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr Arthur Bertinetti* m'ont accueilli dans leur équipe. Le contexte sanitaire a fait que 99% de mon temps de travail été à distance. A partir du mois de Juillet, nous avons pu nous reunir une fois par mois dans les locaux de CGI au Haillan.
+ CGI m''a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
+
+
+\pagebreak
 
 ## Mes missions
 - j'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs regions de France. Cet ENT, très complet fournis des solutions clées en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. Dans le contexte sanitaire actuel, l'équipe à du s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. En annexe, vous trouverez un tableau qui reprend les principaux outils que l'ENT propose.
@@ -50,6 +57,8 @@ Je suis arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dan
 ... La majeure partie de mon travaile consisté à automatisé des taches qui aurait été très chronophage. Mon tuteur **Mr Thomas Colenos** à une excellente maitrise de cet outils et il m'a permis d'apprendre en réalisant plusieurs script Ansible, particulièrement le déploiment d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
 3. support de l'équipe sur diverses taches.
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formatteur.
+
+\pagebreak
 
 
 # Partie 2:
@@ -81,6 +90,9 @@ Avec le développement des infrastrucre Cloud, Ansible, couplé à des outils co
 
 Personnelement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (voir annexe)
 
+\ pagebreak
+
+
 ## La solution de monitoring
 Une de mes missions à été de mettre en place une solution de monitoring déploiable par Ansible pour pouvoir surveiller l'infrastrucre d'un client. La solution de monitoring retenue à été la suivante:
 - Grafana: pour la centralisation des graphiques
@@ -103,6 +115,8 @@ Telegraf est un agent de récupération de métriques, 1 seul agent est nécessa
 - pull : Telegraf récupère la métrique en interrogeant le composant qui l’expose (le mode le plus utilisé)
 
 Les metriques sont par la suite insérées dans la bdd Influxdb
+
+\pagebreak
 
 #### Influxdb
 InfluxDB est une Time Series Database (TSDB) écrite en Go. Ces principaux avantages sont les performances, la durée de rétention importante et la scalabilité
@@ -131,6 +145,8 @@ Le choix fait par CGI et d'éviter la conteneurisation pour les environnement de
 Etant donnée la nature sensisble des informations, j'illustrerai par des graphiques de mon homelab et présenterez dans ce rapport seulement quelques morceaux que je juge important pour la compréhension
 
 Vous trouverez en annexes le playbook dans son intégralité.
+
+\pagebreak
 
 #### composition de l'infrastructure d'implentation de la stack TIG
 cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de machines qui comprend:
@@ -183,6 +199,7 @@ ssh-copy-id 'machine_cliente'
 ```
 L'authentification par clé est mise en place  l'environnement de base est configurer.
 
+\pagebreak
 
 ### Notions de base
 Avant de présenter les playbook que j'ai réalisé, il est important de comprendre quelques elements d'Ansible.
@@ -244,6 +261,8 @@ la commande suivante permettra de deployer notre stack
 ansible-playbook playbook.yml -i inventory/host.yaml
 ```
 
+\pagebreak
+
 ### Role Grafana
 
 Les étapes du role d'installation de grafana sont simple. Avec l'aide des modules adéquats d'ansible, les étapes pour l'installation et la configuration de grafana sont les suivantes:
@@ -282,6 +301,8 @@ Un autre aventage d'ansible est l'utilisation de loop 'boucle' pour répéter un
 
 Avec ces quelques lignes, on ouvres les ports, dans la zone par defaut (car nous n'avons pas renseigné de zone specifique dans zone), de manière permanente et immédiate.
 
+\pagebreak
+
 ### Role Influxdb
 
 Les étapes pour l'installation d'influxdb sont sensiblement identique à celle de grafana:
@@ -316,6 +337,8 @@ cette condition permet de s'assurer que le rôle se déroule bien car si on essa
 
 Le point que je souhaitais mettre en avant ici est la facilité avec laquelle on peut definir des condition pour lancer, ou non des rôles.
 
+\pagebreak
+
 ### Telegraf
 pour compléter notre stack TIG, il nous reste à deployer le role pour Telegraf. Il sera installer sur toutes les machines à monitorer. Les étapes du role sont les suivantes:
 
@@ -340,6 +363,8 @@ L'installation de Promtail suit le même schema que télégraf. Comme cet agent 
 
 ### Loki
 L'installation de Loki est identique à celle de Grafana et de Promtail
+
+\pagebreak
 
 ### le playbook
 Le playbook var regrouper les differents roles afin de les executer à la suite. Voici comment le role grafana est appelé dans le playbook
@@ -389,6 +414,7 @@ all:
 
 On a beaucoup de flexibilité et de modularité dans le fichier host pour creer des groupes et des sous groupes. Cela nous permets de pouvoir deploiyer de la configration avec une très grande précision et de cibler une ou un groupe de machines.
 
+\pagebreak
 
 ### InflxQL : syntaxe SQL propre à Influxd
 Influxdb est une base de donnée temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de donnée idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toute les 10 secondes. Du fait que ce type de bdd traite une très grande quantité d'informations, et dans un temps très courts, la gestion des données est differentes à celle d'un base de donnée relationnelle. Les bases de données temporelles dispose de reglès de retentions que l'administrateur decide afin de choisir la quantité d'information à stocker/recicler.
@@ -429,6 +455,8 @@ Influxdb dispose également d'une WEBUI qui permette de facilité grandement la 
 L'ensemble des requêtes du playbook est également disponible de le fichier dashboard.json.
 Flux est un language très puissant mais le WEBUI d'Influxdb permet d'arriver au même resultat rapidement et de gerer les buckets, et politiques de retention des données très facilement.
 
+\pagebreak
+
 ### Exemple de configuration de l'agent Promtail pour récuperer des logs.
 Afin de compléter notre stack de monitoring pour les logs, il faut configurer promtail pour lui dire quels logs recupérer. C'est ce que l'on appelle "Scrape Job"
 Voici un exemple de configuration de promtail pour récupérer les logs nginx
@@ -451,19 +479,19 @@ Une template est utilisé pour configurer les scrape jobs en fonction des diffé
 Une fois les agents Promtail et Télégraf configurer pour envoyer les données à influxdb et loki, il faut par la suite ajouter dans grafana les data sources, c'est à dire Influxdb et Loki
 Cette action est realisé dans les options de grafana en lui indiquant le chemin d'acces pour Influxdb et loki. (voir images en annexe)
 
-
-
+\pagebreak
 
 ### Importation du dashboard
 Le playbook contient également un Dashboard que j'ai créé précédement et qui peut être réutilisé pour chaque nouveau déploiment. Il suffit de le charger dans le menu a gauche et nous avons les graphiques correspondant à chaque requetes d'influxdb
 
 Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suiffit d'aller dans explorer puis de selectionner loki comme data source et nous trouver les logs que promtail à recuperer.
 
-
 ### Interpréter le monitoring
 Grafana permet de créer des alertes en fonction de critères choisis par l'administrateur. On peut par exemple definir l'envoi d'un mail lorsque un seuil est franchi.
 C'est très utile pour surveiller l'espace disque. L'administrateur va definir un seuil d'alerte (ex: 80% Plein) et quand il est atteind, un mail est envoyé.
 Plutôt qu'un mail, il est possible de creer des alertes dans Teams, ou Slack en configurant des webhooks.
+
+\pagebreak
 
 ### conclusion
 Nous avons ici un system de monitoring complet (metriques + logs système et applicatifs) avec des graphique facilement compréhensible et avec un système d'alerte en place. Ce qui est rassurant pour l'administrateur qui a definit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquences.
@@ -481,6 +509,7 @@ Sur cette derniere j'ai rencontré des difficultés sur certain points. Mon resp
 
 ## Déploiment d'une stack complexe multi-services, multi-plateformes, multi-fournisseurs
 
+\pagebreak
 
 # Conclusion
 Ce stage correspondait parfaitement à ce que je recherché. Il m'a permit de d'apprendre et de perfectionner certaines de mes connaissances, notament tout ce qui touche à l'automatisation, au scripting, et à la gestion de plusieurs vm.
@@ -499,6 +528,8 @@ En parrallèle de ce stage, j'ai choisi de passer des certifications afin de val
 
 - parler du CDI ?? fingers crossed
 - parler des certifs que j'ai passé cet été et de ce qu'elles peuvent apporter ...
+
+\pagebreak
 
 # Annexes
 - les tableaux
