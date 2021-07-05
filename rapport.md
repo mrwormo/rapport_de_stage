@@ -468,16 +468,35 @@ Plutôt qu'un mail, il est possible de creer des alertes dans Teams, ou Slack en
 ### conclusion
 Nous avons ici un system de monitoring complet (metriques + logs système et applicatifs) avec des graphique facilement compréhensible et avec un système d'alerte en place. Ce qui est rassurant pour l'administrateur qui a definit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquences.
 
+Cela à été pour moi un projet très enrichissant car j'ai pu construire sur les bases que j'avais en Ansible pour arriver à produire un script fonctionnel avec plusieurs briques logiciels. J'ai rencontré certaine difficultés dans la compréhension du fonctionnement de certain module d'Ansible mais en perseverant et avec l'aide de **Mr Thomas Colenos** et **Mr Arthur Bertinetti** j'ai pu reusssir mes taches.
+
+Ansible est une technologie qui m'interesse beaucoup et je suis très content d'avoir pu travailler dessus durant mon stage. J'ai par la suite créé d'autres script Ansible du type:
+- installation / Configuration d'un serveur Apache
+- Configuration d'un pool de machine Big Blue Button
+- Deploiement d'une infrastructure complexe ( nginx, apache, drupal, mariabd, moodle, python )
+
+Sur cette derniere j'ai rencontré des difficultés sur certain points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne.
+
 
 
 ## Déploiment d'une stack complexe multi-services, multi-plateformes, multi-fournisseurs
 
 
 # Conclusion
+Ce stage correspondait parfaitement à ce que je recherché. Il m'a permit de d'apprendre et de perfectionner certaines de mes connaissances, notament tout ce qui touche à l'automatisation, au scripting, et à la gestion de plusieurs vm.
+J'ai eu la chance au cours de ce stage de perfectionner sur des technologies comme Ansible ou Kubernetes qui me passionne.
+
+Ce stage au sein d'une grande entreprise de service numérique de renommé mondial fut une expérience très enrichissante tant sur le plan personnel que professionnel. Cela m'a permis de conformter mon envie de travailler dans le secteur informatique en tant que DevOps. A 33 ans, en reconversion professionnelle, il faut etre concient de ses forces et faiblesse et je pense que j'ai fait le bon choix d'écouter ma passion pour en faire mon métier.
+
+Le contexte actuel sanitaire a fait que j'étais en télétravail 99% du temps, ce qui ne rends pas forcement les choses faciles pour encadrer un stagiaire. **Mr Thomas Colenos** à parfaitement su me supperviser et m'apporter l'aide necessaire quand j'en avais besion. Il m'a laisser une grande autonomie et m'a permis de progresser enormement.
 
 
-- les points que j'ai réussi, les points que je n'ai pas reussi.
-- parler de l'autonomie en temps de COVID et du télétravail
+Suite à ce stage .....
+
+
+
+En parrallèle de ce stage, j'ai choisi de passer des certifications afin de valider mes compétences. J'ai obtenu une certification en cybersécurité (comptia security +), une certification sur Kubernetes (CKA: certified kubernetes administrator)  Je passe fin Septembre la certification RHCE (Red Hat Certified Engeneer), ce qui me permettra d'avoir un profil solide et d'exellente base pour exercer le metier de DevOps.
+
 - parler du CDI ?? fingers crossed
 - parler des certifs que j'ai passé cet été et de ce qu'elles peuvent apporter ...
 
