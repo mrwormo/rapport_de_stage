@@ -1,20 +1,21 @@
 % Automatisation dans un S.I
 % Marc Cenon
 % Stage du 12/04/2021 au 31/12/2021
+% https://marc-cenon.github.io/my_resume/
 
 # Remerciements
-Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**,  **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi benéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
+Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**, **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi benéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
 
 J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur divers projets et avec une grande autonomie.
 
-Je les remercie egalmeent pour la bonne humeur et les temps de rigolade qu'ils ont su me comminiquer et l'envie qu'ils m'ont donne de travailler au sein de leur équipe
+Je les remercie egalmeent pour la bonne humeur et les temps de rigolade qu'ils ont su me communiquer et l'envie qu'ils m'ont donne de travailler au sein de leur équipe
 
 
 # Introduction
 
 Dans le cadre de la Licence professionnelle ADSILLH, j'ai éffectué un stage de 6 mois au sein de l'équipe infrastructure chez CGI. Dans ce rapport, je vais vous presenter l'entreprise qui m'a accuelli et plus précisement l'équipe où j'ai réalisé mon stage. Vous trouvez dans les annexes un tableau qui récapitules les taches sur lequelles j'ai travaillé, semaine par semaine.
 
-Etant donné la diversité des taches réalisées, j'ai choisi comme thème de rapport de stage l'automatisation dans un S.I avec un focus sur le déploiment d'une stack de monitoring ainsi que le déploiement d'un service complexe (centre de formation) que je presenterai rapidement.
+Etant donné la diversité des taches réalisées, j'ai choisi comme thème de rapport de stage l'automatisation dans un S.I avec un focus sur le déploiment d'une stack de monitoring ainsi que le déploiement d'un service complexe (centre de formation) que je presenterai rapidement. et le deploiement du service jupyter dans un cluster kubernetes OVH
 
 Aucunes données confidentielles ne sera présenté dans ce rapport.
 
