@@ -1,0 +1,74 @@
+---
+- name: "create telegraf group"
+  group:
+    name: "{{ telegraf_account_group }}"
+    state: present
+
+- name: 'create telegraf account' 
+  user: 
+    name: "{{ telegraf_account_name }}" 
+    shell: "{{ telegraf_account_shell }}" 
+    group: "{{ telegraf_account_group }}" 
+    createhome: yes 
+    home: "{{ telegraf_main_folder }}" 
+    state: present 
+
+- name: 'create telegraf program folder' 
+  file: 
+    path: "{{ telegraf_main_folder }}/telegraf"
+    state: directory 
+    mode: 0755 
+    owner: "{{ telegraf_account_name }}" 
+    group: "{{ telegraf_account_group }}" 
+
+- name: 'create telegraf download folder' 
+  file: 
+    path: "{{ telegraf_main_folder }}/download"
+    state: directory 
+    mode: 0755 
+    owner: "{{ telegraf_account_name }}" 
+    group: "{{ telegraf_account_group }}" 
+ 
+- name: 'download telegraf' 
+  get_url: 
+    url: "{{ telegraf_download_url }}" 
+    dest: "{{ telegraf_main_folder }}/download/"
+    mode: 0755 
+    owner: "{{ telegraf_account_name }}"
+    group: "{{ telegraf_account_group }}"
+  register: download_file
+
+- name: "extract archive"
+  unarchive:
+    src: "{{ download_file.dest }}"
+    dest: "{{ telegraf_main_folder }}/telegraf"
+    mode: 0755 
+    owner: "{{ telegraf_account_name }}"
+    group: "{{ telegraf_account_group }}"
+    remote_src: yes
+    extra_opts: '--strip-components=2'
+
+- name: 'create custom telegraf configuration file from template'
+  template:
+    src: telegraf_conf.j2
+    dest: "{{ telegraf_main_folder }}/telegraf/etc/telegraf/custom.conf"
+    mode: 0755 
+    owner: "{{ telegraf_account_name }}"
+    group: "{{ telegraf_account_group }}"
+  notify:
+    - restart telegraf
+    
+- name: 'copy telegraf systemd service from template'
+  template:
+    src: telegraf.service.j2
+    dest: /etc/systemd/system/telegraf.service
+
+- name: "force systemd to reread configs"
+  systemd:
+    daemon_reload: yes
+
+- name: 'enable telegraf service'
+  service: 
+    name: telegraf
+    state: started
+    enabled: yes

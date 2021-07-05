@@ -1,0 +1,19 @@
+##############################
+#       telegraf             #
+##############################
+
+### nginx for telegraf ###
+# to activate nginx in telegraf, remove the # to activate_nginx_monitoring variable and add ''
+activate_nginx_monitoring: '' 
+nginx_access_url:
+
+##############################
+#       promtail             #
+##############################
+
+#scrape job configuration#
+promtail_secondary_groups: nginx
+
+job2_name: nginx
+job2_label: nginx
+job2_path: /var/log/nginx/*.log

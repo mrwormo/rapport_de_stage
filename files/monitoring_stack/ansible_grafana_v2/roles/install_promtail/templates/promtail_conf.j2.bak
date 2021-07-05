@@ -1,0 +1,66 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: {{ promtail_main_folder }}/promtail/positions.yaml 
+
+clients:
+  - url: {{ loki_url }}/loki/api/v1/push
+
+# describe below the different scrape jobs for collecting log. Keep in mind the access level for promtail to get log in /var/log
+
+##scrape_configs:
+#- job_name: system
+#  static_configs:
+#  - targets:
+#      - localhost
+#    labels:
+#      job: varlogs
+#      __path__: /var/log/*
+#
+##scrape job for cron
+#- job_name: cron
+#  static_configs:
+#  - targets:
+#      - localhost
+#    labels:
+#      job: cron
+#      __path__: /var/log/cron
+#
+##nginx scrape job conf
+# - job_name: nginx
+#    static_configs:
+#      - targets:
+#          - localhost
+#        labels:
+#          job: nginx
+#          __path__: /var/log/nginx/*log
+#
+##scrape job for app and job
+# - job_name: vertx
+#    static_configs:
+#      - targets:
+#          - localhost
+#        labels:
+#          job: vertx
+#          __path__: /appli/vertx/logs/*.logs
+#
+##nginx scrape for peertube
+# - job_name: peertube
+#    static_configs:
+#      - targets:
+#          - localhost
+#        labels:
+#          job: peertube
+#          __path__: /var/log/nginx/*log
+#          __path__: /appli/peertube/storage/logs/peertube.log
+#
+##scrape job for moodle apache
+# - job_name: moodle_apache
+#    static_configs:
+#      - targets:
+#          - localhost
+#        labels:
+#          job: moodle_apache
+#          __path__: /var/log/httpd/*_log

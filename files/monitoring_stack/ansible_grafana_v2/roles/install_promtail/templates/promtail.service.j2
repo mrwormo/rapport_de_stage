@@ -1,0 +1,17 @@
+[Unit]
+Description=promtail
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+RuntimeDirectory=promtail
+RuntimeDirectoryMode=0750
+WorkingDirectory={{ promtail_main_folder }}/promtail
+ExecStart={{ promtail_main_folder }}/promtail/promtail-linux-amd64 -config.file {{ promtail_main_folder }}/promtail/custom.yml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

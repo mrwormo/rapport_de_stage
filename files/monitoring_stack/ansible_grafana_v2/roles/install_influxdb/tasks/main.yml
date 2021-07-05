@@ -1,0 +1,91 @@
+---
+
+- name: "create influxdb group"
+  group:
+    name: "{{ influxdb_account_group }}"
+    state: present
+
+- name: 'create influxdb account'
+  user:
+    name: "{{ influxdb_account_name }}"
+    shell: "{{ influxdb_account_shell }}"
+    group: "{{ influxdb_account_group }}"
+    createhome: yes
+    home: "{{ influxdb_main_folder }}"
+    state: present
+
+- name: 'create influxdb program folder'
+  file:
+    path: "{{ influxdb_main_folder }}/influxdb"
+    state: directory
+    mode: 0755
+    owner: "{{ influxdb_account_name }}"
+    group: "{{ influxdb_account_group }}"
+
+- name: 'create influxdb download folder'
+  file:
+    path: "{{ influxdb_main_folder }}/download"
+    state: directory
+    mode: 0755
+    owner: "{{ influxdb_account_name }}"
+    group: "{{ influxdb_account_group }}"
+
+- name: 'download influxdb'
+  get_url: 
+    url: "{{ influxdb_download_url }}"
+    dest: "{{ influxdb_main_folder }}/download/"
+    mode: 0755
+    owner: "{{ influxdb_account_name }}"
+    group: "{{ influxdb_account_group }}"
+  register: download_file
+
+- name: "extract archive"
+  unarchive:
+    src: "{{download_file.dest}}"
+    dest: "{{ influxdb_main_folder }}/influxdb"
+    mode: 0755
+    owner: "{{ influxdb_account_name }}"
+    group: "{{ influxdb_account_group }}"
+    remote_src: yes
+    extra_opts: '--strip-components=1'
+
+#- name: 'create custom influxdb configuration file from template'
+#  template:
+#      src: influxdb_conf.j2
+#      dest: "{{ influxdb_main_folder }}/influxdb/config.yml"
+
+- name: 'copy influxdb systemd service from template'
+  template:
+    src: influxdb.service.j2
+    dest: /etc/systemd/system/influxdb.service
+
+- name: "force systemd to reread configs"
+  systemd:
+    daemon_reload: yes
+
+- name: "open firewall port 8086 on the machine"
+  firewalld:
+    port: 8086/tcp
+    permanent: true
+    state: enabled
+    
+- name: 'enable influxdb service'
+  service: 
+    name: influxdb
+    state: started
+    enabled: yes
+
+- name: 'wait for influxdb to be fully up: 10s'
+  pause:
+    seconds: 10
+
+- name: 'check if folder exist'
+  stat:
+    path: "{{ influxdb_main_folder }}/.influxdbv2"
+  register: folder_exist
+
+- name: 'configure influxdb as influxdb user and not root'
+  become_user: "{{influxdb_account_name}}"
+  shell: >
+    {{ influxdb_main_folder }}/influxdb/influx setup --org {{ influxdb_organization }} --bucket {{ influxdb_bucket }} --username {{ influxdb_username }} --password {{ influxdb_password }} --token {{ influxdb_token }} --force
+  when: not folder_exist.stat.exists

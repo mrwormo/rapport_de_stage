@@ -1,0 +1,40 @@
+---
+- name: install grafana
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit
+  tags: [grafana]
+  roles:
+    - role: install_grafana
+    
+- name: install influxdb_v2
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit
+  tags: [influxdb]
+  roles:
+    - role: install_influxdb
+
+- name: install telegraf
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit:clients
+  tags: [telegraf]
+  roles:
+    - role: install_telegraf
+      
+- name: install loki
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit
+  tags: [loki]
+  roles:
+    - role: install_loki
+      
+- name: install promtail
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit:clients
+  tags: [promtail]
+  roles:
+    - role: install_promtail

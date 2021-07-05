@@ -1,0 +1,79 @@
+---
+- name: "create loki group"
+  group:
+    name: "{{ loki_account_group }}"
+    state: present
+
+- name: "create loki account"
+  user:
+    name: "{{ loki_account_name }}"
+    shell: "{{ loki_account_shell }}"
+    group: "{{ loki_account_group }}"
+    createhome: yes
+    home: "{{ loki_main_folder }}"
+    state: present
+
+- name: "create loki download folder"
+  file:
+    path: "{{ loki_main_folder }}/download"
+    state: directory
+    mode: 0755
+    owner: "{{ loki_account_name }}"
+    group: "{{ loki_account_group }}"
+
+- name: "create loki program folder"
+  file:
+    path: "{{ loki_main_folder }}/loki"
+    state: directory
+    mode: 0755
+    owner: "{{ loki_account_name }}"
+    group: "{{ loki_account_group }}"
+
+- name: "download loki"
+  get_url:
+    url: "{{loki_download_url}}"
+    dest: "{{ loki_main_folder }}/download/"
+    mode: 0755
+    owner: "{{ loki_account_name }}"
+    group: "{{ loki_account_group }}"
+  register: download_file
+
+- name: "extract archive"
+  unarchive:
+    src: "{{ download_file.dest }}"
+    dest: "{{ loki_main_folder }}/loki"
+    remote_src: yes
+    mode: 0755
+    owner: "{{ loki_account_name }}"
+    group: "{{ loki_account_group }}"
+    #extra_opts: '--strip-components=1'
+
+- name: "create custom loki configuration file from template"
+  template:
+    src: loki_conf.j2
+    dest: "{{ loki_main_folder }}/loki/custom.yml"
+    mode: 0755
+    owner: "{{ loki_account_name }}"
+    group: "{{ loki_account_group }}"
+  notify:
+    - restart loki
+- name: "copy loki systemd service from template"
+  template:
+    src: loki.service.j2
+    dest: /etc/systemd/system/loki.service
+
+- name: "force systemd to reread configs"
+  systemd:
+    daemon_reload: yes
+
+- name: "open firewall port 3100 on the machine"
+  firewalld:
+    port: 3100/tcp
+    permanent: true
+    state: enabled
+
+- name: "enable loki service"
+  service:
+    name: loki
+    state: started
+    enabled: yes

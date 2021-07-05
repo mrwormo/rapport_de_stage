@@ -1,0 +1,17 @@
+[Unit]
+Description=InfluxDB 2.0 service file.
+After=network-online.target
+
+[Service]
+Type=simple
+User={{ influxdb_account_name }}
+Group={{ influxdb_account_group }}
+RuntimeDirectory=influxdb
+RuntimeDirectoryMode=0750
+WorkingDirectory={{ influxdb_main_folder }}/influxdb
+ExecStart={{ influxdb_main_folder }}/influxdb/influxd
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

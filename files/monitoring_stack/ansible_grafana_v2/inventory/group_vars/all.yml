@@ -1,0 +1,89 @@
+# remote user account 
+user: marc
+
+# tls certificates
+#tls_cert:
+#tls_key:
+
+###############################
+#        grafana              #
+###############################
+
+# keep in mind to check that the template is still valid when upgrading
+
+grafana_account_name: grafana
+grafana_account_shell: /bin/bash
+grafana_account_group: monitoring
+grafana_main_folder: /appli/monitoring/grafana
+grafana_download_url: https://dl.grafana.com/oss/release/grafana-7.5.4.linux-amd64.tar.gz
+
+grafana_protocol: http
+grafana_domain_name: monitoring-vm.fr
+grafana_default_login: admin
+grafana_default_password: admin_pass
+
+### SMTP configuration for grafana ###
+grafana_email: grafana-monitoring@admin.fr
+
+###############################
+#         influxdb            #
+###############################
+
+influxdb_account_name: influxdb
+influxdb_account_shell: /bin/bash
+influxdb_account_group: monitoring
+influxdb_main_folder: /appli/monitoring/influxdb
+influxdb_download_url: https://dl.influxdata.com/influxdb/releases/influxdb2-2.0.6-linux-amd64.tar.gz 
+
+# influxdb setup
+influxdb_organization: organization-bucket1
+influxdb_bucket: bucket-bdd
+influxdb_username: influxdb
+influxdb_password: influxdb
+influxdb_access_url: http://localhost:8086
+influxdb_token: tokentokentokentokentokentokentoken 
+
+##############################
+#       telegraf             #
+##############################
+
+telegraf_account_name: telegraf
+telegraf_account_shell: /bin/bash
+telegraf_account_group: monitoring
+telegraf_main_folder:  /appli/monitoring/telegraf
+telegraf_download_url: https://dl.influxdata.com/telegraf/releases/telegraf-1.18.1_linux_amd64.tar.gz
+
+# influxdb url access for remote telegraf
+telegraf_influxdb_access_url: http://192.168.0.1:8086
+
+### nginx for telegraf ###
+#to active remove the #
+activate_nginx_monitoring: '# [[inputs.nginx]]'
+# enter the correct address:
+nginx_access_url: '# urls = [" ADDRESSE URL "]'
+
+##############################
+#       loki                 #
+##############################
+
+loki_account_name: loki
+loki_account_shell: /bin/bash
+loki_account_group: monitoring
+loki_main_folder:  /appli/monitoring/loki
+loki_download_url: https://github.com/grafana/loki/releases/download/v2.2.1/loki-linux-amd64.zip
+
+##############################
+#       promtail             #
+##############################
+
+promtail_account_name: promtail
+promtail_account_shell: /bin/bash
+promtail_account_group: monitoring
+promtail_secondary_groups: ''
+promtail_main_folder:  /appli/monitoring/promtail
+promtail_download_url: https://github.com/grafana/loki/releases/download/v2.2.1/promtail-linux-amd64.zip
+
+# loki url address to use for promtail"
+loki_url: http://192.168.0.1:3100
+
+# scrape jobs 2 and 3 are defined in each folder in group_vars

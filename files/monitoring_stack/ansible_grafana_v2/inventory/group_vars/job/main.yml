@@ -1,0 +1,8 @@
+##############################
+#       promtail             #
+##############################
+
+job2_name: vertx
+job2_label: vertx
+job2_path: /appli/vertx/logs/*.log
+

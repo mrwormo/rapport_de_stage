@@ -1,0 +1,19 @@
+[Unit]
+Description=telegraf
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User={{ telegraf_account_name }}
+Group={{ telegraf_account_group }}
+RuntimeDirectory=telegraf
+RuntimeDirectoryMode=0750
+WorkingDirectory={{ telegraf_main_folder }}/telegraf
+ExecStart={{ telegraf_main_folder }}/telegraf/usr/bin/telegraf -config {{ telegraf_main_folder }}/telegraf/etc/telegraf/custom.conf
+
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

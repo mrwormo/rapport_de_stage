@@ -1,0 +1,11 @@
+##############################
+#       promtail             #
+##############################
+
+# to give promtail permissions to read the logs
+promtail_account_group: nginx,ong
+
+job2_name: nginx
+job2_label: nginx
+job2_path: /var/log/nginx/*.log
+

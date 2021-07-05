@@ -1,0 +1,50 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: {{ promtail_main_folder }}/promtail/positions.yaml 
+
+clients:
+  - url: {{ loki_url }}/loki/api/v1/push
+
+# describe below the different scrape jobs for collecting log. Keep in mind the access level for promtail to get log in /var/log
+
+##scrape job for system log:
+#- job_name: system
+#  static_configs:
+#  - targets:
+#      - localhost
+#    labels:
+#      job: varlogs
+#      __path__: /var/log/*
+
+#scrape job for cron log
+- job_name: cron
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      job: cron
+      __path__: /var/log/cron
+
+{% if job2_name is defined %}
+ - job_name: {{ job2_name }}
+   static_configs:
+   - targets:
+       - localhost
+     labels:
+       job: {{ job2_label }}
+       __path__: {{ job2_path }}
+{% endif %}
+
+{% if job3_name is defined %}
+ - job_name: {{ job3_name }}
+   static_configs:
+   - targets:
+       - localhost
+     labels:
+       job: {{ job3_label }}
+       __path__: {{ job3_path }}
+{% endif %}
+

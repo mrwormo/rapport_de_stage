@@ -1,0 +1,18 @@
+[Unit]
+Description=Grafana
+Wants=network-online.target
+After=network-online.target
+After=postgresql.service mariadb.service mysql.service
+
+[Service]
+Type=simple
+User={{ grafana_account_name }}
+Group={{ grafana_account_group }}
+RuntimeDirectory=grafana
+RuntimeDirectoryMode=0750
+WorkingDirectory={{ grafana_main_folder }}/grafana
+ExecStart={{ grafana_main_folder }}/grafana/bin/grafana-server
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

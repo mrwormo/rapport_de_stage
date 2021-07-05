@@ -1,0 +1,13 @@
+##############################
+#       promtail             #
+##############################
+
+promtail_secondary_groups: peertube
+
+job2_name: nginx-peertube
+job2_label: nginx-peertube
+job2_path: /var/log/nginx/*.log
+job3_name: peertube
+job3_label: peertube
+job3_path: /appli/peertube/storage/logs/peertube.log
+

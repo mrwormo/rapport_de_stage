@@ -1,0 +1,8 @@
+##############################
+#       promtail             #
+##############################
+
+job2_name: httpd
+job2_label: httpd
+job2_path: /var/log/httpd/*_log
+

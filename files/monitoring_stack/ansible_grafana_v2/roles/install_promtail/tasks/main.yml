@@ -1,0 +1,75 @@
+---
+- name: "create promtail group"
+  group:
+    name: "{{ promtail_account_group }}"
+    state: present
+
+- name: "create promtail account"
+  user:
+    name: "{{ promtail_account_name }}"
+    shell: "{{ promtail_account_shell }}"
+    group: "{{ promtail_account_group }}"
+    groups: "{{ promtail_secondary_groups }}"
+    createhome: yes
+    home: "{{ promtail_main_folder }}"
+    state: present
+
+- name: "create promtail download folder"
+  file:
+    path: "{{ promtail_main_folder }}/download"
+    state: directory
+    mode: 0755
+    owner: "{{ promtail_account_name }}"
+    group: "{{ promtail_account_group }}"
+
+- name: "create promtail program folder"
+  file:
+    path: "{{ promtail_main_folder }}/promtail"
+    state: directory
+    mode: 0755
+    owner: "{{ promtail_account_name }}"
+    group: "{{ promtail_account_group }}"
+
+- name: "download promtail"
+  get_url:
+    url: "{{promtail_download_url}}"
+    dest: "{{ promtail_main_folder }}/download/"
+    mode: 0755
+    owner: "{{ promtail_account_name }}"
+    group: "{{ promtail_account_group }}"
+  register: download_file
+
+- name: "extract archive"
+  unarchive:
+    src: "{{ download_file.dest }}"
+    dest: "{{ promtail_main_folder }}/promtail"
+    mode: 0755
+    owner: "{{ promtail_account_name }}"
+    group: "{{ promtail_account_group }}"
+    remote_src: yes
+    #extra_opts: '--strip-components=1'
+
+- name: "create custom promtail configuration file from template"
+  template:
+    src: promtail_conf.j2
+    dest: "{{ promtail_main_folder }}/promtail/custom.yml"
+    mode: 0755
+    owner: "{{ promtail_account_name }}"
+    group: "{{ promtail_account_group }}"
+  notify:
+    - restart promtail 
+    
+- name: "copy promtail systemd service from template"
+  template:
+    src: promtail.service.j2
+    dest: /etc/systemd/system/promtail.service
+
+- name: "force systemd to reread configs"
+  systemd:
+    daemon_reload: yes
+
+- name: "enable promtail service"
+  service:
+    name: promtail
+    state: started
+    enabled: yes

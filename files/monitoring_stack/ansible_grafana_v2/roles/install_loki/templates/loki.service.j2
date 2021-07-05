@@ -1,0 +1,17 @@
+[Unit]
+Description=loki
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User={{ loki_account_name }}
+Group={{ loki_account_group }}
+RuntimeDirectory=loki
+RuntimeDirectoryMode=0750
+WorkingDirectory={{ loki_main_folder }}/loki
+ExecStart={{ loki_main_folder }}/loki/loki-linux-amd64 -config.file {{ loki_main_folder }}/loki/custom.yml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

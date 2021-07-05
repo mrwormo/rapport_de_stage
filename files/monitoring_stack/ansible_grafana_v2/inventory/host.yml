@@ -1,0 +1,58 @@
+all:
+  children:
+    monit:
+      hosts:
+        monitoring-vm1:
+          ansible_host: 192.168.0.1
+    clients:
+      children:
+        bdd:
+          hosts:
+            moodle-bdd01:
+              ansible_host: 192.168.0.2
+            moodle--bdd02:
+              ansible_host: 192.168.0.3
+            springboard-bdd01:
+              ansible_host: 192.168.0.4
+            springboard-bdd02:
+              ansible_host: 192.168.0.5
+            springboard-bdd03:
+              ansible_host: 192.168.0.6
+        nginx:
+          hosts:
+            springboard-nginx01:
+              ansible_host: 192.168.0.7
+            springboard-nginx02:
+              ansible_host: 192.168.0.8
+        apache:
+          hosts:
+            moodle-apache01:
+              ansible_host: 192.168.0.9
+            moodle-apache02:
+              ansible_host: 192.168.0.10
+        app:
+          hosts:
+            springboard-re7-app01:
+              ansible_host: 192.168.0.11
+            springboard-re7-app02:
+              ansible_host: 192.168.0.12          
+        drupal:
+          hosts:
+            drupal-vm1:
+              ansible_host: 192.168.0.13
+        fdd:
+          hosts:
+            fdd-vm1:
+              ansible_host: 192.168.0.14
+        peertube:
+          hosts:
+            peertube01-vm1:
+              ansible_host: 192.168.0.15
+        riot:
+          hosts:
+            riot-vm1:
+              ansible_host: 192.168.0.16
+        job:
+          hosts:
+            springboard-job:
+              ansible_host: 192.168.0.17
