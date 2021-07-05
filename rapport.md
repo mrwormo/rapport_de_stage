@@ -192,7 +192,7 @@ Ansible utilise egalement des template, au format jinja2 afin de facilité la cr
 
 Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir plusieurs elements. voici un example simple d'arborescence d'un projet, que j'ai adapté depuis la documentation officielle d'ansible:
 
-```shell
+```yaml
 production.yml                # fichier inventaire pour la production
 
 group_vars/
@@ -397,6 +397,7 @@ Depuis la version 2.0 D'influxdb, le language de requete InfluxQL à été rempl
 Flux est une alternative à InfluxQL et à d'autres langages de requete de type SQL pour interroger et analyser des données. Il utilise des modèles de langage fonctionnels, ce qui le rend capable de surmonter bon nombre des limitations d'InfluxQL. Sa syntaxe est en partie inspéré de Javascript. Quelques notion importante pour pouvoir ecrire des requestes avec Flux:
 - utilisation de "pipe forward" |> pour enchainer des actions
 - toutes les données sont structuré sous forme de tableau.
+- Un regroupement de tableaux avec une politique de rétention est un Bucket. 
 
 Voici quelques exemples de requêtes en language FLUX:
 
@@ -426,22 +427,46 @@ from(bucket: "bucket-vm")
 Influxdb dispose également d'une WEBUI qui permette de facilité grandement la creation de requete complique. Il suffit de choisir les critères dans le menu et d'importer la requete dans grafana, qui nous permettra de visualiser le resultat avec un graphique très customisable
 
 L'ensemble des requêtes du playbook est également disponible de le fichier dashboard.json.
+Flux est un language très puissant mais le WEBUI d'Influxdb permet d'arriver au même resultat rapidement et de gerer les buckets, et politiques de retention des données très facilement.
 
+### Exemple de configuration de l'agent Promtail pour récuperer des logs.
+Afin de compléter notre stack de monitoring pour les logs, il faut configurer promtail pour lui dire quels logs recupérer. C'est ce que l'on appelle "Scrape Job"
+Voici un exemple de configuration de promtail pour récupérer les logs nginx
 
+```yaml
+#scrape job for cron log
+- job_name: cron
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      job: cron
+      __path__: /var/log/cron
+```
 
-- presentation de quelques exemples de creation de requetes
-- presentation des buckets, token, ....
+Une template est utilisé pour configurer les scrape jobs en fonction des différents groupe de machine. La template est dans le dossier template du role promtail et les variables sont définié dans les sous- dossiers qui portent le nom de chaque groupe, dans le dossier group_vars.
+
 
 ### Ajout des datastore dans Grafana
-- configuration des datastore
+Une fois les agents Promtail et Télégraf configurer pour envoyer les données à influxdb et loki, il faut par la suite ajouter dans grafana les data sources, c'est à dire Influxdb et Loki
+Cette action est realisé dans les options de grafana en lui indiquant le chemin d'acces pour Influxdb et loki. (voir images en annexe)
+
+
+
 
 ### Importation du dashboard
-- exportation du dashboard
-- presentation
+Le playbook contient également un Dashboard que j'ai créé précédement et qui peut être réutilisé pour chaque nouveau déploiment. Il suffit de le charger dans le menu a gauche et nous avons les graphiques correspondant à chaque requetes d'influxdb
+
+Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suiffit d'aller dans explorer puis de selectionner loki comme data source et nous trouver les logs que promtail à recuperer.
 
 
+### Interpréter le monitoring
+Grafana permet de créer des alertes en fonction de critères choisis par l'administrateur. On peut par exemple definir l'envoi d'un mail lorsque un seuil est franchi.
+C'est très utile pour surveiller l'espace disque. L'administrateur va definir un seuil d'alerte (ex: 80% Plein) et quand il est atteind, un mail est envoyé.
+Plutôt qu'un mail, il est possible de creer des alertes dans Teams, ou Slack en configurant des webhooks.
 
-
+### conclusion
+Nous avons ici un system de monitoring complet (metriques + logs système et applicatifs) avec des graphique facilement compréhensible et avec un système d'alerte en place. Ce qui est rassurant pour l'administrateur qui a definit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquences.
 
 
 
@@ -449,6 +474,8 @@ L'ensemble des requêtes du playbook est également disponible de le fichier das
 
 
 # Conclusion
+
+
 - les points que j'ai réussi, les points que je n'ai pas reussi.
 - parler de l'autonomie en temps de COVID et du télétravail
 - parler du CDI ?? fingers crossed
