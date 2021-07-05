@@ -387,10 +387,48 @@ all:
               ansible_host: 192.168.0.6
 ```
 
-On a beaucoup de flexibilité et de modularité dans le fichier host pour creer des groupes et des sous groupes. Cela nous permets de pouvoir deploiyer de la configration avec une très grande précision.
+On a beaucoup de flexibilité et de modularité dans le fichier host pour creer des groupes et des sous groupes. Cela nous permets de pouvoir deploiyer de la configration avec une très grande précision et de cibler une ou un groupe de machines.
 
 
-### InflxQL : syntaxe SQL propre à Influxdb
+### InflxQL : syntaxe SQL propre à Influxd
+Influxdb est une base de donnée temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de donnée idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toute les 10 secondes. Du fait que ce type de bdd traite une très grande quantité d'informations, et dans un temps très courts, la gestion des données est differentes à celle d'un base de donnée relationnelle. Les bases de données temporelles dispose de reglès de retentions que l'administrateur decide afin de choisir la quantité d'information à stocker/recicler.
+
+Depuis la version 2.0 D'influxdb, le language de requete InfluxQL à été remplacé par le language FLUX, qui est plus performant et customizable.
+Flux est une alternative à InfluxQL et à d'autres langages de requete de type SQL pour interroger et analyser des données. Il utilise des modèles de langage fonctionnels, ce qui le rend capable de surmonter bon nombre des limitations d'InfluxQL. Sa syntaxe est en partie inspéré de Javascript. Quelques notion importante pour pouvoir ecrire des requestes avec Flux:
+- utilisation de "pipe forward" |> pour enchainer des actions
+- toutes les données sont structuré sous forme de tableau.
+
+Voici quelques exemples de requêtes en language FLUX:
+
+Nombre de processess par machine:
+```SQL
+from(bucket: "bucket-vm")
+  |> range(start: 2021-07-05T02:28:35Z, stop: 2021-07-05T08:28:35Z)
+  |> filter(fn: (r) => r["_measurement"] == "processes")
+  |> filter(fn: (r) => r["_field"] == "total")
+  |> group(columns: ["host"])
+  |> aggregateWindow(every: 20s, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+```
+
+Utilsation du cpu par machine:
+```SQL
+from(bucket: "bucket-vm")
+  |> range(start: 2021-07-05T02:29:36Z, stop: 2021-07-05T08:29:36Z)
+  |> filter(fn: (r) => r["_measurement"] == "cpu")
+  |> filter(fn: (r) => r["_field"] == "usage_system")
+  |> filter(fn: (r) => r["cpu"] == "cpu-total")
+  |> group(columns: ["host"])
+  |> aggregateWindow(every: 20s, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+```
+
+Influxdb dispose également d'une WEBUI qui permette de facilité grandement la creation de requete complique. Il suffit de choisir les critères dans le menu et d'importer la requete dans grafana, qui nous permettra de visualiser le resultat avec un graphique très customisable
+
+L'ensemble des requêtes du playbook est également disponible de le fichier dashboard.json.
+
+
+
 - presentation de quelques exemples de creation de requetes
 - presentation des buckets, token, ....
 
