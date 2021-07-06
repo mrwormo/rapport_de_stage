@@ -561,7 +561,7 @@ Ansible est une technologie qui m'interesse beaucoup et je suis très content d'
 - Configuration d'un pool de machine Big Blue Button
 - Deploiement d'une infrastructure complexe ( nginx, apache, drupal, mariabd, moodle, python )
 
-Sur cette derniere j'ai rencontré des difficultés sur certain points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne.
+Sur cette derniere j'ai rencontré des difficultés sur certain points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grace a lui, j'ai appris de mes erreurs et pu grandement et efficacement ameliorer mes compétences en Ansible.
 
 
 
