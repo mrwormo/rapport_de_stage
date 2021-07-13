@@ -659,22 +659,36 @@ Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de c
 
 \pagebreak
 
+# Playbook
+
+Le playbook complet du deploiement de la stack de monitoring
+
+## playbook.yml
+
+## role installation grafana ( tasks, template et handlers )
+
+## role instalation  influxdb ( tasks, template et handlers )
+
+
+
+
+\pagebreak
+
 # Annexes:
 
 ![bucket influxdb](images/bucket.png "bucket Influxdb")
-![grafana dashboard](images/grafana dash.png "Grafana Dashboard")
+
+![grafana dashboard](images/grafana-dash.png "Grafana Dashboard")
+
 ![grafana datasources](images/grafana-datasources.png "Grafana Datasources")
+
 ![influxdb query](images/influxdb-query.png "Influxdb Query")
+
 ![influxdb diagram](images/influxdb_diagram.png "Influxdb Diagram")
+
 ![loki cron](images/loki-cron.png "Loki Cron")
+
 ![influxdb](images/difference-relational-time-series.png "Influxdb TBS")
 
-
-
-
-
-- les tableaux
-- grafs
-- visuels des applis
 - tableau du travail semaine par semaine
 
