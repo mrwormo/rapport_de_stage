@@ -1,4 +1,4 @@
-# RAPPORT DE STAGE
+# Rapport de stage
 
 Bienvenue dans le dépot GitHub de mon rapport de stage.
 
@@ -6,7 +6,7 @@ Celui-ci à été rédigé en Markdown et généré en pdf avec Pandoc
 
 Vous trouverez ici toutes les sources utilisées.
 
-# lecture du rapport
+# Lecture du rapport
 Le rapport est disponible en mardown et en pdf
 
 
@@ -14,7 +14,7 @@ Le rapport est disponible en mardown et en pdf
 Il s'agit du fichier rapport.md à la racine du dossier. Vous pouvez le consulter [ici](rapport.md)
 
 
-## format pdf
+## Format pdf
 
 vous pouvez consulter et télécharger le rapport au format pdf [ici](files/rapport.pdf "rapport")
 
@@ -27,7 +27,7 @@ pandoc rapport.md -o files/rapport.pdf -V fontsize=12pt -V linestretch=1 -V link
 ```
 
 
-## playbook
+## Playbook
 
 Le playbook utilisé dans ce rapport de stage est disponible dans le dossier files
 
