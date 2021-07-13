@@ -32,11 +32,11 @@ mail: marc.cenon33@gmail.com
       - [Notions de base d'Ansible](#notions-de-base-d-ansible)
   * [Le Playbook](#le-playbook)
     + [Organisation](#organisation)
-    + [Role Grafana](#role-grafana)
-    + [Role Influxdb](#role-influxdb)
-    + [Telegraf](#telegraf-1)
-    + [Promtail](#promtail-1)
-    + [Loki](#loki-1)
+    + [Rôle Grafana](#role-grafana)
+    + [Rôle Influxdb](#role-influxdb)
+    + [Rôle Telegraf](#telegraf-1)
+    + [Rôle Promtail](#promtail-1)
+    + [Rôle Loki](#loki-1)
     + [Le fichier playbook.yml](#le-fichier-playbookyml)
     + [le fichier host.yml](#le-fichier-hostyml)
     + [Utilisation du langage Flux avec Influxdb](#utilisation-du-langage-flux-avec-influxdb)
@@ -378,7 +378,7 @@ Ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ```
 
 
-### Role Grafana
+### Rôle Grafana
 
 Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des modules adéquats d'Ansible, les étapes pour l'installation et la configuration de Grafana sont les suivantes:
 
@@ -420,7 +420,7 @@ Un autre avantage d'Ansible est l'utilisation de loop 'boucle' pour répéter un
 Avec ces quelques lignes, on ouvre les ports, dans la zone par défaut (car nous n'avons pas renseigné de zone spécifique dans zone), de manière permanente et immédiate.
 
 
-### Role Influxdb
+### Rôle Influxdb
 
 Les étapes pour l'installation d'Influxdb sont sensiblement identique à celle de Grafana:
 
@@ -457,7 +457,7 @@ Cette condition permet de s'assurer que le rôle se déroule bien car si on essa
 Le point que je souhaitais mettre en avant ici est la facilité avec laquelle on peut définir des conditions pour lancer, ou non des rôles.
 
 
-### Telegraf
+### Rôle Telegraf
 
 Pour compléter notre stack TIG, il nous reste à déployer le rôle pour Telegraph. Il sera installé sur toutes les machines à monitorer. Les étapes du rôle sont les suivantes :
 
@@ -482,12 +482,12 @@ Quand il y a de la configuration spécifique à un groupe de machine, il suffit 
 C'est également le choix qui sera retenue pour le déploiement de la configuration de Promtail.
 
 
-### Promtail
+### Rôle Promtail
 
 L'installation de Promtail suit le même schéma que telegraf. Comme cet agent sera déployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
 
 
-### Loki
+### Rôle Loki
 
 L'installation de Loki est identique à celle de Grafana et de Promtail
 
