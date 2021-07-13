@@ -7,6 +7,8 @@ web: https://marc-cenon.github.io/my_resume/
 
 mail: marc.cenon33@gmail.com
 
+[[TOC]]
+
 
 ## Remerciements
 
