@@ -11,12 +11,12 @@ mail: marc.cenon33@gmail.com
 
 - [Remerciements](#remerciements)
 - [Introduction](#introduction)
-- [Partie 1:](#partie-1-)
+- [Partie 1:](#partie-1)
   * [L'entreprise CGI](#l-entreprise-cgi)
   * [La Bussiness Unit](#la-bussiness-unit)
-  * [L'équipe Infra](#l--quipe-infra)
+  * [L'équipe Infra](#l-équipe-infra)
   * [Mes missions](#mes-missions)
-- [Partie 2:](#partie-2-)
+- [Partie 2:](#partie-2)
   * [Ansible: la magie de l'automatisation](#ansible--la-magie-de-l-automatisation)
     + [Pourquoi le besoin d'automatisation ?](#pourquoi-le-besoin-d-automatisation--)
     + [Présentation d'Ansible](#pr-sentation-d-ansible)
@@ -50,9 +50,6 @@ mail: marc.cenon33@gmail.com
 - [Conclusion](#conclusion)
 - [Annexes:](#annexes-)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
 
 ## Remerciements
 
@@ -80,7 +77,7 @@ Le but de ce stage etait d'intégrer l'équipe Infrastructure afin de participer
 Au delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et interagir avec chacune des phases du projet sur le terrain. Cette immersion au sein d'un environnement complexe m'a également appris à etre plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement des mes taches auprès de l'équipe que j'ai intégré.
 
 
-## Partie 1:
+## Partie 1
 ### L'entreprise CGI
 
 Fondé en juin 1976 par Serge Godin à Québec, Canada, CGI est un groupe canadien actif dans le domaine des technologies de l’information et en gestion des processus d’affaires. Au cours des dix premières années d’existence, CGI a développé une stratégie, un modèle et un ensemble de principes de gestion qui se sont traduits par une croissance considérable. Devant les demandes des clients d’externaliser leurs systèmes informatiques, CGI s'est adapter et a élaborer une nouvelle stratégie pour se positionner sur le marché émergent de l’externalisation.
