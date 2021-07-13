@@ -1,20 +1,26 @@
 # Rapport de stage
 
+
 Bienvenue dans le dépot GitHub de mon rapport de stage.
 
 Celui-ci à été rédigé en Markdown et généré en pdf avec Pandoc
 
 Vous trouverez ici toutes les sources utilisées.
 
+
 # Lecture du rapport
+
 Le rapport est disponible en mardown et en pdf
 
 
-## format markdown
-Il s'agit du fichier rapport.md à la racine du dossier. Vous pouvez le consulter [ici](rapport.md)
+## Format Markdown
+
+Le rapport est également consultable au format Markdown à la racine du dossier. 
+
+Vous pouvez consulter le document rapport.md [ici](rapport.md)
 
 
-## Format pdf
+## Format Pdf
 
 vous pouvez consulter et télécharger le rapport au format pdf [ici](files/rapport.pdf "rapport")
 
