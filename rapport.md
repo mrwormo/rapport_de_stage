@@ -36,8 +36,8 @@ mail: marc.cenon33@gmail.com
     + [Role Influxdb](#role-influxdb)
     + [Telegraf](#telegraf-1)
     + [Promtail](#promtail-1)
-      - [Loki](#loki-1)
-      - [Le fichier playbook.yml](#le-fichier-playbookyml)
+    + [Loki](#loki-1)
+    + [Le fichier playbook.yml](#le-fichier-playbookyml)
     + [le fichier host.yml](#le-fichier-hostyml)
     + [Utilisation du langage Flux avec Influxdb](#utilisation-du-langage-flux-avec-influxdb)
     + [Exemple de configuration de Promtail.](#exemple-de-configuration-de-promtail)
@@ -487,12 +487,12 @@ C'est également le choix qui sera retenue pour le déploiement de la configurat
 L'installation de Promtail suit le même schéma que telegraf. Comme cet agent sera déployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
 
 
-#### Loki
+### Loki
 
 L'installation de Loki est identique à celle de Grafana et de Promtail
 
 
-#### Le fichier playbook.yml
+### Le fichier playbook.yml
 
 Le playbook var regrouper les différents rôles afin de les exécuter à la suite. Voici comment le rôle Grafana est appelé dans le playbook :
 
