@@ -8,48 +8,45 @@ web: https://marc-cenon.github.io/my_resume/
 mail: marc.cenon33@gmail.com
 
 # Table des matieres
-
+- [Automatisation dans un S.I](#automatisation-dans-un-si)
+- [Table des matieres](#table-des-matieres)
 - [Remerciements](#remerciements)
 - [Introduction](#introduction)
 - [Partie 1](#partie-1)
-  * [L'entreprise CGI](#l'entreprise CGI)
-  * [La Bussiness Unit](#la-bussiness-unit)
-  * [L'équipe Infra](#l'équipe Infra)
+  * [Présentation de CGI](#pr-sentation-de-cgi)
+  * [Le contexte de travail](#le-contexte-de-travail)
   * [Mes missions](#mes-missions)
-- [Partie 2:](#partie-2:)
-  * [Pourquoi le besoin d'automatisation ?](#pourquoi le besoin d'automatisation ?)
+- [Partie 2](#partie-2)
+  * [Le besoin d'automatisation](#le-besoin-d-automatisation)
   * [Présentation d'Ansible](#pr-sentation-d-ansible)
   * [La solution de monitoring](#la-solution-de-monitoring)
-  * [Présentations des différentes applications qui constitue la stack de monitoring](#pr-sentations-des-diff-rentes-applications-qui-constitue-la-stack-de-monitoring)
+  * [La stack de monitoring](#la-stack-de-monitoring)
     + [Telegraf](#telegraf)
     + [Influxdb](#influxdb)
     + [Loki](#loki)
     + [Promtail](#promtail)
     + [Grafana](#grafana)
-    + [Mise en place des différents éléments.](#mise-en-place-des-diff-rents--l-ments)
-    + [composition de l'infrastructure d'implantation de la stack TIG](#composition-de-l-infrastructure-d-implantation-de-la-stack-tig)
+    + [Mise en place des différents éléments](#mise-en-place-des-diff-rents--l-ments)
+    + [Description de l'infrastrucre à surveiller](#description-de-l-infrastrucre---surveiller)
     + [Installation d'Ansible](#installation-d-ansible)
-      - [Notions de base](#notions-de-base)
-  * [Le playbook pour le déploiement de la stack](#le-playbook-pour-le-d-ploiement-de-la-stack)
+      - [Notions de base d'Ansible](#notions-de-base-d-ansible)
+  * [Le Playbook](#le-playbook)
     + [Organisation](#organisation)
     + [Role Grafana](#role-grafana)
     + [Role Influxdb](#role-influxdb)
     + [Telegraf](#telegraf-1)
     + [Promtail](#promtail-1)
       - [Loki](#loki-1)
-      - [le playbook](#le-playbook)
+      - [Le fichier playbook.yml](#le-fichier-playbookyml)
     + [le fichier host.yml](#le-fichier-hostyml)
-    + [InfluxQL : syntaxe SQL propre à Influxd](#influxql---syntaxe-sql-propre---influxd)
-    + [Exemple de configuration de l'agent Promtail pour récupérer des logs.](#exemple-de-configuration-de-l-agent-promtail-pour-r-cup-rer-des-logs)
+    + [InfluxQL: syntaxe SQL propre à Influxd](#influxql--syntaxe-sql-propre---influxd)
+    + [Exemple de configuration de Promtail.](#exemple-de-configuration-de-promtail)
     + [Ajout des datastores dans Grafana](#ajout-des-datastores-dans-grafana)
     + [Importation du dashboard](#importation-du-dashboard)
-    + [Interpréter le monitoring](#interpréter-le-monitoring)
-    + [conclusion sur ce projet](#conclusion-sur-ce-projet)
-    + [Déploiement d'une stack complexe multi-services, multi-plateformes, multifournisseurs](#d-ploiement-d-une-stack-complexe-multi-services--multi-plateformes--multifournisseurs)
+    + [Utilisation de Grafana](#utilisation-de-grafana)
+    + [Conclusion sur ce projet](#conclusion-sur-ce-projet)
 - [Conclusion](#conclusion)
 - [Annexes :](#annexes--)
-
-
 # Remerciements
 
 Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**, **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
@@ -77,7 +74,7 @@ Au-delà du gain en compétences techniques, l'immersion au sein d'un processus 
 
 
 # Partie 1
-## L'entreprise CGI
+## Présentation de CGI
 
 Fondé en juin 1976 par Serge Godin à Québec, Canada, CGI est un groupe canadien actif dans le domaine des technologies de l’information et en gestion des processus d’affaires. Au cours des dix premières années d’existence, CGI a développé une stratégie, un modèle et un ensemble de principes de gestion qui se sont traduits par une croissance considérable. Devant les demandes des clients d’externaliser leurs systèmes informatiques, CGI s'est adapté et à élaborer une nouvelle stratégie pour se positionner sur le marché émergent de l’externalisation.
 
@@ -112,11 +109,9 @@ La structure de direction de CGI France est centrée autour des clients et chacu
 
 
 
-## La Bussiness Unit 
+## Le contexte de travail
 
 En France, CGI est organisé en B.U : businness unit. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe Local Gov, au service des collectivités locales. Local Gov à pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les accès plus directs aux services et permettre un plus grand bénéfice de la dématérialisation.
-
-## L'équipe Infra
 
 Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire a fait que 99% de mon temps de travail été à distance. A partir du mois de Juillet, nous avons pu nous réunir une fois par semaine dans les locaux de CGI au Haillan.
 
@@ -138,9 +133,9 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
 - 3. support de l'équipe sur diverses taches.
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formatteur.
 
-# Partie 2:
+# Partie 2
 
-## Pourquoi le besoin d'automatisation ?
+## Le besoin d'automatisation
 
 L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervention humaine. C'est un gain de temps et surtout cela permet de garantir le même résultat pour une opération réalisé n fois avec les mêmes paramètres : c'est le principe d'idempotence
 
@@ -186,7 +181,7 @@ Une de mes missions à été de mettre en place une solution de monitoring dépl
 - Promtail pour la récupération des logs
 
 
-## Présentations des différentes applications qui constitue la stack de monitoring
+## La stack de monitoring
 
 Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb -  Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs, est une solution efficace, robuste, scalable facilement et extrêmement customisable.
 Nous somme sur une architecture logicielle sur 3 niveaux :
@@ -235,7 +230,7 @@ Promtail est très customisable. Nous verrons plus loin un exemple de configurat
 Grafana est un outil supervision moderne. Il permet d'exposer sous formes de dashboards les métriques brutes ou agrégées provenant d’Influxdb. L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
 On accède à Grafana depuis un navigateur Internet, Ce qui est très utile quand on veut monitorer une infrastructure à distance. Plus besoin d'installer de logiciels complets....
 
-### Mise en place des différents éléments.
+### Mise en place des différents éléments
 
 Point Important : cette stack peut être très facilement être installé grâce à Docker. 
 
@@ -247,7 +242,7 @@ Etant donnée la nature sensible des informations, j'illustrerai par des graphiq
 
 Vous trouverez en annexes le playbook dans son intégralité.
 
-### composition de l'infrastructure d'implantation de la stack TIG
+### Description de l'infrastrucre à surveiller
 
 Cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de machines qui comprend :
 
@@ -308,7 +303,7 @@ L'authentification par clé est mise en place l’environnement de base est conf
 
 
 
-#### Notions de base
+#### Notions de base d'Ansible
 
 Avant de présenter les playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
 On définit des rôles, qui contiennent des taches à exécuter à l'aide de différents modules, le tout regroupé dans un playbook, qui va réunir les différents rôles. Comme précisé plus haut, tout est écrit en YAML.
@@ -359,7 +354,7 @@ roles/
 Il est important de respecter une structure et de s'y tenir car un projet peut contenir rapidement beaucoup de fichiers
 
 
-## Le playbook pour le déploiement de la stack
+## Le Playbook
 ### Organisation
 
 Le playbook est organisé de la façon suivante:
@@ -497,7 +492,7 @@ L'installation de Promtail suit le même schéma que telegraf. Comme cet agent s
 L'installation de Loki est identique à celle de Grafana et de Promtail
 
 
-#### le playbook
+#### Le fichier playbook.yml
 
 Le playbook var regrouper les différents rôles afin de les exécuter à la suite. Voici comment le rôle Grafana est appelé dans le playbook :
 
@@ -552,7 +547,7 @@ all:
 On a beaucoup de flexibilité et de modularité dans le fichier host pour créer des groupes et des sous-groupes. Cela nous permet de pouvoir déployer de la configuration avec une très grande précision et de cibler une ou un groupe de machines.
 
 
-### InfluxQL : syntaxe SQL propre à Influxd
+### InfluxQL: syntaxe SQL propre à Influxd
 
 Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de données idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes. Du fait que ce type de bdd traite une très grande quantité d'informations, et dans un temps très courts, la gestion des données est différente à celle d’une base de données relationnelle. 
 
@@ -601,7 +596,7 @@ L'ensemble des requêtes du playbook est également disponible de le fichier das
 Flux est un langage très puissant mais le WEBUI d'Influxdb permet d'arriver au même résultat rapidement et de gérer les buckets, et politiques de rétention des données très facilement.
 
 
-### Exemple de configuration de l'agent Promtail pour récupérer des logs.
+### Exemple de configuration de Promtail.
 
 Afin de compléter notre stack de monitoring pour les logs, il faut configurer Promtail pour lui dire quels logs récupérer. C'est ce que l'on appelle "Scrape Job"
 
@@ -633,7 +628,7 @@ Le playbook contient également un Dashboard que j'ai créé précédemment et q
 
 Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suffit d'aller dans explorer puis de sélectionner Loki comme data source et nous trouver les logs que Promtail à récupérer.
 
-### Interpréter le monitoring
+### Utilisation de Grafana
 
 Grafana permet de créer des alertes en fonction de critères choisis par l'administrateur. On peut par exemple définir l'envoi d'un mail lorsqu’un seuil est franchi.
 
@@ -642,7 +637,7 @@ C'est très utile pour surveiller l'espace disque. L'administrateur va définir 
 Plutôt qu'un mail, il est possible de créer des alertes dans Teams, ou Slack en configurant des webhooks.
 
 
-### conclusion sur ce projet
+### Conclusion sur ce projet
 
 Nous avons ici un system de monitoring complet (métriques + logs système et applicatifs) avec des graphiques facilement compréhensibles et avec un système d'alerte en place. Ce qui est rassurant pour l'administrateur qui a définit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquence.
 
@@ -656,8 +651,6 @@ Ansible est une technologie qui m'intéresse beaucoup et je suis très content d
 
 Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grace a lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible.
 
-
-### Déploiement d'une stack complexe multi-services, multi-plateformes, multifournisseurs
 
 # Conclusion 
 
