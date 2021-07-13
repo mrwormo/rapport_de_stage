@@ -664,6 +664,7 @@ Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de c
 Le playbook complet du deploiement de la stack de monitoring
 
 ## playbook.yml
+@@include[playbook.ymld](files/monitoring_stack/ansible_grafana_v2/playbook.yml)
 
 #### role installation grafana ( tasks, template et handlers )
 <details>
