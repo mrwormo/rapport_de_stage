@@ -664,17 +664,37 @@ Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de c
 Le playbook complet du deploiement est disponible sur mon git a l'addresse suivante: https://github.com/marc-cenon/rapport_de_stage.
 Je vous invite à lire le readme.md pour comprendre l'arboresence du dossier.
 
+Bucket dans influxdb:
+
 ![bucket influxdb](images/bucket.png "bucket Influxdb")
+
+
+Dashboard Grafana
 
 ![grafana dashboard](images/grafana-dash.png "Grafana Dashboard")
 
+
+Datasources dans Grafana
+
 ![grafana datasources](images/grafana-datasources.png "Grafana Datasources")
+
+
+Example de construction de query dans Influxdb
 
 ![influxdb query](images/influxdb-query.png "Influxdb Query")
 
+
+Diagram Influxdb et connecteurs
+
 ![influxdb diagram](images/influxdb_diagram.png "Influxdb Diagram")
 
+
+Exemple de recuperation de log cron avec loki dans Grafana
+
 ![loki cron](images/loki-cron.png "Loki Cron")
+
+
+Explication Influxdb
 
 ![influxdb](images/difference-relational-time-series.png "Influxdb TBS")
 
