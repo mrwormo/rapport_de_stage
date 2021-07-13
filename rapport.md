@@ -12,7 +12,7 @@ mail: marc.cenon33@gmail.com
 - [Remerciements](#remerciements)
 - [Introduction](#introduction)
 - [Partie 1:](#partie-1)
-  * [L'entreprise CGI](#l'-entreprise-cgi)
+  * [L'entreprise CGI](#l'entreprise-cgi)
   * [La Bussiness Unit](#la-bussiness-unit)
   * [L'équipe Infra](#l-équipe-infra)
   * [Mes missions](#mes-missions)
