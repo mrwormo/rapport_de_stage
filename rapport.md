@@ -647,27 +647,27 @@ Bucket dans Influxdb:
 
 Dashboard Grafana
 
-![Grafana dashboard](images/Grafana-dash.png "Grafana Dashboard")
+![Grafana dashboard](images/grafana-dash.png "Grafana Dashboard")
 
 
 Datasources dans Grafana
 
-![Grafana datasources](images/Grafana-datasources.png "Grafana Datasources")
+![Grafana datasources](images/grafana-datasources.png "Grafana Datasources")
 
 
 Example de construction de query dans Influxdb
 
-![Influxdb query](images/Influxdb-query.png "Influxdb Query")
+![Influxdb query](images/influxdb-query.png "Influxdb Query")
 
 
 Diagram Influxdb et connecteurs
 
-![Influxdb diagram](images/Influxdb_diagram.png "Influxdb Diagram")
+![Influxdb diagram](images/influxdb_diagram.png "Influxdb Diagram")
 
 
 Exemple de recuperation de log cron avec Loki dans Grafana
 
-![Loki cron](images/Loki-cron.png "Loki Cron")
+![Loki cron](images/loki-cron.png "Loki Cron")
 
 
 Explication Influxdb
