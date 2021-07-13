@@ -1,7 +1,9 @@
-% Automatisation dans un S.I
-% Marc Cenon
-% Stage du 12/04/2021 au 31/12/2021
-% https://marc-cenon.github.io/my_resume/
+# Automatisation dans un S.I
+Marc Cenon
+Stage du 12/04/2021 au 31/12/2021
+web: https://marc-cenon.github.io/my_resume/
+mail: marc.cenon33@gmail.com
+
 
 # Remerciements
 
@@ -28,7 +30,6 @@ Le but de ce stage etait d'intégrer l'équipe Infrastructure afin de participer
 
 Au delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et interagir avec chacune des phases du projet sur le terrain. Cette immersion au sein d'un environnement complexe m'a également appris à etre plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement des mes taches auprès de l'équipe que j'ai intégré.
 
-\pagebreak
 
 # Partie 1:
 ## L'entreprise CGI
@@ -79,8 +80,6 @@ Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr A
 CGI m''a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
 
 
-\pagebreak
-
 ## Mes missions
 
 J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs regions de France. Cet ENT, très complet fournis des solutions clées en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. Dans le contexte sanitaire actuel, l'équipe à du s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. En annexe, vous trouverez un tableau qui reprend les principaux outils que l'ENT propose.
@@ -95,9 +94,6 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
 
 - 3. support de l'équipe sur diverses taches.
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formatteur.
-
-\pagebreak
-
 
 # Partie 2:
 
@@ -137,8 +133,6 @@ Avec le développement des infrastrucre Cloud, Ansible, couplé à des outils co
 Personnelement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (voir annexe)
 Le fait de pouvoir redeployer son infrastructure et sa configuration grace des des fichiers de configuration rend est un atout majeur en cas de problème technique. Une reinstallation d'un service peut etre realisé rapidement.
 
-\ pagebreak
-
 
 ## La solution de monitoring
 
@@ -169,8 +163,6 @@ Telegraf est un agent de récupération de métriques, 1 seul agent est nécessa
 - pull : Telegraf récupère la métrique en interrogeant le composant qui l’expose (le mode le plus utilisé)
 
 Les metriques sont par la suite insérées dans la bdd Influxdb
-
-\pagebreak
 
 
 #### Influxdb
@@ -209,9 +201,6 @@ Le choix fait par CGI et d'éviter la conteneurisation pour les environnement de
 Etant donnée la nature sensisble des informations, j'illustrerai par des graphiques de mon homelab et présenterez dans ce rapport seulement quelques morceaux que je juge important pour la compréhension
 
 Vous trouverez en annexes le playbook dans son intégralité.
-
-\pagebreak
-
 
 #### composition de l'infrastructure d'implentation de la stack TIG
 
@@ -272,7 +261,6 @@ ssh-copy-id 'machine_cliente'
 ```
 L'authentification par clé est mise en place  l'environnement de base est configurer.
 
-\pagebreak
 
 
 ### Notions de base
@@ -347,8 +335,6 @@ il est egalement poissible de redeployer seuelemnt un role en precisant le tag d
 ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ```
 
-\pagebreak
-
 
 ### Role Grafana
 
@@ -391,8 +377,6 @@ Un autre aventage d'ansible est l'utilisation de loop 'boucle' pour répéter un
 
 Avec ces quelques lignes, on ouvres les ports, dans la zone par defaut (car nous n'avons pas renseigné de zone specifique dans zone), de manière permanente et immédiate.
 
-\pagebreak
-
 
 ### Role Influxdb
 
@@ -430,8 +414,6 @@ cette condition permet de s'assurer que le rôle se déroule bien car si on essa
 
 Le point que je souhaitais mettre en avant ici est la facilité avec laquelle on peut definir des condition pour lancer, ou non des rôles.
 
-\pagebreak
-
 
 ### Telegraf
 
@@ -465,8 +447,6 @@ L'installation de Promtail suit le même schema que télégraf. Comme cet agent 
 ### Loki
 
 L'installation de Loki est identique à celle de Grafana et de Promtail
-
-\pagebreak
 
 
 ### le playbook
@@ -523,8 +503,6 @@ all:
 
 On a beaucoup de flexibilité et de modularité dans le fichier host pour creer des groupes et des sous groupes. Cela nous permets de pouvoir deploiyer de la configration avec une très grande précision et de cibler une ou un groupe de machines.
 
-\pagebreak
-
 
 ### InflxQL : syntaxe SQL propre à Influxd
 
@@ -573,8 +551,6 @@ Influxdb dispose également d'une WEBUI qui permette de facilité grandement la 
 L'ensemble des requêtes du playbook est également disponible de le fichier dashboard.json.
 Flux est un language très puissant mais le WEBUI d'Influxdb permet d'arriver au même resultat rapidement et de gerer les buckets, et politiques de retention des données très facilement.
 
-\pagebreak
-
 
 ### Exemple de configuration de l'agent Promtail pour récuperer des logs.
 
@@ -601,8 +577,6 @@ Une template est utilisé pour configurer les scrape jobs en fonction des diffé
 Une fois les agents Promtail et Télégraf configurer pour envoyer les données à influxdb et loki, il faut par la suite ajouter dans grafana les data sources, c'est à dire Influxdb et Loki
 Cette action est realisé dans les options de grafana en lui indiquant le chemin d'acces pour Influxdb et loki. (voir images en annexe)
 
-\pagebreak
-
 
 ### Importation du dashboard
 
@@ -617,8 +591,6 @@ Grafana permet de créer des alertes en fonction de critères choisis par l'admi
 C'est très utile pour surveiller l'espace disque. L'administrateur va definir un seuil d'alerte (ex: 80% Plein) et quand il est atteind, un mail est envoyé.
 
 Plutôt qu'un mail, il est possible de creer des alertes dans Teams, ou Slack en configurant des webhooks.
-
-\pagebreak
 
 
 ### conclusion
@@ -636,10 +608,7 @@ Ansible est une technologie qui m'interesse beaucoup et je suis très content d'
 Sur cette derniere j'ai rencontré des difficultés sur certain points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grace a lui, j'ai appris de mes erreurs et pu grandement et efficacement ameliorer mes compétences en Ansible.
 
 
-
 ## Déploiment d'une stack complexe multi-services, multi-plateformes, multi-fournisseurs
-
-\pagebreak
 
 # Conclusion
 
@@ -656,8 +625,6 @@ En parrallèle de ce stage, j'ai choisi de passer des certifications afin de val
 
 Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de ce stage et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des prjets et des technologies intéressantes.
 
-
-\pagebreak
 
 # Annexes:
 
