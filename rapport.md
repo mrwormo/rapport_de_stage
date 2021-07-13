@@ -9,6 +9,51 @@ mail: marc.cenon33@gmail.com
 
 # Table des matieres
 
+- [Automatisation dans un S.I](#automatisation-dans-un-si)
+- [Table des matieres](#table-des-matieres)
+- [Remerciements](#remerciements)
+- [Introduction](#introduction)
+- [Partie 1](#partie-1)
+  * [L'entreprise CGI](#l-entreprise-cgi)
+  * [La Bussiness Unit](#la-bussiness-unit)
+  * [L'équipe Infra](#l--quipe-infra)
+  * [Mes missions](#mes-missions)
+- [Partie 2:](#partie-2-)
+  * [Pourquoi le besoin d'automatisation ?](#pourquoi-le-besoin-d-automatisation--)
+  * [Présentation d'Ansible](#pr-sentation-d-ansible)
+  * [La solution de monitoring](#la-solution-de-monitoring)
+  * [Présentations des différentes applications qui constitue la stack de monitoring](#pr-sentations-des-diff-rentes-applications-qui-constitue-la-stack-de-monitoring)
+    + [Telegraf](#telegraf)
+    + [Influxdb](#influxdb)
+    + [Loki](#loki)
+    + [Promtail](#promtail)
+    + [Grafana](#grafana)
+    + [Mise en place des différents éléments.](#mise-en-place-des-diff-rents--l-ments)
+    + [composition de l'infrastructure d'implantation de la stack TIG](#composition-de-l-infrastructure-d-implantation-de-la-stack-tig)
+    + [Installation d'Ansible](#installation-d-ansible)
+      - [Notions de base](#notions-de-base)
+  * [Le playbook pour le déploiement de la stack](#le-playbook-pour-le-d-ploiement-de-la-stack)
+    + [Organisation](#organisation)
+    + [Role Grafana](#role-grafana)
+    + [Role Influxdb](#role-influxdb)
+    + [Telegraf](#telegraf-1)
+    + [Promtail](#promtail-1)
+      - [Loki](#loki-1)
+      - [le playbook](#le-playbook)
+    + [le fichier host.yml](#le-fichier-hostyml)
+    + [InfluxQL : syntaxe SQL propre à Influxd](#influxql---syntaxe-sql-propre---influxd)
+    + [Exemple de configuration de l'agent Promtail pour récupérer des logs.](#exemple-de-configuration-de-l-agent-promtail-pour-r-cup-rer-des-logs)
+    + [Ajout des datastores dans Grafana](#ajout-des-datastores-dans-grafana)
+    + [Importation du dashboard](#importation-du-dashboard)
+    + [Interpréter le monitoring](#interpr-ter-le-monitoring)
+    + [conclusion sur ce projet](#conclusion-sur-ce-projet)
+    + [Déploiement d'une stack complexe multi-services, multi-plateformes, multifournisseurs](#d-ploiement-d-une-stack-complexe-multi-services--multi-plateformes--multifournisseurs)
+- [Conclusion](#conclusion)
+- [Annexes :](#annexes--)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 # Remerciements
 
 Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**, **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
