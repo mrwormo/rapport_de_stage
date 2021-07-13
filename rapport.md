@@ -662,6 +662,17 @@ Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de c
 # Annexes:
 
 ![bucket influxdb](images/bucket.png "bucket Influxdb")
+![grafana dashboard](images/grafana dash.png "Grafana Dashboard")
+![grafana datasources](images/grafana-datasources.png "Grafana Datasources")
+![influxdb query](images/influxdb-query.png "Influxdb Query")
+![influxdb diagram](images/influxdb_diagram.png "Influxdb Diagram")
+![loki cron](images/loki-cron.png "Loki Cron")
+![influxdb](images/difference-relational-time-series.png "Influxdb TBS")
+
+
+
+
+
 - les tableaux
 - grafs
 - visuels des applis
