@@ -663,22 +663,161 @@ Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de c
 
 Le playbook complet du deploiement de la stack de monitoring
 
-## playbook.yml
-@@include[playbook.yml](files/monitoring_stack/ansible_grafana_v2/playbook.yml)
+#### playbook.yml
+<details>
+  <summary>Click to expand</summary>
+   
+   ```yaml
+    ---
+- name: install grafana
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit
+  tags: [grafana]
+  roles:
+    - role: install_grafana
+    
+- name: install influxdb_v2
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit
+  tags: [influxdb]
+  roles:
+    - role: install_influxdb
+
+- name: install telegraf
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit:clients
+  tags: [telegraf]
+  roles:
+    - role: install_telegraf
+      
+- name: install loki
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit
+  tags: [loki]
+  roles:
+    - role: install_loki
+      
+- name: install promtail
+  remote_user: "{{ user }}"
+  become: true
+  hosts: monit:clients
+  tags: [promtail]
+  roles:
+    - role: install_promtail
+   ```
+   
+</details>
 
 #### role installation grafana ( tasks, template et handlers )
 <details>
   <summary>Click to expand</summary>
    
    ```yaml
-     #scrape job for cron log
-    - job_name: cron
-     static_configs:
-    - targets:
-         - localhost
-       labels:
-         job: cron
-         __path__: /var/log/cron
+   ---
+- name: "create grafana group"
+  group:
+    name: "{{ grafana_account_group }}"
+    state: present
+
+- name: "create grafana account"
+  user:
+    name: "{{ grafana_account_name }}"
+    shell: "{{ grafana_account_shell }}"
+    group: "{{ grafana_account_group }}"
+    createhome: yes
+    home: "{{ grafana_main_folder }}"
+    state: present
+
+- name: "create grafana download folder"
+  file:
+    path: "{{ grafana_main_folder }}/download"
+    state: directory
+    mode: 0755
+    owner: "{{ grafana_account_name }}"
+    group: "{{ grafana_account_group }}"
+
+- name: "create grafana program folder"
+  file:
+    path: "{{ grafana_main_folder }}/grafana"
+    state: directory
+    mode: 0755
+    owner: "{{ grafana_account_name }}"
+    group: "{{ grafana_account_group }}"
+
+- name: "download grafana"
+  get_url:
+    url: "{{grafana_download_url}}"
+    dest: "{{ grafana_main_folder }}/download/"
+    mode: 0755
+    owner: "{{ grafana_account_name }}"
+    group: "{{ grafana_account_group }}"
+  register: download_file
+
+- name: "extract archive"
+  unarchive:
+    src: "{{ download_file.dest }}"
+    dest: "{{ grafana_main_folder }}/grafana"
+    mode: 0755
+    owner: "{{ grafana_account_name }}"
+    group: "{{ grafana_account_group }}"
+    remote_src: yes
+    extra_opts: '--strip-components=1'
+
+- name: "create custom grafana configuration file from template"
+  template:
+    src: grafana_conf.j2
+    dest: "{{ grafana_main_folder }}/grafana/conf/custom.ini"
+    mode: 0755
+    owner: "{{ grafana_account_name }}"
+    group: "{{ grafana_account_group }}"
+  notify:
+    - restart grafana
+
+- name: "create default.yaml for provisioning the basic dashboard"
+  template:
+    src: grafana_provisioning.j2
+    dest: "{{ grafana_main_folder }}/grafana/conf/provisioning/dashboards/defaults.yaml"
+    mode: 0755
+    owner: "{{ grafana_account_name }}"
+    group: "{{ grafana_account_group }}"
+
+- name: "install basic dashboard for influxdb_bucket"
+  template:
+    scr: grafana_dashboard.json.j2
+    dest: "{{ grafana_main_folder }}/grafana/conf/provisioning/dashboards/dashboard.json"
+    mode: 0755
+    owner: "{{ grafana_account_name }}"
+    group: "{{ grafana_account_group }}"
+
+- name: "open firewall port 3000 on the machine and port 25 for SMTP email"
+  firewalld:
+    state: "{{ item.state }}"
+    port: "{{ item.port }}"
+    zone:
+    immediate:
+    permanent: yes
+  with_items:
+    - { state: 'enabled', port:'3000/tcp' }
+    - { state: 'enabled', port:'25/tcp' }
+    
+- name: "copy grafana systemd service from template"
+  template:
+    src: grafana.service.j2
+    dest: /etc/systemd/system/grafana.service
+
+- name: "force systemd to reread configs"
+  systemd:
+    daemon_reload: yes
+
+- name: "enable grafana service"
+  service:
+    name: grafana
+    state: started
+    enabled: yes
    ```
    
 </details>
