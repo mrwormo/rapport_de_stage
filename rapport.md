@@ -666,8 +666,20 @@ Le playbook complet du deploiement de la stack de monitoring
 ## playbook.yml
 
 #### role installation grafana ( tasks, template et handlers )
+<details>
+  <summary>Click to expand</summary>
+  ```yaml
+#scrape job for cron log
+- job_name: cron
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      job: cron
+      __path__: /var/log/cron
+```
+</details>
 
-@[yaml](files/monitoring_stack/ansible_grafana_v2/playbook.yml)
 
 #### role instalation  influxdb ( tasks, template et handlers )
 
