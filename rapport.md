@@ -7,6 +7,8 @@
 
 Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**, **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi benéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
 
+En effet, chacune des personnes de l'équipe a su me consacre du temps et partager avec moi leur expertise, méthodes et connaissances tout au long de ce stage. Il m'ont permis de rendre cette experience de 6 mois enrichissante et pleine d'interet
+
 J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur divers projets et avec une grande autonomie.
 
 Je les remercie egalmeent pour la bonne humeur et les temps de rigolade qu'ils ont su me communiquer et l'envie qu'ils m'ont donné de travailler au sein de leur équipe.
