@@ -668,8 +668,9 @@ Le playbook complet du deploiement de la stack de monitoring
 #### role installation grafana ( tasks, template et handlers )
 <details>
   <summary>Click to expand</summary>
+   <p>
   ```yaml
-#scrape job for cron log
+  #scrape job for cron log
 - job_name: cron
   static_configs:
   - targets:
@@ -677,7 +678,7 @@ Le playbook complet du deploiement de la stack de monitoring
     labels:
       job: cron
       __path__: /var/log/cron
-```
+   ```
 </details>
 
 
