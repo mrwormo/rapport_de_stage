@@ -9,8 +9,6 @@ mail: marc.cenon33@gmail.com
 
 # Table des matieres
 
-- [Automatisation dans un S.I](#automatisation-dans-un-si)
-- [Table des matieres](#table-des-matieres)
 - [Remerciements](#remerciements)
 - [Introduction](#introduction)
 - [Partie 1](#partie-1)
@@ -50,8 +48,6 @@ mail: marc.cenon33@gmail.com
     + [Déploiement d'une stack complexe multi-services, multi-plateformes, multifournisseurs](#d-ploiement-d-une-stack-complexe-multi-services--multi-plateformes--multifournisseurs)
 - [Conclusion](#conclusion)
 - [Annexes :](#annexes--)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
 # Remerciements
