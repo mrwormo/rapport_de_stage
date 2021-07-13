@@ -43,7 +43,7 @@ mail: marc.cenon33@gmail.com
     + [Exemple de configuration de l'agent Promtail pour récupérer des logs.](#exemple-de-configuration-de-l-agent-promtail-pour-r-cup-rer-des-logs)
     + [Ajout des datastores dans Grafana](#ajout-des-datastores-dans-grafana)
     + [Importation du dashboard](#importation-du-dashboard)
-    + [Interpréter le monitoring](#interpr-ter-le-monitoring)
+    + [Interpréter le monitoring](#interpréter-le-monitoring)
     + [conclusion sur ce projet](#conclusion-sur-ce-projet)
     + [Déploiement d'une stack complexe multi-services, multi-plateformes, multifournisseurs](#d-ploiement-d-une-stack-complexe-multi-services--multi-plateformes--multifournisseurs)
 - [Conclusion](#conclusion)
