@@ -8,6 +8,8 @@ web: https://marc-cenon.github.io/my_resume/
 mail: marc.cenon33@gmail.com
 
 # Table des matieres
+
+
 - [Automatisation dans un S.I](#automatisation-dans-un-si)
 - [Table des matieres](#table-des-matieres)
 - [Remerciements](#remerciements)
@@ -17,8 +19,8 @@ mail: marc.cenon33@gmail.com
   * [Le contexte de travail](#le-contexte-de-travail)
   * [Mes missions](#mes-missions)
 - [Partie 2](#partie-2)
-  * [Le besoin d'automatisation](#le-besoin-d-automatisation)
-  * [Présentation d'Ansible](#pr-sentation-d-ansible)
+  * [Le besoin d'automatisation](#le-besoin-d'-automatisation)
+  * [Présentation d'Ansible](#présentation-d-ansible)
   * [La solution de monitoring](#la-solution-de-monitoring)
   * [La stack de monitoring](#la-stack-de-monitoring)
     + [Telegraf](#telegraf)
@@ -32,11 +34,12 @@ mail: marc.cenon33@gmail.com
       - [Notions de base d'Ansible](#notions-de-base-d-ansible)
   * [Le Playbook](#le-playbook)
     + [Organisation](#organisation)
-    + [Rôle Grafana](#role-grafana)
-    + [Rôle Influxdb](#role-influxdb)
-    + [Rôle Telegraf](#telegraf-1)
-    + [Rôle Promtail](#promtail-1)
-    + [Rôle Loki](#loki-1)
+    + [Les différents rôles](#les-differents-roles)
+      - [Grafana](#grafana-1)
+      - [Influxdb](#influxdb-1)
+      - [Telegraf](#telegraf-1)
+      - [Promtail](#promtail-1)
+      - [Loki](#loki-1)
     + [Le fichier playbook.yml](#le-fichier-playbookyml)
     + [le fichier host.yml](#le-fichier-hostyml)
     + [Utilisation du langage Flux avec Influxdb](#utilisation-du-langage-flux-avec-influxdb)
@@ -46,7 +49,12 @@ mail: marc.cenon33@gmail.com
     + [Utilisation de Grafana](#utilisation-de-grafana)
     + [Conclusion sur ce projet](#conclusion-sur-ce-projet)
 - [Conclusion](#conclusion)
-- [Annexes :](#annexes)
+- [Annexes](#annexes)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+
 # Remerciements
 
 Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**, **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
@@ -377,8 +385,8 @@ il est également possible de redéployer seulement un rôle en précisant le ta
 Ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ```
 
-
-### Rôle Grafana
+### Les différents rôles
+#### Grafana
 
 Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des modules adéquats d'Ansible, les étapes pour l'installation et la configuration de Grafana sont les suivantes:
 
@@ -420,7 +428,7 @@ Un autre avantage d'Ansible est l'utilisation de loop 'boucle' pour répéter un
 Avec ces quelques lignes, on ouvre les ports, dans la zone par défaut (car nous n'avons pas renseigné de zone spécifique dans zone), de manière permanente et immédiate.
 
 
-### Rôle Influxdb
+#### Influxdb
 
 Les étapes pour l'installation d'Influxdb sont sensiblement identique à celle de Grafana:
 
@@ -457,7 +465,7 @@ Cette condition permet de s'assurer que le rôle se déroule bien car si on essa
 Le point que je souhaitais mettre en avant ici est la facilité avec laquelle on peut définir des conditions pour lancer, ou non des rôles.
 
 
-### Rôle Telegraf
+#### Telegraf
 
 Pour compléter notre stack TIG, il nous reste à déployer le rôle pour Telegraph. Il sera installé sur toutes les machines à monitorer. Les étapes du rôle sont les suivantes :
 
@@ -482,12 +490,12 @@ Quand il y a de la configuration spécifique à un groupe de machine, il suffit 
 C'est également le choix qui sera retenue pour le déploiement de la configuration de Promtail.
 
 
-### Rôle Promtail
+#### Promtail
 
 L'installation de Promtail suit le même schéma que telegraf. Comme cet agent sera déployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
 
 
-### Rôle Loki
+#### Loki
 
 L'installation de Loki est identique à celle de Grafana et de Promtail
 
