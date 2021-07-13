@@ -39,14 +39,14 @@ mail: marc.cenon33@gmail.com
       - [Loki](#loki-1)
       - [Le fichier playbook.yml](#le-fichier-playbookyml)
     + [le fichier host.yml](#le-fichier-hostyml)
-    + [InfluxQL: syntaxe SQL propre à Influxd](#influxql--syntaxe-sql-propre---influxd)
+    + [Utilisation du langage Flux avec Influxdb](#utilisation-du-langage-flux-avec-influxdb)
     + [Exemple de configuration de Promtail.](#exemple-de-configuration-de-promtail)
     + [Ajout des datastores dans Grafana](#ajout-des-datastores-dans-grafana)
     + [Importation du dashboard](#importation-du-dashboard)
     + [Utilisation de Grafana](#utilisation-de-grafana)
     + [Conclusion sur ce projet](#conclusion-sur-ce-projet)
 - [Conclusion](#conclusion)
-- [Annexes :](#annexes--)
+- [Annexes :](#annexes)
 # Remerciements
 
 Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**, **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
@@ -547,7 +547,7 @@ all:
 On a beaucoup de flexibilité et de modularité dans le fichier host pour créer des groupes et des sous-groupes. Cela nous permet de pouvoir déployer de la configuration avec une très grande précision et de cibler une ou un groupe de machines.
 
 
-### InfluxQL: syntaxe SQL propre à Influxd
+### Utilisation du langage Flux avec Influxdb
 
 Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de données idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes. Du fait que ce type de bdd traite une très grande quantité d'informations, et dans un temps très courts, la gestion des données est différente à celle d’une base de données relationnelle. 
 
@@ -668,7 +668,7 @@ En parallèle de ce stage, j'ai choisi de passer des certifications afin de vali
 Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de ce stage et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
 
 
-# Annexes :
+# Annexes
 
 Le playbook complet du déploiement est disponible sur mon git a l'adresse suivante: https://github.com/marc-cenon/rapport_de_stage.
 
