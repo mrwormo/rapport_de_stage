@@ -33,13 +33,37 @@ Au delà du gain en compétences techniques, l'immersion au sein d'un processus 
 # Partie 1:
 ## L'entreprise CGI
 
-CGI est l'un des leader mondial du conseil et des services numériques. Avec plus de 40 ans d'expertise et de savoir faire et présent dans plus de 40 pays, le groupe CGI est implenté dans 21 villes en france avec environs 11 000 salariés. Quelques points clés:
-+ fondée en 1976 par Serge Godin dans la ville de Québec au Canada
-+ Le sigle **« CGI »** signifie **« Conseillers en gestion et informatique »**. En anglais, l’appellation reconnue est **« Consultants to Government and Industry »**.
-+ de nombreux secteurs d'activités (Assurance, Banque, Luxe, Energie, Industrie, Santé, Secteur Public, Logistique, Transport, Télécommunication, ...)
-+ plus de 7,5 MD€ en 2020
+Fondé en juin 1976 par Serge Godin à Québec, Canada, CGI est un groupe canadien actif dans le domaine des technologies de l’information et en gestion des processus d’affaires. Au cours des dix premières années d’existence, CGI a développé une stratégie, un modèle et un ensemble de principes de gestion qui se sont traduits par une croissance considérable. Devant les demandes des clients d’externaliser leurs systèmes informatiques, CGI s'est adapter et a élaborer une nouvelle stratégie pour se positionner sur le marché émergent de l’externalisation.
 
-Au cous de son histoire CGI a reussi une expansion exponentielle et continue pendant 35 ans grace a une stratégie de rachat et de conquete de nouveaux marchés. Pour plus d'information sur CGI, je vous invité à consulter leur site web.
+Durant la fin des années 80 et début 90, CGI commença à acquérir des sociétés proposant des services d’externalisation. Dès lors, CGI est en mesure d’offrir à ses clients des services informatiques complets tels que des services en TI (Technologies de l’Information) et en gestion, des services d’intégrations de système et d’externalisation.
+
+Dans les 20 dernières années, CGI chercha à atteindre une taille critique sur les marchés géographiques de ses clients, d’acquérir une croissance approfondie de leurs secteurs d’activités ainsi que de développer des pratiques spécialisées et des solutions novatrices.
+En 2010, CGI fait l’acquisition de Stanley Inc. et de ses filiales Oberon et Techrizon dans le but de doubler la taille de ses activités aux États-Unis. Deux années plus tard, CGI réalisa sa plus grosse acquisition en fusionnant avec l’entreprise Logica faisant passer son nombre de collaborateurs de 31 000 à 68000.
+
+Au cours de son histoire, CGI a réussi une expansion exponentielle et continue pendant 35 ans grace à une stratégie de rachat et de conquete des différents marchés comme en témoigne le tableau ci-joint en Annexe  relatant sa forte croissance en chiffre d’affaires, en nombre de bureaux et en nombre d’employés.
+
+CGI est l'un des leader mondial du conseil et des services numériques. Avec plus de 40 ans d'expertise et de savoir faire et présent dans plus de 40 pays, le groupe CGI est implenté dans 21 villes en france avec environs 11 000 salariés.
+
+
+
+L’entreprise est actuellement dirigée par trois personnes :
+- Serge Godin : Fondateur et président exécutif du conseil,
+- André Imbeau : Fondateur et membre du conseil d’administration,
+- George D. Schindler : Président et chef de la direction.
+
+Avec une présence dans 40 pays, une solide expertise dans tous ses marchés cibles et un éventail complet de service en IT, la priorité de CGI reste de satisfaire ses clients. Grace à une approche cohérente, disciplinée et responsable en matière de prestation de services, CGI affiche un bilan inégalé de 95% de projets réalisés dans le respect des échéances prévues et affiche un indice de satisfaction des clients qui est constamment supérieur à 9 sur 10. Ce score de satisfaction couplé à la croissance continue de CGI témoigne de la confiance que ses clients accordent à CGI et du dévouement de ses collaborateurs. 
+
+Ceci dans le but de devenir un fournisseur de services complets, d’atteindre des résultats grace à des ressources mondiales, à une connaissance approfondie de l’industrie, à une stabilité et des professionnels motivés. CGI possède maintenant 6 domaines d’expertises métiers qui sont le Business Consulting, l’intégration de systèmes, l’Outsourcing IT, les Services d’infrastructures, l’Application management et les Business procès services. Ces 6 domaines d’expertises sont répartis dans pas moins de 9 secteurs d’activités.
+
+
+CGI est la cinquième plus importante entreprise indépendante en services IT et en gestion des processus d'affaires au monde au service avec plus de 10 000 clients dans le monde dont 500 en France.
+
+Le groupe est composé de 70 000 membres répartis sur 400 bureaux répartis dans 40 pays dont 22 en France et réalise 7,6 milliards € de revenus mondiaux dont 1 milliard en France, au travers de projets intégration de système, d'outsourcing IT et également plus de 100 solutions exclusives soutenant les activités critiques de nos clients.
+
+L’implantation de CGI en France résulte de la fusion de CGI avec Logica en 2012. Au niveau national, la filiale française de CGI est dirigée par Jean-Michel Baticle, entré dans le groupe en 1969. Son implantation dans la plupart des grandes villes françaises lui procure une implantation homogène pour couvrir l’ensemble du territoire métropolitain.
+
+La structure de direction de CGI France est centrée autour des clients et chacune de ses activités sont regroupées au sein de Business Units qui sont au coeur même du modèle de CGI
+
 
 
 ## La BU
@@ -50,8 +74,9 @@ Vous trouverez en annexe un organigrame de la BU.
 
 ## L'équipe Infra
 
-Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire a fait que 99% de mon temps de travail été à distance. A partir du mois de Juillet, nous avons pu nous reunir une fois par mois dans les locaux de CGI au Haillan.
- CGI m''a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
+Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire a fait que 99% de mon temps de travail été à distance. A partir du mois de Juillet, nous avons pu nous reunir une fois par semaine dans les locaux de CGI au Haillan.
+
+CGI m''a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
 
 
 \pagebreak
@@ -60,7 +85,7 @@ Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr A
 
 J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs regions de France. Cet ENT, très complet fournis des solutions clées en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. Dans le contexte sanitaire actuel, l'équipe à du s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. En annexe, vous trouverez un tableau qui reprend les principaux outils que l'ENT propose.
 
-Je suis arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidient. Pour la liste des taches que j'ai effectués semaine par semaine, veuillez vous reporter au tableau en annexe. Je vais vous présenter les principales missions ci dessous:
+Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidient. Pour la liste des taches que j'ai effectués semaine par semaine, veuillez vous reporter au tableau en annexe. Je vais vous présenter les principales missions ci dessous:
 
 - 1. Rapport d'alarmes quotidien
 ... Tout les jours je redigé un rappport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des parametres specifiques a la surveillance de l'infrastructure.
@@ -354,7 +379,7 @@ Un autre aventage d'ansible est l'utilisation de loop 'boucle' pour répéter un
 ```yaml
 - name: "open firewall port 3000 on the machine and port 25 for SMTP email"
   firewalld:                    <- le module pour intéragir sur le firewall
-    state: "{{ item.state  }}"  <- on definie une variable pour l'état du port
+    state: "t s’adapter et d{{ item.state  }}"  <- on definie une variable pour l'état du port
     port: "{{ item.port  }}"    <- on definie une variable pour le numéro de port
     zone:
     immediate:
@@ -636,6 +661,7 @@ Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de c
 
 # Annexes:
 
+![bucket influxdb](images/bucket.png "bucket Influxdb")
 - les tableaux
 - grafs
 - visuels des applis
