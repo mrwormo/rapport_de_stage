@@ -34,7 +34,7 @@ mail: marc.cenon33@gmail.com
       - [Notions de base d'Ansible](#notions-de-base-d-ansible)
   * [Le Playbook](#le-playbook)
     + [Organisation](#organisation)
-    + [Les différents rôles](#les-differents-roles)
+    + [Les différents rôles](#les-différents-rôles)
       - [Grafana](#grafana-1)
       - [Influxdb](#influxdb-1)
       - [Telegraf](#telegraf-1)
