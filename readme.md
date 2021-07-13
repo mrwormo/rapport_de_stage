@@ -1,4 +1,4 @@
-# rapport-stage
+# RAPPORT DE STAGE
 
 Bienvenue dans le dépot GitHub de mon rapport de stage.
 

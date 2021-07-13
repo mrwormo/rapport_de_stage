@@ -1,11 +1,14 @@
 # Automatisation dans un S.I
 Marc Cenon
+
 Stage du 12/04/2021 au 31/12/2021
+
 web: https://marc-cenon.github.io/my_resume/
+
 mail: marc.cenon33@gmail.com
 
 
-# Remerciements
+## Remerciements
 
 Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**, **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi benéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
 
@@ -18,7 +21,7 @@ Je les remercie egalmeent pour la bonne humeur et les temps de rigolade qu'ils o
 Je tiens à remercier également le corps enseignant de l'université, notament **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutient et leurs enseignemants.
 
 
-# Introduction
+## Introduction
 
 Dans le cadre de la Licence professionnelle ADSILLH, j'ai éffectué un stage de 6 mois au sein de l'équipe infrastructure chez CGI. Dans ce rapport, je vais vous presenter l'entreprise qui m'a accuelli et plus précisement l'équipe où j'ai réalisé mon stage. Vous trouvez dans les annexes un tableau qui récapitules les taches sur lequelles j'ai travaillé, semaine par semaine.
 
@@ -31,8 +34,8 @@ Le but de ce stage etait d'intégrer l'équipe Infrastructure afin de participer
 Au delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et interagir avec chacune des phases du projet sur le terrain. Cette immersion au sein d'un environnement complexe m'a également appris à etre plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement des mes taches auprès de l'équipe que j'ai intégré.
 
 
-# Partie 1:
-## L'entreprise CGI
+## Partie 1:
+### L'entreprise CGI
 
 Fondé en juin 1976 par Serge Godin à Québec, Canada, CGI est un groupe canadien actif dans le domaine des technologies de l’information et en gestion des processus d’affaires. Au cours des dix premières années d’existence, CGI a développé une stratégie, un modèle et un ensemble de principes de gestion qui se sont traduits par une croissance considérable. Devant les demandes des clients d’externaliser leurs systèmes informatiques, CGI s'est adapter et a élaborer une nouvelle stratégie pour se positionner sur le marché émergent de l’externalisation.
 
@@ -67,20 +70,20 @@ La structure de direction de CGI France est centrée autour des clients et chacu
 
 
 
-## La BU
+### La Bussiness Unit 
 
 En France, CGI est organisé en B.U : businness unit. J'ai réaliser mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisement dans le group Local Gov, au service des collectivités locales. Local Gov à pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les acces plus directs aux services et permettre un plus grand benefice de la dematerialisation.
 
 Vous trouverez en annexe un organigrame de la BU.
 
-## L'équipe Infra
+### L'équipe Infra
 
 Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire a fait que 99% de mon temps de travail été à distance. A partir du mois de Juillet, nous avons pu nous reunir une fois par semaine dans les locaux de CGI au Haillan.
 
 CGI m''a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
 
 
-## Mes missions
+### Mes missions
 
 J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs regions de France. Cet ENT, très complet fournis des solutions clées en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. Dans le contexte sanitaire actuel, l'équipe à du s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. En annexe, vous trouverez un tableau qui reprend les principaux outils que l'ENT propose.
 
@@ -95,11 +98,11 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
 - 3. support de l'équipe sur diverses taches.
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formatteur.
 
-# Partie 2:
+## Partie 2:
 
-## Ansible: la magie de l'automatisation
+### Ansible: la magie de l'automatisation
 
-### Pourquoi le besoin d'automatisation ?
+#### Pourquoi le besoin d'automatisation ?
 
 L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervenion humaine. C'est un gain de temps et surtout cela permet de garantir le même résulat pour une opération réalisé n fois avec les mêmes paramêtres: c'est le principe d'idempotence
 
@@ -107,7 +110,7 @@ On passe du temps à écrire des règles d'automatisation mais une fois ces dern
 
 L'automatisation est un élément clé de l'optimisation de l'environnement informatique dans un monde qui evolue rapidement, l'automatisation joue un rôle essentiel.
 
-### Présentation d'Ansible
+#### Présentation d'Ansible
 
 Ansible est un outil libre qui sert à automatiser la gestion de la configuration, du déploiement et de l’orchestration. Ses points forts:
 - pas d'agents à déployer sur les machines
@@ -134,7 +137,7 @@ Personnelement, je ne vois que des avantages dans ce mode de gestion IaC. C'est 
 Le fait de pouvoir redeployer son infrastructure et sa configuration grace des des fichiers de configuration rend est un atout majeur en cas de problème technique. Une reinstallation d'un service peut etre realisé rapidement.
 
 
-## La solution de monitoring
+### La solution de monitoring
 
 Une de mes missions à été de mettre en place une solution de monitoring déploiable par Ansible pour pouvoir surveiller l'infrastrucre d'un client. La solution de monitoring retenue à été la suivante:
 
@@ -145,7 +148,7 @@ Une de mes missions à été de mettre en place une solution de monitoring dépl
 - Promtail pour la recupération des logs
 
 
-### Présentations des différentes applications qui constitue la stack de monitoring
+#### Présentations des différentes applications qui constitue la stack de monitoring
 
 Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb -  Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs, est une solution efficace, robuste, scalable facilement et extrèmement customisable.
 Nous somme sur une architecture logicielle sur 3 niveaux:
@@ -155,7 +158,7 @@ Nous somme sur une architecture logicielle sur 3 niveaux:
 - l'affichage des graphique dans grafana
 
 
-#### Télégraf
+##### Télégraf
 
 Telegraf est un agent de récupération de métriques, 1 seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées et propose 2 modes de récupération des métriques, via :
 
@@ -165,12 +168,12 @@ Telegraf est un agent de récupération de métriques, 1 seul agent est nécessa
 Les metriques sont par la suite insérées dans la bdd Influxdb
 
 
-#### Influxdb
+##### Influxdb
 
 InfluxDB est une Time Series Database (TSDB) écrite en Go. Ces principaux avantages sont les performances, la durée de rétention importante et la scalabilité
 
 
-#### Loki
+##### Loki
 
 Loki est un aggrégateur de logs, facilement scalable et inspiré de Prometheus, un autre outils de monitoring qui peut remplacer Influxdb  dans la stack Il utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de de les indexer, ce qui rend facile leur manipulatiopn et ordonne leur stockage.
 les journaux reçus de Promtail se composent du même ensemble de labels que celui des métriques d'application. Ce qui permet une meilleur intégration des logs et des metriques
@@ -178,7 +181,7 @@ les journaux reçus de Promtail se composent du même ensemble de labels que cel
 De plus, Loki à besoin de peu de ressources pour fonctionner
 
 
-#### Promtail
+##### Promtail
 
 Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées.Il fonctionne en 3 temps:
 
@@ -188,12 +191,12 @@ Promtail est un agent qui expédie les logs vers une instance Loki. Il est dépl
 
 Promtail est très customisable. Nous verons plus loin un exemple de configuration
 
-#### Grafana
+##### Grafana
 
 Grafana est un outil supervision moderne. Il permet d'exposer sous formes de dashboards les métriques brutes ou agrégées provenant d’InfluxDB. L'une de ses grande force est qu'il permet de créer très facilement des seuils d’alertes et les actions associées. comme l'envoie de mail pour alerter l'administrateur du S.I
 On accède à Grafana depuis un navigateur Internet, Ce qui est très utile quand on veut monitorer une infrastructure à distance. Plus besoin d'installer de logiciels complet....
 
-### Mise en place des différents éléments.
+#### Mise en place des différents éléments.
 
 Point Important: cette stack peut être très facilement être installé grace à Docker. Personnelement, j'utilise cette solution sous docker, le tout orchestré avec k8S pour monitorer mon homelab. (voir annexe pour plus d'info)
 Le choix fait par CGI et d'éviter la conteneurisation pour les environnement de production. Nous sommes donc parti sur une installation en dur des différentes briques de cette stack, le tout déployé par ansible.
@@ -202,7 +205,7 @@ Etant donnée la nature sensisble des informations, j'illustrerai par des graphi
 
 Vous trouverez en annexes le playbook dans son intégralité.
 
-#### composition de l'infrastructure d'implentation de la stack TIG
+##### composition de l'infrastructure d'implentation de la stack TIG
 
 cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de machines qui comprend:
 
@@ -222,7 +225,7 @@ Et Promtail sera en charge de recuperer les logs suivants:
 - logs applicatifs (nginx principalement)
 
 
-## Installation d'Ansible
+### Installation d'Ansible
 
 Ansible est disponible pour un grand nombre de Distribution Linux. Il peut être installé par un gestionnaire de packet ou par PIP car Ansible s'appuis majoritairement sur le language Python.
 
@@ -263,7 +266,7 @@ L'authentification par clé est mise en place  l'environnement de base est confi
 
 
 
-### Notions de base
+#### Notions de base
 
 Avant de présenter les playbook que j'ai réalisé, il est important de comprendre quelques elements d'Ansible.
 On définie des rôles, qui contiennent des taches à executer à l'aide de différents modules, le tout regroupé dans un playbook, qui va réunir les différents roles. Comme précisé plus haut, tout est ecrit en YAML.
@@ -312,8 +315,8 @@ roles/
 Il est important de respecter une structure et de s'y tenir car un projet peut contenir rapidement beaucoup de fichiers
 
 
-## Le playbook pour le deploiment de la stack
-### Organisation
+### Le playbook pour le deploiment de la stack
+#### Organisation
 
 Le playbook est organisé de la facon suivante:
 
@@ -336,7 +339,7 @@ ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ```
 
 
-### Role Grafana
+#### Role Grafana
 
 Les étapes du role d'installation de grafana sont simple. Avec l'aide des modules adéquats d'ansible, les étapes pour l'installation et la configuration de grafana sont les suivantes:
 
@@ -378,7 +381,7 @@ Un autre aventage d'ansible est l'utilisation de loop 'boucle' pour répéter un
 Avec ces quelques lignes, on ouvres les ports, dans la zone par defaut (car nous n'avons pas renseigné de zone specifique dans zone), de manière permanente et immédiate.
 
 
-### Role Influxdb
+#### Role Influxdb
 
 Les étapes pour l'installation d'influxdb sont sensiblement identique à celle de grafana:
 
@@ -415,7 +418,7 @@ cette condition permet de s'assurer que le rôle se déroule bien car si on essa
 Le point que je souhaitais mettre en avant ici est la facilité avec laquelle on peut definir des condition pour lancer, ou non des rôles.
 
 
-### Telegraf
+#### Telegraf
 
 pour compléter notre stack TIG, il nous reste à deployer le role pour Telegraf. Il sera installer sur toutes les machines à monitorer. Les étapes du role sont les suivantes:
 
@@ -439,17 +442,17 @@ Quand il y a de la configuration specifique à un groupe de machine, il suffit d
 C'est également le choix qui sera retenue pour le deploiementy de la configuration de promtail.
 
 
-### Promtail
+#### Promtail
 
 L'installation de Promtail suit le même schema que télégraf. Comme cet agent sera deployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un group de machine.
 
 
-### Loki
+#### Loki
 
 L'installation de Loki est identique à celle de Grafana et de Promtail
 
 
-### le playbook
+#### le playbook
 
 Le playbook var regrouper les differents roles afin de les executer à la suite. Voici comment le role grafana est appelé dans le playbook
 
@@ -467,7 +470,7 @@ Le playbook var regrouper les differents roles afin de les executer à la suite.
 On repète le meme schema pour les autres roles.
 
 
-### le fichier host.yml
+#### le fichier host.yml
 
 C'est l'un des fichier les plus important. C'est dans ce dernier que l'on va definir la la liste des machines que nous voulons intégrer à ce playbook. Il peut être au format **.ini** mais il peut être egalement ecrit au format **.yml** 
 
@@ -504,7 +507,7 @@ all:
 On a beaucoup de flexibilité et de modularité dans le fichier host pour creer des groupes et des sous groupes. Cela nous permets de pouvoir deploiyer de la configration avec une très grande précision et de cibler une ou un groupe de machines.
 
 
-### InflxQL : syntaxe SQL propre à Influxd
+#### InflxQL : syntaxe SQL propre à Influxd
 
 Influxdb est une base de donnée temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de donnée idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toute les 10 secondes. Du fait que ce type de bdd traite une très grande quantité d'informations, et dans un temps très courts, la gestion des données est differentes à celle d'un base de donnée relationnelle. 
 
@@ -552,7 +555,7 @@ L'ensemble des requêtes du playbook est également disponible de le fichier das
 Flux est un language très puissant mais le WEBUI d'Influxdb permet d'arriver au même resultat rapidement et de gerer les buckets, et politiques de retention des données très facilement.
 
 
-### Exemple de configuration de l'agent Promtail pour récuperer des logs.
+#### Exemple de configuration de l'agent Promtail pour récuperer des logs.
 
 Afin de compléter notre stack de monitoring pour les logs, il faut configurer promtail pour lui dire quels logs recupérer. C'est ce que l'on appelle "Scrape Job"
 
@@ -572,19 +575,19 @@ Voici un exemple de configuration de promtail pour récupérer les logs nginx
 
 Une template est utilisé pour configurer les scrape jobs en fonction des différents groupe de machine. La template est dans le dossier template du role promtail et les variables sont définié dans les sous- dossiers qui portent le nom de chaque groupe, dans le dossier group_vars.
 
-### Ajout des datastore dans Grafana
+#### Ajout des datastore dans Grafana
 
 Une fois les agents Promtail et Télégraf configurer pour envoyer les données à influxdb et loki, il faut par la suite ajouter dans grafana les data sources, c'est à dire Influxdb et Loki
 Cette action est realisé dans les options de grafana en lui indiquant le chemin d'acces pour Influxdb et loki. (voir images en annexe)
 
 
-### Importation du dashboard
+#### Importation du dashboard
 
 Le playbook contient également un Dashboard que j'ai créé précédement et qui peut être réutilisé pour chaque nouveau déploiment. Il suffit de le charger dans le menu a gauche et nous avons les graphiques correspondant à chaque requetes d'influxdb
 
 Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suiffit d'aller dans explorer puis de selectionner loki comme data source et nous trouver les logs que promtail à recuperer.
 
-### Interpréter le monitoring
+#### Interpréter le monitoring
 
 Grafana permet de créer des alertes en fonction de critères choisis par l'administrateur. On peut par exemple definir l'envoi d'un mail lorsque un seuil est franchi.
 
@@ -593,7 +596,7 @@ C'est très utile pour surveiller l'espace disque. L'administrateur va definir u
 Plutôt qu'un mail, il est possible de creer des alertes dans Teams, ou Slack en configurant des webhooks.
 
 
-### conclusion
+#### conclusion
 
 Nous avons ici un system de monitoring complet (metriques + logs système et applicatifs) avec des graphique facilement compréhensible et avec un système d'alerte en place. Ce qui est rassurant pour l'administrateur qui a definit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquences.
 
@@ -608,9 +611,9 @@ Ansible est une technologie qui m'interesse beaucoup et je suis très content d'
 Sur cette derniere j'ai rencontré des difficultés sur certain points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grace a lui, j'ai appris de mes erreurs et pu grandement et efficacement ameliorer mes compétences en Ansible.
 
 
-## Déploiment d'une stack complexe multi-services, multi-plateformes, multi-fournisseurs
+### Déploiment d'une stack complexe multi-services, multi-plateformes, multi-fournisseurs
 
-# Conclusion
+## Conclusion
 
 Ce stage correspondait parfaitement à ce que je recherché. Il m'a permit de d'apprendre et de perfectionner certaines de mes connaissances, notament tout ce qui touche à l'automatisation, au scripting, et à la gestion de plusieurs vm.
 
@@ -626,7 +629,7 @@ En parrallèle de ce stage, j'ai choisi de passer des certifications afin de val
 Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de ce stage et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des prjets et des technologies intéressantes.
 
 
-# Annexes:
+## Annexes:
 
 Le playbook complet du deploiement est disponible sur mon git a l'addresse suivante: https://github.com/marc-cenon/rapport_de_stage.
 Je vous invite à lire le readme.md pour comprendre l'arboresence du dossier.
