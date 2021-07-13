@@ -665,9 +665,11 @@ Le playbook complet du deploiement de la stack de monitoring
 
 ## playbook.yml
 
-## role installation grafana ( tasks, template et handlers )
+#### role installation grafana ( tasks, template et handlers )
 
-## role instalation  influxdb ( tasks, template et handlers )
+@[yaml](files/monitoring_stack/ansible_grafana_v2/playbook.yml)
+
+#### role instalation  influxdb ( tasks, template et handlers )
 
 
 
