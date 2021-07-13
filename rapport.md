@@ -9,18 +9,14 @@ mail: marc.cenon33@gmail.com
 
 # Table des matieres
 
-
-- [Automatisation dans un S.I](#automatisation-dans-un-si)
-- [Table des matieres](#table-des-matieres)
 - [Remerciements](#remerciements)
 - [Introduction](#introduction)
 - [Partie 1](#partie-1)
-  * [Présentation de CGI](#présentation-de-cgi)
+  * [Présentation de CGI](#pr-sentation-de-cgi)
   * [Le contexte de travail](#le-contexte-de-travail)
   * [Mes missions](#mes-missions)
 - [Partie 2](#partie-2)
-  * [Le besoin d'automatisation](#le-besoin-d-automatisation)
-  * [Présentation d'Ansible](#présentation-d'-ansible)
+  * [Ansible et Automatisation](#ansible-et-automatisation)
   * [La solution de monitoring](#la-solution-de-monitoring)
   * [La stack de monitoring](#la-stack-de-monitoring)
     + [Telegraf](#telegraf)
@@ -29,9 +25,9 @@ mail: marc.cenon33@gmail.com
     + [Promtail](#promtail)
     + [Grafana](#grafana)
     + [Mise en place des différents éléments](#mise-en-place-des-différents-éléments)
-    + [Description de l'infrastrucre à surveiller](#description-de-l'infrastrucre-à-surveiller)
-    + [Installation d'Ansible](#installation-d'ansible)
-      - [Notions de base d'Ansible](#notions-de-base-d'ansible)
+    + [Infrastrucre à surveiller](#infrastrucre-à-surveiller)
+    + [Installation d'Ansible](#installation-d-ansible)
+      - [Concepts de base](#concepts-de-base)
   * [Le Playbook](#le-playbook)
     + [Organisation](#organisation)
     + [Les différents rôles](#les-différents-rôles)
@@ -50,9 +46,6 @@ mail: marc.cenon33@gmail.com
     + [Conclusion sur ce projet](#conclusion-sur-ce-projet)
 - [Conclusion](#conclusion)
 - [Annexes](#annexes)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 
 # Remerciements
@@ -142,8 +135,7 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formatteur.
 
 # Partie 2
-
-## Le besoin d'automatisation
+## Ansible et Automatisation
 
 L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervention humaine. C'est un gain de temps et surtout cela permet de garantir le même résultat pour une opération réalisé n fois avec les mêmes paramètres : c'est le principe d'idempotence
 
@@ -151,9 +143,9 @@ On passe du temps à écrire des règles d'automatisation mais une fois ces dern
 
 L'automatisation est un élément clé de l'optimisation de l'environnement informatique dans un monde qui évolue rapidement, l'automatisation joue un rôle essentiel.
 
-## Présentation d'Ansible
 
 Ansible est un outil libre qui sert à automatiser la gestion de la configuration, du déploiement et de l’orchestration. Ses points forts :
+
 - pas d'agents à déployer sur les machines
 - permet de déployer des configurations normalisées : la même configuration sur un grand nombre de machine
 - permet de déployer des configurations plus spécifiques : on peut cibler une machine ou un groupe de machines
@@ -250,7 +242,7 @@ Etant donnée la nature sensible des informations, j'illustrerai par des graphiq
 
 Vous trouverez en annexes le playbook dans son intégralité.
 
-### Description de l'infrastrucre à surveiller
+### Infrastrucre à surveiller
 
 Cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de machines qui comprend :
 
@@ -311,7 +303,7 @@ L'authentification par clé est mise en place l’environnement de base est conf
 
 
 
-#### Notions de base d'Ansible
+#### Concepts de base
 
 Avant de présenter les playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
 On définit des rôles, qui contiennent des taches à exécuter à l'aide de différents modules, le tout regroupé dans un playbook, qui va réunir les différents rôles. Comme précisé plus haut, tout est écrit en YAML.
