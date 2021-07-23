@@ -50,26 +50,26 @@ mail: marc.cenon33@gmail.com
 
 # Remerciements
 
-Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**, **Mr. Arthur Bertinetti** et **Mr Laurent Poutou*** pour leur patience et leur grande pédagogie. J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
+Je tiens à remercier en premier lieu toute l'équipe Infra de CGI pour son accueil chaleureux, tout particulièrement **Mr. Thomas Colenos**, **Mr. Arthur Bertinetti** et **Mr Laurent Poutou** pour leur patience et leur grande pédagogie. J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
 
-En effet, chacune des personnes de l'équipe a su me consacre du temps et partager avec moi leur expertise, méthodes et connaissances tout au long de ce stage. Ils m’ont permis de rendre cette expérience de 6 mois enrichissante et pleine d'intérêt
+En effet, chacune des personnes de l'équipe a su me consacre du temps et partager avec moi leur expertise, méthodes et connaissances tout au long de ce stage. Ils m’ont permis de rendre cette expérience de 6 mois enrichissante et pleine d'intérêt.
 
-J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur divers projets et avec une grande autonomie.
+J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur pleins de projets et avec une grande autonomie.
 
 Je les remercie également pour la bonne humeur et les temps de rigolade qu'ils ont su me communiquer et l'envie qu'ils m'ont donné de travailler au sein de leur équipe.
 
-Je tiens à remercier également le corps enseignant de l'université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutient et leurs enseignements.
+Je tiens à remercier également le corps enseignant de l'université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutien et leurs enseignements.
 
 
 # Introduction
 
-Dans le cadre de la Licence professionnelle ADSILLH, j'ai effectué un stage de 6 mois au sein de l'équipe infrastructure chez CGI. Dans ce rapport, je vais vous présenter l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouvez dans les annexes un tableau qui récapitules les taches sur lesquelles j'ai travaillé, semaine par semaine.
+Dans le cadre de la Licence professionnelle ADSILLH, j'ai effectué un stage de 6 mois au sein de l'équipe TPSHR Infra chez CGI. Dans ce rapport, je vais vous présenter l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez dans les annexes un tableau qui récapitules les taches sur lesquelles j'ai travaillé, semaine par semaine.
 
-Etant donné la diversité des taches réalisées, j'ai choisi comme thème de rapport de stage l'automatisation dans un S.I avec un focus sur le déploiement d'une stack de monitoring ainsi que le déploiement d'un service complexe (centre de formation) que je présenterai rapidement et le déploiement du service jupyter dans un cluster kubernetes OVH
+Etant donné la diversité des taches réalisées, j'ai choisi comme thème de rapport de stage l'automatisation dans un S.I avec un focus sur le déploiement d'une stack de monitoring.
 
 Aucunes données confidentielles ne sera présenté dans ce rapport.
 
-Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme Ansible, Kubernetes, Python, mariadb,...
+Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme Ansible, vSphere, Jira, Confluence, Kubernetes, Python, Mariadb, Postgresql, ...
 
 Au-delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et interagir avec chacune des phases du projet sur le terrain. Cette immersion au sein d'un environnement complexe m'a également appris à être plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement de mes taches auprès de l'équipe que j'ai intégré.
 
@@ -112,7 +112,7 @@ La structure de direction de CGI France est centrée autour des clients et chacu
 
 ## Le contexte de travail
 
-En France, CGI est organisé en B.U : businness unit. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe Local Gov, au service des collectivités locales. Local Gov à pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les accès plus directs aux services et permettre un plus grand bénéfice de la dématérialisation.
+En France, CGI est organisé en différentes B.U : businness unit. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe Local Gov, au service des collectivités locales. Local Gov à pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les accès plus directs aux services et permettre un plus grand bénéfice de la dématérialisation.
 
 Mon maitre de stage **Mr Thomas Coleno** ainsi que *Mr Laurent Poutou** et *Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire a fait que 99% de mon temps de travail été à distance. A partir du mois de Juillet, nous avons pu nous réunir une fois par semaine dans les locaux de CGI au Haillan.
 
@@ -121,18 +121,18 @@ CGI m''a également fourni un ordinateur portable afin de pouvoir télétravaill
 
 ## Mes missions
 
-J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clées en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. Dans le contexte sanitaire actuel, l'équipe à dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. En annexe, vous trouverez un tableau qui reprend les principaux outils que l'ENT propose.
+J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. Dans le contexte sanitaire actuel, l'équipe à dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. En annexe, vous trouverez un tableau qui reprend les principaux outils que l'ENT propose.
 
-Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Pour la liste des taches que j'ai effectués semaine par semaine, veuillez-vous reporter au tableau en annexe. Je vais vous présenter les principales missions ci-dessous:
+Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Pour la liste des taches que j'ai effectués semaine par semaine, veuillez-vous reporter au tableau en annexe. Je vais vous présenter les principales missions ci-dessous :
 
 - 1. Rapport d'alarmes quotidien
-... Tous les jours je rédigé un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques a la surveillance de l'infrastructure.
+... Tous les jours je rédigé un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure.
 
 - 2. Création de scripts d'automatisation avec Ansible.
-... La majeure partie de mon travaille consisté à automatisé des taches qui aurait été très chronophage. Mon tuteur **Mr Thomas Colenos** à une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs script Ansible, particulièrement le déploiment d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
+... La majeure partie de mon travaille consiste à automatiser des tâches qui aurait été très chronophage. Mon tuteur **Mr Thomas Colenos** à une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs script Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
 
-- 3. support de l'équipe sur diverses taches.
-... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formatteur.
+- 3. Support de l'équipe sur diverses taches.
+... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur.
 
 # Partie 2
 ## Ansible et Automatisation
@@ -162,17 +162,18 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , cloud). 
 
-Ansible s'inscrit dans la mouvence IaC: Infrastructure as Code, c'est à dire gérer la configuration d'une infrastrucre à l'aide de fichiers de configuration stockable, versionable dans un flow CI/CD
+Ansible s'inscrit dans la mouvance IaC: Infrastructure as Code, c'est à dire gérer la configuration d'une Infrastructure à l'aide de fichiers de configuration stockable, versionable dans un flow CI/CD
 
-Avec le développement des infrastrucre Cloud, Ansible, couplé à des outils comme Terraform et Packer, permet de gérer un infrastructure Cloud en mode IaC.
+Avec le développement des Infrastructure Cloud, Ansible, couplé à des outils comme Terraform et Packer, permet de gérer un infrastructure Cloud en mode IaC.
 
-Personnellement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (voir annexe)
-Le fait de pouvoir redéployer son infrastructure et sa configuration grâce des fichiers de configuration rend est un atout majeur en cas de problème technique. Une réinstallation d'un service peut être réalisé rapidement.
+Personnellement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (Cluster sous Kubernetes de 8 raspberry pi)
+
+Le fait de pouvoir redéployer son infrastructure et sa configuration grâce des fichiers de configuration est un atout majeur en cas de problème technique. Une réinstallation d'un service peut être réalisé rapidement.
 
 
 ## La solution de monitoring
 
-Une de mes missions à été de mettre en place une solution de monitoring déployable par Ansible pour pouvoir surveiller l'infrastrucre d'un client. La solution de monitoring retenue a été la suivante :
+Une de mes missions a été de mettre en place une solution de monitoring déployable par Ansible pour pouvoir surveiller l'infrastructure d'un client. La solution de monitoring retenue a été la suivante :
 
 - Grafana: pour la centralisation des graphiques
 - Influxdb comme base de données pour les différentes métriques.
@@ -184,7 +185,7 @@ Une de mes missions à été de mettre en place une solution de monitoring dépl
 ## La stack de monitoring
 
 Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb -  Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs, est une solution efficace, robuste, scalable facilement et extrêmement customisable.
-Nous somme sur une architecture logicielle sur 3 niveaux :
+Nous sommes sur une architecture logicielle sur 3 niveaux :
 
 - la collectes des métriques et des logs
 - le stockage des métriques dans la bdd Influxdb
@@ -208,7 +209,7 @@ Influxdb est une Time Series Database (TSDB) écrite en Go. Ces principaux avant
 
 ### Loki
 
-Loki est un agrégateur de logs, facilement scalable et inspiré de Prometheus, un autre outils de monitoring qui peut remplacer Influxdb  dans la stack Il utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de de les indexer, ce qui rend facile leur manipulation et ordonne leur stockage.
+Loki est un agrégateur de logs, facilement scalable et inspiré de Prometheus, un autre outil de monitoring qui peut remplacer Influxdb dans la stack Il utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de de les indexer, ce qui rend facile leur manipulation et ordonne leur stockage.
 
 Les journaux reçus de Promtail se composent du même ensemble de labels que celui des métriques d'application. Ce qui permet une meilleure intégration des logs et des métriques
 
@@ -217,7 +218,7 @@ De plus, Loki a besoin de peu de ressources pour fonctionner
 
 ### Promtail
 
-Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées. Il fonctionne en 3 temps:
+Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées. Il fonctionne en 3 temps :
 
 - Découvre des cibles
 - Attache des tags aux logs
@@ -234,7 +235,7 @@ On accède à Grafana depuis un navigateur Internet, Ce qui est très utile quan
 
 Point Important : cette stack peut être très facilement être installé grâce à Docker. 
 
-Personnellement, j'utilise cette solution sous docker, le tout orchestré avec k8S pour monitorer mon homelab. (voir annexe pour plus d'info)
+Personnellement, j'utilise cette solution sous docker, le tout orchestré avec k8S pour monitorer mon homelab.
 
 Le choix fait par CGI et d'éviter la conteneurisation pour les environnements de production. Nous sommes donc partis sur une installation en dur des différentes briques de cette stack, le tout déployé par Ansible.
 
@@ -277,7 +278,6 @@ sudo yum install Ansible   <- installation du packet
 On vérifie la bonne installation d'Ansible et des dépendances:
 
 ```shell
-marc@pi-master [06:42:03] [/]
 -> % Ansible --version
 Ansible 2.9.6
   config file = /etc/Ansible/Ansible.cfg
@@ -286,7 +286,8 @@ Ansible 2.9.6
   executable location = /usr/bin/Ansible
   python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
 ```
-Ansible a besoin que le port SSH soit ouvert. Vérifions que c'est bien le cas et également pour faciliter et sécuriser la communication SSH, il est recommandé d'activé l'authentification par clé plutôt que par mot de passe
+
+Ansible a besoin que le port SSH soit ouvert. Vérifions que c'est bien le cas et également pour faciliter et sécuriser la communication SSH, il est recommandé d’activer l'authentification par clé plutôt que par mot de passe
 
 ```shell
 sudo firewall-cmd --list-services
@@ -357,21 +358,21 @@ Il est important de respecter une structure et de s'y tenir car un projet peut c
 ## Le Playbook
 ### Organisation
 
-Le playbook est organisé de la façon suivante:
+Le playbook est organisé de la façon suivante :
 
 - playbook.yml : nom du playbook qui contient tous les rôles
 - /roles: va contenir tous nos rôles, templates, et handlers
 - /inventory/hosts.yml: inventaire des machines 
 - /inventory/group_vars/all.yml : variables globales
-... le dossier group_vars contient également les dossiers avec les configurations spécifique de Promtail pour chaque groupes de machines
+... le dossier group_vars contient également les dossiers avec les configurations spécifique de Promtail pour chaque groupe de machines
 
-la commande suivante permettra de déployer notre stack
+La commande suivante permettra de déployer notre stack
 
 ```shell
 Ansible-playbook playbook.yml -i inventory/host.yaml
 ```
 
-il est également possible de redéployer seulement un rôle en précisant le tag du rôle dans la commande ci-dessus. Ce qui donne par exemple :
+Il est également possible de redéployer seulement un rôle en précisant le tag du rôle dans la commande ci-dessus. Ce qui donne par exemple :
 
 ```shell
 Ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
@@ -380,7 +381,7 @@ Ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ### Les différents rôles
 #### Grafana
 
-Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des modules adéquats d'Ansible, les étapes pour l'installation et la configuration de Grafana sont les suivantes:
+Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des modules adéquats d'Ansible, les étapes pour l'installation et la configuration de Grafana sont les suivantes :
 
 - création du groupe et du compte Grafana:monitoring
 - création des dossier nécessaires
@@ -391,7 +392,7 @@ Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des mod
 - création du fichier .service à l'aide d'un template
 - activation du service et redémarrage
 
-Pour ce rôle, l'utilisation de template pour générer le fichier de configuration de Grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml  Voici la tasks du rôle Grafana qui utilise le template crée pour générer le fichier service:
+Pour ce rôle, l'utilisation de template pour générer le fichier de configuration de Grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml. Voici la tasks du rôle Grafana qui utilise le template crée pour générer le fichier service:
 
 
 ```yaml
@@ -431,11 +432,11 @@ Les étapes pour l'installation d'Influxdb sont sensiblement identique à celle 
 - ouverture des ports dans le firewall
 - activation du service
 - pause de quelques secondes
-- configuration d'Influxdb en passant une commande shell avec les paramètres définies dans le fichier de variable
+- configuration d'Influxdb en passant une commande shell avec les paramètres définis dans le fichier de variable
 - activation du service
 
 
-La difficulté ici et la dernières étape pour automatiser la configuration d'Influxdb, on passe une commande shell, avec des arguments issus de variables définis dans group_vars/all.yml pour la création des éléments nécessaires à Influxdb. 
+La difficulté ici et la dernière étape pour automatiser la configuration d'Influxdb, on passe une commande shell, avec des arguments issus de variables définis dans group_vars/all.yml pour la création des éléments nécessaires à Influxdb. 
 
 
 ```yaml
@@ -484,7 +485,7 @@ C'est également le choix qui sera retenue pour le déploiement de la configurat
 
 #### Promtail
 
-L'installation de Promtail suit le même schéma que telegraf. Comme cet agent sera déployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
+L'installation de Promtail suit le même schéma que Telegraf. Comme cet agent sera déployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
 
 
 #### Loki
@@ -659,13 +660,17 @@ Ce stage correspondait parfaitement à ce que je recherché. Il m'a permis de d'
 
 J'ai eu la chance au cours de ce stage de perfectionner sur des technologies comme Ansible ou Kubernetes qui me passionne.
 
-Ce stage au sein d'une grande entreprise de service numérique de renommé mondial fut une expérience très enrichissante tant sur le plan personnel que professionnel. Cela m'a permis de conforter mon envie de travailler dans le secteur informatique en tant que DevOps. A 33 ans, en reconversion professionnelle, il faut être conscient de ses forces et faiblesse et je pense que j'ai fait le bon choix d'écouter ma passion pour en faire mon métier.
+Ce stage au sein d'une grande entreprise de service numérique de renommée mondial fut une expérience très enrichissante tant sur le plan personnel que professionnel. Cela m'a permis de conforter mon envie de travailler dans le secteur informatique en tant que DevOps. A 33 ans, en reconversion professionnelle, il faut être conscient de ses forces et faiblesse et je pense que j'ai fait le bon choix d'écouter ma passion pour en faire mon métier.
 
 Le contexte actuel sanitaire a fait que j'étais en télétravail 99% du temps, ce qui ne rends pas forcement les choses faciles pour encadrer un stagiaire. **Mr Thomas Colenos** à parfaitement su me superviser et m'apporter l'aide nécessaire quand j'en avais besoin. Il m'a laissé une grande autonomie et m'a permis de progresser énormément.
 
-En parallèle de ce stage, j'ai choisi de passer des certifications afin de valider mes compétences. J'ai obtenu une certification en cybersécurité (comptia security +), une certification sur Kubernetes (CKA: certified kubernetes administrator)  Je passe fin Septembre la certification RHCE (Red Hat Certified Engeneer), ce qui me permettra d'avoir un profil solide et d'excellentes bases pour exercer le métier de DevOps.
+En parallèle de ce stage, j'ai choisi de passer des certifications afin de valider mes compétences. J'ai obtenu une certification en cybersécurité (comptia security +), une certification sur Kubernetes (CKA: certified kubernetes administrator)  Je passe fin Septembre la certification RHCE (Red Hat Certified Engeneer). 
 
-Pour conclure, j'ai eu une proposition d'embauche en CDI après à la suite de ce stage et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
+Cette derniere certification est le prolongement logique de ce que j’ai fait durant mon stage. En effet, cette certification est très pointue et elle est orientée sur l’automatisation et la très bonne maitrise d’Ansible pour administrer un S.I
+
+Cela me permettra d'avoir un profil solide et d'excellentes bases pour exercer le métier de DevOps
+
+Pour conclure, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingenieur Consultant et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
 
 
 # Annexes
