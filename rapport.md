@@ -772,6 +772,12 @@ Explication Influxdb
 
 ![Influxdb](images/difference-relational-time-series.png "Influxdb TBS")
 
+
+Exemple d'alertes
+
+![Alerte](images/alerte.png "Alertes Grafana")
+
+
 - tableau du travail semaine par semaine
 
 
