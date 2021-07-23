@@ -6,9 +6,7 @@ Stage du 12/04/2021 au 31/12/2021
 web: https://marc-cenon.github.io/my_resume/
 
 mail: marc.cenon33@gmail.com
-
-![ansible](images/logo-ansible.png |width=100px)     ![grafana](images/grafana.png |width=100px)
-
+<img src="https://github.com/marc-cenon/rapport_de_stage/blob/master/images/logo-ansible.png" width="100" height="100"> <img src="https://github.com/marc-cenon/rapport_de_stage/blob/master/images/grafana.png" width="100" height="100">
 
 # Table des matieres
 
