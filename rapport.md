@@ -7,6 +7,9 @@ web: https://marc-cenon.github.io/my_resume/
 
 mail: marc.cenon33@gmail.com
 
+![ansible](images/logo-ansible.png "logo ansible")     ![grafana](images/grafana.png "Grafana")
+
+
 # Table des matieres
 
 - [Remerciements](#remerciements)
