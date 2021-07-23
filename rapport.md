@@ -43,6 +43,7 @@ mail: marc.cenon33@gmail.com
     + [Ajout des datastores dans Grafana](#ajout-des-datastores-dans-grafana)
     + [Importation du dashboard](#importation-du-dashboard)
     + [Utilisation de Grafana](#utilisation-de-grafana)
+      - [Exemple de configuration d'une alerte](#exemple-de-configuration-d-une-alerte)
     + [Conclusion sur ce projet](#conclusion-sur-ce-projet)
 - [Conclusion](#conclusion)
 - [Annexes](#annexes)
@@ -638,9 +639,10 @@ C'est très utile pour surveiller l'espace disque. L'administrateur va définir 
 Plutôt qu'un mail, il est possible de créer des alertes dans Teams, ou Slack en configurant des webhooks.
 
 #### Exemple de configuration d'une alerte
-Grafana inclu un server SMTP qu'il faut parametrer dans le fichier de configuration de grafana. Afin de simplier les changement de configuration et pour eviter de devoir reécrire des rôles ppour modifier le fichier de configuration, il est plus simple et pratique d'utiliser un template pour modifier la configuration. Dans le rôle d'installation de grafana, j'utilise une task qui creer le fichier de configuration selon ce que j'aurai defini dans le fichier de template.
+Grafana inclut un server SMTP qu'il faut paramétrer dans le fichier de configuration de Grafana. Afin de simplifier les changements de configuration et pour éviter de devoir réécrire des rôles pour modifier le fichier de configuration, il est plus simple et pratique d'utiliser un Template pour modifier la configuration. 
+Dans le rôle d'installation de Grafana, j'utilise une task qui créer le fichier de configuration selon ce que j'aurai défini dans le fichier de Template.
 
-voici le task que j'ai utilisé et qui créer le fichier de configuration avec la bonne configuration:
+Voici le task que j'ai utilisé et qui créer le fichier de configuration avec la bonne configuration :
 
 ```YAML
 - name: "create custom grafana configuration file from template"
@@ -654,29 +656,28 @@ voici le task que j'ai utilisé et qui créer le fichier de configuration avec l
     - restart grafana
 ```
 
-Voici une partie de la configuration du serveur SMTP dans le template:
+Voici une partie de la configuration du serveur SMTP dans le Template :
 ```SHELL
 #################################### SMTP / Emailing ##########################
 [smtp]
-enabled = true  <- pas de variable ici car on veut qu'il soit activé quelque soit la configuration
+enabled = true  <- pas de variable ici car on veut qu'il soit activé quel que soit la configuration
 host = localhost:25
 from_address = "{{ grafana_email  }}" <- une variable ici dans l'éventualité où on voudrait changer l'addresse d'envoi du mail
 from_name = Grafana-monitoring
 ```
 
-Le serveur etant configurer, il ne reste plus qu'a configurer les alertes dans Grafana. Par exemple, j'ai défini les alertes suivante pour la surveillance de mon cluster:
+Le serveur étant configurer, il ne reste plus qu'a configurer les alertes dans Grafana. Par exemple, j'ai défini les alertes suivantes pour la surveillance de mon cluster :
 - Température des CPU
-- Utilsation des CPU
-- Utilsation de la Mémoire
-- surveillance des nodes du cluster
+- Utilisation des CPU
+- Utilisation de la Mémoire
+- Surveillance des nodes du cluster
 
-(voir annexe pour tableau)
+(Voir annexe pour tableau)
 
+Par exemple, pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85% 
+Le WEBUI de Grafana facilite grandement la création d'alertes. Voici un exemple de requête :
 
-Par exemple, pour surveiller l'utilsation de la mémoire, il suffit d'écrire une requete qui va déclancher l'envoie d'un mail si l'utilsation de la mémoire dépasse 85% 
-Le WEBUI de Grafana facilite grandement la creation d'alertes. Voici un exemple de requête:
-
-```BASH
+```SQL
 Rule Name Memory Usage alert
 Evaluate every 60s For 0m
 
@@ -689,10 +690,11 @@ Notifications Send to marc.cenon33@gmail.com
 Message: alerte dépassement mémoire
 ```
 
-(voir annexe)
+(Voir annexe)
 
-Un outil de monitoring n'est utilie que si il est bien configuré. Un AdminSys ne va pas passer son temps à regarder des graphs de monitoring. 
-En créant des alertes sur des points importants, on recoit une notification afin d'agir sur le problème et d'être plus efficace sur d'autres taches de travail.. 
+Un outil de monitoring n'est utile que s’il est bien configuré. Un AdminSys ne va pas passer son temps à regarder des graphs de monitoring. 
+En créant des alertes sur des points importants, on recoit une notification afin d'agir sur le problème et d'être plus efficace sur d'autres taches de travail.
+
 
 
 ### Conclusion sur ce projet
