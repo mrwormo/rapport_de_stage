@@ -43,7 +43,7 @@ mail: marc.cenon33@gmail.com
     + [Ajout des datastores dans Grafana](#ajout-des-datastores-dans-grafana)
     + [Importation du dashboard](#importation-du-dashboard)
     + [Utilisation de Grafana](#utilisation-de-grafana)
-      - [Exemple de configuration d'une alerte](#exemple-de-configuration-d-une-alerte)
+      - [Exemple de configuration pour une alerte](#exemple-de-configuration-pour-une-alerte)
     + [Conclusion sur ce projet](#conclusion-sur-ce-projet)
 - [Conclusion](#conclusion)
 - [Annexes](#annexes)
@@ -638,7 +638,7 @@ C'est très utile pour surveiller l'espace disque. L'administrateur va définir 
 
 Plutôt qu'un mail, il est possible de créer des alertes dans Teams, ou Slack en configurant des webhooks.
 
-#### Exemple de configuration d'une alerte
+#### Exemple de configuration pour une alerte
 Grafana inclut un server SMTP qu'il faut paramétrer dans le fichier de configuration de Grafana. Afin de simplifier les changements de configuration et pour éviter de devoir réécrire des rôles pour modifier le fichier de configuration, il est plus simple et pratique d'utiliser un Template pour modifier la configuration. 
 Dans le rôle d'installation de Grafana, j'utilise une task qui créer le fichier de configuration selon ce que j'aurai défini dans le fichier de Template.
 
