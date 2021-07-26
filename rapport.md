@@ -817,7 +817,7 @@ Datasources dans Grafana
 
 Configuration Datasources dans Grafana
 
-![Grafana datasources](images/datasource-confs.png "Grafana Datasources")
+![Grafana datasources](images/datasources-conf.png "Grafana Datasources")
 
 
 Example de construction de query dans Influxdb
