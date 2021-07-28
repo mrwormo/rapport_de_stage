@@ -47,7 +47,10 @@ mail: marc.cenon33@gmail.com
     + [Importation du dashboard](#importation-du-dashboard)
     + [Utilisation de Grafana](#utilisation-de-grafana)
       - [Exemple de configuration pour une alerte](#exemple-de-configuration-pour-une-alerte)
-    + [Conclusion sur ce projet](#conclusion-sur-ce-projet)
+  * [Rendre le service accessible depuis l'extérieur](#rendre-le-service-accessible-depuis-l-ext-rieur)
+    + [Configuration d'OVH](#configuration-d-ovh)
+    + [Configuration dans Vsphere:](#configuration-dans-vsphere-)
+  * [Conclusion sur ce projet](#conclusion-sur-ce-projet)
 - [Conclusion](#conclusion)
 - [Annexes](#annexes)
 
@@ -802,7 +805,7 @@ Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici 
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en TLS.
 
 
-### Conclusion sur ce projet
+## Conclusion sur ce projet
 
 Nous avons ici un system de monitoring complet (métriques + logs système et applicatifs) avec des graphiques facilement compréhensibles et avec un système d'alerte en place. Ce qui est rassurant pour l'administrateur qui a définit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquence.
 
