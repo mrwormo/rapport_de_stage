@@ -76,7 +76,7 @@ Etant donné la diversité des taches réalisées, j'ai choisi comme thème de r
 
 Aucunes données confidentielles ne sera présenté dans ce rapport.
 
-Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme Ansible, vSphere, Jira, Confluence, Python, Mariadb, Postgresql, Moodle, Big Blue Button, Jupyter, OpenStack ...
+Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme Ansible, vSphere, Jira, Confluence, Python, Mariadb, Postgresql, Moodle, Big Blue Button, Jupyter, OpenStack, Kubernetes...
 
 Au-delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et intéragir avec chacune des phases du projet sur le terrain. Cette immersion au sein d'un environnement complexe m'a également appris à être plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement de mes taches auprès de l'équipe que j'ai intégré.
 
@@ -767,38 +767,39 @@ CGI utilise OVH pour la majeure partie de son infrastructure. J'ai du configurer
 - Dans la zone dns, creation d'une entrée A qui lie une ip publique au nom de domaine choisi pour accéder à grafana 
 
 ### Configuration dans Vsphere:
-L'infrastructure tourne sous ESXI avec NSX et Vsphere pour fournir une interface graphique et les API REST pour la creation ,la configration et la surveillance des compossant NSX, tels que les contrôleurs, commutateurs logiques, ....
+L'infrastructure tourne sous ESXI avec NSX et Vsphere pour fournir une interface graphique et les API REST pour la creation ,la configration et la surveillance des composants tels que les contrôleurs, commutateurs logiques, ....
 
-Grâce à Vsphere et NSX, on peut configureur depuis un Navigateur Web les VM, Firewall, Règles NAT, LoadBalancing, Vlan, .... 
+Grâce à Vsphere et NSX, on peut configureur depuis un navigateur Web les VM, Firewall, Règles NAT, LoadBalancing, Vlan, .... 
 C'est avec cet outils que j'ai créée la VM de Monitoring où est installé Grafana - Influxdb - Loki ( ainsi que telegraf et promtail pour exposer les info de la machine de monitoring dans Grafana.)
 
-- La creation d'une VM est relativement simple.
-  - J'ai créer une VM avec suffisament de CPU + RAM pour faire tourner les applications confortablement
-  - Configuration du LVM avec un disque de 50 Go monté en /appli en EXT4 où sont installé les applications
-- Configuration du VLAN
-  - Pour La configuration du VLAN, plusieurs étapes sont à respecter:
-    - creation d'un commutateur logique
-    - creation d'un profil de protocole réseau sur le bon datacenter
-    - definition de la plage d'IP pour le VLAN
-    - Configuration du controleur pour acceder au nouveau VLAN
+Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici les étapes principales pour la configuration de la VM:
+
+- Création de la VM sours CentOS 7:
+  - création de la VM avec suffisament de CPU + RAM pour faire tourner les applications confortablement
+  - configuration du LVM (Logical Volume Manager) avec un disque dur de 50 Go monté en /appli, formaté EXT4 où sont installé les applications
+
+- Configuration du VLAN:
+  - création d'un commutateur logique
+  - création d'un profil de protocole réseau sur le bon datacenter
+  - définition de la plage d'IP pour le VLAN
+  - configuration du contrôleur pour accéder au nouveau VLAN
 
 - Configuration des règles dans le firewall
-  - Il faut également créé et configurer le Firewall NSX EDGE. Les étapes sont les suivantes:
-    - Ajout d'une dispositif NSX Edge Services Gateway
-    - Selection de la taillde du dispositif (nombre de Vcpu, Ram)
-    - Configuration de l'interface principale avec son addresse IP Principale
-    - affectation au bon VM Network
-    - Configuration de la Passerelle
-    - Rajout des Certificats WildCard dans la configuration du firewall NSX Edge
-  - Pour la configuration:
-    - Ajout de l'interface pour que le controleur puisse acceder aux machines qui seronts dans le Firewall
-    - Creation du groupe d'IP
-    - Création des règles d'entrée/sorties (IPTABLE)
-    - 
-- Configuration des règles NAT
-  - Il faut configurer les règles NAT (DNAT et SNAT) afin de permettre la bonne traduction de l'IP privée + port/service -> IP public = port/service
+  - Ajout d'une dispositif NSX Edge Services Gateway
+  - Selection de la taillde du dispositif (nombre de Vcpu, Ram)
+  - Configuration de l'interface principale avec son addresse IP Principale
+  - affectation au bon VM Network
+  - Configuration de la Passerelle
+  - Rajout des Certificats WildCard dans la configuration du firewall NSX Edge
+- Pour la configuration:
+  - Ajout de l'interface pour que le controleur puisse acceder aux machines qui seronts dans le Firewall
+  - Creation du groupe d'IP
+  - Création des règles d'entrée/sorties (IPTABLE)
 
-Une fois ces étapes terminées, nous pouvons accéder à grafana sur la bonne url en TLS.
+- Configuration des règles NAT
+  - Il faut configurer les règles NAT (DNAT et SNAT) afin de permettre la bonne traduction de l'IP privée + port/service -> IP public + port/service.
+
+Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en TLS.
 
 
 ### Conclusion sur ce projet
@@ -913,3 +914,4 @@ Récapitulatifs des tâches réalisées
 | Semaine 14 |  Creationde VLANS dans VSPHERENSX Edge, firewall, et VM - installation de Jupyter hub | 
 | Semaine 15 |  renouvellement certificats sur vm et sur NSX Edge, creation de vm Moodle et Jupyter | 
 | Semaine 16 |  absence enterrement, creation de moodle preprod et prod pour la region Normandie (Postgres, Apache, Moodle) | 
+| Semaine 17 |  Montée en version de Peertube pour GDA et CRIF, Mise à jour docker Riot pour CRNA, mise en place d'un Jupyter Hub sous Kubernetes | 
