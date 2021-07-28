@@ -63,15 +63,16 @@ J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur 
 Je les remercie également pour la bonne humeur qu'ils ont su me communiquer et l'envie qu'ils m'ont donné de travailler au sein de leur équipe.
 
 
-
-Je tiens à remercier également le corps enseignant de l'université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutien et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle.
+Je tiens à remercier également le corps enseignant de l'université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutien et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle grâces à leurs conseils.
 
 
 # Introduction
 
-Dans le cadre de la Licence professionnelle ADSILLH, j'ai effectué un stage de 6 mois au sein de l'équipe ENT / Local GOV dans la Bussiness Unit TPSHR. Dans ce rapport, je vais vous présenter l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez dans les annexes un tableau qui récapitules les tâches sur lesquelles j'ai travaillé, semaine par semaine.
+Dans le cadre de la Licence professionnelle ADSILLH, j'ai effectué un stage de 6 mois au sein de l'équipe ENT / Local GOV dans la Bussiness Unit TPSHR dans l'entreprise CGI. 
 
-Etant donné la diversité des taches réalisées, j'ai choisi comme thème de rapport de stage l'automatisation dans un S.I avec un focus sur le déploiement d'une stack de monitoring.
+Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez dans les annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine par semaine.
+
+Etant donné la diversité des taches réalisées, j'ai choisi comme thème de rapport de stage l'automatisation dans un S.I avec un focus sur le déploiement d'une stack de monitoring avec Ansible.
 
 Aucunes données confidentielles ne sera présenté dans ce rapport.
 
@@ -755,6 +756,28 @@ Message: alerte dépassement mémoire
 Un outil de monitoring n'est utile que s’il est bien configuré. Un AdminSys ne va pas passer son temps à regarder des graphs de monitoring. 
 En créant des alertes sur des points importants, on recoit une notification afin d'agir sur le problème et d'être plus efficace sur d'autres tâches de travail.
 
+
+## Rendre le service accessible depuis l'extérieur
+
+Le dernier point important de ce projet à été de rendre Grafana accessible depuis l'extérieur afin d'avoir acces au monitoring même en dehors du réseau interne. 
+Plusieurs éléments étaient à prendre en compte pour y arriver:
+
+### Configuration d'OVH
+CGI utilise OVH pour la majeure partie de son infrastructure. J'ai du configurer:
+- Dans la zone dns, creation d'une entrée A qui lie une ip publique au nom de domaine choisi pour accéder à grafana 
+
+### Configuration dans Vsphere:
+L'infrastructure tourne sous ESXI avec NSX et Vsphere pour fournir une interface graphique et les API REST pour la creation ,la configration et la surveillance des compossant NSX, tels que les contrôleurs, commutateurs logiques, ....
+
+Grâce à Vsphere et NSX, on peut configureur depuis un Navigateur Web les VM, Firewall, Règles NAT, LoadBalancing, Vlan, .... 
+C'est avec cet outils que j'ai créée la VM de Monitoring où est installé Grafana - Influxdb - Loki ( ainsi que telegraf et promtail pour exposer les info de la machine de monitoring dans Grafana.)
+
+- La creation d'une VM est relativement simple.
+  - J'ai créer une VM avec suffisament de CPU + RAM pour faire tourner les applications confortablement
+  - Configuration du LVM avec un disque de 50 Go monté en /appli où sont installé es applications
+- Configuration du VLAN
+- Configuration des règles NAT
+- Configuration des règles dans le firewall
 
 
 ### Conclusion sur ce projet
