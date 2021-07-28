@@ -47,7 +47,7 @@ mail: marc.cenon33@gmail.com
     - [Importation du dashboard](#importation-du-dashboard)
     - [Utilisation de Grafana](#utilisation-de-grafana)
       - [Exemple de configuration pour une alerte](#exemple-de-configuration-pour-une-alerte)
-  - [Rendre le service accessible depuis l'extérieur](#rendre-le-service-accessible-depuis-l'extrieur)
+  - [Rendre le service accessible depuis l'extérieur](#rendre-le-service-accessible-depuis-lextrieur)
     - [Configuration d'OVH](#configuration-d'ovh)
     - [Configuration dans Vsphere:](#configuration-dans-vsphere)
   - [Conclusion sur ce projet](#conclusion-sur-ce-projet)
