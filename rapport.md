@@ -774,10 +774,31 @@ C'est avec cet outils que j'ai créée la VM de Monitoring où est installé Gra
 
 - La creation d'une VM est relativement simple.
   - J'ai créer une VM avec suffisament de CPU + RAM pour faire tourner les applications confortablement
-  - Configuration du LVM avec un disque de 50 Go monté en /appli où sont installé es applications
+  - Configuration du LVM avec un disque de 50 Go monté en /appli en EXT4 où sont installé les applications
 - Configuration du VLAN
-- Configuration des règles NAT
+  - Pour La configuration du VLAN, plusieurs étapes sont à respecter:
+    - creation d'un commutateur logique
+    - creation d'un profil de protocole réseau sur le bon datacenter
+    - definition de la plage d'IP pour le VLAN
+    - Configuration du controleur pour acceder au nouveau VLAN
+
 - Configuration des règles dans le firewall
+  - Il faut également créé et configurer le Firewall NSX EDGE. Les étapes sont les suivantes:
+    - Ajout d'une dispositif NSX Edge Services Gateway
+    - Selection de la taillde du dispositif (nombre de Vcpu, Ram)
+    - Configuration de l'interface principale avec son addresse IP Principale
+    - affectation au bon VM Network
+    - Configuration de la Passerelle
+    - Rajout des Certificats WildCard dans la configuration du firewall NSX Edge
+  - Pour la configuration:
+    - Ajout de l'interface pour que le controleur puisse acceder aux machines qui seronts dans le Firewall
+    - Creation du groupe d'IP
+    - Création des règles d'entrée/sorties (IPTABLE)
+    - 
+- Configuration des règles NAT
+  - Il faut configurer les règles NAT (DNAT et SNAT) afin de permettre la bonne traduction de l'IP privée + port/service -> IP public = port/service
+
+Une fois ces étapes terminées, nous pouvons accéder à grafana sur la bonne url en TLS.
 
 
 ### Conclusion sur ce projet
