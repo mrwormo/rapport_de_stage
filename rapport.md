@@ -15,7 +15,7 @@ mail: marc.cenon33@gmail.com
 - [Remerciements](#remerciements)
 - [Introduction](#introduction)
 - [Partie 1](#partie-1)
-  - [Présentation de CGI](#prsentation-de-cgi)
+  - [Présentation de CGI](#présentation-de-cgi)
   - [Le contexte de travail](#le-contexte-de-travail)
   - [Mes missions](#mes-missions)
 - [Partie 2](#partie-2)
