@@ -66,22 +66,23 @@ J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur 
 Je les remercie également pour la bonne humeur qu'ils ont su me communiquer et l'envie qu'ils m'ont donné de travailler au sein de leur équipe.
 
 
-Je tiens à remercier également le corps enseignant de l'université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutien et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle grâces à leurs conseils.
+Je tiens à remercier également le corps enseignant de l'Université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutiens et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle grâces à leurs conseils.
 
 
 # Introduction
 
 Dans le cadre de la Licence professionnelle ADSILLH, j'ai effectué un stage de 6 mois au sein de l'équipe ENT / Local GOV dans la Bussiness Unit TPSHR dans l'entreprise CGI. 
 
-Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez dans les annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine par semaine.
+Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez dans les annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.
 
-Etant donné la diversité des taches réalisées, j'ai choisi comme thème de rapport de stage l'automatisation dans un S.I avec un focus sur le déploiement d'une stack de monitoring avec Ansible.
+Etant donné la diversité des tâches réalisées, j'ai choisi comme thème de rapport de stage l'automatisation dans un S.I avec un focus sur le déploiement d'une solution de monitoring avec Ansible.
 
-Aucunes données confidentielles ne sera présenté dans ce rapport.
+Aucunes données confidentielles ne sera présentées dans ce rapport.
 
 Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme Ansible, vSphere, Jira, Confluence, Python, Mariadb, Postgresql, Moodle, Big Blue Button, Jupyter, OpenStack, Kubernetes...
 
-Au-delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et intéragir avec chacune des phases du projet sur le terrain. Cette immersion au sein d'un environnement complexe m'a également appris à être plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement de mes taches auprès de l'équipe que j'ai intégré.
+Au-delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et intéragir avec chacune des phases du projet sur le terrain. 
+Cette immersion au sein d'un environnement complexe m'a également appris à être plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement de mes tâches auprès de l'équipe que j'ai intégré.
 
 
 # Partie 1
@@ -98,16 +99,16 @@ Au cours de son histoire, CGI a réussi une expansion exponentielle et continue 
 
 CGI est l'un des leaders mondiaux du conseil et des services numériques. Avec plus de 40 ans d'expertise et de savoir-faire et présent dans plus de 40 pays, le groupe CGI est implanté dans 21 villes en France avec environs 11 000 salariés.
 
-
-
 L’entreprise est actuellement dirigée par trois personnes :
 - Serge Godin : Fondateur et président exécutif du conseil,
 - André Imbeau : Fondateur et membre du conseil d’administration,
 - George D. Schindler : Président et chef de la direction.
 
-Avec une présence dans 40 pays, une solide expertise dans tous ses marchés cibles et un éventail complet de service en IT, la priorité de CGI reste de satisfaire ses clients. Grace à une approche cohérente, disciplinée et responsable en matière de prestation de services, CGI affiche un bilan inégalé de 95% de projets réalisés dans le respect des échéances prévues et affiche un indice de satisfaction des clients qui est constamment supérieur à 9 sur 10. Ce score de satisfaction couplé à la croissance continue de CGI témoigne de la confiance que ses clients accordent à CGI et du dévouement de ses collaborateurs. 
+Avec une présence dans 40 pays, une solide expertise dans tous ses marchés cibles et un éventail complet de service en IT, la priorité de CGI reste de satisfaire ses clients. Grace à une approche cohérente, disciplinée et responsable en matière de prestation de services, CGI affiche un bilan inégalé de 95% de projets réalisés dans le respect des échéances prévues et affiche un indice de satisfaction des clients qui est constamment supérieur à 9 sur 10. 
+Ce score de satisfaction couplé à la croissance continue de CGI témoigne de la confiance que ses clients accordent à CGI et du dévouement de ses collaborateurs. 
 
-Ceci dans le but de devenir un fournisseur de services complets, d’atteindre des résultats grâce à des ressources mondiales, à une connaissance approfondie de l’industrie, à une stabilité et des professionnels motivés. CGI possède maintenant 6 domaines d’expertises métiers qui sont le Business Consulting, l’intégration de systèmes, l’Outsourcing IT, les Services d’infrastructures, l’Application management et les Business procès services. Ces 6 domaines d’expertises sont répartis dans pas moins de 9 secteurs d’activités.
+Ceci dans le but de devenir un fournisseur de services complets, d’atteindre des résultats grâce à des ressources mondiales, à une connaissance approfondie de l’industrie, à une stabilité et des professionnels motivés. CGI possède maintenant 6 domaines d’expertises métiers qui sont le Business Consulting, l’intégration de systèmes, l’Outsourcing IT, les Services d’infrastructures, l’Application management et les Business procès services. 
+Ces 6 domaines d’expertises sont répartis dans pas moins de 9 secteurs d’activités.
 
 
 CGI est la cinquième plus importante entreprise indépendante en services IT et en gestion des processus d'affaires au monde au service avec plus de 10 000 clients dans le monde dont 500 en France.
@@ -118,59 +119,60 @@ L’implantation de CGI en France résulte de la fusion de CGI avec Logica en 20
 
 La structure de direction de CGI France est centrée autour des clients et chacune de ses activités sont regroupées au sein de Business Units qui sont au cœur même du modèle de CGI
 
-
-
 ## Le contexte de travail
 
-En France, CGI est organisé en différentes Businness Unit: B.U. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe Local GOV, au service des collectivités locales. Local Gov à pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les accès plus directs aux services et permettre un plus grand bénéfice de la dématérialisation.
+En France, CGI est organisé en différentes Businness Unit: B.U. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe Local GOV, au service des collectivités locales. Local Gov a pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les accès plus directs aux services et permettre un plus grand bénéfice de la dématérialisation.
 
-Mon maitre de stage **Mr Thomas Coleno** ainsi que **Mr Laurent Poutou** et **Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire a fait que 99% de mon temps de travail été à distance. A partir du mois de Juillet, nous avons pu nous réunir une fois par semaine dans les locaux de CGI au Haillan.
+Mon maitre de stage **Mr Thomas Coleno** ainsi que **Mr Laurent Poutou** et **Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire actuel a fait que 99% de mon temps de travail été à distance. Grâce aux outils collaboratifs comme Teams et Slack ainsi que la visioconférence ont permis de pouvoir communiquer dans de bonnes conditions. 
+
+Ce contexte m’a forcé à travailler sur mon autonomie. Cela à été pour moi très important car cela m’a poussé à chercher par moi-même et à solliciter mes collègues seulement en cas de difficultés.  C’est très formateur.
+
+Heureusement ,  à partir du mois de Juillet, nous avons pu nous réunir une fois par semaine dans les locaux de CGI au Haillan.
 
 CGI m''a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
 
-
 ## Mes missions
 
-J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. Dans le contexte sanitaire actuel, l'équipe à dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. 
+J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. 
+Dans le contexte sanitaire actuel, l'équipe a dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. 
 
 En annexe, vous trouverez un tableau qui reprend les principaux outils que l'ENT propose.
 
-Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Je vais vous présenter les principales missions ci-dessous :
+Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Je peux définir mon travail durant le stage en 3 points :
 
 - 1. Rapport d'alarmes quotidien
-... Tous les jours je rédigé un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure.
+... Tous les jours je rédigé un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure. 
+Je relevé également les anomalies sur les différentes machines remontées par un antivirus.
 
 - 2. Création de scripts d'automatisation avec Ansible.
-... La grande partie de mon travaille a consisté à automatiser des tâches qui aurait été très chronophage. Mon tuteur **Mr Thomas Colenos** à une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs script Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
+... Une grande partie de mon travail a consisté à automatiser des tâches qui aurait été très chronophage. Mon tuteur **Mr Thomas Colenos** à une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs script Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
 
-- 3. Support de l'équipe sur diverses taches.
+- 3. Support de l'équipe sur diverses tâches.
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.
 
 # Partie 2
 ## Ansible et Automatisation
 
-L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervention humaine. C'est un gain de temps et surtout cela permet de garantir le même résultat pour une opération réalisé n fois avec les mêmes paramètres : c'est le principe d'idempotence
+L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervention humaine. C'est un gain de temps et surtout cela permet de garantir le même résultat pour une opération réalisé n fois avec les mêmes paramètres : c'est le principe d'idempotence.
 
 On passe du temps à écrire des règles d'automatisation mais une fois ces dernières testées et approuvées, on peut s'assurer du résultat et enlever les erreurs humaines (ex; faute de frappe,...)
 
 L'automatisation est un élément clé de l'optimisation de l'environnement informatique dans un monde qui évolue rapidement, c'est donc un rôle essentiel.
-
 
 Ansible est un outil libre qui sert à automatiser la gestion de la configuration, du déploiement et de l’orchestration. Ses points forts :
 
 - pas d'agents à déployer sur les machines
 - permet de déployer des configurations normalisées : la même configuration sur un grand nombre de machine
 - permet de déployer des configurations plus spécifiques : on peut cibler une machine ou un groupe de machines
-- utilisation de SSH pour communiquer les taches d'exécutions sur les machines cibles (pas besoins d'ouvrir de ports spécifiques)
+- utilisation de SSH pour communiquer les tâches d'exécutions sur les machines cibles (pas besoins d'ouvrir de ports spécifiques)
 - utilisation de YAML comme langage
 – Grande communauté. 
 
    Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
 
-- Ansible galaxy: collection de playbook pour un grand nombre de taches. Plus besoin de faire de script bash.
+- Ansible galaxy: collection de playbook pour un grand nombre de tâches. Plus besoin de faire de script bash.
 
-.. Pour des taches comme installer un serveur APACHE, des rôles sont disponibles où seul un paramétrage des variables du playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
-
+.. Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , Cloud). 
 
@@ -182,7 +184,14 @@ Personnellement, je ne vois que des avantages dans ce mode de gestion IaC. C'est
 
 Le fait de pouvoir redéployer son infrastructure et sa configuration grâce des fichiers de configuration est un atout majeur en cas de problème technique. Une réinstallation d'un service peut être réalisé rapidement.
 
+## Différence entre Ansible et Script Bash
+Les scripts Bash sont fréquemment utilisés pour configurer voire automatiser certaines actions. Ecrire des Script en Bash nécessite une bonne connaissance de ce langage de scripting.  De mon point de vue :
+- Bash décrit des actions. (ex : copie tel fichier, réalise telle actions, n’autorise pas telle action ….)
+- Ansible décrit « l’état désiré de la machine » (ex : ce fichier devrait être copié à tel endroit seulement si il n’y est pas déjà, ce service devrait redémarrer seulement si la configuration du service est modifiée, …)
 
+Ansible, à l’inverse de Bash, se soucis plus de l’état que de l’action.  Il permet d’avoir une gestion de la configuration en mode déclarative et idempotente et permet une gestion fiable de l'exécution à distance, avec des nouvelles tentatives, logiques évolutive, …
+De plus le fait de pouvoir relancer le même playbook plusieurs fois permet de surveiller les écarts de configuration. 
+Si un utilisateur venait à modifier la configuration d’un service, le fait de repasser le script Ansible va permettre de remettre la machine à l’état décris dans le script Ansible.
 ## La solution de monitoring
 
 Une de mes missions a été de mettre en place une solution de monitoring déployable par Ansible pour pouvoir surveiller l'infrastructure d'un client. La solution de monitoring retenue a été la suivante :
@@ -193,31 +202,30 @@ Une de mes missions a été de mettre en place une solution de monitoring déplo
 - Loki pour la gestion des logs
 - Promtail pour la récupération des logs
 
-
 ## La stack de monitoring
 
-Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb -  Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs, est une solution efficace, robuste, scalable facilement et extrêmement customisable.
+Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb -  Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs, est une solution efficace, robuste, facilement scalable et extrêmement customisable.
 Nous sommes sur une architecture logicielle sur 3 niveaux :
 
 - la collectes des métriques et des logs
-- le stockage des métriques dans la bdd Influxdb
+- le stockage des métriques dans la base de données Influxdb
 - l'affichage des graphiques dans Grafana
-
 
 ### Telegraf
 
-Telegraf est un agent de récupération de métriques. Un seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées et propose 2 modes de récupération:
+Telegraf est un agent de récupération de métriques. Un seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées et propose 2 modes de récupération :
 
 - push : la métrique est poussée dans Telegraf par le composant qui l’expose
 - pull : Telegraf récupère la métrique en interrogeant le composant qui l’expose (le mode le plus utilisé)
 
 Les métriques sont par la suite insérées dans la Base de données Influxdb
 
-
 ### Influxdb
 
-Influxdb est une Time Series Database (TSDB) écrite en Go. Ces principaux avantages sont:
+Influxdb est une Time Series Database (TSDB) écrite en Go. Ce type de bases de données est employée notamment pour stocker et analyser des données de capteurs ou des logs sur une période donnée.
+Ces données doivent être traitées rapidement une fois entrées dans la base de données. C’est pourquoi InfluxDB intègre un service qui repose sur le protocole NTP Network Time Protocol, pour assurer que l’heure est bien synchrone sur l’ensemble des systèmes et que les logs sont bien traités.
 
+Ces principaux avantages sont:
 - les performances
 - la durée de rétention importante
 - la scalabilité
@@ -227,65 +235,74 @@ Influxdb est une Time Series Database (TSDB) écrite en Go. Ces principaux avant
 
 Loki est un agrégateur de logs, facilement scalable et inspiré de Prometheus (un autre outil de monitoring qui peut remplacer Influxdb dans la stack). Loki utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de les indexer, ce qui rend facile leur manipulation et ordonne leur stockage.
 
-Les journaux reçus de Promtail se composent du même ensemble de labels que celui des métriques d'application. Ce qui permet une meilleure intégration des logs et des métriques
+Les journaux reçus de Promtail se composent du même ensemble de labels que celui des métriques d'applications. Ce qui permet une meilleure intégration des logs et des métriques.
 
 De plus, Loki a besoin de peu de ressources pour fonctionner.
-
 
 ### Promtail
 
 Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées. Il fonctionne en 3 temps :
 
-- Découvre des cibles
-- Attache des tags aux logs
-- pousse les logs vers Loki.
+- Découverte des cibles
+- Attache des tags aux logs pour pouvoir les identifier et les rapprocher facilement
+- Pousse les logs vers Loki.
 
-Promtail est très customisable. Nous verrons plus loin un exemple de configuration
+Promtail est très customisable. Nous verrons plus loin un exemple de configuration.
 
 ### Grafana
 
 Grafana est un outil supervision moderne. Il permet d'exposer sous formes de dashboards les métriques brutes ou agrégées provenant d’Influxdb et les logs provenant de Loki. L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
 
-Grafana fonctionne avec une WEBUI .Ce qui est très utile quand on veut monitorer une infrastructure à distance. Plus besoin d'installer de logiciels complets....
-
+Grafana fonctionne avec une WEBUI . Ce qui est très utile quand on veut monitorer une infrastructure à distance. Plus besoin d'installer de logiciels complets....
 
 ### Mise en place des différents éléments
 
 Point Important : cette stack peut être très facilement installé grâce à Docker. 
 
-Personnellement, j'utilise cette solution sous Docker, le tout orchestré avec K8S pour monitorer mon homelab.
+Personnellement, j'utilise cette solution conteneurisée, le tout orchestré avec K8S pour monitorer mon homelab.
 
-Le choix fait par CGI et d'éviter la conteneurisation pour les environnements de production. Nous sommes donc partis sur une installation en dur des différentes briques de cette stack, le tout déployé par Ansible.
+Le choix fait par CGI et d'éviter la conteneurisation pour les environnements de production. Nous sommes donc partis sur une installation en dur des différentes briques de cette solution qui sera déployéé par Ansible.
 
 Etant donnée la nature sensible des informations, j'illustrerai par des graphiques de mon homelab et présenterez dans ce rapport seulement quelques morceaux que je juge important pour la compréhension du déploiement de cette solution de monitoring.
 
-Vous trouverez en annexes le playbook dans son intégralité.
+Vous pouvez retrouver le Playbook dans son intégralité sur mon compte Github au lien ci-dessous :
+https://github.com/marc-cenon/rapport_de_stage/tree/master/files/monitoring_stack/ansible_grafana_v2
 
-### Infrastrucre à surveiller
+
+### Infrastructure à surveiller
 
 Cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de VM qui comprend :
 
-- serveurs d'applications (Jupyter,Moodle, Drupal, Peertube, ...)
+- serveurs d'applications (Jupyter, Moodle, Drupal, Peertube, ...)
 - serveurs web nginx
 - plusieurs BDD (MariaDB, MongoDb)
 
-Etant donnée la composition de l'infrastructure, Telegraf qui sera déployé sur chaque machine va pouvoir récupérer une grande variété de métriques tels que:
+Etant donnée la composition de l'infrastructure, Telegraf qui sera déployé sur chaque machine, va pouvoir récupérer une grande variété de métriques tels que:
 
-- statistique machines : Mémoire, CPU, Uptime, Stockage, Disk I/O
-- nginx: load, network I/O, traffic, différentes requetes, nombres de connexions,...
+- statistique machines : 
+  - Mémoire
+  - CPU
+  - Uptime
+  - Stockage
+  - Disk I/O
 
-dans un autre temps, Télégraf pour être reconfigurer très facilement pour monitorer les différentes base de donées: 
+- nginx:
+  - load, network I/O
+  - traffic
+  - différentes requêtes
+  - nombres de connexions
+
+Dans un second temps, Télégraf pourra être reconfigurer très facilement pour monitorer les différentes base de données sur des critères tels que: 
 - erreurs
 - SQL commands/sec
 - Heatmap (queries/sec) cache
-- ...
 
-Et Promtail sera en charge de récupérer les logs suivants :
+Promtail sera en charge de récupérer les logs suivants :
 
 - logs système
 - logs applicatifs (nginx principalement)
 
-Tout comme Télégraf, Promtail pourra être reconfigurer pour récupérer les logs de différentes applications comme Moodle, Drupal, Wordpres, ...
+Tout comme Télégraf, Promtail pourra être reconfigurer pour récupérer les logs de différentes applications comme Moodle, Drupal, Jupyter, Wordpress, ...
 
 ### Installation d'Ansible
 
@@ -293,13 +310,12 @@ Ansible est disponible pour un grand nombre de Distribution Linux. Il peut être
 
 Pour l'installer sur CentOs:
 
-
 ```shell
 sudo yum install epel-release   <- ajout du repo
-sudo yum install Ansible   <- installation du packet
+sudo yum install Ansible   <- installation du paquet
 ```
 
-On vérifie la bonne installation d'Ansible et des dépendances:
+On vérifie la bonne installation d'Ansible et des dépendances :
 
 ```shell
 -> % Ansible --version
@@ -324,13 +340,13 @@ ssh fait bien partie des services actif dans le firewall
 ssh-keygen
 ssh-copy-id 'machine_cliente'
 ```
-L'authentification par clé est mise en place. L’environnement de base est configurer.
-
+L'authentification par clé est mise en place. L’environnement de base est configuré.
 
 #### Concepts de base
 
-Avant de présenter les playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
-On définit des rôles, qui contiennent des taches à exécuter à l'aide de différents modules, le tout regroupé dans un playbook, qui va réunir les différents rôles. Comme précisé plus haut, tout est écrit en YAML.
+Avant de présenter le Playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
+On définit des rôles, qui contiennent des tâches à exécuter à l'aide de différents modules, le tout regroupé dans un playbook, qui va réunir les différents rôles. 
+Comme précisé plus haut, tout est écrit en YAML.
 
 Il existe de nombreux modules qui permettent de réaliser toutes les actions imaginables.
 Ansible utilise également des templates, au format jinja2 afin de facilité la création de fichiers de configurations et la gestion des variables.
@@ -359,7 +375,7 @@ roles/
         tasks/            #
             main.yml      #  <--fichier qui va contenir toutes les tâches à effectuer
         handlers/         #
-            main.yml      #  <-- fichier qui va contenir des taches inactives qui seront appliqué si elles sont appelé dans le fichier main.yml avec
+            main.yml      #  <-- fichier qui va contenir des tâches inactives qui seront appliqué si elles sont appelé dans le fichier main.yml avec
         templates/        # 
             ntp.conf.j2   #  <------- c'est ici que les templates utilisés par le rôle sont stockées
         files/            #
@@ -415,7 +431,8 @@ Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des mod
 - création du fichier .service à l'aide d'un template
 - activation du service et redémarrage
 
-Pour ce rôle, l'utilisation de template pour générer le fichier de configuration de Grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml. Voici la tasks du rôle Grafana qui utilise le template crée pour générer le fichier service:
+Pour ce rôle, l'utilisation de template pour générer le fichier de configuration de Grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml. 
+Voici la tasks du rôle Grafana qui utilise le template crée pour générer le fichier service:
 
 
 ```yaml
@@ -425,7 +442,7 @@ Pour ce rôle, l'utilisation de template pour générer le fichier de configurat
     dest: /etc/systemd/system/grafana.service   <- création du service avec le template et les variable dans group_vars/all.yml
 ```
 
-Un autre avantage d'Ansible est l'utilisation de loop 'boucle' pour répéter une même action dans une tache avec des variables différentes. Voici un exemple pour l'ouverture des ports :
+Un autre avantage d'Ansible est l'utilisation de loop 'boucle' pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports :
 
 
 ```yaml
@@ -443,7 +460,7 @@ Un autre avantage d'Ansible est l'utilisation de loop 'boucle' pour répéter un
 
 Avec ces quelques lignes, on ouvre les ports, dans la zone par défaut (car nous n'avons pas renseigné de zone spécifique dans zone), de manière permanente et immédiate.
 
-quand on définit une variable, elle doit avoir la forme suivante : "{{ nom_variable }}" . la valeur de cette variable sera définie dans le fichier de variable de la facon suivante: nom_variable: valeur_variable
+Quand on définit une variable, elle doit avoir la forme suivante : "{{ nom_variable }}" . La valeur de cette variable sera définie dans le fichier de variable de la facon suivante : nom_variable: valeur_variable
 
 
 #### Influxdb
@@ -485,6 +502,15 @@ La condition 'when' nous est très utile car si on décide de modifier un param�
 
 La condition ici nous permets de contourner ce problème et de redéployer le playbook avec la nouvelle configuration.
 
+Le fonctionnement d’Ansible s’appuie sur des modules. Il se peut que dans certains cas la configuration d’un service ne peux se faire avec module. Ansible dispose de 3 modules qui vont permettre de contourner ce problème. Il s’agit des modules
+- raw : exécute une commande de bas niveau. Très utile pour déployer de la configuration sur des machines dépourvu d’interpréteur, ou sur des machines spécifiques comment des switchs, routeurs,…
+- shell: exécute une commande sur une machine distante dans un SHELL en s’appuyant sur les force du SHELL (ex : | n’est pas possible avec command)
+- command: exécute une commande sur une machine distante
+
+Dans le cas d’influxdb, la configuration ne peut se faire qu’avec une commande SHELL et la condition WHEN permet de s’assurer que le playbook n’échoue s’il est relancé car la BDD est déjà configurée.
+
+Ansible permet d’apporter cette sécurité que BASH n’a pas nativement. C’est le point que je mettais en avant plus haut dans ce rapport.
+
 
 #### Telegraf
 
@@ -496,7 +522,7 @@ Pour compléter notre stack TIG, il nous reste à déployer le rôle pour Telegr
 - création d'un fichier de configuration et d’un service avec un template
 - activation du service
 
-Les étapes sont sensiblement les mêmes que pour Grafana et Influxdb. Le point important ici est le fichier de configuration. Une partie de la configuration sera la même pour toutes les machines: %CPU, %MEM, uptime, %sdd,...
+Les étapes sont sensiblement les mêmes que pour Grafana et Influxdb. Le point important ici est le fichier de configuration. Une partie de la configuration sera la même pour toutes les machines : %CPU, %RAM, uptime, %SDD, ...
 
 En fonction des spécificités des machines, la configuration sera à affiner pour récupérer des métriques spécifiques comme des métriques sur nginx, apache, mariadb, moodle, peertube, ...
 
@@ -508,7 +534,7 @@ Pour cela, 2 stratégies sont possibles.
 
  C'est le deuxième choix qui semble le plus avantageux et le plus logique d’un point de vue automatisation.
 
-Quand il y a de la configuration spécifique à un groupe de machine, il suffit de définir ces variable adéquates dans un fichier dans un dossier qui porte le nom du groupe de machine dans le dosser group_vars.
+Quand il y a de la configuration spécifique à un groupe de machine, il suffit de définir les variables adéquates dans un fichier dans un dossier qui porte le nom du groupe de machine dans le dosser group_vars.
 
 Par exemple, pour le groupe de machine Peertube, nous avons le dossier suivant : inventory/group_vars/peertube
 Dans ce dossier le fichier main.yml comprend des valeurs de variable qui seront appliquées seulement aux machines du groupe Peertube, définies dans le fichier /inventory/host.yml
@@ -518,18 +544,15 @@ Ainsi, on peut déployer en une seule fois une application, avec une configurati
 
 C'est également ce fonctionnement qui sera utilisé pour le déploiement de la configuration de Promtail.
 
-
 #### Promtail
 
 L'installation de Promtail suit le même schéma que Telegraf. Comme cet agent sera déployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
 
-La configuration spécifique se trouve dans le même fichier que pour les configuration spécifique de Télégraf.
-
+La configuration spécifique se trouve dans le même fichier que pour les configurations spécifiques de Télégraf.
 
 #### Loki
 
 L'installation de Loki est identique à celle de Grafana et de Promtail. Il n'y a pas de difficultés majeures ou de point spécifique en mettre en avant.
-
 
 ### Le fichier playbook.yml
 
@@ -588,7 +611,8 @@ On a beaucoup de flexibilité et de modularité dans le fichier host pour créer
 
 ### Utilisation du langage Flux avec Influxdb
 
-Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de données idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes. Du fait que ce type de bdd traite une très grande quantité d'informations, et dans un temps très courts, la gestion des données est différente à celle d’une base de données relationnelle. 
+Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de données idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes. 
+Ce type de BDD permet de traiter une très grande quantité d'informations, et dans un temps très courts, la gestion des données est différente à celle d’une base de données relationnelle. 
 
 Les bases de données temporelles disposent de règles de retentions que l'administrateur décide afin de choisir la quantité d'information à stocker/recycler.
 
@@ -630,7 +654,7 @@ from(bucket: "bucket-vm")
 
 Influxdb dispose également d'une WEBUI qui permet de faciliter grandement la création de requêtes complexes. Il suffit de choisir les critères dans le menu et d'importer la requête dans Grafana, qui nous permettra de visualiser le résultat avec un graphique très customisable.
 
-L'ensemble des requêtes du playbook est également disponible de le fichier dashboard.json.
+L'ensemble des requêtes du playbook est également disponible dans le fichier dashboard.json.
 
 Flux est un langage très puissant mais le WEBUI d'Influxdb permet d'arriver au même résultat rapidement et de gérer les buckets et la politique de rétention des données très facilement. 
 
@@ -669,9 +693,9 @@ en voici un autre pour les logs nginx :
  
 Une template est utilisé pour configurer les scrape jobs en fonction des différents groupes de machine. Le template est dans le dossier template du rôle Promtail et les variables sont définies dans les sous-dossiers qui portent le nom de chaque groupe, dans le dossier group_vars.
 
-Attention: Il faut s'assurer que Promtail a les droits necessaires pour lire les logs que nous voulons remonter dans Loki puis Grafana. Bien souvent les logs système sont défnis avec un mod 640 
+Attention : Il faut s'assurer que Promtail a les droits nécessaires pour lire les logs que nous voulons remonter dans Loki puis Grafana. Bien souvent les logs système sont définis avec un mod 640 
 
-Il faut donc penser à configurer les authorisations nécessaires pour Promtail.
+Il faut donc penser à configurer les autorisations nécessaires pour Promtail.
 
 
 ### Ajout des datastores dans Grafana
@@ -684,7 +708,6 @@ Cette action est réalisée dans les options de Grafana en lui indiquant le chem
 ### Importation du dashboard
 
 Le playbook contient également un Dashboard que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu a gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
-
 
 Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suffit d'aller dans explorer puis de sélectionner Loki comme data source et nous trouver les logs que Promtail à récupérer.
 
@@ -736,7 +759,8 @@ Le serveur étant configurer, il ne reste plus qu'a configurer les alertes dans 
 
 (Voir annexe pour tableau)
 
-Par exemple, pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85% 
+Par exemple, pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85%.
+
 Le WEBUI de Grafana facilite grandement la création d'alertes.
 
 Voici un exemple de requête :
@@ -757,23 +781,24 @@ Message: alerte dépassement mémoire
 (Voir annexe)
 
 Un outil de monitoring n'est utile que s’il est bien configuré. Un AdminSys ne va pas passer son temps à regarder des graphs de monitoring. 
+
 En créant des alertes sur des points importants, on recoit une notification afin d'agir sur le problème et d'être plus efficace sur d'autres tâches de travail.
 
 
 ## Rendre le service accessible depuis l'extérieur
 
 Le dernier point important de ce projet à été de rendre Grafana accessible depuis l'extérieur afin d'avoir acces au monitoring même en dehors du réseau interne. 
-Plusieurs éléments étaient à prendre en compte pour y arriver:
+Plusieurs éléments étaient à prendre en compte pour y arriver :
 
 ### Configuration d'OVH
-CGI utilise OVH pour la majeure partie de son infrastructure. J'ai du configurer:
+CGI utilise OVH pour la majeure partie de son infrastructure. J'ai dû configurer :
 - Dans la zone dns, creation d'une entrée A qui lie une ip publique au nom de domaine choisi pour accéder à grafana 
 
 ### Configuration dans Vsphere:
-L'infrastructure tourne sous ESXI avec NSX et Vsphere pour fournir une interface graphique et les API REST pour la creation ,la configration et la surveillance des composants tels que les contrôleurs, commutateurs logiques, ....
+L'infrastructure tourne sous ESXI avec NSX et Vsphere pour fournir une interface graphique et les API REST pour la création , la configuration et la surveillance des composants tels que les contrôleurs, commutateurs logiques, ....
 
-Grâce à Vsphere et NSX, on peut configureur depuis un navigateur Web les VM, Firewall, Règles NAT, LoadBalancing, Vlan, .... 
-C'est avec cet outils que j'ai créée la VM de Monitoring où est installé Grafana - Influxdb - Loki ( ainsi que telegraf et promtail pour exposer les info de la machine de monitoring dans Grafana.)
+Grâce à Vsphere et NSX, on peut configurer depuis un navigateur Web les VM, Firewall, Règles NAT, LoadBalancing, Vlan, .... 
+C'est avec cet outils que j'ai créé la VM de Monitoring où est installé Grafana - Influxdb - Loki (ainsi que telegraf et promtail pour exposer les informations de la machine de monitoring dans Grafana.)
 
 Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici les étapes principales pour la configuration de la VM:
 
@@ -788,13 +813,14 @@ Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici 
   - configuration du contrôleur pour accéder au nouveau VLAN
 
 - Configuration des règles dans le firewall
-  - Ajout d'une dispositif NSX Edge Services Gateway
+  - Ajout d’un dispositif NSX Edge Services Gateway
   - Selection de la taillde du dispositif (nombre de Vcpu, Ram)
   - Configuration de l'interface principale avec son addresse IP Principale
   - affectation au bon VM Network
   - Configuration de la Passerelle
   - Rajout des Certificats WildCard dans la configuration du firewall NSX Edge
-- Pour la configuration:
+
+- Pour la configuration :
   - Ajout de l'interface pour que le controleur puisse acceder aux machines qui seronts dans le Firewall
   - Creation du groupe d'IP
   - Création des règles d'entrée/sorties (IPTABLE)
@@ -820,7 +846,7 @@ Ansible est une technologie qui m'intéresse beaucoup et je suis très content d
 - Configuration d'un pool de machine Big Blue Button
 - Déploiement d'une infrastructure complexe ( nginx, apache, drupal, mariabd, moodle, python )
 
-Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable à pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible.
+Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible.
 
 
 # Conclusion 
@@ -835,9 +861,10 @@ Le contexte actuel sanitaire a fait que j'étais en télétravail 99% du temps, 
 
 En parallèle de ce stage, j'ai choisi de passer des certifications afin de valider mes compétences. J'ai obtenu une certification en cybersécurité (comptia security +), une certification sur Kubernetes (CKA: certified kubernetes administrator)  Je passe fin Septembre la certification RHCE (Red Hat Certified Engeneer). 
 
-Cette derniere certification est le prolongement logique de ce que j’ai fait durant mon stage. En effet, cette certification est très pointue et elle est orientée sur l’automatisation et la très bonne maitrise d’Ansible pour administrer un S.I.
+Cette dernière certification est le prolongement logique de ce que j’ai fait durant mon stage. En effet, cette certification est très pointue et elle est orientée sur l’automatisation et la très bonne maitrise d’Ansible pour administrer un S.I.
 
-Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingenieur Consultant et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
+Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingénieur Consultant et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
+
 
 
 # Annexes
