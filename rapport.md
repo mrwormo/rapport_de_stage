@@ -926,22 +926,24 @@ Exemple d'alertes
 
 Récapitulatifs des tâches réalisées
 
-| semaine  | actions |
+| semaine       | actions       |
 | ------------- | ------------- |
-| Semaine 1 |   repérage, prise en main de l'infrastructure et des outils de travail | 
-| Semaine 2 |   creation de machines BBB et configuration (Openstack - BBB) | 
-| Semaine 3 |   creation de machines BBB et configuration (Openstack - BBB) | 
-| Semaine 4 |  scrit Ansible pour le deployment de la configuration des BBB | 
-| Semaine 5 |   script Ansible Monitoring grafana influxdv promtail loki | 
-| Semaine 6 |   script Ansible Monitoring grafana influxdv promtail loki + docu | 
-| Semaine 7 |   script apache | 
-| Semaine 8 |   script bash, python et ansible | 
-| Semaine 9 |   script python et ansible _ suppression mail Zimbra | 
-| Semaine 10 |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb, Python | 
-| Semaine 11 |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb, Python | 
-| Semaine 12 |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb, Python | 
-| Semaibe 13 |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb , Python __ did not finish nginx et API | 
-| Semaine 14 |  Creationde VLANS dans VSPHERENSX Edge, firewall, et VM - installation de Jupyter hub | 
-| Semaine 15 |  renouvellement certificats sur vm et sur NSX Edge, creation de vm Moodle et Jupyter | 
-| Semaine 16 |  absence enterrement, creation de moodle preprod et prod pour la region Normandie (Postgres, Apache, Moodle) | 
-| Semaine 17 |  Montée en version de Peertube pour GDA et CRIF, Mise à jour docker Riot pour CRNA, mise en place d'un Jupyter Hub sous Kubernetes | 
+| Semaine 1    |   repérage, prise en main de l'infrastructure et des outils de travail | 
+| Semaine 2    |   creation de machines BBB et configuration (Openstack - BBB) | 
+| Semaine 3    |   creation de machines BBB et configuration (Openstack - BBB) | 
+| Semaine 4    |  scrit Ansible pour le deployment de la configuration des BBB | 
+| Semaine 5    |   script Ansible Monitoring grafana influxdv promtail loki | 
+| Semaine 6    |   script Ansible Monitoring grafana influxdv promtail loki + docu | 
+| Semaine 7    |   script apache | 
+| Semaine 8    |   script bash, python et ansible | 
+| Semaine 9    |   script python et ansible _ suppression mail Zimbra | 
+| Semaine 10   |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb, Python | 
+| Semaine 11   |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb, Python | 
+| Semaine 12   |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb, Python | 
+| Semaibe 13   |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb , Python __ did not finish nginx et API | 
+| Semaine 14   |  Creationde VLANS dans VSPHERENSX Edge, firewall, et VM - installation de Jupyter hub | 
+| Semaine 15   |  renouvellement certificats sur vm et sur NSX Edge, creation de vm Moodle et Jupyter | 
+| Semaine 16   |  absence enterrement, creation de moodle preprod et prod pour la region Normandie (Postgres, Apache, Moodle) | 
+| Semaine 17   |  Montée en version de Peertube pour GDA et CRIF, Mise à jour docker Riot pour CRNA, mise en place d'un Jupyter Hub sous Kubernetes | 
+| Semaine 18   |  Création d'un proxy pour BBB, configuration php pour moodle, NSX Edge, troubleshooting Jupyter | 
+
