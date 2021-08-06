@@ -10,6 +10,9 @@ web: https://marc-cenon.github.io/my_resume/
 
 mail: marc.cenon33@gmail.com
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 # Table des matieres
 
 - [Remerciements](#remerciements)
@@ -84,6 +87,9 @@ Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participe
 Au-delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et intéragir avec chacune des phases du projet sur le terrain. 
 Cette immersion au sein d'un environnement complexe m'a également appris à être plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement de mes tâches auprès de l'équipe que j'ai intégré.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 # Partie 1
 ## Présentation de CGI
@@ -119,6 +125,10 @@ L’implantation de CGI en France résulte de la fusion de CGI avec Logica en 20
 
 La structure de direction de CGI France est centrée autour des clients et chacune de ses activités sont regroupées au sein de Business Units qui sont au cœur même du modèle de CGI
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
+
 ## Le contexte de travail
 
 En France, CGI est organisé en différentes Businness Unit: B.U. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe Local GOV, au service des collectivités locales. Local Gov a pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les accès plus directs aux services et permettre un plus grand bénéfice de la dématérialisation.
@@ -130,6 +140,10 @@ Ce contexte m’a forcé à travailler sur mon autonomie. Cela à été pour moi
 Heureusement ,  à partir du mois de Juillet, nous avons pu nous réunir une fois par semaine dans les locaux de CGI au Haillan.
 
 CGI m''a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
+
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ## Mes missions
 
@@ -149,6 +163,10 @@ Je relevé également les anomalies sur les différentes machines remontées par
 
 - 3. Support de l'équipe sur diverses tâches.
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.
+
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 # Partie 2
 ## Ansible et Automatisation
@@ -184,6 +202,10 @@ Personnellement, je ne vois que des avantages dans ce mode de gestion IaC. C'est
 
 Le fait de pouvoir redéployer son infrastructure et sa configuration grâce des fichiers de configuration est un atout majeur en cas de problème technique. Une réinstallation d'un service peut être réalisé rapidement.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
+
 ## Différence entre Ansible et Script Bash
 Les scripts Bash sont fréquemment utilisés pour configurer voire automatiser certaines actions. Ecrire des Script en Bash nécessite une bonne connaissance de ce langage de scripting.  De mon point de vue :
 - Bash décrit des actions. (ex : copie tel fichier, réalise telle actions, n’autorise pas telle action ….)
@@ -192,6 +214,7 @@ Les scripts Bash sont fréquemment utilisés pour configurer voire automatiser c
 Ansible, à l’inverse de Bash, se soucis plus de l’état que de l’action.  Il permet d’avoir une gestion de la configuration en mode déclarative et idempotente et permet une gestion fiable de l'exécution à distance, avec des nouvelles tentatives, logiques évolutive, …
 De plus le fait de pouvoir relancer le même playbook plusieurs fois permet de surveiller les écarts de configuration. 
 Si un utilisateur venait à modifier la configuration d’un service, le fait de repasser le script Ansible va permettre de remettre la machine à l’état décris dans le script Ansible.
+
 ## La solution de monitoring
 
 Une de mes missions a été de mettre en place une solution de monitoring déployable par Ansible pour pouvoir surveiller l'infrastructure d'un client. La solution de monitoring retenue a été la suivante :
@@ -201,6 +224,10 @@ Une de mes missions a été de mettre en place une solution de monitoring déplo
 - Telegraf pour la collecte des métriques
 - Loki pour la gestion des logs
 - Promtail pour la récupération des logs
+
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ## La stack de monitoring
 
@@ -255,6 +282,10 @@ Grafana est un outil supervision moderne. Il permet d'exposer sous formes de das
 
 Grafana fonctionne avec une WEBUI . Ce qui est très utile quand on veut monitorer une infrastructure à distance. Plus besoin d'installer de logiciels complets....
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
+
 ### Mise en place des différents éléments
 
 Point Important : cette stack peut être très facilement installé grâce à Docker. 
@@ -268,6 +299,9 @@ Etant donnée la nature sensible des informations, j'illustrerai par des graphiq
 Vous pouvez retrouver le Playbook dans son intégralité sur mon compte Github au lien ci-dessous :
 https://github.com/marc-cenon/rapport_de_stage/tree/master/files/monitoring_stack/ansible_grafana_v2
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ### Infrastructure à surveiller
 
@@ -303,6 +337,10 @@ Promtail sera en charge de récupérer les logs suivants :
 - logs applicatifs (nginx principalement)
 
 Tout comme Télégraf, Promtail pourra être reconfigurer pour récupérer les logs de différentes applications comme Moodle, Drupal, Jupyter, Wordpress, ...
+
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ### Installation d'Ansible
 
@@ -341,6 +379,10 @@ ssh-keygen
 ssh-copy-id 'machine_cliente'
 ```
 L'authentification par clé est mise en place. L’environnement de base est configuré.
+
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 #### Concepts de base
 
@@ -393,6 +435,9 @@ roles/
 
 Il est important de respecter une structure et de s'y tenir car un projet peut contenir rapidement beaucoup de fichiers
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ## Le Playbook
 ### Organisation
@@ -416,6 +461,9 @@ Il est également possible de redéployer seulement un rôle en précisant le ta
 ```shell
 Ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ```
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ### Les différents rôles
 #### Grafana
@@ -462,6 +510,9 @@ Avec ces quelques lignes, on ouvre les ports, dans la zone par défaut (car nous
 
 Quand on définit une variable, elle doit avoir la forme suivante : "{{ nom_variable }}" . La valeur de cette variable sera définie dans le fichier de variable de la facon suivante : nom_variable: valeur_variable
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 #### Influxdb
 
@@ -511,6 +562,9 @@ Dans le cas d’influxdb, la configuration ne peut se faire qu’avec une comman
 
 Ansible permet d’apporter cette sécurité que BASH n’a pas nativement. C’est le point que je mettais en avant plus haut dans ce rapport.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 #### Telegraf
 
@@ -544,11 +598,16 @@ Ainsi, on peut déployer en une seule fois une application, avec une configurati
 
 C'est également ce fonctionnement qui sera utilisé pour le déploiement de la configuration de Promtail.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
+
 #### Promtail
 
 L'installation de Promtail suit le même schéma que Telegraf. Comme cet agent sera déployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
 
 La configuration spécifique se trouve dans le même fichier que pour les configurations spécifiques de Télégraf.
+
 
 #### Loki
 
@@ -571,6 +630,9 @@ Le playbook var regrouper les différents rôles afin de les exécuter à la sui
 
 On répète le même schéma pour les autres rôles.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ### le fichier host.yml
 
@@ -607,6 +669,10 @@ all:
 ```
 
 On a beaucoup de flexibilité et de modularité dans le fichier host pour créer des groupes et des sous-groupes. Cela nous permet de pouvoir déployer de la configuration avec une très grande précision et de cibler une ou un groupe de machines.
+
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 
 ### Utilisation du langage Flux avec Influxdb
@@ -660,6 +726,9 @@ Flux est un langage très puissant mais le WEBUI d'Influxdb permet d'arriver au 
 
 En effet, il est important de gérer la rotation du stockage des données car en fonction du nombre de machines, du nombre de critères de monitoring et de l'intervalle de récupération des métriques, le volume de donnée stocké peut rapidement être important.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ### Exemple de configuration de Promtail.
 
@@ -697,6 +766,9 @@ Attention : Il faut s'assurer que Promtail a les droits nécessaires pour lire l
 
 Il faut donc penser à configurer les autorisations nécessaires pour Promtail.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ### Ajout des datastores dans Grafana
 
@@ -711,6 +783,10 @@ Le playbook contient également un Dashboard que j'ai créé précédemment et q
 
 Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suffit d'aller dans explorer puis de sélectionner Loki comme data source et nous trouver les logs que Promtail à récupérer.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
+
 
 ### Utilisation de Grafana
 
@@ -719,6 +795,7 @@ Grafana permet de créer des alertes en fonction de critères choisis par l'admi
 C'est très utile pour surveiller l'espace disque. L'administrateur va définir un seuil d'alerte (ex: 80% Plein) et quand il est atteint, un mail est envoyé.
 
 Plutôt qu'un mail, il est possible de créer des alertes dans Teams, ou Slack en configurant des webhooks.
+
 
 #### Exemple de configuration pour une alerte
 
@@ -784,6 +861,9 @@ Un outil de monitoring n'est utile que s’il est bien configuré. Un AdminSys n
 
 En créant des alertes sur des points importants, on recoit une notification afin d'agir sur le problème et d'être plus efficace sur d'autres tâches de travail.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ## Rendre le service accessible depuis l'extérieur
 
@@ -830,6 +910,9 @@ Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici 
 
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en TLS.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 ## Conclusion sur ce projet
 
@@ -848,6 +931,9 @@ Ansible est une technologie qui m'intéresse beaucoup et je suis très content d
 
 Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible.
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 # Conclusion 
 
@@ -866,6 +952,9 @@ Cette dernière certification est le prolongement logique de ce que j’ai fait 
 Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingénieur Consultant et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
 
 
+<div style="page-break-after: always; visibility: hidden"> 
+\pagebreak 
+</div>
 
 # Annexes
 
