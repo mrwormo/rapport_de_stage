@@ -11,8 +11,13 @@ web: https://marc-cenon.github.io/my_resume/
 mail: marc.cenon33@gmail.com
 
 <div style="page-break-after: always; visibility: hidden"> 
-\pagebreak 
+  \pagebreak 
 </div>
+
+<div style="page-break-after: always; visibility: hidden"> 
+  \pagebreak 
+</div>
+
 # Table des matieres
 
 - [Remerciements](#remerciements)
