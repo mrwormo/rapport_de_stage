@@ -1,9 +1,11 @@
 
 <img src="https://github.com/marc-cenon/rapport_de_stage/blob/master/images/logo-ansible.png" width="200" height="100"> <img src="https://github.com/marc-cenon/rapport_de_stage/blob/master/images/grafana.png" width="250" height="100"> <img src="https://github.com/marc-cenon/rapport_de_stage/blob/master/images/logo-centos.png" width="200" height="100"> <img src="https://github.com/marc-cenon/rapport_de_stage/blob/master/images/vmware.png" width="250" height="100"> <img src="https://github.com/marc-cenon/rapport_de_stage/blob/master/images/cgi.png" width="200" height="100">
 
-![Ansible](images/logo-ansible.png "Ansible"){ width=50% } ![Grafana](images/grafana.png "Grafana"){ width=50% } 
-![Centos](images/logo-centos.png "centos"){ width=50% } ![CGI](images/cgi.png "cgi"){ width=50% }
-![Vmware](images/vmware.png "vmware"){ width=50% }
+![Ansible|50x50](images/logo-ansible.png "Ansible")
+![Grafana](images/grafana.png "Grafana")
+![Centos](images/logo-centos.png "centos")
+![CGI](images/cgi.png "cgi")
+![Vmware](images/vmware.png "vmware")
 
 # Automatisation dans un S.I
 Marc Cenon
