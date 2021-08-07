@@ -1,22 +1,24 @@
-
-![Logos](images/icons.png "logos")
-
-
-# Automatisation dans un S.I
-Marc Cenon
-
-Stage du 12/04/2021 au 31/12/2021
-
-web: https://marc-cenon.github.io/my_resume/
-
-mail: marc.cenon33@gmail.com
-
+---
+title: Automatisation dans un S.I et mise en place d'une Solution de Monitoring
+subtitle: Université de Bordeaux
+author: 
+  - Marc Cenon
+abstract: |
+     marc.cenon33@gmail.com
+     site web
+date: December 7th, 2018
+output: pdf_document
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+  - \posttitle{\end{center}}
+  - \usepackage[usefilenames,DefaultFeatures={Ligatures=Common}]{plex-otf}.%
+  - \renewcommand*\familydefault{\ttdefault}
+  -  \titlegraphic{\centering \includegraphics[width=12cm]{images/icons.png}}
+---
 \pagebreak
-
 \tableofcontents
-
 \pagebreak
-
 # Remerciements
 
 Tout d’abord, je voudrais remercier mon maître de stage, **Mr Thomas Coleno **. Il a su me faire confiance et a partagé ses connaissances de manière très pédagogique. Je le remercie aussi pour sa disponibilité et la qualité de son encadrement en entreprise.
@@ -35,6 +37,8 @@ Je tiens à remercier également le corps enseignant de l'Université, notamment
 
 Ils ont toujours été très disponible et impliqué dans la réussite de chacun des étudiants de la promotion.
 
+\pagebreak
+
 # Introduction
 
 Dans le cadre de la Licence professionnelle ADSILLH, j'ai effectué un stage de 6 mois au sein de l'équipe ENT / Local GOV dans la Bussiness Unit TPSHR dans l'entreprise CGI. 
@@ -52,7 +56,6 @@ Au-delà du gain en compétences techniques, l'immersion au sein d'un processus 
 Cette immersion au sein d'un environnement complexe m'a également appris à être plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement de mes tâches auprès de l'équipe que j'ai intégré.
 
 \pagebreak
-
 
 # Partie 1
 ## Présentation de CGI
@@ -88,8 +91,6 @@ L’implantation de CGI en France résulte de la fusion de CGI avec Logica en 20
 
 La structure de direction de CGI France est centrée autour des clients et chacune de ses activités sont regroupées au sein de Business Units qui sont au cœur même du modèle de CGI
 
-\pagebreak 
-
 ## Le contexte de travail
 
 En France, CGI est organisé en différentes Businness Unit: B.U. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe Local GOV, au service des collectivités locales. 
@@ -106,7 +107,7 @@ Le fait de pouvoir télétravailler pour moi a été une réelle découverte com
 
 Le télétravail m’a permis de trouver un certain confort pour équilibrer le contexte professionnel et personnel.
 
-CGI m'a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
+\pagebreak
 
 ## Mes missions
 
@@ -129,7 +130,7 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
 -  Support de l'équipe sur diverses tâches.
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.
 
-\pagebreak 
+\pagebreak
 
 # Partie 2
 ## Ansible et Automatisation
@@ -148,11 +149,8 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 - utilisation de SSH pour communiquer les tâches d'exécutions sur les machines cibles (pas besoins d'ouvrir de ports spécifiques)
 - utilisation de YAML comme langage
 – Grande communauté. 
-
    Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
-
 - Ansible Galaxy: collection de playbook pour un grand nombre de tâches. Plus besoin de faire de script bash.
-
 .. Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , Cloud). 
@@ -179,10 +177,6 @@ De plus le fait de pouvoir relancer le même playbook plusieurs fois permet de s
 
 Si un utilisateur venait à modifier la configuration d’un service, le fait de repasser le script Ansible va permettre de remettre la machine à l’état décris dans le script Ansible.
 
-\pagebreak 
-
-
-
 
 ## La solution de monitoring
 
@@ -203,6 +197,8 @@ Nous sommes sur une architecture logicielle sur 3 niveaux :
 - la collectes des métriques et des logs
 - le stockage des métriques dans la base de données Influxdb
 - l'affichage des graphiques dans Grafana
+
+\pagebreak
 
 ### Telegraf
 
@@ -233,8 +229,6 @@ Les journaux reçus de Promtail se composent du même ensemble de labels que cel
 De plus, Loki a besoin de peu de ressources pour fonctionner.
 
 
-\pagebreak
-
 ### Promtail
 
 Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées. Il fonctionne en 3 temps :
@@ -244,6 +238,8 @@ Promtail est un agent qui expédie les logs vers une instance Loki. Il est dépl
 - Pousse les logs vers Loki.
 
 Promtail est très customisable. Nous verrons plus loin un exemple de configuration.
+
+\pagebreak
 
 ### Grafana
 
@@ -265,7 +261,7 @@ Etant donnée la nature sensible des informations, j'illustrerai par des graphiq
 Vous pouvez retrouver le Playbook dans son intégralité sur mon compte Github au lien ci-dessous :
 https://github.com/marc-cenon/rapport_de_stage/tree/master/files/monitoring_stack/ansible_Grafana_v2
 
-\pagebreak 
+\pagebreak
 
 ### Infrastructure à surveiller
 
@@ -302,9 +298,7 @@ Promtail sera en charge de récupérer les logs suivants :
 
 Tout comme Télégraf, Promtail pourra être reconfigurer pour récupérer les logs de différentes applications comme Moodle, Drupal, Jupyter, Wordpress, ...
 
-\pagebreak 
-
-
+\pagebreak
 
 ### Installation d'Ansible
 
@@ -359,10 +353,9 @@ echo “ UTILISATEUR_ANSIBLE ALL=(ALL) NOPASSWD: ALL” >> /etc/sudoers.d/UTILIS
 
 L’environnement de base est configuré.
 
+\pagebreak
 
-\pagebreak 
-
-#### Concepts de base
+### Concepts de base
 
 
 Avant de présenter le Playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
@@ -412,8 +405,6 @@ roles/
 
 Il est important de respecter une structure et de s'y tenir car un projet peut contenir rapidement beaucoup de fichiers. Un projet Ansible comporte les éléments suivants :
 
-\pagebreak
-
 Un fichier Playbook qui va contenir l’ensemble des rôles et des tâches à executer.
 
 Un dossier **inventory** :
@@ -451,8 +442,6 @@ Ce qui donne par exemple :
 ```shell
 Ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ```
-
-\pagebreak 
 
 ### Les différents rôles
 #### Grafana
@@ -505,9 +494,6 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
-\pagebreak
-
-
 Les parties intéressantes de ce template sont les parties entre accolade  **{{ }}**. La variable {{ Grafana_account_name }} va être populé par la valeur dans le fichier de variable dans **/inventory/group_vars/all.yml**
 
 
@@ -536,7 +522,6 @@ Ici, on utilise le module **firewalld** et la une fonction **with_items** ( on p
 
 Avec ces quelques lignes, on ouvre les ports, dans la zone par défaut (car nous n'avons pas renseigné de zone spécifique dans zone), de manière permanente et immédiate.
 
-\pagebreak 
 
 #### Influxdb
 
@@ -589,8 +574,6 @@ Le fonctionnement d’Ansible s’appuie sur des modules. Il se peut que dans ce
 Dans le cas d’Influxdb, la configuration ne peut se faire qu’avec une commande SHELL et la condition WHEN permet de s’assurer que le playbook n’échoue s’il est relancé car la BDD est déjà configurée.
 
 
-\pagebreak 
-
 #### Telegraf
 
 Pour compléter notre stack TIG, il nous reste à déployer le rôle pour Telegraph. Il sera installé sur toutes les machines à surveiller. Les étapes du rôle sont les suivantes :
@@ -636,8 +619,6 @@ La configuration spécifique se trouve dans le même fichier que pour les config
 
 L'installation de Loki est identique à celle de Grafana et de Promtail. Il n'y a pas de difficultés majeures ou de point spécifique en mettre en avant.
 
-
-\pagebreak
 
 ### Le fichier playbook.yml
 
@@ -698,8 +679,6 @@ all:
 
 On a beaucoup de flexibilité et de modularité dans le fichier host pour créer des groupes et des sous-groupes. Cela nous permet de pouvoir déployer de la configuration avec une très grande précision et de cibler une machine ou un groupe de machines.
 
-\pagebreak 
-
 
 ### Utilisation du langage Flux avec Influxdb
 
@@ -754,7 +733,7 @@ Flux est un langage très puissant mais le WEBUI d'Influxdb permet d'arriver au 
 
 En effet, il est important de gérer la rotation du stockage des données car en fonction du nombre de machines, du nombre de critères de monitoring et de l'intervalle de récupération des métriques, le volume de donnée stocké peut rapidement être important.
 
-\pagebreak 
+ 
 
 ### Exemple de configuration de Promtail.
 
@@ -805,8 +784,6 @@ Cette action est réalisée dans les options de Grafana en lui indiquant le chem
 Le playbook contient également un Dashboard que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu a gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
 
 Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suffit d'aller dans explorer puis de sélectionner Loki comme data source et nous trouver les logs que Promtail à récupérer.
-
-\pagebreak 
 
 
 ### Utilisation de Grafana
@@ -860,7 +837,7 @@ Le serveur étant configurer, il ne reste plus qu'a configurer les alertes dans 
 
 Pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85%.
 
-\pagebreak
+
 
 Le WEBUI de Grafana facilite grandement la création d'alertes.
 
@@ -889,8 +866,6 @@ Cela peut également nous permettre d’anticiper certaines actions comme par ex
 
 Cet outil de monitoring nous permet d’avoir une grande visibilité sur l’infrastructure et sur les actions à entreprendre pour anticiper les problèmes.
 
-
-\pagebreak 
 
 ## Rendre le service accessible depuis l'extérieur
 
@@ -936,7 +911,6 @@ Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici 
 
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en TLS.
 
-\pagebreak 
 
 ## Conclusion sur ce projet
 
@@ -954,7 +928,6 @@ Ansible est une technologie qui m'intéresse beaucoup et je suis très content d
 
 Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible.
 
-\pagebreak 
 
 # Conclusion 
 
@@ -973,9 +946,6 @@ En parallèle de ce stage, j'ai choisi de passer des certifications afin de vali
 Cette dernière certification est le prolongement logique de ce que j’ai fait durant mon stage. Elle est très pointue et elle est orientée sur l’automatisation et la très bonne maitrise d’Ansible pour administrer un S.I.
 
 Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingénieur et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
-
-
-\pagebreak 
 
 
 # Annexes
