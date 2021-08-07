@@ -11,11 +11,50 @@ web: https://marc-cenon.github.io/my_resume/
 
 mail: marc.cenon33@gmail.com
 
-\pagebreak
+# Table des matieres
 
-\tableofcontents
+- [Remerciements](#remerciements)
+- [Introduction](#introduction)
+- [Partie 1](#partie-1)
+  - [Présentation de CGI](#présentation-de-cgi)
+  - [Le contexte de travail](#le-contexte-de-travail)
+  - [Mes missions](#mes-missions)
+- [Partie 2](#partie-2)
+  - [Ansible et Automatisation](#ansible-et-automatisation)
+  - [La solution de monitoring](#la-solution-de-monitoring)
+  - [La stack de monitoring](#la-stack-de-monitoring)
+    - [Telegraf](#telegraf)
+    - [Influxdb](#influxdb)
+    - [Loki](#loki)
+    - [Promtail](#promtail)
+    - [Grafana](#grafana)
+    - [Mise en place des différents éléments](#mise-en-place-des-différents-élments)
+    - [Infrastrucre à surveiller](#infrastrucre-à-surveiller)
+    - [Installation d'Ansible](#installation-d'ansible)
+      - [Concepts de base](#concepts-de-base)
+  - [Le Playbook](#le-playbook)
+    - [Organisation](#organisation)
+    - [Les différents rôles](#les-différents-rôles)
+      - [Grafana](#grafana)
+      - [Influxdb](#influxdb)
+      - [Telegraf](#telegraf)
+      - [Promtail](#promtail)
+      - [Loki](#loki)
+    - [Le fichier playbook.yml](#le-fichier-playbookyml)
+    - [le fichier host.yml](#le-fichier-host.yml)
+    - [Utilisation du langage Flux avec Influxdb](#utilisation-du-langage-flux-avec-influxdb)
+    - [Exemple de configuration de Promtail.](#exemple-de-configuration-de-promtail)
+    - [Ajout des datastores dans Grafana](#ajout-des-datastores-dans-grafana)
+    - [Importation du dashboard](#importation-du-dashboard)
+    - [Utilisation de Grafana](#utilisation-de-grafana)
+      - [Exemple de configuration pour une alerte](#exemple-de-configuration-pour-une-alerte)
+  - [Rendre le service accessible depuis l'extérieur](#rendre-le-service-accessible-depuis-lextrieur)
+    - [Configuration d'OVH](#configuration-d'ovh)
+    - [Configuration dans Vsphere:](#configuration-dans-vsphere)
+  - [Conclusion sur ce projet](#conclusion-sur-ce-projet)
+- [Conclusion](#conclusion)
+- [Annexes](#annexes)
 
-\pagebreak
 
 # Remerciements
 
@@ -35,6 +74,19 @@ Je tiens à remercier également le corps enseignant de l'Université, notamment
 
 Ils ont toujours été très disponible et impliqué dans la réussite de chacun des étudiants de la promotion.
 
+\pagebreak
+
+
+
+
+
+
+
+
+
+
+
+
 # Introduction
 
 Dans le cadre de la Licence professionnelle ADSILLH, j'ai effectué un stage de 6 mois au sein de l'équipe ENT / Local GOV dans la Bussiness Unit TPSHR dans l'entreprise CGI. 
@@ -52,6 +104,16 @@ Au-delà du gain en compétences techniques, l'immersion au sein d'un processus 
 Cette immersion au sein d'un environnement complexe m'a également appris à être plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement de mes tâches auprès de l'équipe que j'ai intégré.
 
 \pagebreak
+
+
+
+
+
+
+
+
+
+
 
 
 # Partie 1
@@ -90,6 +152,16 @@ La structure de direction de CGI France est centrée autour des clients et chacu
 
 \pagebreak 
 
+
+
+
+
+
+
+
+
+
+
 ## Le contexte de travail
 
 En France, CGI est organisé en différentes Businness Unit: B.U. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe Local GOV, au service des collectivités locales. 
@@ -107,6 +179,17 @@ Le fait de pouvoir télétravailler pour moi a été une réelle découverte com
 Le télétravail m’a permis de trouver un certain confort pour équilibrer le contexte professionnel et personnel.
 
 CGI m'a également fourni un ordinateur portable afin de pouvoir télétravailler dans de bonne condition.
+
+\pagebreak 
+
+
+
+
+
+
+
+
+
 
 ## Mes missions
 
@@ -130,6 +213,12 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.
 
 \pagebreak 
+
+
+
+
+
+
 
 # Partie 2
 ## Ansible et Automatisation
@@ -164,6 +253,7 @@ Avec le développement des Infrastructure Cloud, Ansible, couplé à des outils 
 Personnellement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (Cluster sous Kubernetes de 8 raspberry pi).
 
 Le fait de pouvoir redéployer son infrastructure et sa configuration grâce des fichiers de configuration est un atout majeur en cas de problème technique. Une réinstallation d'un service peut être réalisé rapidement.
+
 
 ## Différence entre Ansible et Script Bash
 
@@ -232,9 +322,6 @@ Les journaux reçus de Promtail se composent du même ensemble de labels que cel
 
 De plus, Loki a besoin de peu de ressources pour fonctionner.
 
-
-\pagebreak
-
 ### Promtail
 
 Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées. Il fonctionne en 3 temps :
@@ -244,6 +331,16 @@ Promtail est un agent qui expédie les logs vers une instance Loki. Il est dépl
 - Pousse les logs vers Loki.
 
 Promtail est très customisable. Nous verrons plus loin un exemple de configuration.
+
+\pagebreak 
+
+
+
+
+
+
+
+
 
 ### Grafana
 
@@ -266,6 +363,16 @@ Vous pouvez retrouver le Playbook dans son intégralité sur mon compte Github a
 https://github.com/marc-cenon/rapport_de_stage/tree/master/files/monitoring_stack/ansible_Grafana_v2
 
 \pagebreak 
+
+
+
+
+
+
+
+
+
+
 
 ### Infrastructure à surveiller
 
@@ -364,7 +471,6 @@ L’environnement de base est configuré.
 
 #### Concepts de base
 
-
 Avant de présenter le Playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
 On définit des rôles, qui contiennent des tâches à exécuter à l'aide de différents modules, le tout regroupé dans un playbook, qui va réunir les différents rôles.  Comme précisé plus haut, tout est écrit en YAML.
 
@@ -412,8 +518,6 @@ roles/
 
 Il est important de respecter une structure et de s'y tenir car un projet peut contenir rapidement beaucoup de fichiers. Un projet Ansible comporte les éléments suivants :
 
-\pagebreak
-
 Un fichier Playbook qui va contenir l’ensemble des rôles et des tâches à executer.
 
 Un dossier **inventory** :
@@ -435,6 +539,9 @@ Un dossier **rôle** avec des sous dossiers pour les différents rôles. Chaque 
 - **/meta/main.yml** : contient les métadata sur le rôle (autheur, licences, dépendences, ….)
 
 Les dossiers **/defaults** et **/vars** ne sont pas obligatoire car les dossier **group_vars** et **host_vars** servent à stocker les valeurs de variables.
+
+
+\pagebreak 
 
 ## Execution du Playbook
 
@@ -504,9 +611,6 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-
-\pagebreak
-
 
 Les parties intéressantes de ce template sont les parties entre accolade  **{{ }}**. La variable {{ Grafana_account_name }} va être populé par la valeur dans le fichier de variable dans **/inventory/group_vars/all.yml**
 
@@ -624,6 +728,8 @@ Ainsi, on peut déployer en une seule fois une application, avec une configurati
 
 C'est également ce fonctionnement qui sera utilisé pour le déploiement de la configuration de Promtail.
 
+\pagebreak 
+
 
 #### Promtail
 
@@ -635,9 +741,6 @@ La configuration spécifique se trouve dans le même fichier que pour les config
 #### Loki
 
 L'installation de Loki est identique à celle de Grafana et de Promtail. Il n'y a pas de difficultés majeures ou de point spécifique en mettre en avant.
-
-
-\pagebreak
 
 ### Le fichier playbook.yml
 
@@ -661,6 +764,9 @@ Plusieurs éléments sont important quand on appelle  un role dans un playbook :
 - tags :  c’est ce qui va nous permettre si on en a besoin de lancher seulement ce rôle en specifiant le tag dans la ligne de commande d’Ansible
 
 On répète le même schéma pour les autres rôles.
+
+
+\pagebreak 
 
 ### le fichier host.yml
 
@@ -792,6 +898,7 @@ Attention : Il faut s'assurer que Promtail a les droits nécessaires pour lire l
 
 Il faut donc penser à configurer les autorisations nécessaires pour Promtail.
 
+\pagebreak 
 
 ### Ajout des datastores dans Grafana
 
@@ -859,8 +966,6 @@ Le serveur étant configurer, il ne reste plus qu'a configurer les alertes dans 
 (Voir annexe pour tableau)
 
 Pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85%.
-
-\pagebreak
 
 Le WEBUI de Grafana facilite grandement la création d'alertes.
 

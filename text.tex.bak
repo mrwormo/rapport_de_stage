@@ -1,14 +1,12 @@
 % Contents of text.tex
+%\documentclass[12pt, letterpaper]{article}
+\usepackage[default]{sourcecodepro}
 \usepackage[T1]{fontenc}
-\usepackage[usefilenames,DefaultFeatures={Ligatures=Common}]{plex-otf} %
-\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be monospaced
-%\usepackage[default]{sourcecodepro}
-%\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
 \setlength{\parskip}{1em}
 \usepackage{xcolor}
 \usepackage[french]{babel}
-\usepackage[autolanguage]{numprint}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}

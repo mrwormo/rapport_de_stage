@@ -1,1 +1,1 @@
-pandoc --listings -H text.tex -V geometry:left=2cm, top=2cm, right=2cm, bottom=2cm -V fontsize=12pt rapport.md -o files/rapport.pdf -V fontsize=12pt -V linestretch=1 -V linkcolor=black --number-sections --table-of-contents --pdf-engine=xelatex
+pandoc --listings -H text.tex -V geometry:"left=2cm, top=2cm, right=2cm, bottom=2cm" -V fontsize=12pt rapport.md -o files/rapport.pdf -V fontsize=12pt -V linestretch=1 -V linkcolor=black --number-sections --table-of-contents --pdf-engine=xelatex
