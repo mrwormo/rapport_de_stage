@@ -1,5 +1,5 @@
 
-![Ansible](images/test2.png "Ansible")
+![Ansible](images/test3.png "Ansible")
 
 
 # Automatisation dans un S.I
