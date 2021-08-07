@@ -468,28 +468,6 @@ L’environnement de base est configuré.
 
 \pagebreak 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Concepts de base
 
 Avant de présenter le Playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
@@ -541,25 +519,29 @@ Il est important de respecter une structure et de s'y tenir car un projet peut c
 
 Un fichier Playbook qui va contenir l’ensemble des rôles et des tâches à executer.
 
-Un dossier inventory :
-Il va contenir généralement les inventaires et les dossiers où sont stockés les variables.
-On peut avoir 2 inventaires par exemple, un staging.yml pour les test et un production.yml pour la production. 
+Un dossier **inventory** :
+
+... Il va contenir généralement les inventaires et les dossiers où sont stockés les variables.
+... On peut avoir 2 inventaires par exemple, un staging.yml pour les test et un production.yml pour la production. 
+
 Les inventaires sont des fichiers en .yml ou .ini qui regroupe la liste des machines. Une machine peut appartenir à un groupe de machine, ou plusieurs groupes, ou aucuns.
-Les dossiers group_vars et host_vars sont des dossiers qui vont regrouper des variables qui seront appliquées à un group (group_vars) ou à une machine (host_vars)
+Les dossiers group_vars et host_vars sont des dossiers qui vont regrouper des variables qui seront appliquées à un group (group_vars) ou à une machine (host_vars).
 
-Un dossier rôle avec des sous dossiers pour les différents rôles. Chaque sous dossiers peut contenir les sous-dossiers suivants :
-/tasks/main.yml : C’est ici que sont écrites l’ensemble des tâches que le rôle execute
-/template/NOM_DU_TEMPLATE.j2 : le dossier template regroupe le/les templates necessaire pour le rôle
-/handlers/main.yml : un handler est une tache inactive qui sera active seulement si elle est invoquée dans le fichier /tasks/main.yml grâce au mot clé « notify »
-/files : ce dossiers contient les fichiers necessaire au fonctionnement du rôles comme des script bash, des liste csv, ….
-/default/main.yml : contient les valeurs des variables par défaut du rôle
-/vars/main.yml: contient d’autres variables, qui peuvent surcharger celle du /defaults/main.yml
-/meta/main.yml  : contient les métadata sur le rôle (autheur, licences, dépendences, ….)
+Un dossier **rôle** avec des sous dossiers pour les différents rôles. Chaque sous dossiers peut contenir les sous-dossiers suivants :
 
-Les dossiers /defaults et /vars ne sont pas obligatoire car les dossier group_vars et host_vars servent à stocker les valeurs de variables.
+- **/tasks/main.yml** : C’est ici que sont écrites l’ensemble des tâches que le rôle execute
+- **/template/NOM_DU_TEMPLATE.j2** : le dossier template regroupe le/les templates necessaire pour le rôle
+- **/handlers/main.yml** : un handler est une tache inactive qui sera active seulement si elle est invoquée dans le fichier /tasks/main.yml grâce au mot clé « notify »
+- **/files** : ce dossiers contient les fichiers necessaire au fonctionnement du rôles comme des script bash, des liste csv, ….
+- **/default/main.yml** : contient les valeurs des variables par défaut du rôle
+- **/vars/main.yml** : contient d’autres variables, qui peuvent surcharger celle du /defaults/main.yml
+- **/meta/main.yml** : contient les métadata sur le rôle (autheur, licences, dépendences, ….)
+
+Les dossiers **/defaults** et **/vars** ne sont pas obligatoire car les dossier **group_vars** et **host_vars** servent à stocker les valeurs de variables.
 
 
 \pagebreak 
+
 ## Execution du Playbook
 
 La commande suivante permettra de déployer notre stack
@@ -577,30 +559,6 @@ Ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ```
 
 \pagebreak 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### Les différents rôles
 #### Grafana
@@ -650,24 +608,18 @@ ExecStart={{ Grafana_main_folder }}/Grafana/bin/Grafana-server
 Restart=on-failure
 
 [Install]
-WantedBy=multi-user.target```
+WantedBy=multi-user.target
+```
 
-Les parties intéressantes de ce template sont les parties entre accolade  {{ }}. La variable 
-{{ Grafana_account_name }} va être populé par la valeur dans le fichier de variable dans /inventory/group_vars/all.yml
+Les parties intéressantes de ce template sont les parties entre accolade  **{{ }}**. La variable {{ Grafana_account_name }} va être populé par la valeur dans le fichier de variable dans **/inventory/group_vars/all.yml**
 
 
-Bien que Grafana (comme Loki et Influxdb) sont installés sur une seule machine, afin de simplifier le playbook et pour eviter d’avoir trop de fichiers d’inventaire, un group comportant une seule machine, celle du monitoring est crée dans l’inventaire. De ce fait, nous pouvons définir les variables dans le seul fichier /inventory/group_vars/all.yml où se trouve la majorité des variables. Cela evite d’utiliser le dossiers host_vars et d’avoir un autre fichier avec des variables. 
+Bien que Grafana (comme Loki et Influxdb) sont installés sur une seule machine, afin de simplifier le playbook et pour eviter d’avoir trop de fichiers d’inventaire, un group comportant une seule machine, celle du monitoring est crée dans l’inventaire. De ce fait, nous pouvons définir les variables dans le seul fichier **/inventory/group_vars/all.yml** où se trouve la majorité des variables. Cela evite d’utiliser le dossiers **host_vars** et d’avoir un autre fichier avec des variables. 
 
 Le risque est qu’avec trop de fichiers de variables, il peut être difficile de s’y retrouver et de savoir ou se trouver les bonnes variables, et de ne pas surcharger les variables par erreur car en fonction d’où se trouve le fichier qui contient les variables dans l’arborescence du projet, il y a une hierachie qui, si ignorée peut poser des problèmes.
 
 
 Un des nombreux avantages d'Ansible est l'utilisation de loop 'boucle' pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports :
-
-
-
-
-
-
 
 
 ```yaml
@@ -683,7 +635,7 @@ Un des nombreux avantages d'Ansible est l'utilisation de loop 'boucle' pour rép
     - { state: 'enabled', port:'25/tcp'  }
 ```
 
-Ici, on utilise le module firewalld et la une fonction with_items ( on peut également utiliser la fonction loop) qui va itérer sur les {{ item }} en appliquant les valeurs définis pour state et port, c’est-à-dire l’état et le port.
+Ici, on utilise le module **firewalld** et la une fonction **with_items** ( on peut également utiliser la fonction loop) qui va itérer sur les {{ item }} en appliquant les valeurs définis pour state et port, c’est-à-dire l’état et le port.
 
 Avec ces quelques lignes, on ouvre les ports, dans la zone par défaut (car nous n'avons pas renseigné de zone spécifique dans zone), de manière permanente et immédiate.
 
@@ -719,13 +671,13 @@ La difficulté ici et la dernière étape pour automatiser la configuration d'In
   when: not folder_exist.stat.
 ```
 
-La condition when permet de s'assurer que le rôle se déroule bien car si on essaie de configurer la base de données alors que le dossier de configuration est déjà présent, la task va échouer et le playbook ne sera pas déroulé dans son intégralité.
+La condition **when** permet de s'assurer que le rôle se déroule bien car si on essaie de configurer la base de données alors que le dossier de configuration est déjà présent, la task va échouer et le playbook ne sera pas déroulé dans son intégralité.
 
 L’un des principes d’Ansible, comme expliqué plus haut est l’idempotence. On peut lancer le playbook autant de fois qu’on le souhaite est rien de sera modifié si rien n’a changer dans le playbook car Ansible est axé sur l’état désiré de la machine et non sur l’action.
 
 Le point que je souhaitais mettre en avant ici est la facilité avec laquelle on peut définir des conditions pour lancer, ou non des tasks sans grande connaissance en programmation.
 
-La condition 'when' nous est très utile car si on décide de modifier un paramêtre du playbook (autre que la bdd) et qu'on le relance, on aura une erreur car on essaie de faire executer une commande shell avec les même paramêtre pour la bdd, ce qui produit une erreur et interrompo le playbook. 
+La condition **when** nous est très utile car si on décide de modifier un paramêtre du playbook (autre que la bdd) et qu'on le relance, on aura une erreur car on essaie de faire executer une commande shell avec les même paramêtre pour la bdd, ce qui produit une erreur et interrompo le playbook. 
 
 La condition ici nous permets de contourner ce problème et de redéployer le playbook avec la nouvelle configuration.
 
@@ -741,37 +693,6 @@ Dans le cas d’Influxdb, la configuration ne peut se faire qu’avec une comman
 
 
 \pagebreak 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Telegraf
 
@@ -795,10 +716,11 @@ Pour cela, 2 stratégies sont possibles :
 
  C'est le deuxième choix qui semble le plus avantageux et le plus logique d’un point de vue automatisation.
 
-Quand il y a de la configuration spécifique à un groupe de machine, il suffit de définir les variables adéquates dans un fichier dans un dossier qui porte le nom du groupe de machine dans le dosser group_vars.
+Quand il y a de la configuration spécifique à un groupe de machine, il suffit de définir les variables adéquates dans un fichier dans un dossier qui porte le nom du groupe de machine dans le dossier **group_vars**.
 
-Par exemple, pour le groupe de machine Peertube, nous avons le dossier suivant : inventory/group_vars/peertube
-Dans ce dossier le fichier main.yml comprend des valeurs de variable qui seront appliquées seulement aux machines du groupe Peertube, définies dans le fichier /inventory/host.yml
+Par exemple, pour le groupe de machine Peertube, nous avons le dossier suivant : **inventory/group_vars/peertube**
+
+Dans ce dossier le fichier **main.yml** comprend des valeurs de variable qui seront appliquées seulement aux machines du groupe Peertube, définies dans le fichier **/inventory/host.yml**.
 
 Ainsi, on peut déployer en une seule fois une application, avec une configuration de base à toute les machines avec en plus une configuration spécifique à un groupe de machine.
 
@@ -826,12 +748,12 @@ Le playbook var regrouper les différents rôles afin de les exécuter à la sui
 
 ```yaml
 - name: install Grafana
-  remote_user: "{{ user  }}"  <- variable qui sert à définir le compte utilisé pour exécuter le rôle
-  become: true                <-  permet de passer root. Cela est nécessaire pour copier le service dans le bon répertoire et pour l'activer
-  hosts: monit                <- ici on définit la cible ou le groupe de machine sur laquelle le rôle sera exécuté. Grafana est seulement déployer sur le contrôleur
-  tags: [Grafana]             <- définir un tag nous permet si on le veux de choisir les rôles a exécuter en utilisant les tags dans la commande d'Ansible
+  remote_user: "{{ user  }}"  
+  become: true                
+  hosts: monit                
+  tags: [Grafana]             
   roles:
-    - role: install_Grafana   <- le nom du dossier qui contient le rôle Grafana.
+    - role: install_Grafana  
 ```
 
 Plusieurs éléments sont important quand on appelle  un role dans un playbook :
@@ -904,6 +826,7 @@ Quelques notion importante pour pouvoir écrire des requêtes avec Flux:
 Voici quelques exemples de requêtes en langage FLUX:
 
 Nombre de processus par machine:
+
 ```SQL
 from(bucket: "bucket-vm")
   |> range(start: 2021-07-05T02:28:35Z, stop: 2021-07-05T08:28:35Z)
@@ -916,6 +839,7 @@ from(bucket: "bucket-vm")
 
 
 Utilisation du CPU par machine:
+
 ```SQL
 from(bucket: "bucket-vm")
   |> range(start: 2021-07-05T02:29:36Z, stop: 2021-07-05T08:29:36Z)
@@ -967,13 +891,14 @@ en voici un autre pour les logs nginx :
           __path__: /var/log/nginx/*log
  ``` 
  
-Une template est utilisé pour configurer les scrape jobs en fonction des différents groupes de machine. Le template est dans le dossier template du rôle Promtail et les variables sont définies dans les sous-dossiers qui portent le nom de chaque groupe, dans le dossier group_vars.
+Une template est utilisé pour configurer les scrape jobs en fonction des différents groupes de machine. Le template est dans le dossier template du rôle Promtail et les variables sont définies dans les sous-dossiers qui portent le nom de chaque groupe, dans le dossier **group_vars**.
 
-Attention : Il faut s'assurer que Promtail a les droits nécessaires pour lire les logs que nous voulons remonter dans Loki puis Grafana. Bien souvent les logs système sont définis avec un mod 640 
+Attention : Il faut s'assurer que Promtail a les droits nécessaires pour lire les logs que nous voulons remonter dans Loki puis Grafana. Bien souvent les logs système sont définis avec un mod 640.
 
 Il faut donc penser à configurer les autorisations nécessaires pour Promtail.
 
 \pagebreak 
+
 ### Ajout des datastores dans Grafana
 
 Une fois les agents Promtail et Telegraf configurés pour envoyer les données à Influxdb et Loki, il faut par la suite ajouter dans Grafana les data sources, c'est à dire Influxdb et Loki.
@@ -987,9 +912,7 @@ Le playbook contient également un Dashboard que j'ai créé précédemment et q
 
 Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suffit d'aller dans explorer puis de sélectionner Loki comme data source et nous trouver les logs que Promtail à récupérer.
 
-<div style="page-break-after: always; visibility: hidden"> 
 \pagebreak 
-</div>
 
 
 ### Utilisation de Grafana
@@ -1071,12 +994,6 @@ Cela peut également nous permettre d’anticiper certaines actions comme par ex
 Cet outil de monitoring nous permet d’avoir une grande visibilité sur l’infrastructure et sur les actions à entreprendre pour anticiper les problèmes.
 
 
-
-
-
-
-
-
 \pagebreak 
 
 ## Rendre le service accessible depuis l'extérieur
@@ -1085,10 +1002,12 @@ Le dernier point important de ce projet à été de rendre Grafana accessible de
 Plusieurs éléments étaient à prendre en compte pour y arriver :
 
 ### Configuration d'OVH
+
 CGI utilise OVH pour la majeure partie de son infrastructure. J'ai dû configurer :
 - Dans la zone dns, la création d'une entrée A qui lie une ip publique au nom de domaine choisi pour accéder à Grafana 
 
 ### Configuration dans Vsphere:
+
 L'infrastructure tourne sous ESXI avec NSX et Vsphere pour fournir une interface graphique et les API REST pour la création, la configuration et la surveillance des composants tels que les contrôleurs, commutateurs logiques, ....
 
 Grâce à Vsphere et NSX, on peut configurer depuis un navigateur Web les VM, Firewall, Règles NAT, LoadBalancing, Vlan, .... 
@@ -1116,8 +1035,8 @@ Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici 
   - Ajout de l'interface pour que le controleur puisse acceder aux machines qui seronts dans le Firewall
   - Creation du groupe d'IP
   - Création des règles d'entrée/sorties (IPTABLE)
-- Configuration des règles NAT
-  .. Il faut configurer les règles NAT (DNAT et SNAT) afin de permettre la bonne traduction de l'IP privée + port/service -> IP public + port/service.
+  - Configuration des règles NAT
+    .. Il faut configurer les règles NAT (DNAT et SNAT) afin de permettre la bonne traduction de l'IP privée + port/service -> IP public + port/service.
 
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en TLS.
 
