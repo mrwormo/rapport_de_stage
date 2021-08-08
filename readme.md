@@ -1,11 +1,14 @@
 # Rapport de stage
 
+Bienvenue dans le dépot GitHub de mon rapport de stage pour la licence LPRO ADSILLH
 
-Bienvenue dans le dépot GitHub de mon rapport de stage.
 
-Celui-ci à été rédigé en Markdown et généré en pdf avec Pandoc
+Celui-ci à été rédigé en Markdown, avec quelques éléments de Latex pour la mise en page.
+Pandoc est utilisé pour générer le PDF
 
-Vous trouverez ici toutes les sources utilisées.
+# Theme du rapport
+
+J'ai choisi le theme de l'automatisation, plus présicément l'utilisation d'**Ansible** et le déploiement d'une i**solution de monitoring** pour surveiller une infrastructure.
 
 
 # Lecture du rapport
@@ -29,12 +32,14 @@ Pour générer un pdf à partir du rapport en markdown, il est possible d'utilis
 pour générer un pdf, on peut utiliser par exemple la commande suivante: 
 
 ```shell
-pandoc rapport.md -o files/rapport.pdf -V fontsize=12pt -V linestretch=1 -V linkcolor=black --number-sections --table-of-contents -V documentclass=scrreprt -V lang=french 
+pandoc --listings -H text.tex rapport.md -o files/rapport.pdf --pdf-engine=xelatex
 ```
+ ou
 
+```shell
+cat pdf_built.txt | sh
+```
 
 ## Playbook
 
-Le playbook utilisé dans ce rapport de stage est disponible dans le dossier files
-
-
+Le playbook utilisé dans ce rapport de stage est disponible dans le dossier **files**

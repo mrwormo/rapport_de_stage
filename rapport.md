@@ -55,6 +55,20 @@ Au-delà du gain en compétences techniques, l'immersion au sein d'un processus 
 
 Cette immersion au sein d'un environnement complexe m'a également appris à être plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement de mes tâches auprès de l'équipe que j'ai intégré.
 
+Ce rapport est disponible sur mon github personnel en markdown:
+
+```yaml
+https://github.com/marc-cenon/rapport_de_stage/blob/master/rapport.md
+```
+
+Vous y trouverer le playbook que je vais présenter dans mon rapport. Ce PDF à été généré à partir du rapport en markdown grace à Pandoc et au fichier text.tex qui comprend les différentes variables pour le bon formatage de ce dernier.
+Vous pouvez compiler le rapport avec la commande suivante, à condition d'avoir installé Pandoc.
+
+```yaml
+git clone https://github.com/marc-cenon/rapport_de_stage.git
+cd rapport_de_stage
+pandoc --listings -H text.tex rapport.md -o files/rapport.pdf --pdf-engine=xelatex
+```
 \pagebreak
 
 # Partie 1
@@ -202,17 +216,28 @@ Nous sommes sur une architecture logicielle sur 3 niveaux :
 
 ### Telegraf
 
-Telegraf est un agent de récupération de métriques. Un seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées et propose 2 modes de récupération :
+Telegraf est un agent de récupération de métriques open source. Un seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées et propose 2 modes de récupération :
 
 - push : la métrique est poussée dans Telegraf par le composant qui l’expose
 - pull : Telegraf récupère la métrique en interrogeant le composant qui l’expose (le mode le plus utilisé)
 
 Les métriques sont par la suite insérées dans la Base de données Influxdb
 
+Sa force réside dans la grande bibliothèque de plugins disponible afin de pouvoir récupérer les informations. Il peut récupérer des données dépuis des Bases de données, des IoT, des sondes (températures, pression de l'air,...) et des applications. 
+
+C'est là que les plugins vont être très avantageux afin de parametrer facilement la récupération des informations.
+
+Telegraf est écrit en GO et il est disponible dans un seul binaire sans besoins de dépendances ou besoin d'utilis des gestionnaires de paquets (npm, pip, gem, ...) 
+
+Il est souvent associé à Influxdb (meme developpeur) ou Nagios, Prometheus, Graphite ou directement en JSON pour pouvoir être interpréter par un logiciel sur-mesure par exemple.
+
+
 ### Influxdb
 
 Influxdb est une Time Series Database (TSDB) écrite en Go. Ce type de bases de données est employée notamment pour stocker et analyser des données de capteurs ou des logs sur une période donnée.
-Ces données doivent être traitées rapidement une fois entrées dans la base de données. C’est pourquoi Influxdb intègre un service qui repose sur le protocole NTP Network Time Protocol, pour assurer que l’heure est bien synchrone sur l’ensemble des systèmes et que les logs sont bien traités.
+Ces données doivent être traitées rapidement une fois entrées dans la base de données. 
+
+C’est pourquoi Influxdb intègre un service qui repose sur le protocole NTP Network Time Protocol, pour assurer que l’heure est bien synchrone sur l’ensemble des systèmes et que les logs sont bien traités.
 
 Ces principaux avantages sont :
 - les performances
@@ -224,7 +249,7 @@ Ces principaux avantages sont :
 
 Loki est un agrégateur de logs, facilement scalable et inspiré de Prometheus (un autre outil de monitoring qui peut remplacer Influxdb dans la stack). Loki utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de les indexer, ce qui rend facile leur manipulation et ordonne leur stockage.
 
-Les journaux reçus de Promtail se composent du même ensemble de labels que celui des métriques d'applications. Ce qui permet une meilleure intégration des logs et des métriques.
+Les journaux reçus de Promtail se composent du même ensemble de labels que celui des métriques d'applications que Télégraf récupère. Ce qui permet une meilleure intégration des logs et des métriques.
 
 De plus, Loki a besoin de peu de ressources pour fonctionner.
 
@@ -239,7 +264,6 @@ Promtail est un agent qui expédie les logs vers une instance Loki. Il est dépl
 
 Promtail est très customisable. Nous verrons plus loin un exemple de configuration.
 
-\pagebreak
 
 ### Grafana
 
@@ -254,12 +278,14 @@ Point Important : cette stack peut être très facilement installé grâce à Do
 
 Personnellement, j'utilise cette solution conteneurisée, le tout orchestré avec K8S pour monitorer mon homelab.
 
-Le choix fait par CGI et d'éviter la conteneurisation pour les environnements de production. Nous sommes donc partis sur une installation en dur des différentes briques de cette solution qui sera déployéé par Ansible.
+Le choix fait par CGI et d'éviter la conteneurisation pour les environnements de production. Nous sommes donc partis sur une installation en dur des différentes briques de cette solution qui sera déployée par Ansible.
 
-Etant donnée la nature sensible des informations, j'illustrerai par des graphiques de mon homelab et présenterez dans ce rapport seulement quelques morceaux que je juge important pour la compréhension du déploiement de cette solution de monitoring.
+Etant donnée la nature sensible des informations, j'illustrerai par des graphiques de mon homelab et présenterez dans ce rapport seulement quelques morceaux que je juge important pour la compréhension du déploiement de cette solution de monitoring. 
 
-Vous pouvez retrouver le Playbook dans son intégralité sur mon compte Github au lien ci-dessous :
-https://github.com/marc-cenon/rapport_de_stage/tree/master/files/monitoring_stack/ansible_Grafana_v2
+En effet, Ansible utilise le format YAML qui permet une lecture facile des différents éléments du playbook.
+
+Vous pouvez retrouver le Playbook dans son intégralité sur mon compte Github
+Le playbook à été modifié afin de ne pas divulger d'information sensible. Il est fonctionnel, idempotent et peut être utilisé avec peu de modification pour monitorer sa propre infrastructure.
 
 \pagebreak
 
@@ -268,12 +294,13 @@ https://github.com/marc-cenon/rapport_de_stage/tree/master/files/monitoring_stac
 Cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une vingtaine de VM qui comprend :
 
 - serveurs d'applications (Jupyter, Moodle, Drupal, Peertube, ...)
-- serveurs web nginx
-- plusieurs BDD (MariaDB, MongoDb)
+- serveurs web Nginx et Apache
+- plusieurs BDD (MariaDB, MongoDb et PostgreSQL)
 
 Etant donnée la composition de l'infrastructure, Telegraf qui sera déployé sur chaque machine, va pouvoir récupérer une grande variété de métriques tels que:
 
-- statistique machines : 
+- statistique machines :
+
   - Mémoire
   - CPU
   - Uptime
@@ -281,22 +308,25 @@ Etant donnée la composition de l'infrastructure, Telegraf qui sera déployé su
   - Disk I/O
 
 - nginx:
+
   - load, network I/O
   - traffic
   - différentes requêtes
   - nombres de connexions
 
-Dans un second temps, Télégraf pourra être reconfigurer très facilement pour monitorer les différentes base de données sur des critères tels que : 
+Dans un second temps, Télégraf pourra être reconfigurer très facilement pour monitorer les différentes base de données sur des critères tels que :
+
 - erreurs
 - SQL commands/sec
 - Heatmap (queries/sec) cache
 
 Promtail sera en charge de récupérer les logs suivants :
 
-- logs système
-- logs applicatifs (nginx principalement)
+- logs système ( cron - access.log - audit.log ...)
+- logs serveurs web ( seulement nginx pour le moment )
+- logs applicatifs ( peertube, moodle pour le moment )
 
-Tout comme Télégraf, Promtail pourra être reconfigurer pour récupérer les logs de différentes applications comme Moodle, Drupal, Jupyter, Wordpress, ...
+Tout comme Télégraf, Promtail pourra être reconfigurer pour récupérer les logs de différentes applications comme  Drupal, Jupyter, Wordpress, ...
 
 \pagebreak
 
@@ -442,9 +472,10 @@ Ce qui donne par exemple :
 ```shell
 Ansible-playbook playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ```
+\pagebreak
 
 ### Les différents rôles
-#### Grafana
+### Grafana
 
 Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des modules adéquats d'Ansible, les étapes pour l'installation et la configuration de Grafana sont les suivantes :
 
@@ -522,8 +553,9 @@ Ici, on utilise le module **firewalld** et la une fonction **with_items** ( on p
 
 Avec ces quelques lignes, on ouvre les ports, dans la zone par défaut (car nous n'avons pas renseigné de zone spécifique dans zone), de manière permanente et immédiate.
 
+\pagebreak
 
-#### Influxdb
+### Influxdb
 
 Les étapes pour l'installation d'Influxdb sont sensiblement identique à celle de Grafana:
 
@@ -574,7 +606,7 @@ Le fonctionnement d’Ansible s’appuie sur des modules. Il se peut que dans ce
 Dans le cas d’Influxdb, la configuration ne peut se faire qu’avec une commande SHELL et la condition WHEN permet de s’assurer que le playbook n’échoue s’il est relancé car la BDD est déjà configurée.
 
 
-#### Telegraf
+### Telegraf
 
 Pour compléter notre stack TIG, il nous reste à déployer le rôle pour Telegraph. Il sera installé sur toutes les machines à surveiller. Les étapes du rôle sont les suivantes :
 
@@ -608,14 +640,14 @@ Ainsi, on peut déployer en une seule fois une application, avec une configurati
 C'est également ce fonctionnement qui sera utilisé pour le déploiement de la configuration de Promtail.
 
 
-#### Promtail
+### Promtail
 
 L'installation de Promtail suit le même schéma que Telegraf. Comme cet agent sera déployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
 
 La configuration spécifique se trouve dans le même fichier que pour les configurations spécifiques de Télégraf.
 
 
-#### Loki
+### Loki
 
 L'installation de Loki est identique à celle de Grafana et de Promtail. Il n'y a pas de difficultés majeures ou de point spécifique en mettre en avant.
 
@@ -642,6 +674,8 @@ Plusieurs éléments sont important quand on appelle  un role dans un playbook :
 - tags :  c’est ce qui va nous permettre si on en a besoin de lancher seulement ce rôle en specifiant le tag dans la ligne de commande d’Ansible
 
 On répète le même schéma pour les autres rôles.
+
+\pagebreak
 
 ### le fichier host.yml
 
@@ -733,7 +767,7 @@ Flux est un langage très puissant mais le WEBUI d'Influxdb permet d'arriver au 
 
 En effet, il est important de gérer la rotation du stockage des données car en fonction du nombre de machines, du nombre de critères de monitoring et de l'intervalle de récupération des métriques, le volume de donnée stocké peut rapidement être important.
 
- 
+\pagebreak
 
 ### Exemple de configuration de Promtail.
 
@@ -778,6 +812,7 @@ Une fois les agents Promtail et Telegraf configurés pour envoyer les données �
 
 Cette action est réalisée dans les options de Grafana en lui indiquant le chemin d'accès pour Influxdb et Loki ainsi que les éléments d'identification necessaires. (Voir images en annexe)
 
+\pagebreak
 
 ### Importation du dashboard
 
@@ -795,7 +830,7 @@ C'est très utile pour surveiller l'espace disque. L'administrateur va définir 
 Plutôt qu'un mail, il est possible de créer des alertes dans Teams, ou Slack en configurant des webhooks.
 
 
-#### Exemple de configuration pour une alerte
+### Exemple de configuration pour une alerte
 
 Grafana inclut un server SMTP qu'il faut paramétrer dans son fichier principal de configuration. Afin de simplifier les changements de configuration et pour éviter de devoir réécrire des rôles pour modifier le fichier de configuration, il est plus simple et pratique d'utiliser un Template pour modifier ce dernier.
 
@@ -866,6 +901,7 @@ Cela peut également nous permettre d’anticiper certaines actions comme par ex
 
 Cet outil de monitoring nous permet d’avoir une grande visibilité sur l’infrastructure et sur les actions à entreprendre pour anticiper les problèmes.
 
+\pagebreak
 
 ## Rendre le service accessible depuis l'extérieur
 
@@ -911,6 +947,7 @@ Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici 
 
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en TLS.
 
+\pagebreak
 
 ## Conclusion sur ce projet
 
@@ -928,6 +965,7 @@ Ansible est une technologie qui m'intéresse beaucoup et je suis très content d
 
 Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible.
 
+\pagebreak
 
 # Conclusion 
 
@@ -947,6 +985,7 @@ Cette dernière certification est le prolongement logique de ce que j’ai fait 
 
 Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingénieur et j'ai accepté. Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
 
+\pagebreak
 
 # Annexes
 
