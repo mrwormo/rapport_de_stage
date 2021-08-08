@@ -8,7 +8,7 @@ Pandoc est utilisé pour générer le PDF
 
 # Theme du rapport
 
-J'ai choisi le theme de l'automatisation, plus présicément l'utilisation d'**Ansible** et le déploiement d'une i**solution de monitoring** pour surveiller une infrastructure.
+J'ai choisi le theme de l'automatisation, plus présicément l'utilisation d'**Ansible** et le déploiement d'une **solution de monitoring** pour surveiller une infrastructure.
 
 
 # Lecture du rapport

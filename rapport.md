@@ -1,24 +1,28 @@
 ---
-title: Automatisation dans un S.I et mise en place d'une Solution de Monitoring
-subtitle: Université de Bordeaux
-author: 
-  - Marc Cenon
-abstract: |
-     marc.cenon33@gmail.com
-     site web
-date: December 7th, 2018
+title: |
+  Automatisation dans un S.I et mise en place d'une Solution de Monitoring
+  ![icons](images/testTT.png "icons")\
+subtitle: |
+  | Université de Bordeaux 
+  | LPRO ADSILLH 2020
+author: |
+  | Marc Cenon
+  |
+  | marc.cenon33@gmail.com
+  |
+  | https://marc-cenon.github.io/my_resume/
+date: 1 Septembre 2021
 output: pdf_document
 header-includes:
   - \usepackage{titling}
-  - \pretitle{\begin{center}
   - \posttitle{\end{center}}
-  - \usepackage[usefilenames,DefaultFeatures={Ligatures=Common}]{plex-otf}.%
+  - \usepackage[usefilenames,DefaultFeatures={Ligatures=Common}]{plex-otf}
   - \renewcommand*\familydefault{\ttdefault}
-  -  \titlegraphic{\centering \includegraphics[width=12cm]{images/icons.png}}
 ---
 \pagebreak
 \tableofcontents
 \pagebreak
+
 # Remerciements
 
 Tout d’abord, je voudrais remercier mon maître de stage, **Mr Thomas Coleno **. Il a su me faire confiance et a partagé ses connaissances de manière très pédagogique. Je le remercie aussi pour sa disponibilité et la qualité de son encadrement en entreprise.
@@ -810,7 +814,9 @@ Il faut donc penser à configurer les autorisations nécessaires pour Promtail.
 
 Une fois les agents Promtail et Telegraf configurés pour envoyer les données à Influxdb et Loki, il faut par la suite ajouter dans Grafana les data sources, c'est à dire Influxdb et Loki.
 
-Cette action est réalisée dans les options de Grafana en lui indiquant le chemin d'accès pour Influxdb et Loki ainsi que les éléments d'identification necessaires. (Voir images en annexe)
+Cette action est réalisée dans les options de Grafana en lui indiquant le chemin d'accès pour Influxdb et Loki ainsi que les éléments d'identification necessaires. 
+
+(Voir tableau en annexe)
 
 \pagebreak
 
@@ -818,8 +824,11 @@ Cette action est réalisée dans les options de Grafana en lui indiquant le chem
 
 Le playbook contient également un Dashboard que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu a gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
 
-Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suffit d'aller dans explorer puis de sélectionner Loki comme data source et nous trouver les logs que Promtail à récupérer.
+(voir tableau en annexe)
 
+Pour les logs, pour le moment il n'y a pas de dashboard de crée. Il suffit d'aller dans **explorer** puis de sélectionner Loki comme data source et nous pouvons trouver les logs que Promtail à récupérer.
+
+(voir tableau en annexe)
 
 ### Utilisation de Grafana
 
@@ -991,79 +1000,51 @@ Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingé
 
 A rajouter tableau des outils ENT
 
-Le playbook complet du déploiement est disponible sur mon git a l'adresse suivante: https://github.com/marc-cenon/rapport_de_stage.
-
-Je vous invite à lire le readme.md pour comprendre l'arborescence du dossier.
-
-Bucket dans Influxdb:
 
 ![bucket Influxdb](images/bucket.png "bucket Influxdb")
 
-
-Dashboard Grafana
-
 ![Grafana dashboard](images/grafana-dash.png "Grafana Dashboard")
-
-
-Datasources dans Grafana
 
 ![Grafana datasources](images/grafana-datasources.png "Grafana Datasources")
 
-
-Configuration Datasources dans Grafana
-
-![Grafana datasources](images/datasources-conf.png "Grafana Datasources")
-
-
-Example de construction de query dans Influxdb
+![Datasources configuration](images/datasources-conf.png " Datasources configuration")
 
 ![Influxdb query](images/influxdb-query.png "Influxdb Query")
 
-
-Diagram Influxdb et connecteurs
-
 ![Influxdb diagram](images/influxdb_diagram.png "Influxdb Diagram")
-
-
-Exemple de recuperation de log cron avec Loki dans Grafana
 
 ![Loki cron](images/loki-cron.png "Loki Cron")
 
-
-Explication Influxdb
-
 ![Influxdb](images/difference-relational-time-series.png "Influxdb TBS")
-
-
-Exemple d'alertes
 
 ![Alerte](images/alerte.png "Alertes Grafana")
 
+\pagebreak
 
 - tableau du travail semaine par semaine
 
-
-
 Récapitulatifs des tâches réalisées
 
-| semaine       | actions       |
-| ------------- | ------------- |
-| Semaine 1    |   repérage, prise en main de l'infrastructure et des outils de travail | 
-| Semaine 2    |   creation de machines BBB et configuration (Openstack - BBB) | 
-| Semaine 3    |   creation de machines BBB et configuration (Openstack - BBB) | 
-| Semaine 4    |  scrit Ansible pour le deployment de la configuration des BBB | 
-| Semaine 5    |   script Ansible Monitoring grafana influxdv promtail loki | 
-| Semaine 6    |   script Ansible Monitoring grafana influxdv promtail loki + docu | 
-| Semaine 7    |   script apache | 
-| Semaine 8    |   script bash, python et ansible | 
-| Semaine 9    |   script python et ansible _ suppression mail Zimbra | 
-| Semaine 10   |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb, Python | 
-| Semaine 11   |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb, Python | 
-| Semaine 12   |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb, Python | 
-| Semaibe 13   |  Ansible Nginx, Apache, Moodle, Drupal, Mariadb , Python __ did not finish nginx et API | 
-| Semaine 14   |  Creationde VLANS dans VSPHERENSX Edge, firewall, et VM - installation de Jupyter hub | 
-| Semaine 15   |  renouvellement certificats sur vm et sur NSX Edge, creation de vm Moodle et Jupyter | 
-| Semaine 16   |  absence enterrement, creation de moodle preprod et prod pour la region Normandie (Postgres, Apache, Moodle) | 
-| Semaine 17   |  Montée en version de Peertube pour GDA et CRIF, Mise à jour docker Riot pour CRNA, mise en place d'un Jupyter Hub sous Kubernetes | 
-| Semaine 18   |  Création d'un proxy pour BBB, configuration php pour moodle, NSX Edge, troubleshooting Jupyter | 
+|semaine| actions |
+|-------- | ------------- |
+|Semaine 1| repérage, prise en main de l'infrastructure <br />  et des outils de travail | 
+|Semaine 2| creation de machines BBB <br />  et configuration (Openstack - BBB) | 
+|Semaine 3| creation de machines BBB <br />  et configuration (Openstack - BBB) | 
+|Semaine 4| scrit Ansible pour la modification <br />  de la configuration des BBB | 
+|Semaine 5| script Ansible Monitoring grafana influxdv promtail loki | 
+|Semaine 6| script Ansible Monitoring grafana influxdv promtail loki <br />  + redaction documentation Ansible | 
+|Semaine 7| script apache | 
+|Semaine 8| script bash, python et ansible | 
+|Semaine 9| script python et ansible _ suppression mail Zimbra | 
+|Semaine 10| script Ansible pour le déploiement <br /> Nginx, Apache, Moodle, Drupal, Mariadb, Python |
+|Semaine 11| script Ansible pour le déploiement <br /> Nginx, Apache, Moodle, Drupal, Mariadb, Python |
+|Semaine 12| script Ansible pour le déploiement <br /> Nginx, Apache, Moodle, Drupal, Mariadb, Python |
+|Semaibe 13|  script Ansible pour le déploiement <br /> Nginx, Apache, Moodle, Drupal, Mariadb, Python |
+|Semaine 14| Creationde VLANS dans VSPHERE et NSX Edge, firewall, <br /> et VM - installation de Jupyter hub |
+|Semaine 15| renouvellement certificats sur vm et sur NSX Edge, <br /> creation de vm Moodle et Jupyter |
+|Semaine 16| Creation de moodle preprod et prod pour <br /> la region Normandie (Postgres, Apache, Moodle) |
+|Semaine 17| Montée en version de Peertube pour GDA et CRIF, <br /> Mise à jour docker Riot pour CRNA, mise en place d'un Jupyter Hub sous Kubernetes | 
+|Semaine 18| Création d'un proxy pour BBB, configuration php pour moodle, NSX Edge, troubleshooting Jupyter |
+|Semaine 19| Montée en version de Moodle, Ansible pour mise à jours Zimbra, <br /> modification des specs des machines Zimbra dans Vsphere, Mise en Place de Jupyter Hub sous Kubernetes |
 
+\pagebreak
