@@ -24,11 +24,7 @@
 \lstset{
     basicstyle=\ttfamily,
     numbers=left,
-    keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
-    stringstyle=\color[rgb]{0.31,0.60,0.02},
-    commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape,
-    numberstyle=\footnotesize,
-    stepnumber=1,
+    stepnumber=2,
     numbersep=5pt,
     backgroundcolor=\color{black!10},
     showspaces=false,
@@ -39,7 +35,5 @@
     breaklines=true,
     breakatwhitespace=true,
     breakautoindent=true,
-    escapeinside={\%*}{*)},
-    linewidth=\textwidth,
-    basewidth=0.5em,
+    linewidth=\textwidth
 }
