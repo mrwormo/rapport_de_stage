@@ -960,29 +960,29 @@ Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne u
 
 ## Evolution et amélioration
 
-Dans ce shéma d'installation, les différentes briques sont installé et la configuration TLS est supporté par NSX Edge dans Vsphere. Le playbook dans sont état actuel permet de deployer la stack de monitoring sans support TLS ( car géré par NSX Edge ). Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. Je choisi d'installer NGINX. Pour cela, nous pouvons modifier notre playbook de 2 facons:
-- écrire un role qui va installer et configurer. Cela peut être une bonne solution lorsqu'on a une configuration atypique mais cela peut demander du temps pour l'ecrire.
-- utiliser un des nombreux role disponible dans Ansible Galaxy et simplement modifier les variable necessaire pour la configuration des services.
+Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans Vsphere. Le playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge ). Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. Je choisi d'installer NGINX. Pour cela, nous pouvons modifier notre playbook de 2 façons :
 
-Je fais le choix d'utiliser la deuxieme option. Cela me permet de tirer benefice d'Ansible Galaxy sans avoir à reécrire un rôle en entier. Je vais le choix d'utiliser le rôle de geerlinguy
+- Écrire un rôle qui va installer et configurer. Cela peut être une bonne solution lorsqu'on a une configuration atypique mais cela peut demander du temps pour l'écrire.
+- Utiliser un des nombreux rôles disponibles dans Ansible Galaxy et simplement modifier les variable nécessaire pour la configuration des services.
+- 
+Je fais le choix d'utiliser la deuxième option. Cela me permet de tirer bénéfice d'Ansible Galaxy sans avoir à réécrire un rôle en entier. Je vais le choix d'utiliser le rôle de geerlinguy. Dans un premier temps, je télécharge le rôle depuis Ansible Galaxy:
 
-Dans un premier temps, je télécharge le role depuis Ansible Galaxy:
 ```bash
 ansible-galaxy install geerlingguy.nginx
 ```
 
-Dans mon playbook, j'ai besoin d'appeler ce nouveau role:
-
+Dans mon playbook, j'ai besoin d'appeler ce nouveau rôle:
 ```bash
 - hosts: monit
   roles:
     - { role: geerlingguy.nginx }
 ```
 
-De cette facon, le rôle sera executer sur la vm ou sont installés Graphana, Influxdb et Loki. Ce rôle dispose d'un fichier /defaults/main.yml. Il est très bien documenté et permet de comprendre rapidement les variable que nous devons utiliser. ou il faut ajouter notre configuration.
-Nous avons juste besoin de creer la configuration necessaire pour Grafana et InfluxdB.
+De cette façon, le rôle sera exécuté sur la VM ou sont installés Graphana, Influxdb et Loki. Ce rôle dispose d'un fichier /defaults/main.yml. Il est très bien documenté et permet de comprendre rapidement les variables que nous devons utiliser. 
 
-Dans ce fichier, nous avons besoin de configurer les vhosts et nous pouvons donner une liste d'argument dans la variable **nginx_vhosts:**. Voici ce que nous pouvons lui ajouter par exemple.
+Nous avons juste besoin de créer la configuration nécessaire pour Grafana et InfluxdB.
+
+Dans ce fichier, nous avons besoin de configurer les vhosts et nous pouvons donner une liste d'argument dans la variable nginx_vhosts:. Voici ce que nous pouvons lui ajouter par exemple.
 
 ```bash
 nginx_vhosts:
@@ -1007,19 +1007,19 @@ nginx_vhosts:
   - listen: "80 default_server"
     servername: "grafana.support-ent.fr"
     return 301 https://$server_name$request_uri;
-```
-Ici, je defini les vhost en 80 avec redirection automatique ainsi que le vhost en 443. Les certificats sont référencés en variables. Il ne reste plus qu'à relancer le playbook. Vu que la seule modification et l'ajout du role nginx, les autres taches apparaitrons en OK car aucuns changement n'est realisé. Sur le role nginx, les taches aparaitrons en changed car il y a eu un changement. Le role va egalement verifier la configuration du nginx, redemarer le service grace à un handler.
+```    
+    
+Ici, je défini les vhost en 80 avec redirection automatique ainsi que le vhost en 443. Les certificats sont référencés en variables. Il ne reste plus qu'à relancer le playbook. Vu que la seule modification et l'ajout du rôle nginx, les autres taches apparaitrons en **OK** car aucun changement n'est réalisé. 
+Sur le rôle nginx, les taches apparaîtrons en **changed** car il y a eu un changement. Le rôle va également vérifier la configuration du nginx, redémarrer le service grâce à un handler.
 
-Une fois l'execution terminée, nous pouvons accéder à Grafana en HTTPS sans avoir à passer par NSX Edge.
+Une fois l'exécution terminée, nous pouvons accéder à Grafana en HTTPS sans avoir à passer par NSX Edge.
+Une autre évolution possible sera de gérer la montée de version automatiquement. Cela peut être dangereux et causé des problèmes sur des infrastructures importantes. C'est pourquoi nous testons d'abord sur un environnement de pré-production avant de passer à la production.
 
-Une autre evolution possible sera de gérer la montée de version automatiquement. Cela peut être dangereux et causé des problemes sur des infrastructure importante. C'est pourquoi nous testons d'abors sur un environement de préproduction avant de passer à la production.
-
-Il serai également intéressant de créer un Dashboard pour l'analyse des logs ainsi que la mise en place d'un système d'alerting. Comme Loki est développé par les même developpeurs que Grafana, la mise en place d'un tel système est identique à celle décrite plus haut.
+Il sera également intéressant de créer un Dashboard pour l'analyse des logs ainsi que la mise en place d'un système d'alerting. Comme Loki est développé par les même développeurs que Grafana, la mise en place d'un tel système est identique à celle décrite plus haut.
 
 Comme un Git interne à CGI existe, Le Playbook est versionné afin de facilité la collaboration avec les autres utilisateurs et de gérer les changements, monté de version ainsi que le déploiement par client.
 
 \pagebreak
-
 
 ## Conclusion sur ce projet
 configuration d'un dashboard pour les logs
