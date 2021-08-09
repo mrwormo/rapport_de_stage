@@ -672,10 +672,11 @@ Le playbook var regrouper les différents rôles afin de les exécuter à la sui
 ```
 
 Plusieurs éléments sont important quand on appelle  un role dans un playbook :
-- remote_user : C’est l’utilisateur qui est utilisé pour se connecter a distance et effectuer les actions qui ne demande pas de privilège
-- become true : nous permets de passer root, ce dont nous avons besoins pour copier le fichier service dans le bon répertoire et pour l’activer
+
+- remote_user : C’est l’utilisateur qui est utilisé pour se connecter a distance et effectuer les actions qui ne demande pas de privilège.
+- become true : nous permets de passer root, ce dont nous avons besoins pour copier le fichier service dans le bon répertoire et pour l’activer.
 - host : c’est le nom du groupe dans le fichier inventaire qui contient la machine.
-- tags :  c’est ce qui va nous permettre si on en a besoin de lancher seulement ce rôle en specifiant le tag dans la ligne de commande d’Ansible
+- tags :  c’est ce qui va nous permettre si on en a besoin de lancher seulement ce rôle en specifiant le tag dans la ligne de commande d’Ansible.
 
 On répète le même schéma pour les autres rôles.
 
@@ -960,11 +961,14 @@ Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne u
 
 ## Evolution et amélioration
 
-Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans Vsphere. Le playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge ). Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. Je choisi d'installer NGINX. Pour cela, nous pouvons modifier notre playbook de 2 façons :
+Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans Vsphere. Le playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge ). Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. 
+
+Je choisi d'installer NGINX. Pour cela, nous pouvons modifier notre playbook de 2 façons :
 
 - Écrire un rôle qui va installer et configurer. Cela peut être une bonne solution lorsqu'on a une configuration atypique mais cela peut demander du temps pour l'écrire.
+
 - Utiliser un des nombreux rôles disponibles dans Ansible Galaxy et simplement modifier les variable nécessaire pour la configuration des services.
-- 
+
 Je fais le choix d'utiliser la deuxième option. Cela me permet de tirer bénéfice d'Ansible Galaxy sans avoir à réécrire un rôle en entier. Je vais le choix d'utiliser le rôle de geerlinguy. Dans un premier temps, je télécharge le rôle depuis Ansible Galaxy:
 
 ```bash
@@ -972,6 +976,7 @@ ansible-galaxy install geerlingguy.nginx
 ```
 
 Dans mon playbook, j'ai besoin d'appeler ce nouveau rôle:
+
 ```bash
 - hosts: monit
   roles:
@@ -1010,6 +1015,7 @@ nginx_vhosts:
 ```    
     
 Ici, je défini les vhost en 80 avec redirection automatique ainsi que le vhost en 443. Les certificats sont référencés en variables. Il ne reste plus qu'à relancer le playbook. Vu que la seule modification et l'ajout du rôle nginx, les autres taches apparaitrons en **OK** car aucun changement n'est réalisé. 
+
 Sur le rôle nginx, les taches apparaîtrons en **changed** car il y a eu un changement. Le rôle va également vérifier la configuration du nginx, redémarrer le service grâce à un handler.
 
 Une fois l'exécution terminée, nous pouvons accéder à Grafana en HTTPS sans avoir à passer par NSX Edge.
