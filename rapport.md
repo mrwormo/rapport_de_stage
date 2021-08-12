@@ -520,6 +520,49 @@ Un dossier **rôle** avec des sous dossiers pour les différents rôles. Chaque 
 
 Les dossiers **/defaults** et **/vars** ne sont pas obligatoire car les dossier **group_vars** et **host_vars** servent à stocker les valeurs de variables.
 
+## Quelques commande ad-hoc utiles
+
+Ansible dispose de nombreuse commandes qui permettent de debuger, trouver des informations sur un module, executer une action rapidement et qui est employé rarement, sans le besoin d'écrire un role ou un playbook.
+
+Le site D'ansible dispose de nombteuse information sur les modules et leur utilisation. Cependant une commande existe qui permet d'avoir de la documentation rapidement dans le terminal
+
+```bash
+ansible-doc
+ansible-doc | wl -l
+ansible-doc NOM_DU_MODULE
+```
+Avec ces commandes, on arrive a trouver beaucoup d'information sur les spécificités de chaques modules et avec des exemples. C'est l'équivalent de MAN mais pour Ansible. On peut copier de la fichier/dossier/archive sur toutes les machines avec une simple line de commande:
+
+```bash
+ansible NO_DU_GROUPE -m copy -a "src=/etc/hosts dest=/tmp/hosts"
+
+ansible ALL -m ansible.builtin.yum -a "name=nginx state=latest"
+```
+
+Les commandes ad-hoc d'ansible on généralement la meme synaxe:
+- ansible
+- Nom du groupe de machine ou de la machine ou ALL pour tous ou UNGROUPED pour les machines sans groupes
+- -m pour préciser le module que nous voulons utiliser, ici le module copy pour copier un fichier du controleur sur la/les machines ou yum pour installer nginx sur toutes les machines.
+- entre parenthese les arguments du module a executer
+
+Par défaut si nous ne précisons pas de module dans la commande, le module par défaut utilisé le command, qui permet de lancer des commande BASH (sans pouvoir utiliser la puissance du BASH comme le pipe, ...)
+
+```bash
+ansible all -a "free -m" 
+```
+Avec cette commande, on peut très rapidement obtenir des information sur la memmoire libre de toutes les machines. On comprend très vite le gains de temps pour faire du debuggage sur un parc de machine. En une commande on a recupere les information sur le parc de machines, sans avoir a faire de ssh et de taper la commande, sur chaque machine...
+
+Un autre exemple très utile:
+
+```bash
+ansible ALL -m setup
+```
+
+Cette commande va nous retourner enormement d'information sur les machines ou seront executer la commande. La sortie de cette commande est en JSON. Ce qui permets de pouvoir filtrer cette commande afin de recherche précisement une information. 
+
+
+JSON est le format de sortie pour toutes les commandes d'Ansible.
+
 ## Execution du Playbook
 
 La commande suivante permettra de déployer notre stack
