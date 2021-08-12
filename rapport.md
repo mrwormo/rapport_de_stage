@@ -297,10 +297,28 @@ Promtail est très customisable. Nous verrons plus loin un exemple de configurat
 
 ### Grafana
 
+```bash
+ 	github.com/grafana/grafana
+```
 Grafana est un outil supervision moderne. Il permet d'exposer sous formes de dashboards les métriques brutes ou agrégées provenant d’Influxdb et les logs provenant de Loki. L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
 
 Grafana fonctionne avec une WEBUI . Ce qui est très utile quand on veut monitorer une infrastructure à distance. Plus besoin d'installer de logiciels complets....
 
+Il est distribué sous licence GNU Affero General Public License Version 3. Une version payante est egalement disponible ainsi qu'une version Cloud.
+L'entreprise Grafana Labs propose egalement les solutions suivantes Open source:
+
+  -  Grafana
+  -  Cortex
+  -  Graphite
+  -  Loki
+  -  Metrictank
+  -  Prometheus
+  -  Tanka
+  -  Tempo
+  -  k6
+
+
+C'est pourquoi on trouve souvent le
 
 ### Mise en place des différents éléments
 
