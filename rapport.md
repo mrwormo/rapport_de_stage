@@ -23,6 +23,32 @@ header-includes:
 \tableofcontents
 \pagebreak
 
+
+
+
+----------------------------
+rajouter les liens pour les diffents logiciels
+les differentes licenses
+faire une presentation des differents logiciels que Grafana va monitorer (1-2 pages)
+bloc code playbook, enlever la premiere ligne ou mettre —
+developper l'importation du dashboard
+donner un exemple de filtre et lookup
+quelques lignes sur les commandes ad-hoc pour verifier l'inventaire, ping, gather-fact
+dans evolution, faire des sous-menu
+###################
+soutenance
+
+20 min,
+- 1 slide CGI - TEAM - CLIENTS
+- 1 slide mes mission: dire que j'ai fait beaucoup de chose différentes et que le fils conducteur du stage est l'automatisation et que plutôt de parler de tous les playbook que j'ai fait, je présente un seul playbook avec tout ce qui tourne autour d'Ansible pour comprendre son fonctionnement
+———- 5min pour l'intro
+- Ansible : comment je suis venu à utiliser ansible et comment CGI s'ent sert et l'evolution future
+- 1 slide pour la présenation de la solution de monitoring, les besoins et les attentes en terme de monitoring
+- comment est articulé ce projet dire que les version sont choisi donc pas de yum latest, …
+- ascenema demo sur le déroulement de l'installation du playbook et de son execution
+- conclusion
+------------------------------
+
 # Remerciements
 
 Tout d’abord, je voudrais remercier mon maître de stage, **Mr Thomas Coleno **. Il a su me faire confiance et a partagé ses connaissances de manière très pédagogique. Je le remercie aussi pour sa disponibilité et la qualité de son encadrement en entreprise.
