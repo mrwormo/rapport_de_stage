@@ -164,15 +164,15 @@ En annexe, vous trouverez un tableau qui reprend les principaux outils que l'ENT
 Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Je peux définir mon travail durant le stage en 3 points :
 
 - Rapport d'alarmes quotidien
-... Tous les jours je rédigé un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure. 
+.. Tous les jours je rédigé un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure. 
 
-…Je relevé également les anomalies sur les différentes machines remontées par l’antivirus CLAMAV
+… Je relevé également les anomalies sur les différentes machines remontées par l’antivirus CLAMAV
 
 -  Création de scripts d'automatisation avec Ansible.
-... Une bonne partie de mon travail a consisté à automatiser des tâches qui aurait été très chronophages. Mon tuteur **Mr Thomas Colenos** a une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs scripts Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
+.. Une bonne partie de mon travail a consisté à automatiser des tâches qui aurait été très chronophages. Mon tuteur **Mr Thomas Colenos** a une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs scripts Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
 
 -  Support de l'équipe sur diverses tâches.
-... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.
+.. J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.
 
 Quelqu'uns des projets sur lequels j'ai pu participer:
 
@@ -181,7 +181,7 @@ Quelqu'uns des projets sur lequels j'ai pu participer:
 - creation d'un playbook Ansible pour le Monitoring
 - creation d'un playbook Ansible Apache
 - creation d'un playbook Ansible pour le deploiement d'un établissement de formation avec differentes briques logicielles
--Utilisation de Vsphere et NSXEDGE pour creer des vlan, firewall, loadbalancing, TLS, ...
+- Utilisation de Vsphere et NSXEDGE pour creer des vlan, firewall, loadbalancing, TLS, ...
 - Creation de diverses machines: moodle, peertube, Drupal
 - Monté en compérence BDD: Maria, PostgreSQL, InfuxDB
 - Mise a jours de messageries Zimbra pour IDF, CRNA, CD77
@@ -189,6 +189,11 @@ Quelqu'uns des projets sur lequels j'ai pu participer:
 
 
 \pagebreak
+
+## Présentation de l'ENT
+- presentation de l'ENT
+- les differents logiciels
+
 
 # Partie 2
 ## Ansible et Automatisation
@@ -352,7 +357,7 @@ C'est pourquoi on trouve souvent le comba Grafana - Prometheus - Loki (du meme p
 
 ### Mise en place des différents éléments
 
-Point Important : cette stack peut être très facilement installé grâce à Docker. 
+Point Important : cette stack peut être très facilement installé grâce à Docker et par ailleur c'est l'une des solutions les plus utilisés pour monitorer des infrastructure Conteneurisé et dans le Cloud.
 
 Personnellement, j'utilise cette solution conteneurisée, le tout orchestré avec K8S pour monitorer mon homelab.
 
