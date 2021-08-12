@@ -260,6 +260,10 @@ Nous sommes sur une architecture logicielle sur 3 niveaux :
 
 ### Telegraf
 
+```bash
+https://github.com/influxdata/telegraf
+```
+
 Telegraf est un agent de récupération de métriques open source. Un seul agent est nécessaire par machine. Cet agent sait récupérer des métriques exposées et propose 2 modes de récupération :
 
 - push : la métrique est poussée dans Telegraf par le composant qui l’expose
@@ -278,6 +282,10 @@ Il est souvent associé à Influxdb (meme developpeur) ou Nagios, Prometheus, Gr
 
 ### Influxdb
 
+```bash
+https://github.com/influxdata/influxdb
+```
+
 Influxdb est une Time Series Database (TSDB) écrite en Go. Ce type de bases de données est employée notamment pour stocker et analyser des données de capteurs ou des logs sur une période donnée.
 Ces données doivent être traitées rapidement une fois entrées dans la base de données. 
 
@@ -292,6 +300,10 @@ La societé qui developpe également Telegraf
 
 ### Loki
 
+```bash
+https://github.com/grafana/loki
+```
+
 Loki est un agrégateur de logs, facilement scalable et inspiré de Prometheus (un autre outil de monitoring qui peut remplacer Influxdb dans la stack). Loki utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de les indexer, ce qui rend facile leur manipulation et ordonne leur stockage.
 
 Les journaux reçus de Promtail se composent du même ensemble de labels que celui des métriques d'applications que Télégraf récupère. Ce qui permet une meilleure intégration des logs et des métriques.
@@ -300,6 +312,9 @@ De plus, Loki a besoin de peu de ressources pour fonctionner.
 
 
 ### Promtail
+```bash
+https://github.com/grafana/loki/releases
+```
 
 Promtail est un agent qui expédie les logs vers une instance Loki. Il est déployé sur chaque machine sur laquelle des applications doivent être surveillées. Il fonctionne en 3 temps :
 
@@ -524,6 +539,13 @@ Les dossiers **/defaults** et **/vars** ne sont pas obligatoire car les dossier 
 
 Ansible dispose de nombreuse commandes qui permettent de debuger, trouver des informations sur un module, executer une action rapidement et qui est employé rarement, sans le besoin d'écrire un role ou un playbook.
 
+```bash
+ansible-inventory --graph --vars
+```
+
+Cette commande va nous fournir la liste des hosts ainsi que les variables qui leurs sont attributé.
+
+
 Le site D'ansible dispose de nombteuse information sur les modules et leur utilisation. Cependant une commande existe qui permet d'avoir de la documentation rapidement dans le terminal
 
 ```bash
@@ -552,6 +574,14 @@ ansible all -a "free -m"
 ```
 Avec cette commande, on peut très rapidement obtenir des information sur la memmoire libre de toutes les machines. On comprend très vite le gains de temps pour faire du debuggage sur un parc de machine. En une commande on a recupere les information sur le parc de machines, sans avoir a faire de ssh et de taper la commande, sur chaque machine...
 
+Une autre commande très utile pour un administrateur réseau:
+
+```bash
+
+ansible testserver -m listen_ports_facts -i prod-ansible-hosts
+```
+Ici, on utilise la puissance du module listen_ports_facts afin de trouver les informations sur les ports ouverts sur chaques machine. c'est l'équivalent d'une commande Netstat, SS ou NMAP.
+
 Un autre exemple très utile:
 
 ```bash
@@ -561,7 +591,7 @@ ansible ALL -m setup
 Cette commande va nous retourner enormement d'information sur les machines ou seront executer la commande. La sortie de cette commande est en JSON. Ce qui permets de pouvoir filtrer cette commande afin de recherche précisement une information. 
 
 
-JSON est le format de sortie pour toutes les commandes d'Ansible.
+JSON est le format principal de sortie pour toutes les commandes d'Ansible.
 
 ## Execution du Playbook
 
@@ -1062,6 +1092,8 @@ Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne u
 \pagebreak
 
 ## Evolution et amélioration
+
+### Utiliation D'ansible Galaxy pour Installer un reverse proxy NGINX
 
 Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans Vsphere. Le playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge ). Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. 
 
