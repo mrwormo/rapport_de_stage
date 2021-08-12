@@ -174,6 +174,20 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
 -  Support de l'équipe sur diverses tâches.
 ... J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.
 
+Quelqu'uns des projets sur lequels j'ai pu participer:
+
+- installation de machine BigBlueButton pour diverses region 
+- creation d'un playbook Ansible pour le deploiment de la configuration de BBB
+- creation d'un playbook Ansible pour le Monitoring
+- creation d'un playbook Ansible Apache
+- creation d'un playbook Ansible pour le deploiement d'un établissement de formation avec differentes briques logicielles
+-Utilisation de Vsphere et NSXEDGE pour creer des vlan, firewall, loadbalancing, TLS, ...
+- Creation de diverses machines: moodle, peertube, Drupal
+- Monté en compérence BDD: Maria, PostgreSQL, InfuxDB
+- Mise a jours de messageries Zimbra pour IDF, CRNA, CD77
+- creation d'un playbook pour l'automatisation de la creation de VM dans VSPHERE
+
+
 \pagebreak
 
 # Partie 2
@@ -274,6 +288,7 @@ Ces principaux avantages sont :
 - la durée de rétention importante
 - la scalabilité
 
+La societé qui developpe également Telegraf
 
 ### Loki
 
@@ -318,7 +333,7 @@ L'entreprise Grafana Labs propose egalement les solutions suivantes Open source:
   -  k6
 
 
-C'est pourquoi on trouve souvent le
+C'est pourquoi on trouve souvent le comba Grafana - Prometheus - Loki (du meme prestataire) + Influxdb et Telegraf
 
 ### Mise en place des différents éléments
 
