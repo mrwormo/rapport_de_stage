@@ -169,6 +169,7 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
   Le but étant de surveiller les différentes infrastructures en place afin d’être proactif dans la résolutions d’incidents.  
   
 - Action :  
+
   -  Création de scripts d'automatisation avec Ansible.
     Une bonne partie de mon travail a consisté à automatiser des tâches qui aurait été très chronophages. Mon tuteur **Mr Thomas Colenos** a une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs scripts Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
 
@@ -176,9 +177,12 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
     J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.  
     
 - Montée en Compétences :  
-  La diversité des briques logicielles a fait que j’ai grandement appris et je suis monté en compétences sur beaucoup de domaine comme Ansible, la gestion de BB ou la mise en place de serveurs web. Cela m’a amené à faire beaucoup de troubleshooting sur différents sujets.
 
-Quelqu'uns des projets sur lesquels j'ai pu participer :
+  La diversité des briques logicielles a fait que j’ai grandement appris et je suis monté en compétences sur beaucoup de domaine comme Ansible, la gestion de BB ou la mise en place de serveurs web. Cela m’a amené à faire beaucoup de troubleshooting sur différents sujets.  
+  
+  
+
+Quelqu'uns des projets sur lesquels j'ai pu participer :  
 
 - création d'un Playbook Ansible pour le déploiement de la configuration de BBB
 - création d'un Playbook Ansible pour le Monitoring
