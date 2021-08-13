@@ -170,11 +170,9 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
   
 - Action :  
 
-  -  Création de scripts d'automatisation avec Ansible.
-    Une bonne partie de mon travail a consisté à automatiser des tâches qui aurait été très chronophages. Mon tuteur **Mr Thomas Colenos** a une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs scripts Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
+  Une bonne partie de mon travail a consisté à automatiser des tâches qui aurait été très chronophages. Mon tuteur **Mr Thomas Colenos** a une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs scripts Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
 
-  -  Support de l'équipe sur diverses tâches.
-    J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.  
+  J'ai également aidé l'équipe sur toutes les tâches qu'ils ont pu me confier. J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.  
     
 - Montée en Compétences :  
 
@@ -201,20 +199,20 @@ Quelqu'uns des projets sur lesquels j'ai pu participer :
 Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition de une ou plusieurs établissement(s) scolaire(s) dans une ou plusieurs région de France.
 En annexe, vous trouverer un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposé. Pour en citer les plus importantes :
 
-- messagerie Zimbra  
-  La messagerie collaborative Zimbra propose une couverture fonctionnelle étendue. En plus des fonctionnalités classiques de messagerie, Zimbra propose des outils intégrés comme le carnet d’adresses, l’agenda, ou encore le gestionnaire de tâches.
+- **messagerie Zimbra**:  
+   La messagerie collaborative Zimbra propose une couverture fonctionnelle étendue. En plus des fonctionnalités classiques de messagerie, Zimbra propose des outils intégrés comme le carnet d’adresses, l’agenda, ou encore le gestionnaire de tâches.
   
-- Moodle  
-  Moodle est une plateforme d'apprentissage en ligne. Elle permet aux enseignants de mettre en ligne des cours / quizz pour les étudiants. Sa force réside dans la grande variété de plugins qui permettent de répondre à des besoins spécifiques pour la création.
+- **Moodle**:  
+   Moodle est une plateforme d'apprentissage en ligne. Elle permet aux enseignants de mettre en ligne des cours / quizz pour les étudiants. Sa force réside dans la grande variété de plugins qui permettent de répondre à des besoins spécifiques pour la création.
 
-- Big Blue Button  
-  Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid sa solution à été extrêmement sollicité)
+- **Big Blue Button**:  
+   Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid sa solution à été extrêmement sollicité)
   
-- Peertube
-  Peertube est une solutiond'hébergement de vidéo décentralisé permettant la diffusion en peer to peer et également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
+- **Peertube**:
+   Peertube est une solutiond'hébergement de vidéo décentralisé permettant la diffusion en peer to peer et également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
   
-- Jyupyter
-  Jupyter est une application web permettant aux étudiants de coder en différents langage.
+- **Jyupyter**:
+   Jupyter est une application web permettant aux étudiants de coder en différents langage.
 
 L’ensemble des solutions utilisées par les ENT sont Open Source (avec des version payantes disponibles)
 
@@ -238,9 +236,9 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 - utilisation de SSH pour communiquer les tâches d'exécutions sur les machines cibles (pas besoins d'ouvrir de ports spécifiques)
 - utilisation de YAML comme langage
 – grande communauté. 
-  Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
+   Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
 - Ansible Galaxy: collection de Playbook pour un grand nombre de tâches. Plus besoin de faire de script bash.
-  Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
+   Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , Cloud). 
 
