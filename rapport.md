@@ -10,7 +10,7 @@ author: |
   |
   | marc.cenon33@gmail.com
   |
-  | https://marc-cenon.github.io/my_resume/
+  | marc-cenon.github.io/my_resume/
 date: 1 Septembre 2021
 output: pdf_document
 header-includes:
@@ -156,28 +156,24 @@ Le télétravail m’a permis de trouver un certain confort pour équilibrer le 
 ## Mes missions
 
 J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. 
-
 Dans le contexte sanitaire actuel, l'équipe a dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. 
 
 Je présenterai rapidement les principaux outils de cet ENT afin de comprendre les différentes applications sur lequelles j’ai pu travailler.
-
 Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Je peux définir mon travail durant le stage en 3 axes :
 
-- Prévention : 
+- **Prévention** :  
   Tous les jours je rédigé un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure. Je relevé également les anomalies sur les différentes machines remontées par l’antivirus CLAMAV
   Le but étant de surveiller les différentes infrastructures en place afin d’être proactif dans la résolutions d’incidents.  
   
-- Action :  
+- **Action** :  
   Une bonne partie de mon travail a consisté à automatiser des tâches qui aurait été très chronophages. Mon tuteur **Mr Thomas Colenos** a une excellente maitrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs scripts Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
-
   J'ai également aidé l'équipe sur toutes les tâches qu'ils ont pu me confier. J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.  
     
-- Montée en Compétences :  
+- **Montée en Compétences** :  
   La diversité des briques logicielles a fait que j’ai grandement appris et je suis monté en compétences sur beaucoup de domaine comme Ansible, la gestion de BB ou la mise en place de serveurs web. Cela m’a amené à faire beaucoup de troubleshooting sur différents sujets.  
   
-  
 
-Quelqu'uns des projets sur lesquels j'ai pu participer :  
+Quelque'uns des projets sur lesquels j'ai pu participer :  
 
 - création d'un Playbook Ansible pour le déploiement de la configuration de BBB
 - création d'un Playbook Ansible pour le Monitoring
@@ -196,20 +192,20 @@ Quelqu'uns des projets sur lesquels j'ai pu participer :
 Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition de une ou plusieurs établissement(s) scolaire(s) dans une ou plusieurs région de France.
 En annexe, vous trouverer un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposé. Pour en citer les plus importantes :
 
-- **messagerie Zimbra**:  
-   La messagerie collaborative Zimbra propose une couverture fonctionnelle étendue. En plus des fonctionnalités classiques de messagerie, Zimbra propose des outils intégrés comme le carnet d’adresses, l’agenda, ou encore le gestionnaire de tâches.
-  
+- **Messagerie Zimbra**:  
+  La messagerie collaborative Zimbra propose une couverture fonctionnelle étendue. En plus des fonctionnalités classiques de messagerie, Zimbra propose des outils intégrés comme le carnet d’adresses, l’agenda, ou encore le gestionnaire de tâches.
+
 - **Moodle**:  
-   Moodle est une plateforme d'apprentissage en ligne. Elle permet aux enseignants de mettre en ligne des cours / quizz pour les étudiants. Sa force réside dans la grande variété de plugins qui permettent de répondre à des besoins spécifiques pour la création.
+  Moodle est une plateforme d'apprentissage en ligne. Elle permet aux enseignants de mettre en ligne des cours / quizz pour les étudiants. Sa force réside dans la grande variété de plugins qui permettent de répondre à des besoins spécifiques pour la création.
 
 - **Big Blue Button**:  
-   Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid sa solution à été extrêmement sollicité)
-  
-- **Peertube**:
-   Peertube est une solutiond'hébergement de vidéo décentralisé permettant la diffusion en peer to peer et également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
-  
-- **Jyupyter**:
-   Jupyter est une application web permettant aux étudiants de coder en différents langage.
+  Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid sa solution à été extrêmement sollicité)
+
+- **Peertube**:  
+  Peertube est une solutiond'hébergement de vidéo décentralisé permettant la diffusion en peer to peer et également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
+
+- **Jyupyter**:  
+  Jupyter est une application web permettant aux étudiants de coder en différents langage.
 
 L’ensemble des solutions utilisées par les ENT sont Open Source (avec des version payantes disponibles)
 
@@ -233,9 +229,9 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 - utilisation de SSH pour communiquer les tâches d'exécutions sur les machines cibles (pas besoins d'ouvrir de ports spécifiques)
 - utilisation de YAML comme langage
 – grande communauté. 
-   Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
+  Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
 - Ansible Galaxy: collection de Playbook pour un grand nombre de tâches. Plus besoin de faire de script bash.
-   Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
+  Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , Cloud). 
 
@@ -288,17 +284,15 @@ Nous sommes sur une architecture logicielle sur 3 niveaux :
 ### Grafana
 
 ```bash
- 	github.com/grafana/grafana
+github.com/grafana/grafana
 ```
 Grafana est un outil supervision moderne et open source. Il permet d'exposer sous formes de dashboards les métriques brutes ou agrégées provenant d’Influxdb et les logs provenant de Loki. L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
 
 Grafana dispose ‘une WEBUI . Ce qui est très utile quand on veut monitorer une infrastructure à distance. On l’installe seulement sur le serveur de monitorings et on y accède en https de n’importe où.
 
-Une version payante est egalement disponible ainsi qu'une version Cloud.
-L'entreprise Grafana Labs propose également les solutions suivantes Open Source:
+Une version payante est egalement disponible ainsi qu'une version Cloud. L'entreprise Grafana Labs propose également les solutions suivantes Open Source:
 
   -  Grafana
-  -  Cortex
   -  Graphite
   -  Loki
   -  Metrictank
@@ -322,13 +316,14 @@ Ces données doivent être traitées rapidement une fois entrées dans la base d
 Influxdb intègre un service qui repose sur le protocole NTP Network Time Protocol, pour assurer que l’heure est bien synchrone sur l’ensemble des systèmes et que les logs sont bien traités.
 
 Ces principaux avantages sont :
+
 - les performances
 - la durée de rétention importante
 - la scalabilité
 
 L’entreprise Influxdata développe Influxdb et Telegraf. Une version Cloud et payante est également disponible.
 
-
+\pagebreak
 
 ### Loki
 
@@ -336,7 +331,9 @@ L’entreprise Influxdata développe Influxdb et Telegraf. Une version Cloud et 
 https://github.com/grafana/loki
 ```
 
-Loki est un agrégateur de logs, facilement scalable et inspiré de Prometheus (un autre outil de monitoring qui peut remplacer Influxdb dans la stack). Loki utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de les indexer, ce qui rend facile leur manipulation et ordonne leur stockage (ex : creation de groupes en fonctions des labels, utilisation de règles spécifiques en fonction des labels, …)
+Loki est un agrégateur de logs, facilement scalable et inspiré de Prometheus (un autre outil de monitoring qui peut remplacer Influxdb dans la stack).  
+
+Loki utilise un mécanisme de découverte de service et ajoute des labels aux logs au lieu de les indexer, ce qui rend facile leur manipulation et ordonne leur stockage (ex : creation de groupes en fonctions des labels, utilisation de règles spécifiques en fonction des labels, …)
 
 Les logs reçus de Promtail se composent du même ensemble de labels que celui des métriques d'applications que Télégraf récupère. Ce qui permet une meilleure intégration des logs et des métriques.
 
@@ -356,6 +353,8 @@ Promtail est un agent qui expédie les logs vers une instance Loki. Il est dépl
 
 Promtail est très customisable. Nous verrons plus loin un exemple de configuration.
 
+\pagebreak
+
 ### Telegraf
 
 ```bash
@@ -369,16 +368,11 @@ Telegraf est un agent de récupération de métriques open source. Un seul agent
 
 Les métriques sont par la suite insérées dans la Base de données Influxdb
 
-Sa force réside dans la grande bibliothèque de plugins disponible afin de pouvoir récupérer les informations. Il peut récupérer des données dépuis des Bases de données, des IoT, des sondes (températures, pression de l'air,...) et des applications. 
-
-C'est là que les plugins vont être très avantageux afin de parametrer facilement la récupération des informations.
+Sa force réside dans la grande bibliothèque de plugins disponible afin de pouvoir récupérer les informations. Il peut récupérer des données dépuis des Bases de données, des IoT, des sondes (températures, pression de l'air,...) et des applications. C'est là que les plugins vont être très avantageux afin de parametrer facilement la récupération des informations.
 
 Telegraf est écrit en GO et il est disponible dans un seul binaire sans besoins de dépendances ou besoin d'utilis des gestionnaires de paquets (npm, pip, gem, ...) 
 
 Il est souvent associé à Influxdb (même developpeur) ou Nagios, Prometheus, Graphite ou directement en JSON pour pouvoir être interpréter par un logiciel sur-mesure par exemple.
-
-
-
 
 
 ### Mise en place des différents éléments
@@ -393,8 +387,7 @@ Etant donnée la nature sensible des informations, j'illustrerai par des graphiq
 
 Ansible utilise le format YAML qui permet une lecture facile des différents éléments du Playbook.
 
-Vous pouvez retrouver le Playbook dans son intégralité sur mon compte Github.
-Le Playbook a été modifié afin de ne pas divulguer d'information sensible. Il est fonctionnel, idempotent et peut être utilisé avec peu de modification pour monitorer sa propre infrastructure.
+Le Playbook est disponible sur mon compte Github.Il est fonctionnel, idempotent et peut être utilisé avec peu de modification pour monitorer sa propre infrastructure.
 
 \pagebreak
 
@@ -563,6 +556,8 @@ Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regroupe
   - **/meta/main.yml** : contient les métadata sur le rôle (auteur, licence, dépendances, ….)
 
 Les dossiers **/defaults** et **/vars** ne sont pas obligatoire car les dossier **group_vars** et **host_vars** servent à stocker les valeurs de variables.
+
+\pagebreak
 
 ## Quelques commandes ad-hoc utiles
 
@@ -838,6 +833,7 @@ La configuration spécifique se trouve dans le même fichier que pour les config
 
 L'installation de Loki est identique à celle de Grafana et de Promtail. Il n'y a pas de difficultés majeures ou de point spécifique en mettre en avant.
 
+\pagebreak
 
 ### Le fichier Playbook.yml
 
@@ -1102,7 +1098,7 @@ Plusieurs éléments étaient à prendre en compte pour y arriver :
 
 ### Configuration d'OVH
 
-CGI utilise OVH pour la majeure partie de son infrastructure. J'ai dû configurer :
+CGI utilise OVH pour la majeure partie de son infrastructure. J'ai dû configurer :  
 - Dans la zone DNS, la création d'une entrée A qui lie une IP publique au nom de domaine choisi pour accéder à Grafana.
 
 ### Configuration dans VSphere
@@ -1124,10 +1120,8 @@ Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici 
   - création d'un profil de protocole réseau sur le bon datacenter
   - définition de la plage d'IP pour le VLAN
   - configuration du contrôleur pour accéder au nouveau VLAN
-
 - Configuration des règles dans le firewall
   - Ajout d’un dispositif NSX Edge Services Gateway
-  - Sélection de la taille du dispositif (nombre de VCPU, RAM, HDD, …)
   - Configuration de l'interface principale avec son adresse IP Principale
   - Affectation au bon VM Network
   - Configuration de la Passerelle
@@ -1136,7 +1130,7 @@ Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici 
   - Création du groupe d'IP
   - Création des règles d'entrée/sorties (IPTABLE)
   - Configuration des règles NAT
-    Il faut configurer les règles NAT (DNAT et SNAT) afin de permettre la bonne traduction de l'IP privée + port/service -> IP public + port/service.
+    Il faut également configurer les règles NAT (DNAT et SNAT) pour traduit l'IP privée + port/service -> IP public + port/service.
 
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en HTTPS.
 
@@ -1243,10 +1237,10 @@ A 33 ans, en reconversion professionnelle, il faut être conscient de ses forces
 Le contexte actuel sanitaire a fait que j'étais en télétravail 99% du temps, ce qui ne rends pas forcement les choses faciles pour encadrer un stagiaire. **Mr Thomas Colenos** à parfaitement su me superviser et m'apporter l'aide nécessaire quand j'en avais besoin. Il m'a laissé une grande autonomie et m'a permis de progresser énormément.
 
 
-En parallèle de ce stage, j'ai choisi de passer des certifications afin de valider mes compétences. J'ai pu obtenir les certifications suivantes :
-- Comptia Security + : cette certification traite sur la cybersécurité.
-- CKA : Certified Kubernetes Administrator. Une certification pour l’administration de clusters sous Kubernetes 
-- RHCSA : Red Hat Certified System Administrator: Administration système sur Red Hat / CentOS / Fedora
+En parallèle de ce stage, j'ai choisi de passer des certifications afin de valider mes compétences. J'ai pu obtenir les certifications suivantes :  
+- Comptia Security + : cette certification traite sur la cybersécurité.  
+- CKA : Certified Kubernetes Administrator. Une certification pour l’administration de clusters sous Kubernetes  
+- RHCSA : Red Hat Certified System Administrator: Administration système sur Red Hat / CentOS / Fedora  
 
 Je passe fin Septembre la certification RHCE : Red Hat Certified Engeneer.
 
@@ -1269,7 +1263,7 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 
 ![Grafana datasources](images/grafana-datasources.png "Grafana Datasources")
 
-![Datasources configuration](images/datasources-conf.png " Datasources configuration")
+![Datasources configuration](images/datasources-conf.png "Datasources configuration")
 
 ![Influxdb query](images/influxdb-query.png "Influxdb Query")
 
@@ -1290,23 +1284,24 @@ Récapitulatifs des tâches réalisées
 |semaine| actions |
 |-------- | ------------- |
 |Semaine 1| repérage, prise en main de l'infrastructure <br />  et des outils de travail | 
-|Semaine 2| creation de machines BBB <br />  et configuration (Openstack - BBB) | 
-|Semaine 3| creation de machines BBB <br />  et configuration (Openstack - BBB) | 
+|Semaine 2| creation de machines BBB <br />  et configuration (Openstack - BigBlueButton) | 
+|Semaine 3| creation de machines BBB <br />  et configuration (Openstack - BigBlueButton) | 
 |Semaine 4| scrit Ansible pour la modification <br />  de la configuration des BBB | 
-|Semaine 5| script Ansible Monitoring grafana influxdv promtail loki | 
-|Semaine 6| script Ansible Monitoring grafana influxdv promtail loki <br />  + redaction documentation Ansible | 
-|Semaine 7| script apache | 
-|Semaine 8| script bash, python et ansible | 
-|Semaine 9| script python et ansible _ suppression mail Zimbra | 
-|Semaine 10| script Ansible pour le déploiement <br /> Nginx, Apache, Moodle, Drupal, Mariadb, Python |
-|Semaine 11| script Ansible pour le déploiement <br /> Nginx, Apache, Moodle, Drupal, Mariadb, Python |
-|Semaine 12| script Ansible pour le déploiement <br /> Nginx, Apache, Moodle, Drupal, Mariadb, Python |
-|Semaibe 13|  script Ansible pour le déploiement <br /> Nginx, Apache, Moodle, Drupal, Mariadb, Python |
-|Semaine 14| Creationde VLANS dans VSPHERE et NSX Edge, firewall, <br /> et VM - installation de Jupyter hub |
+|Semaine 5| script Ansible Monitoring Grafana Influxdv Promtail Loki Telegraf | 
+|Semaine 6| script Ansible Monitoring Grafana Influxdv Promtail Loki Telegraf | 
+|Semaine 7| script Ansible Apache | 
+|Semaine 8| script Bash, Python et Ansible pour déploiement centre de formation | 
+|Semaine 9| script Python et Ansible pour centre de formation - suppression mail Zimbra | 
+|Semaine 10| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
+|Semaine 11| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
+|Semaine 12| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
+|Semaibe 13| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
+|Semaine 14| créationde VLANS dans VSPHERE et NSX Edge, firewall, <br /> et VM - installation de Jupyter hub |
 |Semaine 15| renouvellement certificats sur vm et sur NSX Edge, <br /> creation de vm Moodle et Jupyter |
-|Semaine 16| Creation de moodle preprod et prod pour <br /> la region Normandie (Postgres, Apache, Moodle) |
-|Semaine 17| Montée en version de Peertube pour GDA et CRIF, <br /> Mise à jour docker Riot pour CRNA, mise en place d'un Jupyter Hub sous Kubernetes | 
-|Semaine 18| Création d'un proxy pour BBB, configuration php pour moodle, NSX Edge, troubleshooting Jupyter |
+|Semaine 16| création d'instances moodle preprod et prod  (Postgres, Apache, Moodle) |
+|Semaine 17| Montée en version de Peertube - <br /> Mise à jour docker Riot - Jupyter Hub sous Kubernetes | 
+|Semaine 18| Création d'un proxy pour BigBlueButton, configuration php pour Moodle - configuration NSX Edge -  troubleshooting Jupyter |
 |Semaine 19| Montée en version de Moodle, Ansible pour mise à jours Zimbra, <br /> modification des specs des machines Zimbra dans Vsphere, Mise en Place de Jupyter Hub sous Kubernetes |
+|Semaine 20| Mise à jours Zimbra, <br /> troubleshooting Moodle authentification CAS -  Jupyter Hub sous Kubernetes |
 
 \pagebreak
