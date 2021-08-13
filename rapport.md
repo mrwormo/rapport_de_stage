@@ -200,17 +200,21 @@ Quelqu'uns des projets sur lesquels j'ai pu participer :
 ## Présentation de l'ENT
 Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition de une ou plusieurs établissement(s) scolaire(s) dans une ou plusieurs région de France.
 En annexe, vous trouverer un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposé. Pour en citer les plus importantes :
-- messagerie Zimbra
-  .. La messagerie collaborative Zimbra propose une couverture fonctionnelle étendue. En plus des fonctionnalités classiques de messagerie, Zimbra propose des outils intégrés comme le carnet d’adresses, l’agenda, ou encore le gestionnaire de tâches.
-- Moodle
-  .. Moodle est une plateforme d'apprentissage en ligne. Elle permet aux enseignants de mettre en ligne des cours / quizz pour les étudiants. Sa force réside dans la grande variété de plugins qui permettent de répondre à des besoins spécifiques pour la création.
 
-- Big Blue Button
-  .. Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid sa solution à été extrêmement sollicité)
+- messagerie Zimbra  
+  La messagerie collaborative Zimbra propose une couverture fonctionnelle étendue. En plus des fonctionnalités classiques de messagerie, Zimbra propose des outils intégrés comme le carnet d’adresses, l’agenda, ou encore le gestionnaire de tâches.
+  
+- Moodle  
+  Moodle est une plateforme d'apprentissage en ligne. Elle permet aux enseignants de mettre en ligne des cours / quizz pour les étudiants. Sa force réside dans la grande variété de plugins qui permettent de répondre à des besoins spécifiques pour la création.
+
+- Big Blue Button  
+  Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid sa solution à été extrêmement sollicité)
+  
 - Peertube
-  .. Peertube est une solutiond'hébergement de vidéo décentralisé permettant la diffusion en peer to peer et également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
+  Peertube est une solutiond'hébergement de vidéo décentralisé permettant la diffusion en peer to peer et également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
+  
 - Jyupyter
-  .. Jupyter est une application web permettant aux étudiants de coder en différents langage.
+  Jupyter est une application web permettant aux étudiants de coder en différents langage.
 
 L’ensemble des solutions utilisées par les ENT sont Open Source (avec des version payantes disponibles)
 
@@ -234,9 +238,9 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 - utilisation de SSH pour communiquer les tâches d'exécutions sur les machines cibles (pas besoins d'ouvrir de ports spécifiques)
 - utilisation de YAML comme langage
 – grande communauté. 
-   Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
+  Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
 - Ansible Galaxy: collection de Playbook pour un grand nombre de tâches. Plus besoin de faire de script bash.
-.. Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
+  Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , Cloud). 
 
@@ -546,8 +550,9 @@ Il est important de respecter une structure et de s'y tenir car un projet peut c
 - Un fichier **Playbook** qui va contenir l’ensemble des rôles et des tâches à exécuter.
 
 - Un dossier **inventory** :
-  .. Il va contenir généralement les inventaires et les dossiers où sont stockés les variables.
-  ..  On peut avoir 2 inventaires par exemple, un staging.yml pour les tests et un production.yml pour la production. 
+
+  Il va contenir généralement les inventaires et les dossiers où sont stockés les variables.
+  On peut avoir 2 inventaires par exemple, un staging.yml pour les tests et un production.yml pour la production. 
 
 Les inventaires sont des fichiers en .yml ou .ini qui regroupe la liste des machines. Une machine peut appartenir à un groupe de machine, ou plusieurs groupes, ou aucuns.
 Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regrouper des variables qui seront appliquées à un group (group_vars) ou à une machine (host_vars).
@@ -758,8 +763,11 @@ La difficulté ici et la dernière étape pour automatiser la configuration d'In
 ```
 
 La condition **when** est intéressante. Elle permet de s'assurer que le rôle se déroule bien car si on essaie de configurer la base de données alors que le dossier de configuration est déjà présent, la tâche va échouer et le Playbook ne sera pas déroulé dans son intégralité.
+
 La valeur de la condition **when** est **not folder_exist.stat**. Dans la tâche du dessus, on utilise le module **stat** afin de récupérer des informations sur le dossier de configuration d’Influxdb et on stocke le resultat dans la variable **folder_exist** grâce à la commande **register**
+
 Et comme le format de sortie de toutes les instructions d’Ansible est le JSON, il suffit de filtrer la variable **folder_exist** pour récupérer la valeur de la clé **stat** qui contient la location du dossier de configuration.
+
 La tâche est donc lancée quand le dossier de configuration n’est pas présent.
 
 L’un des principes d’Ansible, comme expliqué plus haut est l’idempotence. On peut lancer le Playbook autant de fois qu’on le souhaite est rien de sera modifié si rien n’a changé dans le Playbook car Ansible est axé sur l’état désiré de la machine et non sur l’action.
@@ -1133,7 +1141,7 @@ Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici 
   - Création du groupe d'IP
   - Création des règles d'entrée/sorties (IPTABLE)
   - Configuration des règles NAT
-    .. Il faut configurer les règles NAT (DNAT et SNAT) afin de permettre la bonne traduction de l'IP privée + port/service -> IP public + port/service.
+    Il faut configurer les règles NAT (DNAT et SNAT) afin de permettre la bonne traduction de l'IP privée + port/service -> IP public + port/service.
 
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en HTTPS.
 
@@ -1245,7 +1253,8 @@ En parallèle de ce stage, j'ai choisi de passer des certifications afin de vali
 - CKA : Certified Kubernetes Administrator. Une certification pour l’administration de clusters sous Kubernetes 
 - RHCSA : Red Hat Certified System Administrator: Administration système sur Red Hat / CentOS / Fedora
 
-Je passe fin Septembre la certification RHCE : Red Hat Certified Engeneer
+Je passe fin Septembre la certification RHCE : Red Hat Certified Engeneer.
+
 Cette dernière certification est le prolongement logique de ce que j’ai fait durant mon stage. Elle est très pointue et elle est orientée sur l’automatisation et la très bonne maitrise d’Ansible pour administrer un S.I.
 
 Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingénieur et j'ai accepté. 
