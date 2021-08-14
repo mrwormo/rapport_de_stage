@@ -1,5 +1,4 @@
 ---
-
 title: |
   Automatisation dans un S.I et mise en place d'une Solution de Monitoring
   ![icons](images/testTT.png "icons")\
@@ -26,26 +25,6 @@ header-includes:
 \tableofcontents
 \pagebreak
 
-
-----------------------------
-rajouter dans evolution valeur par défauts
-exemple filtre JSON
-++ promtail et loki
-
-----------------------------
-soutenance
-
-20 min,
-- 1 slide CGI - TEAM - CLIENTS
-- 1 slide mes mission: dire que j'ai fait beaucoup de chose différentes et que le fils conducteur du stage est l'automatisation et que plutôt de parler de tous les playbook que j'ai fait, je présente un seul playbook avec tout ce qui tourne autour d'Ansible pour comprendre son fonctionnement
-———- 5min pour l'intro
-- Ansible : comment je suis venu à utiliser ansible et comment CGI s'ent sert et l'evolution future
-- 1 slide pour la présenation de la solution de monitoring, les besoins et les attentes en terme de monitoring
-- comment est articulé ce projet dire que les version sont choisi donc pas de yum latest, …
-- ascenema demo sur le déroulement de l'installation du playbook et de son execution
-- conclusion
-- 
-------------------------------
 
 # Remerciements
 
@@ -87,16 +66,18 @@ Cette immersion au sein d'un environnement complexe m'a également appris à êt
 
 Ce rapport est disponible sur mon github personnel en markdown:
 
-```yaml
+```bash
 https://github.com/marc-cenon/rapport_de_stage/blob/master/rapport.md
 ```
 
 Vous y trouverez le Playbook de monitoring que je vais présenter dans mon rapport. Ce PDF a été généré à partir du rapport en Markdown grâce à Pandoc et au fichier text.tex qui comprend les différentes variables utilisées pour le bon formatage de ce dernier.
 Vous pouvez compiler le rapport avec la commande suivante, à condition d'avoir installé Pandoc.
 
-```yaml
+```bash
 git clone https://github.com/marc-cenon/rapport_de_stage.git
+
 cd rapport_de_stage
+
 pandoc --listings -H text.tex rapport.md -o files/rapport.pdf --pdf-engine=xelatex
 ```
 
@@ -214,7 +195,20 @@ En annexe, vous trouverer un exemple d’ENT pour la région Nouvelle Aquitaine 
 - **Jupyter**:  
   Jupyter est une application web permettant aux étudiants de coder en différents langage.
 
-L’ensemble des solutions utilisées par les ENT sont Open Source (avec des version payantes disponibles)
+- **Wekan**:  
+  Wekan est un logiciel en ligne pour gérer des projets et partager des tâches grâce à la méthode Kanban
+
+- **Riot**:  
+  Riot est une messagerie instantanée chiffrée, multi-plateforme et pouvant être décentralisée, avec une interface très intuitive et une bonne gestion des salons et communautés.
+
+- **PMB**:  
+  PMB est un serivce qui organise tout type de documents  (livres, documents audiovisuels, des périodiques et d'une manière générale tout type de documents numériques à vocation documentaire) en une seule base de données.Cela permet pour les professeur d'avoir une interface de catalogage unique et les étudiant d’une seule interface de recherche.
+
+- **Libre Office Online**:  
+  LOOL est une suite bureautique très complète en ligne.
+
+L’ensemble des solutions utilisées par les ENT sont Open Source (avec des version payantes disponibles pour certaines des applications).
+Les scripts Ansible nous permettent de déployer rapidement ces services à la demande en fonction du besoin des régions car chaque région utilise un ensemble de commune et des services spécifiques.
 
 
 \pagebreak
@@ -408,14 +402,14 @@ Cette solution de monitoring va surveiller plusieurs éléments d'une infrastruc
 
 Etant donnée la composition de l'infrastructure, Telegraf qui sera déployé sur chaque machine, va pouvoir récupérer une grande variété de métriques tels que :
 
-- statistique machines :
+- **statisques par machine** :
   - Mémoire
   - CPU
   - Uptime
   - Stockage
   - Disk I/O
 
-- nginx et Apache:
+- **serveur web Nginx et Apache**:
   - load, network I/O
   - traffic
   - différentes requêtes
@@ -474,18 +468,19 @@ sudo firewall-cmd --list-services
 
 dhcpv6-client mdns samba-client ssh
 ```
-SSH fait bien partie des services actif dans le firewall
+
+SSH fait bien partie des services actif dans le firewall. Il faut générer une clé SSH depuis le contrôleur et la copier sur chaques machines.
 
 ```shell
 ssh-keygen
 
-ssh-copy-id MACHINE_CLIENTE
+ssh-copy-id "MACHINE_CLIENTE"
 ```
 
 Il est également recommandé d’accorder les droits nécessaires à l’utilisateur qui exécutera les commandes Ansible. Cet utilisateur doit être présent sur les machines clientes.
 
 ```shell
-echo “ UTILISATEUR_ANSIBLE ALL=(ALL) NOPASSWD: ALL” >> /etc/sudoers.d/UTILISATEUR
+echo "UTILISATEUR_ANSIBLE ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/UTILISATEUR
 ```
 
 L’environnement de base est configuré. Plusieurs fichiers peuvent être modifié afin de changer le comportement d’Ansible.
@@ -506,7 +501,6 @@ Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir
 Voici un exemple simple d'arborescence d'un projet, que j'ai adapté depuis la documentation officielle d'Ansible:
 
 ```yaml
-      
 Playbook.yml
 
 inventory/
@@ -542,10 +536,10 @@ roles/
 
 Il est important de respecter une structure et de s'y tenir car un projet peut contenir rapidement beaucoup de fichiers. Un projet Ansible comporte généralement les éléments suivants :
 
-- Un fichier **Playbook** qui va contenir l’ensemble des rôles et des tâches à exécuter.
+- Un fichier **playbook.yml**:  
+  Il va contenir l’ensemble des rôles et des tâches à exécuter.
 
 - Un dossier **inventory** :
-
   Il va contenir généralement les inventaires et les dossiers où sont stockés les variables.
   On peut avoir 2 inventaires par exemple, un staging.yml pour les tests et un production.yml pour la production. 
 
@@ -564,6 +558,14 @@ Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regroupe
 
 Les dossiers **/defaults** et **/vars** ne sont pas obligatoire car les dossier **group_vars** et **host_vars** servent à stocker les valeurs de variables.
 
+Il y a également un fichier **ansible.cfg** qui permet de configurer plusieurs aspect d'Ansible comme par exemple le fait de ne pas verifier les clée SSH pour chaques hôtes, on peut lui ajouter la ligne suivante:
+
+```bash
+host_key_checking = False
+```
+
+Ce fichier est très riche et on peut modifier le comportement **général** d'Ansible.
+
 \pagebreak
 
 ## Quelques commandes ad-hoc utiles
@@ -580,17 +582,19 @@ Le site D'ansible dispose de nombreuse informations sur les modules et leur util
 
 ```bash
 ansible-doc
-ansible-doc | wl -l --> plus de 3000 modules 
-ansible-doc NOM_DU_MODULE
+
+ansible-doc | wl -l --> "plus de 3000 modules" 
+
+ansible-doc "NOM_DU_MODULE"
 ```
 Avec ces commandes, on arrive à trouver beaucoup d'information sur les spécificités de chaque module et avec des exemples. C'est l'équivalent des pages MAN sous Linux mais pour Ansible.
 
 Avec l’aide de la documentation, on peut copier des fichiers / dossiers / archives sur toutes les machines avec une simple line de commande ou encore installer un paquet sur toutes les machines :
 
 ```bash
-ansible NO_DU_GROUPE -m copy -a "src=/etc/hosts dest=/tmp/hosts"
+ansible "NO_DU_GROUPE" -m copy -a "src=/etc/hosts dest=/tmp/hosts"
 
-ansible ALL -m ansible.builtin.yum -a "name=nginx state=latest"
+ansible all -m ansible.builtin.yum -a "name=nginx state=latest"
 ```
 
 Les commandes ad-hoc d'ansible on généralement la même syntaxe :
@@ -609,15 +613,14 @@ Avec cette commande, on peut très rapidement obtenir des informations sur la m�
 Une autre commande très utile pour un administrateur réseau :
 
 ```bash
-
-ansible ALL -m listen_ports_facts -i prod-ansible-hosts
+ansible all -m listen_ports_facts -i prod-ansible-hosts
 ```
 Ici, on utilise la puissance du module listen_ports_facts afin de trouver les informations sur les ports ouverts sur chaque machine. C’est l'équivalent d'une commande Netstat, SS ou NMAP.
 
 Un dernier exemple très utile :
 
 ```bash
-ansible ALL -m setup
+ansible all -m setup
 ```
 
 Cette commande va nous retourner énormément d'information sur les machines ou seront exécuté la commande. La sortie de cette commande est en JSON. Ce qui permets de pouvoir filtrer cette commande afin de recherche précisément une information. 
@@ -629,7 +632,7 @@ JSON est **le** format principal de sortie pour toutes les commandes d'Ansible.
 
 La commande suivante permettra de déployer notre stack
 
-```shell
+```bash
 Ansible-Playbook Playbook.yml -i inventory/host.yaml
 ```
 
@@ -637,15 +640,27 @@ Il est également possible de redéployer seulement un rôle en précisant le ta
 
 Ce qui donne par exemple :
 
-```shell
+```bash
 Ansible-Playbook Playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE"
 ```
 
-On peut complexifier la commande et utiliser plusieurs parametre ensemble. Par exemple, pour lancer le playbook, sur un group de machine, un rôle précis :
+On peut complexifier la commande et utiliser plusieurs parametre ensemble. Par exemple, pour lancer le playbook, sur un groupe de machines, un rôle précis :
 
-```shell
-Ansible-Playbook Playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE" –limit”_NOM_DU_GROUPE”
+```bash
+Ansible-Playbook Playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE" –limit "NOM_DU_GROUPE"
 ```
+Lorsqu'une tache est éxécuté, il y a plusieurs états possibles:
+
+- **OK**:  
+  la tache a été exécutée correctement mais aucuns changements n'a été réalisés  C'est le cas lorsqu'on relance un playbook ou des taches n'ont pas été modifiée.
+- **CHANGED**:  
+  la tache a été exécutée correctement et un changement a été appliqué.
+- **FAILED**:  
+  la tache n'a pas été éxécutée correctement. Généralement cela signifie que le playbook ne sera pas déroulé dans son intégralité sauf si nous gérons la gestion des erreurs en utilisant comme parametre à une taches **ignore_errors: yes** avec également **force_handlers: yes**. Si par exemple on demande un redémarrage d'un service avec le parametre **notify** et **force_handlers: yes**, le playbook continura même si le démarache du service échoue.
+- **IGNORED**:  
+  c'est le résultat d'une taches qui ne s'est pas déroulé correctement mais qui permet au playbook de continuer.
+- **UNREACHABLE**:  
+  C'est quand la machine cliente n'est pas joinable (machine étainte, ports ssh bloqué,...) La machine est alors marqué comme **injoignable** est ansible la retire de la liste des machines actives pour le reste du Playbook
 
 \pagebreak
 
@@ -667,7 +682,7 @@ Pour ce rôle, l'utilisation de Templates pour générer le fichier de configura
 
 Voici la tâche du rôle Grafana qui utilise le Template crée pour générer le fichier service:
 
-```yaml
+```bash
 - name: "copy Grafana systemd service from Template"
   template:                                     
     src: Grafana.service.j2                     
@@ -678,7 +693,7 @@ On utilise le module **Template**, qui va chercher le fichier Grafana.service.j2
 
 Voici le Template utilisé pour créer le service :
 
-```yaml
+```bash
 [Unit]
 Description=Grafana
 Wants=network-online.target
@@ -710,7 +725,7 @@ En fonction de où se trouve le fichier qui contient les variables dans l’arbo
 Un des nombreux avantages d'Ansible est l'utilisation de **loop** 'boucle' pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
 
 
-```yaml
+```bash
 - name: "open firewall port 3000 on the machine and port 25 for SMTP email"
   firewalld:                    
     state: "{{ item.state  }}"  
@@ -746,13 +761,13 @@ Les étapes pour l'installation d'Influxdb sont sensiblement identique à celle 
 La difficulté ici et la dernière étape pour automatiser la configuration d'Influxdb, on passe une commande shell, avec des arguments issus de variables définis dans group_vars/all.yml pour la création des éléments nécessaires à Influxdb. 
 
 
-```yaml
-- name: 'check if folder exist'
+```bash
+- name: "check if folder exist"
   stat:
     path: "{{ Influxdb_main_folder  }}/.Influxdbv2"
   register: folder_exist                                
                                                            
-- name: 'configure Influxdb as Influxdb user and not root'
+- name: "configure Influxdb as Influxdb user and not root"
   become_user: "{{Influxdb_account_name}}"
   shell: >
     {{ Influxdb_main_folder  }}/Influxdb/influx setup --org {{ Influxdb_organization  }} --bucket {{ Influxdb_bucket  }} --username {{ Influxdb_username  }} --password {{ Influxdb_password  }} --token {{ Influxdb_token  }} --force
@@ -847,8 +862,8 @@ L'installation de Loki est identique à celle de Grafana et de Promtail. Il n'y 
 Le Playbook va regrouper les différents rôles afin de les exécuter à la suite. Voici comment le rôle Grafana est appelé dans le Playbook :
 
 
-```yaml
-- name: install Grafana
+```shell
+- name: "install Grafana"
   remote_user: "{{ user  }}"  
   become: true                
   hosts: monit                
@@ -859,12 +874,16 @@ Le Playbook va regrouper les différents rôles afin de les exécuter à la suit
 
 Plusieurs éléments sont importants quand on appelle un rôle dans un Playbook :
 
-- remote_user : C’est l’utilisateur qui est utilisé pour se connecter a distance et effectuer les actions qui ne demande pas de privilège.
-- become true : nous permets de passer root, ce dont nous avons besoins pour copier le fichier service dans le bon répertoire et pour l’activer.
-- host : c’est le nom du groupe dans le fichier inventaire qui contient la machine.
-- tags :  c’est ce qui va nous permettre si on en a besoin de lancer seulement ce rôle en spécifiant le tag dans la ligne de commande d’Ansible.
+- **remote_user** :  
+  C’est l’utilisateur qui est utilisé pour se connecter a distance et effectuer les actions qui ne demande pas de privilège.
+- **become true** :  
+  nous permets de passer root, ce dont nous avons besoins pour copier le fichier service dans le bon répertoire et pour l’activer.
+- **host** :  
+  c’est le nom du groupe dans le fichier inventaire qui contient la machine.
+- **tags** :  
+  c’est ce qui va nous permettre si on en a besoin de lancer seulement ce rôle en spécifiant le tag dans la ligne de commande d’Ansible.
 
-On répète le même schéma pour les autres rôles.
+On répète le même schéma pour les autres rôles. Si par exemple, certaines de ces valeurs ne changent jamais, il est possible de les définir dans le fichier **ansible.cfg** qui se trouve à la racine du projet et qui permet de contrôler plusieurs aspects du fonctionnement d'Ansible.
 
 \pagebreak
 
@@ -1035,7 +1054,7 @@ Dans le rôle d'installation de Grafana, j'utilise une tâche qui créer le fich
 
 Voici la tâche que j'ai utilisé et qui va créer le fichier de configuration avec la bonne configuration :
 
-```YAML
+```bash
 - name: "create custom Grafana configuration file from Template"
   Template:
     src: Grafana_conf.j2
@@ -1049,7 +1068,7 @@ Voici la tâche que j'ai utilisé et qui va créer le fichier de configuration a
 
 Voici une partie de la configuration du serveur SMTP dans le Template :
 
-```SHELL
+```bash
 ########## SMTP / Emailing ##########
 [smtp]
 enabled = true  <- pas de variable ici car on veut qu'il soit activé quel que soit la configuration
@@ -1158,13 +1177,13 @@ Je choisi d'installer NGINX. Pour cela, nous pouvons modifier notre Playbook de 
 
 Je fais le choix d'utiliser la deuxième option. Cela me permet de tirer bénéfice d'Ansible Galaxy sans avoir à réécrire un rôle en entier. Je vais le choix d'utiliser le rôle de **geerlinguy**. Dans un premier temps, je télécharge le rôle depuis Ansible Galaxy :
 
-```bash
+```yaml
 ansible-galaxy install geerlingguy.nginx
 ```
 
 Dans mon Playbook, j'ai besoin d'appeler ce nouveau rôle :
 
-```bash
+```yaml
 - hosts: monit
   roles:
     - { role: geerlingguy.nginx }
