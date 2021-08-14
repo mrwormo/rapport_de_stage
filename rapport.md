@@ -25,7 +25,11 @@ header-includes:
 
 
 ----------------------------
+rajouter dans evolution valeur par défauts
+exemple filtre JSON
+++ promtail et loki
 
+----------------------------
 soutenance
 
 20 min,
@@ -204,7 +208,7 @@ En annexe, vous trouverer un exemple d’ENT pour la région Nouvelle Aquitaine 
 - **Peertube**:  
   Peertube est une solutiond'hébergement de vidéo décentralisé permettant la diffusion en peer to peer et également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
 
-- **Jyupyter**:  
+- **Jupyter**:  
   Jupyter est une application web permettant aux étudiants de coder en différents langage.
 
 L’ensemble des solutions utilisées par les ENT sont Open Source (avec des version payantes disponibles)
