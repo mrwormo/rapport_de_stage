@@ -248,9 +248,9 @@ Le fait de pouvoir redéployer son infrastructure et sa configuration grâce des
 
 Les scripts Bash sont fréquemment utilisés pour configurer voire automatiser certaines actions. Ecrire des Script en Bash nécessite une bonne connaissance de ce langage de Scripting.  De mon point de vue :
 
-- Bash décrit des actions. (ex : copie tel fichier, réalise telle actions, n’autorise pas telle action ….)
+- Bash décrit des **actions**. (ex : copie tel fichier, réalise telle actions, n’autorise pas telle action ….)
 
-- Ansible décrit « l’état désiré de la machine » (ex : ce fichier devrait être copié à tel endroit seulement s'il n’y est pas déjà, ce service devrait redémarrer seulement si la configuration du service est modifiée, …)
+- Ansible décrit **l’état désiré de la machine** (ex : ce fichier devrait être copié à tel endroit seulement s'il n’y est pas déjà, ce service devrait redémarrer seulement si la configuration du service est modifiée, …)
 
 Ansible, à l’inverse de Bash, se soucis plus de l’état que de l’action.  Il permet d’avoir une gestion de la configuration en mode déclarative et idempotente et permet une gestion fiable de l'exécution à distance, avec des nouvelles tentatives, logiques évolutive, …
 
@@ -627,7 +627,7 @@ ansible all -m setup
 Cette commande va nous retourner énormément d'information sur les machines ou seront exécuté la commande. La sortie de cette commande est en JSON. Ce qui permets de pouvoir filtrer cette commande afin de recherche précisément une information. 
 
 
-JSON est **le** format principal de sortie pour toutes les commandes d'Ansible.
+**JSON est le format principal** de sortie pour toutes les commandes d'Ansible.
 
 ## Execution du Playbook
 
@@ -791,17 +791,22 @@ La condition ici nous permets de contourner ce problème et de redéployer le Pl
 
 Ansible s’appuie sur des modules. Il se peut que dans certains cas la configuration d’un service ne puisse se faire avec un module car il n’existe pas. Ansible dispose alors de 3 modules qui vont permettre de contourner ce problème. Il s’agit des modules :
 
-- **raw** : exécute une commande de bas niveau. Très utile pour déployer de la configuration sur des machines dépourvu d’interpréteur, ou sur des machines spécifiques comment des switchs, routeurs, …
+- **raw** :  
+  Exécute une commande de bas niveau. Très utile pour déployer de la configuration sur des machines dépourvu d’interpréteur, ou sur des machines spécifiques comment des switchs, routeurs, …
 
-- **shell** : exécute une commande sur une machine distante dans un SHELL en s’appuyant sur la force du SHELL (ex : le **pipe** n’est pas possible avec command)
+- **shell** :  
+  Exécute une commande sur une machine distante dans un SHELL en s’appuyant sur la force du SHELL (ex : le **pipe** n’est pas possible avec command)
 
-- **command** : exécute une commande sur une machine distante
+- **command** :  
+  Exécute une commande sur une machine distante
 
 Dans le cas d’Influxdb, la configuration ne peut se faire qu’avec une commande SHELL et la condition WHEN permet de s’assurer que le Playbook n’échoue s’il est relancé car la BDD est déjà configurée.
-Cependant, il existe un package « communautaire » disponible sur Ansible Galaxy qui rajoute des modules à la liste par défaut. Il est possible de l’installer avec la commande suivante :
+Cependant, il existe un package « communautaire » disponible sur Ansible Galaxy qui rajoute des modules à la liste par défaut. Il est possible de l’installer avec la commande suivante :  
+
 ```yaml
 ansible-galaxy collection install community.general
 ```
+
 Dans le pack de module supplémentaire, on peut trouver le module **community.general.influxdb_database** qui peut également nous permettre de configurer Influxdb
 La version d’Influxdb utilisée dans le Playbook n’est pas compatible avec ce module. Une mise à jour prochaine du module devrait régler ce problème.
 
@@ -816,12 +821,11 @@ Pour compléter notre stack TIG, il faut également déployer nos agents grâce 
 - Création d'un fichier de configuration et d’un service avec un Template
 - Activation du service
 
-Les étapes sont sensiblement les mêmes que pour Grafana et Influxdb. Le point important ici est le fichier de configuration. Une partie de la configuration sera la même pour toutes les machines : 
-- %CPU
-- %RAM,
-- uptime
-- %SDD
--  ...
+Les étapes sont sensiblement les mêmes que pour Grafana et Influxdb. Le point important ici est le fichier de configuration. Une partie de la configuration sera la même pour toutes les machines. On va récupérer par exemple :  
+- %CPU  
+- %RAM  
+- Uptime  
+- %SDD  
 
 En fonction des spécificités des machines, la configuration sera à affiner pour récupérer des métriques spécifiques comme des métriques sur Nginx, Apache, Mariadb, PostgreSQL, Moodle, Peertube, ...
 
@@ -884,7 +888,22 @@ Plusieurs éléments sont importants quand on appelle un rôle dans un Playbook 
 - **tags** :  
   C’est ce qui va nous permettre si on en a besoin de lancer seulement ce rôle en spécifiant le tag dans la ligne de commande d’Ansible.
 
-On répète le même schéma pour les autres rôles. Si par exemple, certaines de ces valeurs ne changent jamais, il est possible de les définir dans le fichier **ansible.cfg** qui se trouve à la racine du projet et qui permet de contrôler plusieurs aspects du fonctionnement d'Ansible.
+On répète le même schéma pour les autres rôles.  
+Si par exemple, certaines de ces valeurs ne changent jamais, il est possible de les définir dans le fichier **ansible.cfg** qui se trouve à la racine du projet et qui permet de contrôler plusieurs aspects du fonctionnement d'Ansible. Il faut créer ce fichier car il n'est pas présent lorsqu'on créé un projet. On pourra par exemple configurer les sections suivantes:
+
+```shell
+[defaults]
+remote_user: Ansible
+
+[privilege_escalation]
+become.=.true
+become_method.=.sudo
+become_ask_pass.=.False
+```
+
+Cela nous permet de configurer le comportement général pour l'utilisateur distant utiliser pour se connecter et exécuter les commandes ainsi que l'élevage des privilèges.
+
+
 
 \pagebreak
 
@@ -1067,15 +1086,16 @@ Voici la tâche que j'ai utilisé et qui va créer le fichier de configuration a
   notify:
     - restart Grafana
 ```
+\pagebreak
 
 Voici une partie de la configuration du serveur SMTP dans le Template :
 
 ```bash
 ########## SMTP / Emailing ##########
 [smtp]
-enabled = true  <- pas de variable ici car on veut qu'il soit activé quel que soit la configuration
+enabled = true  <- on active le serveur SMTP par défaut
 host = localhost:25
-from_address = "{{ Grafana_email  }}" <- une variable ici dans l'éventualité où on voudrait changer l'addresse d'envoi du mail
+from_address = "{{ Grafana_email  }}" <- une variable ici pour pouvoir changer le mail qui sera utiliser pour envoyer les notifications
 from_name = Grafana-monitoring
 ```
 
