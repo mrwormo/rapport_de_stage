@@ -550,7 +550,7 @@ Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regroupe
 
   - **/tasks/main.yml** : C’est ici que sont écrites l’ensemble des tâches que le rôle exécute
   - **/Template/NOM_DU_TEMPLATE.j2** : le dossier Template regroupe le/les Templates nécessaires pour le rôle
-  - **/handlers/main.yml** : un handler est une tache inactive qui sera active seulement si elle est invoquée dans le fichier /tasks/main.yml grâce au mot clé « notify »
+  - **/handlers/main.yml** : un handler est une tache inactive qui sera active seulement si elle est invoquée dans le fichier /tasks/main.yml grâce au mot clé **notify**
   - **/files** : ce dossier contient les fichiers nécessaires au fonctionnement du rôles comme des script bash, des liste csv, ….
   - **/default/main.yml** : contient les valeurs des variables par défaut du rôle
   - **/vars/main.yml** : contient d’autres variables, qui peuvent surcharger celle du /defaults/main.yml
@@ -1184,8 +1184,6 @@ Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne u
 
 ## Evolution et améliorations
 
-### Utilisation d'Ansible Galaxy pour installer un reverse proxy Nginx
-
 Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans VSphere. Le Playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge). 
 Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. 
 
@@ -1286,9 +1284,9 @@ Le contexte actuel sanitaire a fait que j'étais en télétravail 99% du temps, 
 
 
 En parallèle de ce stage, j'ai choisi de passer des certifications afin de valider mes compétences. J'ai pu obtenir les certifications suivantes :  
-- Comptia Security + : cette certification traite sur la cybersécurité.  
-- CKA : Certified Kubernetes Administrator. Une certification pour l’administration de clusters sous Kubernetes  
-- RHCSA : Red Hat Certified System Administrator: Administration système sur Red Hat / CentOS / Fedora  
+- **Comptia Security +** : cette certification traite sur la cybersécurité.  
+- **CKA : Certified Kubernetes Administrator**. Une certification pour l’administration de clusters sous Kubernetes  
+- **RHCSA : Red Hat Certified System Administrator** : Administration système sur Red Hat / CentOS / Fedora  
 
 Je passe fin Septembre la certification RHCE : Red Hat Certified Engeneer.
 
@@ -1299,10 +1297,6 @@ Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingé
 Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
 
 \pagebreak
-
-
-# Annexes
-
 
 
 # Annexes
