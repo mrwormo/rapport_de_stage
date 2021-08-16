@@ -32,9 +32,9 @@ Tout d’abord, je voudrais remercier mon maître de stage, **Mr Thomas Coleno *
 
 Je tiens à remercier également **Mr. Arthur Bertinetti** et **Mr Laurent Poutou** pour leur patience et leur grande pédagogie. Ils ont su m’aider sur pleins de problématiques. 
 
-J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne monté en compétence.
+J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne montée en compétence.
 
-En effet, chacune des personnes de l'équipe a su me consacre du temps et partager avec moi leur expertise, méthodes et connaissances tout au long de ce stage. Ils m’ont permis de rendre cette expérience de 6 mois enrichissante et pleine d'intérêt.
+En effet, chacune des personnes de l'équipe à su me consacre du temps et partager avec moi leur expertise, méthodes et connaissances tout au long de ce stage. Ils m’ont permis de rendre cette expérience de 6 mois enrichissante et pleine d'intérêt.
 
 J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur pleins de projets et avec une grande autonomie et je les en remercie vivement.
 
@@ -42,7 +42,6 @@ Je les remercie également pour la bonne humeur qu'ils ont su me communiquer et 
 
 Je tiens à remercier également le corps enseignant de l'Université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutiens et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle grâces à leurs conseils, à leurs excellents cours.
 
-Ils ont toujours été très disponible et impliqué dans la réussite de chacun des étudiants de la promotion.
 
 \pagebreak
 
@@ -50,7 +49,7 @@ Ils ont toujours été très disponible et impliqué dans la réussite de chacun
 
 # Introduction
 
-Dans le cadre de la Licence professionnelle ADSILLH, j'ai effectué un stage de 6 mois au sein de l'équipe ENT / Local GOV dans la Bussiness Unit TPSHR dans l'entreprise CGI. 
+Dans le cadre de la Licence professionnelle Administration et Développement de Systèmes Informatiques à base de Logiciels Libres et Hybrides (ADSILLH), j'ai effectué un stage de 6 mois au sein de l'équipe ENT / Local GOV dans la Bussiness Unit TPSHR dans l'entreprise CGI au Haillan.
 
 Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez dans les annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.
 
@@ -64,7 +63,7 @@ Au-delà du gain en compétences techniques, l'immersion au sein d'un processus 
 
 Cette immersion au sein d'un environnement complexe m'a également appris à être plus efficace, que ce soit par le biais d'une meilleure gestion de mon temps ou encore une meilleure communication sur l'avancement de mes tâches auprès de l'équipe que j'ai intégré.
 
-Ce rapport est disponible sur mon Github personnel en Markdown:
+Ce rapport est disponible sur mon Github personnel en Markdown :
 
 ```bash
 https://github.com/marc-cenon/rapport_de_stage/blob/master/rapport.md
@@ -120,7 +119,7 @@ La structure de direction de CGI France est centrée autour des clients et chacu
 
 ## Le contexte de travail
 
-En France, CGI est organisé en différentes Businness Unit: B.U. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe Local GOV, au service des collectivités locales. 
+En France, CGI est organisé en différentes Business Units : B.U. J'ai réalisé mon stage dans la BU TPSHR (transport, secteur public, ressources humaine), plus précisément dans le groupe **Local GOV**, au service des collectivités locales. 
 
 Local Gov a pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les accès plus directs aux services et permettre un plus grand bénéfice de la dématérialisation.
 
@@ -143,7 +142,7 @@ Le télétravail m’a permis de trouver un certain confort pour équilibrer le 
 
 ## Mes missions
 
-J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT: Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. 
+J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT : Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. 
 Dans le contexte sanitaire actuel, l'équipe a dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. 
 
 Je présenterai rapidement les principaux outils de cet ENT afin de comprendre les différentes applications sur lesquelles j’ai pu travailler.
@@ -169,15 +168,15 @@ Quelqu'un des projets sur lesquels j'ai pu participer :
 - Création d'un Playbook Ansible pour le déploiement d'un établissement de formation avec différentes briques logicielles
 - Utilisation de VSphere et NSXEDGE pour créer des Vlans, Firewalls, Loadbalancing, TLS, ...
 - Installation de divers serveurs d’applications : Moodle, Peertube, Drupal, BigBlueButton, …
-- Installation de différentes Bases de données: Maria, PostgreSQL, InfuxDB
+- Installation de différentes Bases de données : Maria, PostgreSQL, InfuxDB
 - Mise a jours de messagerie Zimbra pour diverses Régions
-- Création d'un Playbook pour l'automatisation de la création de VM dans VSPHERE
+- Création d'un Playbook pour l'automatisation de la création et le paramétrage de VM dans vSphere
 
 
 \pagebreak
 
 ## Présentation de l'ENT
-Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition d'une ou plusieurs établissement(s) scolaire(s) dans une ou plusieurs région de France.
+Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition d'une ou plusieurs établissement(s) scolaire(s) dans une ou plusieurs région(s) de France.
 En annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposé. Pour en citer les plus importantes :
 
 - **Messagerie Zimbra**:  
@@ -187,7 +186,7 @@ En annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine 
   Moodle est une plateforme d'apprentissage en ligne. Elle permet aux enseignants de mettre en ligne des cours / quizz pour les étudiants. Sa force réside dans la grande variété de plugins qui permettent de répondre à des besoins spécifiques pour la création.
 
 - **Big Blue Button**:  
-  Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid sa solution à été extrêmement sollicité)
+  Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid sa solution a été extrêmement sollicité)
 
 - **Peertube**:  
   Peertube est une solution d'hébergement de vidéo décentralisé permettant la diffusion en peer to peer et également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
@@ -202,7 +201,7 @@ En annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine 
   Riot est une messagerie instantanée chiffrée, multi-plateforme et pouvant être décentralisée, avec une interface très intuitive et une bonne gestion des salons et communautés.
 
 - **PMB**:  
-  PMB est un serivce qui organise tout type de documents (livres, documents audiovisuels, des périodiques et d'une manière générale tout type de documents numériques à vocation documentaire) en une seule base de données.Cela permet pour les professeur d'avoir une interface de catalogage unique et les étudiant d’une seule interface de recherche.
+  PMB est un service qui organise tout type de documents (livres, documents audiovisuels, des périodiques et d'une manière générale tout type de documents numériques à vocation documentaire) en une seule base de données. Cela permet pour les professeur d'avoir une interface de catalogage unique et les étudiant d’une seule interface de recherche.
 
 - **Libre Office Online**:  
   LOOL est une suite bureautique très complète en ligne.
@@ -216,9 +215,9 @@ Les scripts Ansible nous permettent de déployer rapidement ces services à la d
 # Partie 2
 ## Ansible et Automatisation
 
-L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervention humaine. C'est un gain de temps et surtout cela permet de garantir le même résultat pour une opération réalisé n fois avec les mêmes paramètres : c'est le principe d'idempotence.
+L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervention humaine. C'est un gain de temps et surtout cela permet de garantir le même résultat pour une opération réalisé n fois avec les mêmes paramètres : c'est le principe **d'idempotence**.
 
-On passe du temps à écrire des règles d'automatisation mais une fois ces dernières testées et approuvées, on peut s'assurer du résultat et enlever les erreurs humaines (ex; faute de frappe,...)
+On passe du temps à écrire des règles d'automatisation mais une fois ces dernières testées et approuvées, on peut s'assurer du résultat et enlever les erreurs humaines (ex :  faute de frappe, ...)
 
 L'automatisation est un élément clé de l'optimisation de l'environnement informatique dans un monde qui évolue rapidement, c'est donc un rôle essentiel.
 
@@ -231,12 +230,12 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 - Utilisation de YAML comme langage
 – Grande communauté. 
   Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
-- Ansible Galaxy: collection de Playbook pour un grand nombre de tâches. Plus besoin de faire de script bash.
+- Ansible Galaxy: collection de Playbook pour un grand nombre de tâches. Plus besoin de faire de Script Bash.
   Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , Cloud). 
 
-Ansible s'inscrit dans la mouvance IaC: Infrastructure as Code, c'est à dire gérer la configuration d'une Infrastructure à l'aide de fichiers de configuration stockable, versionable dans un flow CI/CD.
+Ansible s'inscrit dans la mouvance IaC : Infrastructure as Code, c'est à dire gérer la configuration d'une Infrastructure à l'aide de fichiers de configuration stockable, versionable dans un flow CI/CD.
 
 Avec le développement des Infrastructure Cloud, Ansible, couplé à des outils comme Terraform et Packer, permet de gérer un infrastructure Cloud en mode IaC.
 
@@ -248,7 +247,7 @@ Le fait de pouvoir redéployer son infrastructure et sa configuration grâce des
 
 Les scripts Bash sont fréquemment utilisés pour configurer voire automatiser certaines actions. Ecrire des Script en Bash nécessite une bonne connaissance de ce langage de Scripting.  De mon point de vue :
 
-- Bash décrit des **actions**. (ex : copie tel fichier, réalise telle actions, n’autorise pas telle action ….)
+- Bash décrit des **actions**. (ex : copie tel fichier, réalise telle action, n’autorise pas telle action ….)
 
 - Ansible décrit **l’état désiré de la machine** (ex : ce fichier devrait être copié à tel endroit seulement s'il n’y est pas déjà, ce service devrait redémarrer seulement si la configuration du service est modifiée, …)
 
@@ -287,11 +286,11 @@ Nous sommes sur une architecture logicielle sur 3 niveaux :
 ```bash
 github.com/grafana/grafana
 ```
-Grafana est un outil supervision moderne et open source. Il permet d'exposer sous formes de dashboards les métriques brutes ou agrégées provenant d’Influxdb et les logs provenant de Loki. L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
+Grafana est un outil supervision moderne et open source. Il permet d'exposer sous formes de **dashboards** les métriques brutes ou agrégées provenant d’Influxdb et les logs provenant de Loki. L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
 
-Grafana dispose ‘une WEBUI . Ce qui est très utile quand on veut monitorer une infrastructure à distance. On l’installe seulement sur le serveur de monitorings et on y accède en https de n’importe où.
+Grafana dispose d‘une WEBUI. Ce qui est très utile quand on veut monitorer une infrastructure à distance. On l’installe seulement sur le serveur de monitorings et on y accède en https de n’importe où.
 
-Une version payante est egalement disponible ainsi qu'une version Cloud. L'entreprise Grafana Labs propose également les solutions suivantes Open Source:
+Une version payante est également disponible ainsi qu'une version Cloud. L'entreprise Grafana Labs propose également les solutions suivantes Open Source :
 
   -  Grafana
   -  Graphite
@@ -369,11 +368,11 @@ Telegraf est un agent de récupération de métriques open source. Un seul agent
 
 Les métriques sont par la suite insérées dans la Base de données Influxdb
 
-Sa force réside dans la grande bibliothèque de plugins disponible afin de pouvoir récupérer les informations. Il peut récupérer des données depuis des Bases de données, des IoT, des sondes (températures, pression de l'air,...) et des applications. C'est là que les plugins vont être très avantageux afin de paramétrer facilement la récupération des informations.
+Sa force réside dans la grande bibliothèque de plugins disponible afin de pouvoir récupérer les informations. Il peut récupérer des données depuis des Bases de données, des IoT, des sondes (températures, pression de l’air, ...) et des applications. C'est là que les plugins vont être très avantageux afin de paramétrer facilement la récupération des informations.
 
-Telegraf est écrit en GO et il est disponible dans un seul binaire sans besoins de dépendances ou besoin d'outilis des gestionnaires de paquets (npm, pip, gem, ...) 
+Telegraf est écrit en GO et il est disponible dans un seul binaire sans besoins de dépendances ou besoin d'outils des gestionnaires de paquets (npm, pip, gem, ...) 
 
-Il est souvent associé à Influxdb (même prestatire) ou Nagios, Prometheus, Graphite ou directement en JSON pour pouvoir être interpréter par un logiciel sur-mesure par exemple.
+Il est souvent associé à Influxdb (même prestataire) ou Nagios, Prometheus, Graphite ou directement en JSON pour pouvoir être interpréter par un logiciel sur-mesure par exemple.
 
 
 ### Mise en place des différents éléments
@@ -425,10 +424,10 @@ Dans un second temps, Telegraf pourra être reconfigurer très facilement pour m
 Promtail sera en charge de récupérer les logs suivants :
 
 - Logs système (cron - access.log - audit.log ...)
-- Logs serveurs web (seulement nginx dans le playbook que je présente)
+- Logs serveurs web (seulement Nginx dans le playbook que je présente)
 - Logs applicatifs (Peertube, Moodle pour le moment)
 
-Tout comme Télégraf, Promtail pourra être reconfigurer pour récupérer les logs de différentes applications comme Drupal, Jupyter, Wordpress, ...
+Tout comme Telegraf, Promtail pourra être reconfigurer pour récupérer les logs de différentes applications comme Drupal, Jupyter, Wordpress, ...
 
 \pagebreak
 
@@ -470,7 +469,7 @@ sudo firewall-cmd --list-services
 dhcpv6-client mdns samba-client ssh
 ```
 
-SSH fait bien partie des services actif dans le firewall. Il faut générer une clé SSH depuis le contrôleur et la copier sur chaque machines.
+SSH fait bien partie des services actif dans le firewall. Il faut générer une clé SSH depuis le contrôleur et la copier sur chaque machine.
 
 ```shell
 ssh-keygen
@@ -499,7 +498,7 @@ Ansible utilise également des Templates, au format **Jinja2** afin de facilité
 
 Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir plusieurs éléments. 
 
-Voici un exemple simple d'arborescence d'un projet, que j'ai adapté depuis la documentation officielle d'Ansible:
+Voici un exemple simple d'arborescence d'un projet, que j'ai adapté depuis la documentation officielle d’Ansible :
 
 ```yaml
 Playbook.yml
@@ -542,9 +541,9 @@ Il est important de respecter une structure et de s'y tenir car un projet peut c
 
 - Un dossier **inventory** :
   Il va contenir généralement les inventaires et les dossiers où sont stockés les variables.
-  On peut avoir 2 inventaires par exemple, un staging.yml pour les tests et un production.yml pour la production. 
+  On peut avoir 2 inventaires par exemple, un **staging.yml** pour les tests et un **production.yml ** pour la production. 
 
-Les inventaires sont des fichiers en .yml ou .ini qui regroupe la liste des machines. Une machine peut appartenir à un groupe de machine, ou plusieurs groupes, ou aucuns.
+Les inventaires sont des fichiers en **.yml** ou **.ini** qui regroupe la liste des machines. Une machine peut appartenir à un groupe de machine, ou plusieurs groupes, ou aucuns.
 Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regrouper des variables qui seront appliquées à un group (group_vars) ou à une machine (host_vars).
 
 - Un dossier **rôle** avec des sous dossiers pour les différents rôles. Chaque sous dossiers peut contenir les sous-dossiers suivants :
@@ -559,7 +558,7 @@ Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regroupe
 
 Les dossiers **/defaults** et **/vars** ne sont pas obligatoire car les dossier **group_vars** et **host_vars** servent à stocker les valeurs de variables.
 
-Il y a également un fichier **ansible.cfg** qui permet de configurer plusieurs aspect d'Ansible comme par exemple le fait de ne pas vérifier les clées SSH pour chaque hôtes, on peut lui ajouter la ligne suivante :
+Il y a également un fichier **ansible.cfg** qui permet de configurer plusieurs aspects d'Ansible comme par exemple le fait de ne pas vérifier les clés SSH pour chaque hôte, on peut lui ajouter la ligne suivante :
 
 ```bash
 host_key_checking = False
@@ -650,18 +649,18 @@ On peut complexifier la commande et utiliser plusieurs paramètres ensemble. Par
 ```bash
 Ansible-Playbook Playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE" –limit "NOM_DU_GROUPE"
 ```
-Lorsqu'une tache est éxécutée, il y a plusieurs états possibles :
+Lorsqu'une tache est exécutée, il y a plusieurs états possibles :
 
 - **OK**:  
-  la tâche a été exécutée correctement mais aucuns changements n'a été réalisés  C'est le cas lorsqu'on relance un playbook ou des taches n'ont pas été modifiée.
+  La tâche a été exécutée correctement mais aucuns changements n'a été réalisés  C'est le cas lorsqu'on relance un Playbook ou des taches n'ont pas été modifiée.
 - **CHANGED**:  
   La tâche a été exécutée correctement et un changement a été appliqué.
 - **FAILED**:  
-  la tâche n'a pas été exécutée correctement. Généralement cela signifie que le Playbook ne sera pas déroulé dans son intégralité sauf si nous gérons la gestion des erreurs en utilisant comme paramêtre à une tâches **ignore_errors: yes** avec également **force_handlers: yes**. Si par exemple on demande un redémarrage d'un service avec le paramètre **notify** et **force_handlers: yes**, le Playbook continura même si le démarrage du service échoue.
+  la tâche n'a pas été exécutée correctement. Généralement cela signifie que le Playbook ne sera pas déroulé dans son intégralité sauf si nous gérons la gestion des erreurs en utilisant comme paramètre à une tâches **ignore_errors: yes** avec également **force_handlers: yes**. Si par exemple on demande un redémarrage d'un service avec le paramètre **notify** et **force_handlers: yes** , le Playbook continuera même si le démarrage du service échoue.
 - **IGNORED**:  
-  C'est le résultat d'une tâches qui ne s'est pas déroulée correctement mais qui permet au Playbook de poursuivre son exécution.
+  C'est le résultat d’une tâche qui ne s'est pas déroulée correctement mais qui permet au Playbook de poursuivre son exécution.
 - **UNREACHABLE**:  
-  C'est quand la machine cliente n'est pas joignable (machine éteinte, port ssh bloqué,...) La machine est alors marquée comme **injoignable** est Ansible la retire de la liste des machines actives pour le reste du Playbook.
+  C'est quand la machine cliente n'est pas joignable (machine éteinte, port ssh bloqué, …) La machine est alors marquée comme **injoignable** est Ansible la retire de la liste des machines actives pour le reste du Playbook.
 
 \pagebreak
 
@@ -681,7 +680,7 @@ Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des mod
 
 Pour ce rôle, l'utilisation de Templates pour générer le fichier de configuration de Grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml. 
 
-Voici la tâche du rôle Grafana qui utilise le Template crée pour générer le fichier service:
+Voici la tâche du rôle Grafana qui utilise le Template crée pour générer le fichier service :
 
 ```bash
 - name: "copy Grafana systemd service from Template"
@@ -721,7 +720,6 @@ Bien que Grafana (comme Loki et Influxdb) sont installés sur une seule machine,
 
 Le risque est qu’avec trop de fichiers de variables, il peut être difficile de s’y retrouver et de savoir où se trouve les bonnes variables, et de ne pas surcharger les variables par erreur.
 En fonction d'où se trouve le fichier qui contient les variables dans l’arborescence du projet, il y a une hiérarchie qui, si ignorée peut poser des problèmes.
-
 
 Un des nombreux avantages d'Ansible est l'utilisation de **loop** 'boucle' pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
 
@@ -841,7 +839,7 @@ Quand il y a de la configuration spécifique à un groupe de machine, il suffit 
 
 Par exemple, pour le groupe de machine Peertube, nous avons le dossier **inventory/group_vars/peertube**
 
-Dans ce dossier le fichier **main.yml** comprend les valeurs des variable qui seront appliquées seulement aux machines du groupe Peertube, qui sontdéfinies dans le fichier **/inventory/host.yml**.
+Dans ce dossier le fichier **main.yml** comprend les valeurs des variables qui seront appliquées seulement aux machines du groupe Peertube, qui sontdéfinies dans le fichier **/inventory/host.yml**.
 
 Ainsi, on peut déployer en une seule fois une application, avec une configuration de base à toute les machines avec en plus une configuration spécifique à un groupe de machine.
 
@@ -880,16 +878,16 @@ Le Playbook va regrouper les différents rôles afin de les exécuter à la suit
 Plusieurs éléments sont importants quand on appelle un rôle dans un Playbook :
 
 - **remote_user** :  
-  C’est l’utilisateur qui est utilisé pour se connecter a distance et effectuer les actions qui ne demande pas de privilège.
+  C’est l’utilisateur qui est utilisé pour se connecter à distance et effectuer les actions qui ne demande pas de privilège.
 - **become: true** :  
-  Cela nous permets de passer root, ce dont nous avons besoins pour copier le fichier service dans le bon répertoire et pour l’activer.
+  Cela nous permet de passer root, ce dont nous avons besoins pour copier le fichier service dans le bon répertoire et pour l’activer.
 - **host** :  
   C’est le nom du groupe dans le fichier inventaire qui contient la machine.
 - **tags** :  
   C’est ce qui va nous permettre si on en a besoin de lancer seulement ce rôle en spécifiant le tag dans la ligne de commande d’Ansible.
 
 On répète le même schéma pour les autres rôles.  
-Si par exemple, certaines de ces valeurs ne changent jamais, il est possible de les définir dans le fichier **ansible.cfg** qui se trouve à la racine du projet et qui permet de contrôler plusieurs aspects du fonctionnement d'Ansible. Il faut créer ce fichier car il n'est pas présent lorsqu'on créé un projet. On pourra par exemple configurer les sections suivantes:
+Si par exemple, certaines de ces valeurs ne changent jamais, il est possible de les définir dans le fichier **ansible.cfg** qui se trouve à la racine du projet et qui permet de contrôler plusieurs aspects du fonctionnement d'Ansible. Il faut créer ce fichier car il n'est pas présent lorsqu'on créé un projet. On pourra par exemple configurer les sections suivantes :
 
 ```shell
 [defaults]
@@ -946,7 +944,7 @@ On a beaucoup de flexibilité et de modularité dans le fichier **host.yml** pou
 
 ### Utilisation du langage Flux avec Influxdb
 
-Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySql ou Mariadb. Ce type de base de données idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes. 
+Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySQL ou Mariadb. Ce type de base de données idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes. 
 Ce type de BDD permet de traiter une très grande quantité d'informations, et dans un temps très courts, la gestion des données est différente à celle d’une base de données relationnelle. 
 
 Les bases de données temporelles disposent de règles de retentions que l'administrateur décide afin de choisir la quantité d'information à stocker/recycler.
@@ -955,13 +953,13 @@ Depuis la version 2.0 D'Influxdb, le langage de requête InfluxQL a été rempla
 
 Flux est une alternative à InfluxQL et à d'autres langages de requête de type SQL pour interroger et analyser des données. Il utilise des modèles de langage fonctionnels, ce qui le rend capable de surmonter bon nombre des limitations d'InfluxQL. Sa syntaxe est en partie inspiré de Javascript.
 
-Quelques notion importante pour pouvoir écrire des requêtes avec Flux:
+Quelques notions importantes pour pouvoir écrire des requêtes avec Flux :
 
 - Utilisation de **pipe forward" |> ** pour enchainer des actions
 - Toutes les données sont structuré sous forme de tableau.
 - Un regroupement de tableaux avec une politique de rétention est un Bucket. 
 
-Voici quelques exemples de requêtes en langage FLUX:
+Voici quelques exemples de requêtes en langage Flux :
 
 Nombre de processus par machine :
 
@@ -976,7 +974,7 @@ from(bucket: "bucket-vm")
 ```
 
 
-Utilisation du CPU par machine :
+Utilisation du CPU par machine:
 
 ```SQL
 from(bucket: "bucket-vm")
@@ -1017,7 +1015,7 @@ Voici un exemple de configuration de Promtail pour récupérer les logs de cron 
       __path__: /var/log/cron
 ```
 
-en voici un autre pour les logs Nginx :
+En voici un autre pour les logs Nginx :
 
 ```yaml
 - job_name: nginx
@@ -1047,9 +1045,9 @@ Cette action est réalisée dans les options de Grafana en lui indiquant le chem
 
 \pagebreak
 
-### Importation du dashboard
+### Importation du Dashboard
 
-Le Playbook contient également un Dashboard que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu à gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
+Le Playbook contient également un **Dashboard** (tableau de bord)  que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu à gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
 Il contient des commandes génériques qui vont pouvoir récupérer les informations sur le CPU, le % de RAM de libre, le %de disque de libre, ….
 
 (Voir tableau en annexe)
@@ -1062,7 +1060,7 @@ Pour les logs, pour le moment il n'y a pas de dashboard de créé. Il suffit d'a
 
 Grafana permet de créer des alertes en fonction de critères choisis par l'administrateur. On peut par exemple définir l'envoi d'un mail lorsqu’un seuil est franchi.
 
-C'est très utile pour surveiller l'espace disque. L'administrateur va définir un seuil d'alerte (ex: 80% Plein) et quand il est atteint, un mail est envoyé.
+C'est très utile pour surveiller l'espace disque. L'administrateur va définir un seuil d'alerte (ex : 80% Plein) et quand il est atteint, un mail est envoyé.
 
 Plutôt qu'un mail, il est possible de créer des alertes dans Teams, ou Slack en configurant des webhooks.
 
@@ -1149,7 +1147,7 @@ Plusieurs éléments étaient à prendre en compte pour y arriver :
 CGI utilise OVH pour la majeure partie de son infrastructure. J'ai dû configurer :  
 - Dans la zone DNS, la création d'une entrée A qui lie une IP publique au nom de domaine choisi pour accéder à Grafana.
 
-### Configuration dans VSphere
+### Configuration dans vSphere
 
 L'infrastructure tourne sous ESXI avec NSX et VSphere pour fournir une interface graphique et les API REST pour la création, la configuration et la surveillance des composants tels que les contrôleurs, commutateurs logiques, ....
 
@@ -1159,11 +1157,11 @@ C'est avec cet outils que j'ai créé la VM de Monitoring où est installé Graf
 
 Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici les étapes principales pour la configuration du serveur de monitoring :
 
-- Création de la VM sous CentOS 7:
+- Création de la VM sous CentOS 7 :
   - création de la VM avec suffisamment de CPU + RAM pour faire tourner les applications confortablement
   - configuration du LVM (Logical Volume Manager) avec un disque dur de 50 Go monté en /appli, formaté EXT4 où sont installé les applications
 
-- Configuration du VLAN:
+- Configuration du VLAN :
   - Création d'un commutateur logique
   - Création d'un profil de protocole réseau sur le bon datacenter
   - Définition de la plage d'IP pour le VLAN
@@ -1184,11 +1182,11 @@ Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne u
 
 \pagebreak
 
-## Evolution et amélioration
+## Evolution et améliorations
 
-### Utilisation d'Ansible Galaxy pour Installer un reverse proxy NGINX
+### Utilisation d'Ansible Galaxy pour installer un reverse proxy Nginx
 
-Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans VSphere. Le Playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge ). 
+Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans VSphere. Le Playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge). 
 Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. 
 
 Je choisi d'installer NGINX. Pour cela, nous pouvons modifier notre Playbook de 2 façons :
@@ -1253,7 +1251,7 @@ Il sera également intéressant de créer un Dashboard pour l'analyse des logs a
 
 Comme un Git interne à CGI existe, Le Playbook est versionné afin de facilité la collaboration avec les autres utilisateurs et de gérer les changements, monté de version ainsi que le déploiement par client.
 
-Une autre amelioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passes.
+Une autre amélioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passes.
 
 \pagebreak
 
@@ -1269,7 +1267,7 @@ Ansible est une technologie qui m'intéresse beaucoup et je suis très content d
 
 - installation / Configuration d'un serveur Apache
 - Configuration d'un pool de machine Big Blue Button
-- Déploiement d'une infrastructure complexe (Nginx, Apache, Drupal, Mariabd, Moodle, Python )
+- Déploiement d'une infrastructure complexe (Nginx, Apache, Drupal, Mariabd, Moodle, Python)
 
 Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible notamment sur les notions de programmation en Python et sur la manipulation du format JSON. Ce sont ses notions qui m’ont manqué pour finir ce Playbook.
 
@@ -1301,6 +1299,10 @@ Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingé
 Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
 
 \pagebreak
+
+
+# Annexes
+
 
 
 # Annexes
