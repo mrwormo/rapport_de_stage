@@ -18,9 +18,8 @@ header-includes:
   - \posttitle{\end{center}}
   - \usepackage[usefilenames,DefaultFeatures={Ligatures=Common}]{plex-otf}
   - \renewcommand*\familydefault{\ttdefault}
-
 ---
-
+\thispagestyle{empty}
 \pagebreak
 \tableofcontents
 \pagebreak
