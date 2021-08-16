@@ -350,9 +350,9 @@ Promtail est un agent qui expédie les logs vers une instance Loki. Il est dépl
 
 - Découverte des cibles
 - Attache des tags aux logs pour pouvoir les identifier et les rapprocher facilement
-- Pousse les logs vers Loki.
+- Pousse les logs vers une instance Loki.
 
-Promtail est très customisable. Nous verrons plus loin un exemple de configuration.
+Promtail est très customisable. Nous verrons plus loin un exemple de configuration. Il a été développé par les équipes qui ont également produit **Loki**
 
 \pagebreak
 
@@ -1252,6 +1252,8 @@ Une autre évolution possible sera de gérer la montée de version automatiqueme
 Il sera également intéressant de créer un Dashboard pour l'analyse des logs ainsi que la mise en place d'un système d'alerting. Comme Loki est développé par les même développeurs que Grafana, la mise en place d'un tel système est identique à celle décrite plus haut.
 
 Comme un Git interne à CGI existe, Le Playbook est versionné afin de facilité la collaboration avec les autres utilisateurs et de gérer les changements, monté de version ainsi que le déploiement par client.
+
+Une autre amelioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passes.
 
 \pagebreak
 
