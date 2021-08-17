@@ -681,7 +681,7 @@ Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des mod
 - création du fichier .service à l'aide d'un Template
 - activation du service et redémarrage
 
-Pour ce rôle, l'utilisation de Templates pour générer le fichier de configuration de Grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml. 
+Pour ce rôle, l'utilisation de **Templates** pour générer le fichier de configuration de Grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml. 
 
 Voici la tâche du rôle Grafana qui utilise le Template crée pour générer le fichier service :
 
@@ -692,7 +692,7 @@ Voici la tâche du rôle Grafana qui utilise le Template crée pour générer le
     dest: /etc/systemd/system/Grafana.service   
 ```
 
-On utilise le module **Template**, qui va chercher le fichier Grafana.service.j2 dans le dossier /role/grafana/template/grafana.service.j2 et qui va utiliser les valeurs définis dans le fichiers de variable dans /inventory/group_vars.
+On utilise le module **template**, qui va chercher le fichier Grafana.service.j2 dans le dossier /role/grafana/template/grafana.service.j2 et qui va utiliser les valeurs définis dans le fichiers de variable dans /inventory/group_vars.
 
 Voici le Template utilisé pour créer le service :
 
@@ -724,7 +724,7 @@ Bien que Grafana (comme Loki et Influxdb) sont installés sur une seule machine,
 Le risque est qu’avec trop de fichiers de variables, il peut être difficile de s’y retrouver et de savoir où se trouve les bonnes variables, et de ne pas surcharger les variables par erreur.
 En fonction d'où se trouve le fichier qui contient les variables dans l’arborescence du projet, il y a une hiérarchie qui, si ignorée peut poser des problèmes.
 
-Un des nombreux avantages d'Ansible est l'utilisation de **loop** 'boucle' pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
+Un des nombreux avantages d'Ansible est l'utilisation de **loop** "boucle" pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
 
 
 ```bash
