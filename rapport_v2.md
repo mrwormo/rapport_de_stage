@@ -1,3 +1,29 @@
+---
+title: |
+  Automatisation dans un S.I et mise en place d'une Solution de Monitoring
+  ![icons](images/testTT.png "icons")\
+subtitle: |
+  | Université de Bordeaux 
+  | LPRO ADSILLH 2020
+author: |
+  | Marc Cenon
+  |
+  | marc.cenon33@gmail.com
+  |
+  | marc-cenon.github.io/my_resume/
+date: 1 Septembre 2021
+output: pdf_document
+header-includes:
+  - \usepackage{titling}
+  - \posttitle{\end{center}}
+  - \usepackage[usefilenames,DefaultFeatures={Ligatures=Common}]{plex-otf}
+  - \renewcommand*\familydefault{\ttdefault}
+---
+\thispagestyle{empty}
+\pagebreak
+\tableofcontents
+\pagebreak
+
 # Remerciements
 
 Tout d’abord, je voudrais remercier mon maître de stage, **Mr Thomas Coleno**. Il a su me faire confiance et a partagé ses connaissances de manière très pédagogique. Je le remercie aussi pour sa disponibilité et la qualité de son encadrement en entreprise.
