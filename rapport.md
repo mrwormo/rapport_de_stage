@@ -27,7 +27,7 @@ header-includes:
 
 # Remerciements
 
-Tout d’abord, je voudrais remercier mon maître de stage, **Mr Thomas Coleno **. Il a su me faire confiance et a partagé ses connaissances de manière très pédagogique. Je le remercie aussi pour sa disponibilité et la qualité de son encadrement en entreprise.
+Tout d’abord, je voudrais remercier mon maître de stage, **Mr Thomas Coleno**. Il a su me faire confiance et a partagé ses connaissances de manière très pédagogique. Je le remercie aussi pour sa disponibilité et la qualité de son encadrement en entreprise.
 
 Je tiens à remercier également **Mr. Arthur Bertinetti** et **Mr Laurent Potou** pour leur patience et leur grande pédagogie. Ils ont su m’aider sur pleins de problématiques. 
 
@@ -97,9 +97,9 @@ Au cours de son histoire, CGI a réussi une expansion exponentielle et continue 
 CGI est l'un des leaders mondiaux du conseil et des services numériques. Avec plus de 40 ans d'expertise et de savoir-faire et présent dans plus de 40 pays, le groupe CGI est implanté dans 21 villes en France avec environs 11 000 salariés.
 
 L’entreprise est actuellement dirigée par trois personnes :
-- Serge Godin : Fondateur et président exécutif du conseil,
-- André Imbeau : Fondateur et membre du conseil d’administration,
-- George D. Schindler : Président et chef de la direction.
+- Serge Godin : Fondateur et président exécutif du conseil
+- André Imbeau : Fondateur et membre du conseil d’administration
+- George D. Schindler : Président et chef de la direction
 
 Avec une présence dans 40 pays, une solide expertise dans tous ses marchés cibles et un éventail complet de service en IT, la priorité de CGI reste de satisfaire ses clients. Grace à une approche cohérente, disciplinée et responsable en matière de prestation de services, CGI affiche un bilan inégalé de 95% de projets réalisés dans le respect des échéances prévues et affiche un indice de satisfaction des clients qui est constamment supérieur à 9 sur 10. 
 Ce score de satisfaction couplé à la croissance continue de CGI témoigne de la confiance que ses clients accordent à CGI et du dévouement de ses collaborateurs. 
@@ -225,9 +225,9 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 - Permet de déployer des configurations plus spécifiques : on peut cibler une machine ou un groupe de machines
 - Utilisation de SSH pour communiquer les tâches d'exécutions sur les machines cibles (pas besoins d'ouvrir de ports spécifiques)
 - Utilisation de YAML comme langage
-– Grande communauté. 
+– Grande communauté
   Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
-- Ansible Galaxy: collection de Playbook pour un grand nombre de tâches. Plus besoin de faire de Script Bash.
+- Ansible Galaxy: collection de Playbook pour un grand nombre de tâches. Plus besoin de faire de Script Bash
   Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM, Cloud). 
@@ -283,20 +283,20 @@ Nous sommes sur une architecture logicielle sur 3 niveaux :
 ```bash
 github.com/grafana/grafana
 ```
-Grafana est un outil supervision moderne et open source. Il permet d'exposer sous formes de **dashboards** les métriques brutes ou agrégées provenant d’Influxdb et les logs provenant de Loki. L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
+Grafana est un outil supervision moderne et open source. Il permet d'exposer sous formes de **dashboards** (tableau de bord) les métriques brutes ou agrégées provenant d’Influxdb et les logs provenant de Loki. L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
 
-Grafana dispose d‘une WEBUI. Ce qui est très utile quand on veut monitorer une infrastructure à distance. On l’installe seulement sur le serveur de monitorings et on y accède en https de n’importe où.
+Grafana dispose d‘une **WEBUI**. Ce qui est très utile quand on veut monitorer une infrastructure à distance. On l’installe seulement sur le serveur de monitorings et on y accède en https de n’importe où.
 
 Une version payante est également disponible ainsi qu'une version Cloud. L'entreprise Grafana Labs propose également les solutions suivantes Open Source :
 
-  -  Grafana
-  -  Graphite
-  -  Loki
-  -  Metrictank
-  -  Prometheus
-  -  Tanka
-  -  Tempo
-  -  k6
+ - Grafana
+ - Graphite
+ - Loki
+ - Metrictank
+ - Prometheus
+ - Tanka
+ - Tempo
+ - k6
 
 
 C'est pourquoi on trouve souvent le comba Grafana - Prometheus - Loki (du même prestataire) + Influxdb et Telegraf
@@ -318,7 +318,7 @@ Ces principaux avantages sont :
 - La durée de rétention importante
 - La scalabilité
 
-L’entreprise Influxdata développe Influxdb et Telegraf. Une version Cloud et payante est également disponible.
+L’entreprise Influxdata développe Influxdb et Telegraf. Une version Cloud et payante sont également disponibles.
 
 \pagebreak
 
@@ -334,7 +334,7 @@ Loki utilise un mécanisme de découverte de service et ajoute des labels aux lo
 
 Les logs reçus de Promtail se composent du même ensemble de labels que celui des métriques d'applications que Telegraf récupère. Ce qui permet une meilleure intégration des logs et des métriques.
 
-De plus, Loki a besoin de peu de ressources pour fonctionner.
+De plus, Loki a besoin de peu de ressources pour fonctionner. Il est également open source
 
 ### Promtail
 
@@ -348,7 +348,7 @@ Promtail est un agent qui expédie les logs vers une instance Loki. Il est dépl
 - Attache des tags aux logs pour pouvoir les identifier et les rapprocher facilement
 - Pousse les logs vers une instance Loki.
 
-Promtail est très customisable. Nous verrons plus loin un exemple de configuration. Il a été développé par les équipes qui ont également produit **Loki**
+Promtail est très customisable. Nous verrons plus loin quelques exemples de configuration. Il a été développé par les équipes qui ont également produit **Loki** et il est également open source.
 
 \pagebreak
 
@@ -369,7 +369,7 @@ Sa force réside dans la grande bibliothèque de plugins disponible afin de pouv
 
 Telegraf est écrit en GO et il est disponible dans un seul binaire sans besoins de dépendances ou besoin d'outils des gestionnaires de paquets (npm, pip, gem, ...) 
 
-Il est souvent associé à Influxdb (même prestataire) ou Nagios, Prometheus, Graphite ou directement en JSON pour pouvoir être interpréter par un logiciel sur-mesure par exemple.
+Il est souvent associé à Influxdb (même prestataire) ou Nagios, Prometheus, Graphite ou directement en **JSON** pour pouvoir être interpréter par un logiciel sur-mesure par exemple.
 
 
 ### Mise en place des différents éléments
@@ -384,7 +384,7 @@ Etant donnée la nature sensible des informations, j'illustrerai par des graphiq
 
 Ansible utilise le format YAML qui permet une lecture facile des différents éléments du Playbook.
 
-Le Playbook est disponible sur mon compte Github. Il est fonctionnel, idempotent et peut être utilisé avec peu de modification pour monitorer sa propre infrastructure.
+Une version du Playbook est disponible sur mon compte Github. Il est fonctionnel, idempotent et peut être utilisé avec peu de modification pour monitorer sa propre infrastructure.
 
 \pagebreak
 
@@ -430,7 +430,7 @@ Tout comme Telegraf, Promtail pourra être reconfigurer pour récupérer les log
 
 ### Installation d'Ansible
 
-Ansible est disponible pour un grand nombre de Distribution Linux. Il peut être installé par un gestionnaire de paquet ou par PIP car Ansible s'appuis majoritairement sur le langage Python.
+Ansible est disponible sur de nombreuses Distributions Linux. Il peut être installé par un gestionnaire de paquet ou par PIP car Ansible s'appuis majoritairement sur le langage Python.
 
 Pour l'installer sur CentOS, il faut configurer le contrôleur en ajoutant le bon repository puis en installant le bon paquet, qui va se charger d’installer les dépendances nécessaires
 
@@ -488,7 +488,7 @@ L’environnement de base est configuré. Plusieurs fichiers peuvent être modif
 
 Avant de présenter le Playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
 
-On définit des rôles, qui contiennent des tâches à exécuter à l'aide de différents modules, le tout regroupé dans un Playbook, qui va réunir les différents rôles et ou tâches.  Comme précisé plus haut, tout est écrit en YAML. Il convient donc de bien respecter l’indentation et les autres conventions du langage YAML.
+On définit des rôles, qui contiennent des tâches à exécuter à l'aide de différents modules, le tout regroupé dans un Playbook, qui va réunir les différents rôles et ou tâches.  Comme précisé plus haut, tout est écrit en **YAML**. Il convient donc de bien respecter l’indentation et les autres conventions du langage YAML.
 
 Il existe de nombreux modules qui permettent de réaliser toutes les actions imaginables.
 Ansible utilise également des Templates, au format **Jinja2** afin de facilité la création de fichiers de configurations et la gestion des variables.
@@ -553,6 +553,12 @@ Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regroupe
   - **/vars/main.yml** : contient d’autres variables, qui peuvent surcharger celle du /defaults/main.yml
   - **/meta/main.yml** : contient les métadata sur le rôle (auteur, licence, dépendances, ...)
 
+Le dossier **role** a une architecture qu'il convient de respecter. Il est possible de générer cette architecture avec la commande suiviante:
+
+```bash
+ansible-galaxy init NOM_DU_ROLE
+```
+
 Les dossiers **/defaults** et **/vars** ne sont pas obligatoire car les dossier **group_vars** et **host_vars** servent à stocker les valeurs de variables.
 
 Il y a également un fichier **ansible.cfg** qui permet de configurer plusieurs aspects d'Ansible comme par exemple le fait de ne pas vérifier les clés SSH pour chaque hôte, on peut lui ajouter la ligne suivante :
@@ -597,7 +603,7 @@ ansible all -m ansible.builtin.yum -a "name=nginx state=latest"
 Les commandes ad-hoc d'ansible on généralement la même syntaxe :
 - **ansible**
 - **Nom du groupe de machines** ou de **la machine** ou **ALL** pour tous ou **UNGROUPED** pour les machines sans groupes
-- **-m** pour préciser le module que nous voulons utiliser, ici le module **copy** pour copier un fichier du contrôleur sur la/les machines ou **yum** pour installer Nginx sur toutes les machines.
+- **-m** pour préciser le module que nous voulons utiliser, ici le module **copy** pour copier un fichier du contrôleur sur la/les machines ou **yum** pour installer Nginx sur toutes les machines
 - entre parenthèse les **arguments** du module à exécuter
 
 Par défaut si nous ne précisons pas de module dans la commande, le module par défaut utilisé sera le module **command** , qui permet de lancer des commande BASH (sans pouvoir utiliser la puissance du Bash comme le pipe, ...)
@@ -612,7 +618,7 @@ Une autre commande très utile pour un administrateur réseau :
 ```bash
 ansible all -m listen_ports_facts -i prod-ansible-hosts
 ```
-Ici, on utilise la puissance du module listen_ports_facts afin de trouver les informations sur les ports ouverts sur chaque machine. C’est l'équivalent d'une commande Netstat, SS ou NMAP.
+Ici, on utilise la puissance du module **listen_ports_facts** afin de trouver les informations sur les ports ouverts sur chaque machine. C’est l'équivalent d'une commande Netstat, SS ou NMAP.
 
 Un dernier exemple très utile :
 
@@ -620,7 +626,7 @@ Un dernier exemple très utile :
 ansible all -m setup
 ```
 
-Cette commande va nous retourner énormément d'information sur les machines ou seront exécuté la commande. La sortie de cette commande est en JSON. Ce qui permets de pouvoir filtrer cette commande afin de recherche précisément une information. 
+Cette commande va nous retourner énormément d'information sur les machines ou seront exécuté la commande. La sortie de cette commande est en **JSON**. Ce qui permets de pouvoir filtrer cette commande afin de recherche précisément une information. 
 
 
 **JSON est le format principal** de sortie pour toutes les commandes d'Ansible.
@@ -734,7 +740,7 @@ Un des nombreux avantages d'Ansible est l'utilisation de **loop** 'boucle' pour 
     - { state: 'enabled', port:'25/tcp'  }
 ```
 
-Ici, on utilise le module **firewalld** et la une fonction **with_items** (on peut également utiliser la fonction loop) qui va itérer sur les **{{ item }}** en appliquant les valeurs définis pour **state** et **port**, c’est-à-dire l’état et le port.
+Ici, on utilise le module **firewalld** et la fonction **with_items** (on peut également utiliser la fonction **loop**) qui va itérer sur les **{{ item }}** en appliquant les valeurs définis pour **state** et **port**, c’est-à-dire l’état et le port.
 
 Avec ces quelques lignes, on ouvre les ports, dans la zone par défaut (car nous n'avons pas renseigné de zone spécifique dans zone), de manière permanente et immédiate.
 
@@ -824,7 +830,7 @@ Les étapes sont sensiblement les mêmes que pour Grafana et Influxdb. Le point 
 
 En fonction des spécificités des machines, la configuration sera à affiner pour récupérer des métriques spécifiques comme des métriques sur Nginx, Apache, Mariadb, PostgreSQL, Moodle, Peertube, ...
 
-Pour cela, 2 stratégies sont possibles :
+Pour cela, deux stratégies sont possibles :
 
 - Déployer la même configuration sur toute les machines et ajouter la configuration spécifique manuellement ... ce qui ne paraît pas logique quand on est dans une démarche d'automatisation avec une démarche IaC.
 
@@ -946,19 +952,19 @@ Ce type de BDD permet de traiter une très grande quantité d'informations, et d
 
 Les bases de données temporelles disposent de règles de retentions que l'administrateur décide afin de choisir la quantité d'information à stocker/recycler.
 
-Depuis la version 2.0 D'Influxdb, le langage de requête InfluxQL a été remplacé par le langage FLUX, qui est plus performant et customisable.
+Depuis la version 2.0 d'Influxdb, le langage de requête InfluxQL a été remplacé par le langage **Flux**, qui est plus performant et customisable.
 
 Flux est une alternative à InfluxQL et à d'autres langages de requête de type SQL pour interroger et analyser des données. Il utilise des modèles de langage fonctionnels, ce qui le rend capable de surmonter bon nombre des limitations d'InfluxQL. Sa syntaxe est en partie inspiré de Javascript.
 
 Quelques notions importantes pour pouvoir écrire des requêtes avec Flux :
 
-- Utilisation de **pipe forward" |> ** pour enchainer des actions
+- Utilisation de **pipe forward" |>** pour enchainer des actions
 - Toutes les données sont structuré sous forme de tableau.
 - Un regroupement de tableaux avec une politique de rétention est un Bucket. 
 
 Voici quelques exemples de requêtes en langage Flux :
 
-Nombre de processus par machine :
+- Nombre de processus par machine :  
 
 ```SQL
 from(bucket: "bucket-vm")
@@ -971,7 +977,7 @@ from(bucket: "bucket-vm")
 ```
 
 
-Utilisation du CPU par machine:
+- Utilisation du CPU par machine:  
 
 ```SQL
 from(bucket: "bucket-vm")
@@ -984,7 +990,7 @@ from(bucket: "bucket-vm")
   |> yield(name: "mean")
 ```
 
-Influxdb dispose également d'une WEBUI qui permet de faciliter grandement la création de requêtes complexes. Il suffit de choisir les critères dans le menu et d'importer la requête dans Grafana, qui nous permettra de visualiser le résultat avec un graphique très customisable.
+Influxdb dispose également d'une **WEBUI** qui permet de faciliter grandement la création de requêtes complexes. Il suffit de choisir les critères dans le menu et d'importer la requête dans Grafana, qui nous permettra de visualiser le résultat avec un graphique très customisable.
 
 L'ensemble des requêtes du Playbook est également disponible dans le fichier **dashboard.json**.
 
@@ -1027,14 +1033,14 @@ En voici un autre pour les logs Nginx :
  
 Un Template est utilisé pour configurer les **Scrape Jobs** en fonction des différents groupes de machine. Le Template est dans le dossier **template** du rôle Promtail et les variables sont définies dans les sous-dossiers qui portent le nom de chaque groupe, dans le dossier **group_vars**.
 
-Attention : Il faut s'assurer que Promtail a les droits nécessaires pour lire les logs que nous voulons remonter dans Loki puis Grafana. Bien souvent les logs système sont définis avec un mod 640.
+Attention : Il faut s'assurer que Promtail a les droits nécessaires pour lire les logs que nous voulons remonter dans Loki puis Grafana. Bien souvent les logs système sont définis avec un mod **640**.
 
 Il faut donc penser à configurer les autorisations nécessaires pour Promtail.
 
 
 ### Ajout des datastores dans Grafana
 
-Une fois les agents Promtail et Telegraf configurés pour envoyer les données à Influxdb et Loki, il faut par la suite ajouter dans Grafana les data sources, c'est à dire Influxdb et Loki.
+Une fois les agents Promtail et Telegraf configurés pour envoyer les données à Influxdb et Loki, il faut par la suite ajouter dans Grafana les **data sources**, c'est à dire Influxdb et Loki.
 
 Cette action est réalisée dans les options de Grafana en lui indiquant le chemin d'accès pour Influxdb et Loki ainsi que les éléments d'identification nécessaires. 
 
@@ -1044,7 +1050,7 @@ Cette action est réalisée dans les options de Grafana en lui indiquant le chem
 
 ### Importation du Dashboard
 
-Le Playbook contient également un **Dashboard** (tableau de bord)  que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu à gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
+Le Playbook contient également un **dashboard** (tableau de bord)  que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu à gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
 Il contient des commandes génériques qui vont pouvoir récupérer les informations sur le CPU, le % de RAM de libre, le %de disque de libre, ….
 
 (Voir tableau en annexe)
@@ -1152,7 +1158,7 @@ Grâce à VSphere et NSX, on peut configurer depuis un navigateur Web les VM, Fi
 
 C'est avec cet outils que j'ai créé la VM de Monitoring où est installé Grafana - Influxdb - Loki (ainsi que Telegraf et Promtail pour exposer les informations de la machine de monitoring dans Grafana)
 
-Sans rentrer dans les détails car ce n'est pas le sujet de mon mémoire, voici les étapes principales pour la configuration du serveur de monitoring :
+Sans rentrer dans les détails car ce n'est pas le sujet de ce rapport de stage, voici les étapes principales pour la configuration du serveur de monitoring :
 
 - Création de la VM sous CentOS 7 :
   - création de la VM avec suffisamment de CPU + RAM pour faire tourner les applications confortablement
@@ -1246,7 +1252,7 @@ Il sera également intéressant de créer un Dashboard pour l'analyse des logs a
 
 Comme un Git interne à CGI existe, Le Playbook est versionné afin de facilité la collaboration avec les autres utilisateurs et de gérer les changements, monté de version ainsi que le déploiement par client.
 
-Une autre amélioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passes.
+Une autre amélioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passe, token et autres éléments d'identification.
 
 \pagebreak
 
@@ -1260,8 +1266,9 @@ Cela a été pour moi un projet très enrichissant car j'ai pu construire sur de
 
 Ansible est une technologie qui m'intéresse beaucoup et je suis très content d'avoir pu travailler dessus durant mon stage. J'ai par la suite créé d'autres script Ansible du type :
 
-- installation / Configuration d'un serveur Apache
+- installation / configuration d'un serveur Apache
 - Configuration d'un pool de machine Big Blue Button
+- Déploiement de machines à partir d'un template dans vSphere avec configuration du de base (ip, interface, hostname, lvm, ...
 - Déploiement d'une infrastructure complexe (Nginx, Apache, Drupal, Mariabd, Moodle, Python)
 
 Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible notamment sur les notions de programmation en Python et sur la manipulation du format JSON. Ce sont ses notions qui m’ont manqué pour finir ce Playbook.
@@ -1285,7 +1292,7 @@ En parallèle de ce stage, j'ai choisi de passer des certifications afin de vali
 - **CKA : Certified Kubernetes Administrator**. Une certification pour l’administration de clusters sous Kubernetes  
 - **RHCSA : Red Hat Certified System Administrator** : Administration système sur Red Hat / CentOS / Fedora  
 
-Je passe fin Septembre la certification RHCE : Red Hat Certified Engeneer.
+Je passe fin Septembre la certification **RHCE : Red Hat Certified Engeneer**.
 
 Cette dernière certification est le prolongement logique de ce que j’ai fait durant mon stage. Elle est très pointue et elle est orientée sur l’automatisation et la très bonne maitrise d’Ansible pour administrer un S.I.
 
