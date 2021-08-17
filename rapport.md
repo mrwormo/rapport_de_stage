@@ -35,7 +35,7 @@ J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir
 
 En effet, chacune des personnes de l'équipe à su me consacre du temps et partager avec moi leur expertise, méthodes et connaissances tout au long de ce stage. Ils m’ont permis de rendre cette expérience de 6 mois enrichissante et pleine d'intérêt.
 
-J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur pleins de projets et avec une grande autonomie et je les en remercie vivement.
+J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur plein de projets et avec une grande autonomie et je les en remercie vivement.
 
 Je les remercie également pour la bonne humeur qu'ils ont su me communiquer et l'envie qu'ils m'ont donné de travailler au sein de leur équipe.
 
@@ -56,7 +56,7 @@ Etant donné la diversité des tâches réalisées, j'ai choisi comme thème de 
 
 Aucunes données confidentielles ne seront présentées dans ce rapport.
 
-Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme Ansible, vSphere, Jira, Confluence, Python, Mariadb, Postgresql, Moodle, Big Blue Button, Jupyter, OpenStack, Kubernetes...
+Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme Ansible, vSphere, Jira, Confluence, Python, Mariadb, Postgresql, Moodle, Big Blue Button, Jupyter, Zimbra, OpenStack, Kubernetes...
 
 Au-delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaitre et interagir avec chacune des phases du projet sur le terrain. 
 
@@ -68,7 +68,7 @@ Ce rapport est disponible sur mon Github personnel en Markdown :
 https://github.com/marc-cenon/rapport_de_stage/blob/master/rapport.md
 ```
 
-Vous y trouverez le Playbook de monitoring que je vais présenter dans mon rapport. Ce PDF a été généré à partir du rapport en Markdown grâce à Pandoc et au fichier text.tex qui comprend les différentes variables utilisées pour le bon formatage de ce dernier.
+Vous y trouverez le Playbook de monitoring que je vais présenter dans mon rapport. Ce PDF a été généré à partir du rapport en Markdown grâce à **Pandoc** et au fichier **text.tex** qui comprend les différentes variables utilisées pour le bon formatage de ce dernier.
 Vous pouvez compiler le rapport avec la commande suivante, à condition d'avoir installé Pandoc.
 
 ```bash
@@ -133,15 +133,12 @@ Le fait de pouvoir télétravailler pour moi a été une réelle découverte com
 Le télétravail m’a permis de trouver un certain confort pour équilibrer le contexte professionnel et personnel.
 
 
-
-
-
 \pagebreak
 
 
 ## Mes missions
 
-J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur l'ENT : Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. 
+J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur **l'ENT** : Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. 
 Dans le contexte sanitaire actuel, l'équipe a dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. 
 
 Je présenterai rapidement les principaux outils de cet ENT afin de comprendre les différentes applications sur lesquelles j’ai pu travailler.
@@ -156,7 +153,7 @@ Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en plac
   J'ai également aidé l'équipe sur toutes les tâches qu'ils ont pu me confier. J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.  
     
 - **Montée en Compétences** :  
-  La diversité des briques logicielles a fait que j’ai grandement appris et je suis monté en compétences sur beaucoup de domaine comme Ansible, la gestion de BB ou la mise en place de serveurs web. Cela m’a amené à faire beaucoup de troubleshooting sur différents sujets.  
+  La diversité des briques logicielles a fait que j’ai grandement appris et je suis monté en compétences sur beaucoup de domaines comme Ansible, la gestion de BBD ou la mise en place de serveurs web. Cela m’a amené à faire beaucoup de troubleshooting sur différentes technologies afin de savoir comment elles fonctionnent..  
   
 
 Quelqu'un des projets sur lesquels j'ai pu participer :  
@@ -170,13 +167,14 @@ Quelqu'un des projets sur lesquels j'ai pu participer :
 - Installation de différentes Bases de données : Maria, PostgreSQL, InfuxDB
 - Mise a jours de messagerie Zimbra pour diverses Régions
 - Création d'un Playbook pour l'automatisation de la création et le paramétrage de VM dans vSphere
+- Installation d'un WAF (Web Application Firewall)
 
 
 \pagebreak
 
 ## Présentation de l'ENT
-Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition d'une ou plusieurs établissement(s) scolaire(s) dans une ou plusieurs région(s) de France.
-En annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposé. Pour en citer les plus importantes :
+Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition d'un ou plusieurs établissement(s) scolaire(s) dans une ou plusieurs région(s) de France.
+En annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposées. Pour en citer les plus importantes :
 
 - **Messagerie Zimbra**:  
   La messagerie collaborative Zimbra propose une couverture fonctionnelle étendue. En plus des fonctionnalités classiques de messagerie, Zimbra propose des outils intégrés comme le carnet d’adresses, l’agenda, ou encore le gestionnaire de tâches.
@@ -185,28 +183,28 @@ En annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine 
   Moodle est une plateforme d'apprentissage en ligne. Elle permet aux enseignants de mettre en ligne des cours / quizz pour les étudiants. Sa force réside dans la grande variété de plugins qui permettent de répondre à des besoins spécifiques pour la création.
 
 - **Big Blue Button**:  
-  Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid sa solution a été extrêmement sollicité)
+  Big Blue Button est une solution de visioconférence idéale pour la formation à distance. (En temps de covid cette solution a été extrêmement sollicité).
 
 - **Peertube**:  
-  Peertube est une solution d'hébergement de vidéo décentralisé permettant la diffusion en peer to peer et également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
+  Peertube est une solution d'hébergement de vidéos décentralisées permettant la diffusion en peer to peer et c'est également un média social sur lequel les utilisateurs peuvent intéragir et partager des vidéos en streaming.
 
 - **Jupyter**:  
-  Jupyter est une application web permettant aux étudiants de coder en différents langage.
+  Jupyter est une application web permettant aux étudiants de coder en différents langages.
 
 - **Wekan**:  
-  Wekan est un logiciel en ligne pour gérer des projets et partager des tâches grâce à la méthode Kanban
+  Wekan est un logiciel en ligne pour gérer des projets et partager des tâches grâce à la méthode Kanban.
 
 - **Riot**:  
   Riot est une messagerie instantanée chiffrée, multi-plateforme et pouvant être décentralisée, avec une interface très intuitive et une bonne gestion des salons et communautés.
 
 - **PMB**:  
-  PMB est un service qui organise tout type de documents (livres, documents audiovisuels, des périodiques et d'une manière générale tout type de documents numériques à vocation documentaire) en une seule base de données. Cela permet pour les professeur d'avoir une interface de catalogage unique et les étudiant d’une seule interface de recherche.
+  PMB est un service qui organise tout type de documents (livres, documents audiovisuels, des périodiques et d'une manière générale tout type de documents numériques à vocation documentaire) en une seule base de données. Cela permet pour les professeurs d'avoir une interface de catalogage unique et pour les étudiant une seule interface de recherche.
 
 - **Libre Office Online**:  
   LOOL est une suite bureautique très complète en ligne.
 
 L’ensemble des solutions utilisées par les ENT sont Open Source (avec des versions payantes disponibles pour certaines des applications).
-Les scripts Ansible nous permettent de déployer rapidement ces services à la demande en fonction du besoin des régions car chaque région utilise un ensemble de commune et des services spécifiques.
+Les scripts Ansible nous permettent de déployer rapidement ces services à la demande en fonction du besoin des régions car chaque région utilise une base commune et des services spécifiques.
 
 
 \pagebreak
@@ -214,9 +212,9 @@ Les scripts Ansible nous permettent de déployer rapidement ces services à la d
 # Partie 2
 ## Ansible et Automatisation
 
-L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervention humaine. C'est un gain de temps et surtout cela permet de garantir le même résultat pour une opération réalisé n fois avec les mêmes paramètres : c'est le principe **d'idempotence**.
+L'automatisation consiste à utiliser des logiciels pour créer des instructions reproductibles dans le but de remplacer ou de réduire l'intervention humaine. C'est un gain de temps et surtout cela permet de garantir le même résultat pour une opération réalisé **n fois** avec les mêmes paramètres : c'est le principe **d'idempotence**.
 
-On passe du temps à écrire des règles d'automatisation mais une fois ces dernières testées et approuvées, on peut s'assurer du résultat et enlever les erreurs humaines (ex :  faute de frappe, ...)
+On passe du temps à écrire des règles d'automatisations mais une fois ces dernières testées et approuvées, on peut s'assurer du résultat et enlever les erreurs humaines (ex :  faute de frappe, ...)
 
 L'automatisation est un élément clé de l'optimisation de l'environnement informatique dans un monde qui évolue rapidement, c'est donc un rôle essentiel.
 
@@ -232,19 +230,19 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 - Ansible Galaxy: collection de Playbook pour un grand nombre de tâches. Plus besoin de faire de Script Bash.
   Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
 
-Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM , Cloud). 
+Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM, Cloud). 
 
-Ansible s'inscrit dans la mouvance IaC : Infrastructure as Code, c'est à dire gérer la configuration d'une Infrastructure à l'aide de fichiers de configuration stockable, versionable dans un flow CI/CD.
+Ansible s'inscrit dans la mouvance **IaC : Infrastructure as Code**, c'est à dire gérer la configuration d'une Infrastructure à l'aide de fichiers de configuration stockable, versionable dans un flow CI/CD.
 
 Avec le développement des Infrastructure Cloud, Ansible, couplé à des outils comme Terraform et Packer, permet de gérer un infrastructure Cloud en mode IaC.
 
 Personnellement, je ne vois que des avantages dans ce mode de gestion IaC. C'est ce que j'utilise pour gérer mon homelab (Cluster sous Kubernetes de 8 raspberry pi).
 
-Le fait de pouvoir redéployer son infrastructure et sa configuration grâce des fichiers de configurations versionables, est un atout majeur en cas de problème technique. Une réinstallation d'un service peut être réalisé rapidement.
+Le fait de pouvoir redéployer son infrastructure et sa configuration grâce à des fichiers de configurations versionables, est un atout majeur en cas de problème technique. Une réinstallation d'un service peut être réalisé rapidement.
 
 ## Différence entre Ansible et Script Bash
 
-Les scripts Bash sont fréquemment utilisés pour configurer voire automatiser certaines actions. Ecrire des Script en Bash nécessite une bonne connaissance de ce langage de Scripting.  De mon point de vue :
+Les scripts Bash sont fréquemment utilisés pour configurer voir automatiser certaines actions. Ecrire des Script en Bash nécessite une bonne connaissance de ce langage de Scripting.  De mon point de vue :
 
 - Bash décrit des **actions**. (ex : copie tel fichier, réalise telle action, n’autorise pas telle action ….)
 
@@ -261,22 +259,22 @@ Si un utilisateur venait à modifier la configuration d’un service, le fait de
 
 Une de mes missions a été de mettre en place une solution de monitoring déployable par Ansible pour pouvoir surveiller l'infrastructure d'un client. La solution de monitoring retenue a été la suivante :
 
-- Grafana pour la centralisation des graphiques
-- Influxdb comme base de données pour les différentes métriques.
-- Telegraf pour la collecte des métriques
-- Loki pour la gestion des logs
-- Promtail pour la récupération des logs
+- **Grafana** pour la centralisation des graphiques
+- **Influxdb** comme base de données pour les différentes métriques
+- **Telegraf** pour la collecte des métriques
+- **Loki** pour la gestion des logs
+- **Promtail** pour la récupération des logs
 
-Cette solution est facilement transposable pour un autre client. Je vais présenter les briques de bases qui permette de créer cette solution de monitoring mais avec un peu de temps, on peut très rapidement reconfigurer le Playbook pour convenir aux besoins d’une autres infrastructure.
+Cette solution est facilement transposable pour une autre infrastructure. Je vais présenter les briques de bases qui permettent de monter cette solution de monitoring mais avec un peu de temps, on peut très rapidement reconfigurer le Playbook pour convenir aux besoins d’une autres infrastructure.
 
 ## La stack de monitoring
 
 Cette solution, plus connus sous le nom de TIG (Telegraf - Influxdb - Grafana) et de PLG (Promtail - Loki - Grafana) pour les logs, est une solution efficace, robuste, facilement scalable et extrêmement customisable.
 Nous sommes sur une architecture logicielle sur 3 niveaux :
 
-- La collectes des métriques et des logs
-- Le stockage des métriques dans la base de données Influxdb
-- L'affichage des graphiques dans Grafana
+- La collectes des métriques et des logs -> Telelgraf + Promtail
+- Le stockage des métriques et des logs -> Influxdb + Loki
+- Le monitoring/alerting avec l'affichage des graphiques et la creation des alertes -> Grafana
 
 \pagebreak
 
