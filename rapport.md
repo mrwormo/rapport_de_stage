@@ -260,6 +260,19 @@ Personnellement, je ne vois que des avantages dans ce mode de gestion IaC. C'est
 
 Le fait de pouvoir redéployer son infrastructure et sa configuration grâce à des fichiers de configurations versionables, est un atout majeur en cas de problème technique. Une réinstallation d'un service peut être réalisé rapidement.
 
+## Les autres solutions d'automatisation
+
+Il existe de nombreuses solution pour automatiser des tâches. Nous pouvons citer:  
+
+- Saltstack
+- Puppet
+- Chef  
+
+**Puppet** est une solution largement répendue. Sont fonctionnement nécessite la connaissance du language spécifique utilisé par Puppet. Ansible utilise le format YAML, ce qui est bien plus facile à utiliser.  
+
+**Chef**, une autre solution bien connue, s'appuis sur le langage **Ruby** et necessite l'installation d'un agent sur les machines clientes. Ansible n'a besoin d'aucuns agents et utilise le langage **Python** qui est un langage très répendu.  
+
+Chaques solutions à ses avantages/inconvenients. On peut comprendre l'atrait d'Ansible par son large eventail de module, sa simplicité d'utilisation grâce au Yaml et à Python et au protocol SSH pour envoyer les commandes sur les machines ciblées.
 
 ## Différence entre Ansible et Script Bash
 
