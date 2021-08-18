@@ -46,7 +46,8 @@ Je tiens à remercier également le corps enseignant de l'Université, notamment
 
 Dans le cadre de la Licence professionnelle Administration et Développement de Systèmes Informatiques à base de Logiciels Libres et Hybrides **ADSILLH**, j'ai effectué un stage de 6 mois au sein de l'équipe **ENT** (Espace Numérique de Travail) / **Local GOV** (Gouvernement Local) dans la Bussiness Unit **TPSHR** (Transport, Secteur Public, Ressources Humaines)dans l'entreprise CGI (Conseillers en Gestion Informatique ou Consultants to Government and Industry en anglais) au Haillan.
 
-Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez dans sur la première page des annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.
+Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez en  annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.  
+Lien [ici](#tableau-du-travail-semaine-par-semaine)
 
 J’ai eu l’occasion de pouvoir travailler sur pleins de projets différents mais avec comme fil conducteur l’automatisation et c’est pourquoi j'ai choisi comme thème de rapport de stage **l'automatisation dans un S.I** avec un focus sur le déploiement d'une solution de **monitoring** avec **Ansible** car c’est l’un des projet qui m’a beaucoup plus. J’utilisai cette solution de monitoring chez moi pour mon infrastructure. Le fait de devoir travailler dessus m’a beaucoup plus et m’a vraiment fait progresser sur le monitoring et m’a permis d’améliorer mon installation.
 
@@ -62,16 +63,16 @@ Aucunes données confidentielles ne seront présentées dans ce rapport.
 
 Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme :  
 
-- Automatisation : Ansible, Openstack  
-- Virtualisation : vSphere, VMware ESXi  
-- Conteneurisation : Docker, Kubernetes  
-- Base de Données : Mariadb, Postgresql, Influxdb  
-- Applications diverses :  Moodle, Big Blue Button, Jupyter, …  
-- Messagerie : Zimbra  
-- Outils de ticketing : Jira  
-- Documentation : Confluence  
-- Monitoring : Centreon, Grafana, Loki, Telegraf, Promtail  
-- Scripting : Bash, Python  
+- Automatisation : Ansible, Openstack
+- Virtualisation : vSphere, VMware ESXi
+- Conteneurisation : Docker, Kubernetes
+- Base de Données : Mariadb, Postgresql, Influxdb
+- Applications diverses :  Moodle, Big Blue Button, Jupyter
+- Messagerie : Zimbra
+- Outils de ticketing : Jira
+- Documentation : Confluence
+- Monitoring : Centreon, Grafana, Loki, Telegraf, Promtail
+- Scripting : Bash, Python
 
 Au-delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaître et interagir avec chacune des phases du projet sur le terrain. 
 
@@ -106,15 +107,15 @@ Durant la fin des années 80 et début 90, CGI commença à acquérir des socié
 Dans les 20 dernières années, CGI chercha à atteindre une taille critique sur les marchés géographiques de ses clients, d’acquérir une croissance approfondie de leurs secteurs d’activités ainsi que de développer des pratiques spécialisées et des solutions novatrices.
 En 2010, CGI fait l’acquisition de Stanley Inc. et de ses filiales Oberon et Techrizon dans le but de doubler la taille de ses activités aux États-Unis. Deux années plus tard, CGI réalisa sa plus grosse acquisition en fusionnant avec l’entreprise Logica faisant passer son nombre de collaborateurs de 31 000 à 68000.
 
-Au cours de son histoire, CGI a réussi une expansion imprésionnante et continue pendant 35 ans grâce à une stratégie de rachat et de conquête des différents marchés comme en témoigne le tableau ci-joint en Annexe relatant sa forte croissance en chiffre d’affaires, en nombre de bureaux et en nombre d’employés.
+Au cours de son histoire, CGI a réussi une expansion imprésionnante et continue pendant 35 ans grâce à une stratégie de rachat et de conquête des différents marchés comme en témoigne le tableau 
 
 CGI est l'un des leaders mondiaux du conseil et des services numériques. Avec plus de 40 ans d'expertise et de savoir-faire et présent dans plus de 40 pays, le groupe CGI est implanté dans 21 villes en France avec environs 11 000 salariés.
 
 L’entreprise est actuellement dirigée par trois personnes :  
 
-- Serge Godin : Fondateur et président exécutif du conseil  
-- André Imbeau : Fondateur et membre du conseil d’administration  
-- George D. Schindler : Président et chef de la direction  
+- Serge Godin : Fondateur et président exécutif du conseil
+- André Imbeau : Fondateur et membre du conseil d’administration
+- George D. Schindler : Président et chef de la direction
 
 Avec une présence dans 40 pays, une solide expertise dans tous ses marchés cibles et un éventail complet de service en IT, la priorité de CGI reste de satisfaire ses clients. Grace à une approche cohérente, disciplinée et responsable en matière de prestation de services, CGI affiche un bilan inégalé de 95% de projets réalisés dans le respect des échéances prévues et affiche un indice de satisfaction des clients qui est constamment supérieur à 9 sur 10. 
 Ce score de satisfaction couplé à la croissance continue de CGI témoigne de la confiance que ses clients accordent à CGI et du dévouement de ses collaborateurs. 
@@ -139,9 +140,7 @@ Local Gov a pour but de proposer aux collectivités territoriales des solutions 
 
 Mon maitre de stage **Mr Thomas Coleno** ainsi que **Mr Laurent Potou** et **Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire actuel a fait que 99% de mon temps de travail été à distance. Grâce aux outils collaboratifs comme Teams et Slack ainsi que la visioconférence ont permis de pouvoir communiquer dans de bonnes conditions. 
 
-Ce contexte m’a forcé à travailler sur mon autonomie. Cela a été pour moi très important car cela m’a poussé à chercher par moi-même et à solliciter mes collègues seulement en cas de difficultés.  Dans un sens, cela a été très formateur.
-
-A partir du mois de Juillet, nous avons pu nous réunir une fois par semaine dans les locaux de CGI au Haillan.
+Ce contexte m’a forcé à travailler sur mon autonomie. Cela a été pour moi très important car cela m’a poussé à chercher par moi-même et à solliciter mes collègues seulement en cas de difficultés.  Dans un sens, cela a été très formateur. A partir du mois de Juillet, nous avons pu nous réunir une fois par semaine dans les locaux de CGI au Haillan.
 
 Le fait de pouvoir télétravailler pour moi a été une réelle découverte comparée à mes postes précédant où, en tant que courtier en vin j’étais en déplacement constant et ne pouvais pas travailler depuis mon domicile.
 
@@ -184,7 +183,9 @@ Quelqu'un des projets sur lesquels j'ai pu participer :
 # Présentation de l'ENT
 
 Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition d'un ou plusieurs établissements scolaires dans une ou plusieurs régions de France.
-En seconde page de l’annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposées. 
+En annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposées. 
+
+lien [ici](#image-ent)
 
 ## Les services proposés
 En fonction des régions et des besoins, plusieurs services sont disponibles dans l’ENT. Voici une liste des plus important :
@@ -406,15 +407,21 @@ L’environnement de base est configuré. Plusieurs fichiers peuvent être modif
 
 Avant de présenter le Playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
 
-On définit des **rôles**, qui contiennent des **tâches** à exécuter à l'aide de différents **modules**, le tout regroupé dans un **Playbook**, qui va réunir les différents rôles et ou tâches.  Tout est écrit en **YAML**. Il convient donc de bien respecter l’indentation et les autres conventions de ce langage.
+![Ansible](images/ansible_architecture.png "Fonctionnement d'Ansible")
 
-Il existe de nombreux modules qui permettent de réaliser toutes les actions imaginables.  
+On définit des **rôles**, qui contiennent des **tâches** à exécuter à l'aide de différents **modules**, le tout regroupé dans un **Playbook**, qui va réunir les différents rôles et ou tâches. Le Playbook va donc executer un ensemble de **tache** , appelé également un **Play** sur un groupe de machines, définies dans un **inventaire**.
+
+Il existe de nombreux modules et plugins qui permettent de réaliser presque toutes les action envisagable.  
+
+On trouve également des plugins et modules complémentaire sur **Ansible Galaxy** qui sont en libre téléchargement.  
+
+Pour ceux qui on une licence **Red Hat**, ils ont également accès à un large panel de rôles, modules et plugins spécialement consus pour les plateformes Red Hat.  
 
 Ansible utilise également des Templates, au format **Jinja2** afin de facilité la création de fichiers de configurations et la gestion des variables.
 
 Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir plusieurs éléments. 
 
-Voici un exemple simple d'arborescence d'un projet, que j'ai adapté depuis la documentation officielle d’Ansible :
+Voici un exemple simple d'arborescence d'un projet, que j'ai adapté depuis la documentation officielle d’Ansible :  
 
 ```yaml
 Playbook.yml
@@ -763,7 +770,8 @@ Cela permettra également un e meilleure collaboration avec les différentes per
 
 ## Création du Projet
 
-Notre projet peut se résumer en :
+Notre projet peut se résumer en :  
+
 - 1 dossier projet
 - 1 Playbook
 - 1 inventaire
@@ -863,7 +871,7 @@ Il est fonctionnel, idempotent et peut être utilisé avec peu de modification p
 
 # Creation  des différents éléments du projet
 
-##Les différents rôles
+## Les différents rôles
 
 Ce Playbook utilise **5 rôles** afin d’installer et de configurer les différentes briques nécessaires pour déployer la stack correctement. Les 5 rôles sont les suivants :  
 
@@ -1056,10 +1064,11 @@ Pour compléter notre stack TIG, il faut également déployer nos agents grâce 
 - Activation du service
 
 Les étapes sont sensiblement les mêmes que pour Grafana et Influxdb. Le point important ici est le fichier de configuration. Une partie de la configuration sera la même pour toutes les machines. On va récupérer par exemple :  
-- %CPU  
-- %RAM  
-- Uptime  
-- %SDD  
+
+- %CPU
+- %RAM
+- Uptime
+- %SDD
 
 En fonction des spécificités des machines, la configuration sera à affiner pour récupérer des métriques spécifiques comme des métriques sur Nginx, Apache, Mariadb, PostgreSQL, Moodle, Peertube, ...
 
@@ -1153,17 +1162,12 @@ Voici la tâche qui utilise le module **template** pour déployer le fichier de 
 On source le fichier template qui se trouve dans le sous dossier template dans le dossier du rôle **install_loki**, en lui indiquant en destination l’emplacement où le fichier doit se trouver et en appliquant les bon droit sur ce fichier. Une fois le fichier créé, nous utiliser un **notify** qui va alerter le **handler** de redémarrer le service de Loki.
 
 Le template pour la configuration de Loki tronqué :
-```yaml
-...
-...
 
+```bash
 ingester:
   wal:
     enabled: true
     dir: {{ loki_main_folder }}/loki/wal
-       
-...
-...
 
 storage_config:
   boltdb_shipper:
@@ -1178,9 +1182,6 @@ compactor:
   working_directory: {{ loki_main_folder }}/loki/boltdb-shipper-compactor
   shared_store: filesystem
 
-...
-...
-
 ruler:
   storage:
     type: local
@@ -1192,10 +1193,11 @@ ruler:
     kvstore:
       store: inmemory
   enable_api: true
- ``` 
+```
 
 
-Quelques élements pour la compréhension de la configuration de Loki :
+Quelques élements pour la compréhension pour la configuration de Loki :  
+
 - **ingester** :  
   Ce service est responsable d’arranger les logs pour les placer dans une base de données, généralement de type NoSQL comme Cassandra ou DynamoDB
 
@@ -1416,8 +1418,8 @@ Lorsqu'une tache est exécutée, il y a plusieurs états possibles :
 Une fois les agents Promtail et Telegraf configurés pour envoyer les données à Influxdb et Loki, il faut par la suite ajouter dans Grafana les **data sources**, c'est à dire Influxdb et Loki.
 
 Cette action est réalisée dans les options de Grafana en lui indiquant le chemin d'accès pour Influxdb et Loki ainsi que les éléments d'identification nécessaires. 
-En Annexe, vous trouverez la capture d’écran qui illustre le paramétrage des data sources.
-
+En Annexe, vous trouverez la capture d’écran qui illustre le paramétrage des data sources.  
+Lien [ici](#data-sources-configuration)
 
 
 ## Importation du Dashboard
@@ -1425,12 +1427,11 @@ En Annexe, vous trouverez la capture d’écran qui illustre le paramétrage des
 Le Playbook contient également un **dashboard** (tableau de bord)  que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu à gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
 Il contient des commandes génériques qui vont pouvoir récupérer les informations sur le CPU, le % de RAM de libre, le %de disque de libre, ...
 
-En Annexe, vous trouverez la capture d’écran qui illustre l’utilisation du dashboard.
+En Annexe, vous trouverez la capture d’écran qui illustre l’utilisation du dashboard.  
+Lien [ici](#grafana-dashboard)
 
 
 Pour les logs, pour le moment, il n'y a pas de dashboard de créé. Il suffit d'aller dans **explorer** puis sélectionner Loki comme data source et nous pouvons trouver les logs que Promtail à récupérer.
-
-En Annexe, vous trouverez la capture d’écran qui illustre l’utilisation du dashboard.
 
 
 ## Utilisation de Grafana
@@ -1481,7 +1482,8 @@ Le serveur étant configuré, il ne reste plus qu'a mettre en place les alertes 
 - Utilisation de la Mémoire
 - Surveillance des nodes du cluster
 
-En Annexe, vous trouverez la capture d’écran qui illustre l’utilisation du dashboard.
+En Annexe, vous trouverez la capture d’écran qui illustre la configuration des alertes dans le dashboard.  
+Lien [ici](#alerte-grafana)
 
 Par exemple, pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85%.
 
@@ -1682,31 +1684,38 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 
 # Annexes
 
+
+## image ENT
 ![ENT](images/ent.png "ENT")
 
+## influxdb bucket
 ![bucket Influxdb](images/bucket.png "bucket Influxdb")
 
+\pagebreak
+
+## grafana dashboard
 ![Grafana dashboard](images/grafana-dash.png "Grafana Dashboard")
 
+## grafana data sources
 ![Grafana datasources](images/grafana-datasources.png "Grafana Datasources")
+
+\pagebreak
+
+
+## requête influxdb
+![Influxdb query](images/influxdb-query.png "Influxdb Query")
+
+\pagebreak
+
+## alerte grafana
+![Alerte](images/alerte.png "Alertes Grafana")
+
 
 ![Datasources configuration](images/datasources-conf.png "Datasources configuration")
 
-![Influxdb query](images/influxdb-query.png "Influxdb Query")
 
-![Influxdb diagram](images/influxdb_diagram.png "Influxdb Diagram")
 
-![Loki cron](images/loki-cron.png "Loki Cron")
-
-![Influxdb](images/difference-relational-time-series.png "Influxdb TBS")
-
-![Alerte](images/alerte.png "Alertes Grafana")
-
- 
-
-- tableau du travail semaine par semaine
-
-Récapitulatifs des tâches réalisées
+## tableau du travail semaine par semaine
 
 |semaine| actions |
 |-------- | ------------- |
