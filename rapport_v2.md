@@ -40,6 +40,7 @@ Je les remercie également pour la bonne humeur qu'ils ont su me communiquer et 
 
 Je tiens à remercier également le corps enseignant de l'Université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutiens et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle grâces à leurs conseils, à leurs excellents cours.
 
+\pagebreak
 
 # Introduction
 
@@ -59,18 +60,18 @@ Et avant la conclusion, je parlerai de la configuration supplémentaires possibl
 
 Aucunes données confidentielles ne seront présentées dans ce rapport.
 
-Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme :
- - Automatisation : Ansible, Openstack 
- - Virtualisation : vSphere, VMware ESXi
- - Conteneurisation : Docker, Kubernetes
- - Base de Données : Mariadb, Postgresql, Influxdb
- - Applications diverses :  Moodle, Big Blue Button, Jupyter, …
- - Messagerie : Zimbra
- - Outils de ticketing : Jira
- - Documentation : Confluence
- - Monitoring : Centreon, Grafana, Loki, Telegraf, Promtail
- - Scripting : Bash, Python
- - ...
+Le but de ce stage était d'intégrer l'équipe Infrastructure afin de participer au développement du numérique à l'école ainsi que sur la gestion de cette infrastructure. Ce stage m'a permis d'apprendre et de manipuler des technologies comme :  
+
+- Automatisation : Ansible, Openstack  
+- Virtualisation : vSphere, VMware ESXi  
+- Conteneurisation : Docker, Kubernetes  
+- Base de Données : Mariadb, Postgresql, Influxdb  
+- Applications diverses :  Moodle, Big Blue Button, Jupyter, …  
+- Messagerie : Zimbra  
+- Outils de ticketing : Jira  
+- Documentation : Confluence  
+- Monitoring : Centreon, Grafana, Loki, Telegraf, Promtail  
+- Scripting : Bash, Python  
 
 Au-delà du gain en compétences techniques, l'immersion au sein d'un processus de gestion de projet m'a appris à reconnaître et interagir avec chacune des phases du projet sur le terrain. 
 
@@ -92,6 +93,8 @@ cd rapport_de_stage
 
 pandoc --listings -H text.tex rapport.md -o files/rapport.pdf --pdf-engine=xelatex
 ```
+
+\pagebreak
 
 # Présentation de l’entreprise et du cadre du stage
 ## Présentation de CGI
@@ -144,12 +147,12 @@ Le fait de pouvoir télétravailler pour moi a été une réelle découverte com
 
 Le télétravail m’a permis de trouver un certain confort pour équilibrer le contexte professionnel et personnel.
 
+\pagebreak
+
 ## Mes missions
 
 J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur **l'ENT** : Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. 
-Dans le contexte sanitaire actuel, l'équipe a dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. 
-
-Je présenterai rapidement les principaux outils de cet ENT afin de comprendre les différentes applications sur lesquelles j’ai pu travailler.  
+Dans le contexte sanitaire actuel, l'équipe a dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. Je présenterai rapidement les principaux outils de cet ENT afin de comprendre les différentes applications sur lesquelles j’ai pu travailler.  
 
 Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Je peux définir mon travail durant le stage en 3 axes :
 
@@ -213,9 +216,7 @@ En fonction des régions et des besoins, plusieurs services sont disponibles dan
 - **Libre Office Online**:  
   LOOL est une suite bureautique très complète en ligne.
 
-L’ensemble des solutions utilisées par les ENT sont Open Source (avec des versions payantes disponibles pour certaines des applications).
-
-Les scripts Ansible nous permettent de déployer rapidement ces services à la demande en fonction du besoin des régions car chaque région utilise une base commune et des services spécifiques.
+L’ensemble des solutions utilisées par les ENT sont Open Source (avec des versions payantes disponibles pour certaines des applications). Les scripts Ansible nous permettent de déployer rapidement ces services à la demande en fonction du besoin des régions car chaque région utilise une base commune et des services spécifiques.
 
 
 
@@ -264,12 +265,14 @@ Le fait de pouvoir redéployer son infrastructure et sa configuration grâce à 
 Les scripts Bash sont fréquemment utilisés pour configurer voir automatiser certaines actions. Écrire des Script en Bash nécessite une bonne connaissance de ce langage de Scripting.  De mon point de vue :
 
 - Bash décrit des **actions**. (ex : copie tel fichier, réalise telle action, n’autorise pas telle action ….)
+- Ansible est accés sur **l'état de la machine** avant l'action. Il réalisera une tache si cela implique un changement d'état, sinon il ne l'executera pas.
+
 
 Pour illustrer ces propos, je vais prendre l’exemple d’un script bash qui va installer **nginx** avec le module **passenger** qui permet de déployer des applications **Ruby on Rails**  et transposer cela avec Ansible
 
 Le script shell :  
 
-```shell
+```bash
 # Installation clé PGP
 gpg --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
 gpg --armor --export 561F9B9CAC40B2F7 | apt-key add -
@@ -299,7 +302,7 @@ service nginx restart
 Le script Ansible :  
 
 
-```shell
+```bash
 ---
 - hosts: all
   tasks:
@@ -355,57 +358,49 @@ Si un utilisateur venait à modifier la configuration d’un service, le fait de
 
 ## Installation d'Ansible
 
-Ansible est disponible sur de nombreuses Distributions Linux. Il peut être installé par un gestionnaire de paquet ou par PIP car Ansible s’appuie majoritairement sur le langage Python.
+Ansible est disponible sur de nombreuses Distributions Linux. Il peut être installé par un gestionnaire de paquet ou par PIP car Ansible s’appuie majoritairement sur le langage Python. Pour l'installer sur CentOS, il faut configurer le contrôleur en ajoutant le bon répo puis en installant le bon paquet, qui va se charger d’installer les dépendances nécessaires
 
-Pour l'installer sur CentOS, il faut configurer le contrôleur en ajoutant le bon répo puis en installant le bon paquet, qui va se charger d’installer les dépendances nécessaires
-
-```shell
-sudo yum install epel-release
-sudo yum update
+```bash
+sudo yum install epel-release && sudo yum update
 sudo yum install Ansible 
 ```
 
 On vérifie la bonne installation d'Ansible et des dépendances :
 
-```shell
+```bash
 Ansible –version
 ```
 et le resultat de cette commande :
 
-```shell
+```bash
 Ansible 2.9.6
   config file = /etc/Ansible/Ansible.cfg
   configured module search path = ['/home/marc/.Ansible/plugins/modules', '/usr/share/Ansible/plugins/modules']
-
   Ansible python module location = /usr/lib/python3/dist-packages/Ansible
   executable location = /usr/bin/Ansible
-
   python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
 ```
 
+Ansible a besoin que le port SSH soit ouvertert que l'authentification par clé plutôt que par mot de passe soit activée.
 
-Ansible a besoin que le port SSH soit ouvert. Il faut vérifier que c'est bien le cas et également pour faciliter et sécuriser la communication SSH, il est recommandé d’activer l'authentification par clé plutôt que par mot de passe.
-
-```shell
-sudo firewall-cmd --list-services
+```bash
+sudo firewall-cmd --list-services <- pour verifier que le service est ouvert
 ```
 
-Dans le résultat de la commande on peut voir que SSH fait bien partie des services actif dans le firewall. Il faut ensuite générer une clé SSH depuis le contrôleur et la copier sur chaque machine.
-
-```shell
-ssh-keygen
-ssh-copy-id "MACHINE_CLIENTE"
+```bash
+ssh-keygen <- on génère une clé ssh
+ssh-copy-id "MACHINE_CLIENTE" <- on la copie sur les machines
 ```
 
 Il est également recommandé d’accorder les droits nécessaires à l’utilisateur qui exécutera les commandes Ansible. Cet utilisateur doit être présent sur les machines clientes.
 
-```shell
+```bash
 echo "UTILISATEUR_ANSIBLE ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/UTILISATEUR
 ```
 
 L’environnement de base est configuré. Plusieurs fichiers peuvent être modifié afin de changer le comportement d’Ansible.
 
- 
+
 
 ## Concepts de base
 
@@ -566,12 +561,7 @@ Cette commande va nous retourner énormément d'information sur les machines ou 
 **JSON est le format principal** de sortie pour toutes les commandes d'Ansible.
 
 
-
-
-
-
-
-
+\pagebreak
 
 # Monitoring
 
@@ -605,19 +595,19 @@ Etant donnée la composition de l'infrastructure très variée, nous voulons pou
   - Différentes requêtes
   - Nombres de connexions
 
-Dans un second temps, On pourra  reconfigurer très facilement notre stack pour monitorer les différentes bases de données sur des critères comme :
+On pourra  reconfigurer très facilement notre stack pour monitorer les différentes BDD en surveillant :
 
 - Erreurs
 - SQL commands/sec
 - Heatmap (queries/sec) cache
 
-On veut également pouvoir analyser des logs important et les mettres en corrélations avec les métriques du dessus. On veut récupérer les logs suivants :
+On veut également pouvoir analyser des logs important suivants :
 
 - Logs système (cron - access.log - audit.log ...)
 - Logs serveurs web (seulement Nginx dans le playbook que je présente)
 - Logs applicatifs (Peertube, Moodle pour le moment)
 
-Dans un second temps, on configurera la récupérations des logs de différentes applications comme Drupal, Jupyter, Wordpress, ...
+Dans un second temps, on configurera la récupérations des logs ded autres applications.
 
 
 
@@ -785,66 +775,66 @@ voici l’arborescence de notre projet
 
 ```bash
 .
-├── grafana_dashboard.json
-├── inventory
-│   ├── group_vars
-│   │   ├── all.yml
-│   │   ├── apache
-│   │   │   └── main.yml
-│   │   ├── app
-│   │   │   └── main.yml
-│   │   ├── job
-│   │   │   └── main.yml
-│   │   ├── nginx
-│   │   │   └── main.yml
-│   │   └── peertube
-│   │       └── main.yml
-│   └── host.yml
-├── playbook.yml
-└── roles
-    ├── install_grafana
-    │   ├── handlers
-    │   │   └── main.yml
-    │   ├── tasks
-    │   │   └── main.yml
-    │   └── templates
-    │       ├── grafana_conf.j2
-    │       ├── grafana_dashboard.json.j2
-    │       ├── grafana_provisioning.j2
-    │       └── grafana.service.j2
-    ├── install_influxdb
-    │   ├── handlers
-    │   │   └── main.yml
-    │   ├── tasks
-    │   │   └── main.yml
-    │   └── templates
-    │       ├── influxdb_conf.j2
-    │       └── influxdb.service.j2
-    ├── install_loki
-    │   ├── handlers
-    │   │   └── main.yml
-    │   ├── tasks
-    │   │   └── main.yml
-    │   └── templates
-    │       ├── loki_conf.j2
-    │       └── loki.service.j2
-    ├── install_promtail
-    │   ├── handlers
-    │   │   └── main.yml
-    │   ├── tasks
-    │   │   └── main.yml
-    │   └── templates
-    │       ├── promtail_conf.j2
-    │       ├── promtail_conf.j2.bak
-    │       └── promtail.service.j2
-    └── install_telegraf
-        ├── handlers
-        │   └── main.yml
-        ├── tasks
-        │   └── main.yml
-        └── templates
-            ├── telegraf_conf.j2
-            └── telegraf.service.j2
+|--- grafana_dashboard.json
+|--- inventory
+|    |--- group_vars
+|    |   |--- all.yml
+|    |   |--- apache
+|    |   |      --- main.yml
+|    |   |--- app
+|    |   |      --- main.yml
+|    |   |--- job
+|    |   |      --- main.yml
+|    |   |--- nginx
+|    |   |      --- main.yml
+|    |   |--- peertube
+|    |          --- main.yml
+|    |--- host.yml
+|--- playbook.yml
+|--- roles
+    |----install_grafana
+    |    |--- handlers
+    |    |      --- main.yml
+    |    |--- tasks
+    |    |      ---main.yml
+    |    |--- templates
+    |           --- grafana_conf.j2
+    |           --- grafana_dashboard.json.j2
+    |           --- grafana_provisioning.j2
+    |           --- grafana.service.j2
+    |--- install_influxdb
+    |    |--- handlers
+    |    |      --- main.yml
+    |    |--- tasks
+    |    |      --- main.yml
+    |    |--- templates
+    |           --- influxdb_conf.j2
+    |           --- influxdb.service.j2
+    |--- install_loki
+    |    |--- handlers
+    |    |      --- main.yml
+    |    |--- tasks
+    |    |      --- main.yml
+    |    |--- templates
+    |           --- loki_conf.j2
+    |           --- loki.service.j2
+    |--- install_promtail
+    |   |---handlers
+    |   |     ---main.yml
+    |   |--- tasks
+    |   |      --- main.yml
+    |   |--- templates
+    |          ---promtail_conf.j2
+    |          --- promtail_conf.j2.bak
+    |          --- promtail.service.j2
+    |--- install_telegraf
+        |--- handlers
+        |      --- main.yml
+        |--- tasks
+        |      --- main.yml
+        |--- templates
+               --- telegraf_conf.j2
+               --- telegraf.service.j2
 
 28 directories, 32 files
 ```
@@ -873,7 +863,7 @@ Il est fonctionnel, idempotent et peut être utilisé avec peu de modification p
 
 # Creation  des différents éléments du projet
 
-### Les différents rôles
+##Les différents rôles
 
 Ce Playbook utilise **5 rôles** afin d’installer et de configurer les différentes briques nécessaires pour déployer la stack correctement. Les 5 rôles sont les suivants :  
 
@@ -1243,7 +1233,7 @@ ansible-galaxy collection install community.general
 Dans le pack de module supplémentaire, on peut trouver le module **community.general.influxdb_database** qui peut également nous permettre de configurer Influxdb.
 
 
-### l’inventaire
+## L’inventaire
 
 C'est l'un des fichiers les plus important. C'est dans ce dernier que l'on va définir la liste des machines que nous voulons intégrer à notre Playbook. Il peut être au format **.ini** ou **.yml** 
 
@@ -1285,7 +1275,7 @@ On a beaucoup de flexibilité et de modularité dans le fichier **host.yml** pou
 Le dossier **group_vars** contient l’ensemble des variables du projet. Il y a un fichier **all.yml** qui comprend les variables utilisées pour l’ensemble des machines ainsi que des sous dossiers spécifiques aux groupes de machines pour déployer de la configuration spécifiquement à un groupe. Voici un extrait du fichier all.yml
 
 
-```shell
+```bash
 # remote user account 
 user: marc
 
@@ -1335,7 +1325,7 @@ Voici un exemple :
 
 En variable :  
 
-```shell
+```bash
 users :
  - username : marc
    group : admin
@@ -1345,7 +1335,7 @@ users :
 
 Et la tâche pour créer les utilisateurs, avec leur dossiers, le bon groupe :  
 
-```shell
+```bash
 - name : create users
   user :
     name : "{{ item.username }}"
@@ -1361,7 +1351,7 @@ la tâche va boucler **loop** sur la variable **users** et parcourir la liste af
 Le Playbook va regrouper les différents rôles afin de les exécuter à la suite. Voici comment le rôle Grafana est appelé dans le Playbook :
 
 
-```shell
+```bash
 - name: "install Grafana"
   remote_user: "{{ user  }}"  
   become: true                
@@ -1419,7 +1409,6 @@ Lorsqu'une tache est exécutée, il y a plusieurs états possibles :
 - **UNREACHABLE**:  
   C'est quand la machine cliente n'est pas joignable (machine éteinte, port ssh bloqué, …) La machine est alors marquée comme **injoignable** est Ansible la retire de la liste des machines actives pour le reste du Playbook.
 
- 
 # Paramétrage de Grafana
 
 ## Ajout des data sources dans Grafana
@@ -1523,8 +1512,7 @@ Cela peut également nous permettre d’anticiper certaines actions comme par ex
 
 Cet outil de monitoring nous permet d’avoir une grande visibilité sur l’infrastructure et sur les actions à entreprendre pour anticiper les problèmes.
 
- 
-
+\pagebreak
 
 # Paramétrage supplémentaire
 ## Rendre le service accessible depuis l'extérieur
@@ -1562,14 +1550,13 @@ Sans rentrer dans les détails car ce n'est pas le sujet de ce rapport de stage,
   - Affectation au bon VM Network
   - Configuration de la Passerelle
   - Rajout des Certificats WildCard dans la configuration du firewall NSX Edge
-  - Ajout de l'interface pour que le contrôleur puisse accéder aux machines qui seront dans le Firewall
-  - Création du groupe d'IP
   - Création des règles d'entrée/sorties (IPTABLE)
   - Configuration des règles NAT
     Il faut également configurer les règles NAT (DNAT et SNAT) pour traduit l'IP privée + port/service -> IP public + port/service.
 
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en HTTPS.
 
+\pagebreak
 # Evolution et améliorations
 
 Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans VSphere. Le Playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge). 
@@ -1644,6 +1631,8 @@ ansible-vault encrypt FICHIER_A_CHIFFRER
 
 Un dernier point intéressant serait d’utiliser le module pour la configuration d’Influxdb qui est disponible dans un pack de module complémentaire à télécharger. C’est une mise à jour que je vais entreprendre prochainement.
 
+\pagebreak
+
 # Conclusion sur ce projet
 
 Nous avons ici un système de monitoring complet (métriques + logs système et applicatifs) avec des graphiques facilement compréhensibles et avec un système d'alerte en place. Ce qui est rassurant pour l'administrateur qui a définit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquence.
@@ -1661,7 +1650,7 @@ Ansible est une technologie qui m'intéresse beaucoup et je suis très content d
 
 Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible notamment sur les notions de programmation en Python et sur la manipulation du format JSON. Ce sont ses notions qui m’ont manqué pour finir ce Playbook.
 
- 
+\pagebreak
 
 # Conclusion 
 
@@ -1689,7 +1678,7 @@ Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingé
 Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des technologies intéressantes.
 
  
-
+\pagebreak
 
 # Annexes
 

@@ -48,7 +48,7 @@ Je tiens à remercier également le corps enseignant de l'Université, notamment
 
 # Introduction
 
-Dans le cadre de la Licence professionnelle Administration et Développement de Systèmes Informatiques à base de Logiciels Libres et Hybrides (ADSILLH), j'ai effectué un stage de 6 mois au sein de l'équipe ENT / Local GOV dans la Bussiness Unit TPSHR dans l'entreprise CGI au Haillan.
+Dans le cadre de la Licence professionnelle Administration et Développement de Systèmes Informatiques à base de Logiciels Libres et Hybrides **ADSILLH**, j'ai effectué un stage de 6 mois au sein de l'équipe ENT / Local GOV dans la Bussiness Unit TPSHR dans l'entreprise CGI au Haillan.
 
 Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez dans les annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.
 
