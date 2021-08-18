@@ -572,13 +572,13 @@ Cette commande va nous retourner énormément d'information sur les machines ou 
 
 # Monitoring
 
-## le besoin
+## Le besoin
 
 Afin de s’assurer de la bonne santé d’une infrastructure, il est important de la surveiller, de mettre des alertes sur des seuils que l’administrateur va définir afin d’être prévenu de tout changement d’état. Cela permet de voir venir un problème et d’anticiper plutôt que de corriger dans l’urgence et le stress.
 
 Il m’a été demandé de travailler sur le déploiement d’une solution de monitoring utilisant des logiciels open sources, moderne, robuste et facilement scalable au cas ou infrastructure devait évoluer.
 
-## l’infrastructure à surveiller
+## L’infrastructure à surveiller
 
 Cette solution de monitoring va surveiller plusieurs éléments d'une infrastructure d'une trentaine de VM qui comprend :
 
@@ -617,9 +617,6 @@ On veut également pouvoir analyser des logs important suivants :
 Dans un second temps, on configurera la récupérations des logs ded autres applications.
 
 
-
-
-
 ## La solution de monitoring
 
 La solution de monitoring retenue a été la suivante :
@@ -634,7 +631,6 @@ Grafana et Influxdb et Loki seront installé seulement sur le serveur de monitor
 Promtail et Telegraf seront installés sur toutes les machines pour faire remonter les données au serveur.
 
 Cette solution est facilement transposable pour une autre infrastructure. Je vais présenter les briques de bases qui permettent de monter cette solution de monitoring mais avec un peu de temps, on peut très rapidement reconfigurer le Playbook pour convenir aux besoins d’une autres infrastructure.
-
 
 
 ## Grafana Labs
@@ -754,13 +750,6 @@ Il est souvent associé à Influxdb (même prestataire) ou Nagios, Prometheus, G
 D’autres solutions existes comme **Zabbix**, **Elastic Search**, **Centreon**, …
 
 
-
-
-
-
-
-
-
 # Mise en place du projet
 
 Afin de réaliser ce projet, nous allons créer un dossier avec tout les éléments nécessaire au bon déroulement du script Ansible. Afin de pouvoir contrôler et versionner ce projet, il sera mis en place avec Gitlab. 
@@ -860,14 +849,14 @@ Afin de ne pas divulguer d’informations sensible, j'illustrerai par des graphi
 
 Ansible utilise le format **YAML** qui permet une lecture facile des différents éléments du Playbook.
 
-Une version du Playbook est disponible sur mon compte Github.
+Une version du Playbook est disponible sur mon compte Github.  
+
 ```bash
 https://github.com/marc-cenon/rapport_de_stage/tree/master/files/monitoring_stack/ansible_grafana_v2
 ```
 
 Il est fonctionnel, idempotent et peut être utilisé avec peu de modification pour monitorer sa propre infrastructure.
 
- 
 
 # Creation  des différents éléments du projet
 
@@ -901,7 +890,7 @@ Pour ce rôle, l'utilisation de **Templates** pour générer le fichier de confi
 
 Voici la tâche du rôle Grafana qui utilise le Template crée pour générer le fichier service :
 
-```bash
+```yaml
 - name: "copy Grafana systemd service from Template"
   template:                                     
     src: Grafana.service.j2                     
@@ -1046,7 +1035,8 @@ from(bucket: "bucket-vm")
 
 Influxdb dispose également d'une **WEBUI** qui permet de faciliter grandement la création de requêtes complexes. Il suffit de choisir les critères dans le menu et d'importer la requête dans Grafana, qui nous permettra de visualiser le résultat avec un graphique très customisable.
 
-L'ensemble des requêtes du Playbook est également disponible dans le fichier **dashboard.json**.
+L'ensemble des requêtes du Playbook est également disponible dans le fichier **dashboard.json**. Egalement en annexe un exexemple de requete avec Influxdv
+Lien (ici)[#requête-influxdb]
 
 Flux est un langage très puissant mais l’interface d'Influxdb permet d'arriver au même résultat rapidement et de gérer les buckets (équivalent à une database) et la politique de rétention des données très facilement sans avoir à maîtriser Flux. 
 
@@ -1130,7 +1120,8 @@ En voici un autre pour les logs Nginx :
         labels:
           job: nginx
           __path__: /var/log/nginx/*log
- ``` 
+ ```
+
 Dans notre infrastructure à surveiller, plusieurs serveurs Nginx sont déployés. Grâce au label que nous allons utliser pour les logs Nginx (nginx) on va pouvoir regrouper tous les logs qui on ce label dans une même fenêtre. La valeur **targets:localhost** prendra le nom de la machine **/etc/hostname** afin de savoir a quelle machine appartient quel log.
 
 Il est également possible de filtrer et de formater les logs avec des règles spécifiques a définir dans les scrape jobs. Le github de Promtail regorge d’information sur la configuration et le paramétrage de la récupération des logs.
@@ -1194,7 +1185,6 @@ ruler:
       store: inmemory
   enable_api: true
 ```
-
 
 Quelques élements pour la compréhension pour la configuration de Loki :  
 
@@ -1327,7 +1317,7 @@ Voici un exemple :
 
 En variable :  
 
-```bash
+```yaml
 users :
  - username : marc
    group : admin
@@ -1337,7 +1327,7 @@ users :
 
 Et la tâche pour créer les utilisateurs, avec leur dossiers, le bon groupe :  
 
-```bash
+```yaml
 - name : create users
   user :
     name : "{{ item.username }}"
@@ -1353,7 +1343,7 @@ la tâche va boucler **loop** sur la variable **users** et parcourir la liste af
 Le Playbook va regrouper les différents rôles afin de les exécuter à la suite. Voici comment le rôle Grafana est appelé dans le Playbook :
 
 
-```bash
+```yaml
 - name: "install Grafana"
   remote_user: "{{ user  }}"  
   become: true                
@@ -1419,7 +1409,7 @@ Une fois les agents Promtail et Telegraf configurés pour envoyer les données �
 
 Cette action est réalisée dans les options de Grafana en lui indiquant le chemin d'accès pour Influxdb et Loki ainsi que les éléments d'identification nécessaires. 
 En Annexe, vous trouverez la capture d’écran qui illustre le paramétrage des data sources.  
-Lien [ici](#data-sources-configuration)
+Lien [ici](#configuration-data-sources)
 
 
 ## Importation du Dashboard
@@ -1451,7 +1441,7 @@ Dans le rôle d'installation de Grafana, j'utilise une tâche qui crée le fichi
 
 Voici la tâche que j'ai utilisé et qui va créer le fichier de configuration avec la bonne configuration :
 
-```bash
+```yaml
 - name: "create custom Grafana configuration file from Template"
   template:
     src: Grafana_conf.j2
@@ -1590,7 +1580,7 @@ Nous avons juste besoin de créer la configuration nécessaire pour Grafana et I
 
 Dans ce fichier, nous avons besoin de configurer les **Vhosts** et nous pouvons donner une liste d'argument dans la variable **nginx_vhosts**. Voici ce que nous pouvons lui ajouter par exemple.
 
-```bash
+```yaml
 nginx_vhosts:
   - listen: "443 ssl http2"
     server_name: "grafana.support-ent.fr
@@ -1626,7 +1616,8 @@ Il sera également intéressant de créer un Dashboard pour l'analyse des logs a
 
 Une autre amélioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passe, token et autres éléments d'identification.
 
-Son fonctionnement est relativement simple. Il suffit de chiffrer les fichiers contenant des éléments sensible avec la commande : 
+Son fonctionnement est relativement simple. Il suffit de chiffrer les fichiers contenant des éléments sensible avec la commande :  
+
 ```yaml
 ansible-vault encrypt FICHIER_A_CHIFFRER 
 ```
@@ -1710,10 +1701,7 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 ## alerte grafana
 ![Alerte](images/alerte.png "Alertes Grafana")
 
-
-![Datasources configuration](images/datasources-conf.png "Datasources configuration")
-
-
+\pagebreak
 
 ## tableau du travail semaine par semaine
 
@@ -1740,4 +1728,5 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 |Semaine 19| Montée en version de Moodle, Ansible pour mise à jours Zimbra, <br /> modification des specs des machines Zimbra dans Vsphere, Mise en Place de Jupyter Hub sous Kubernetes |
 |Semaine 20| Mise à jours Zimbra, <br /> troubleshooting Moodle authentification CAS -  Jupyter Hub sous Kubernetes |
 
- 
+## configuration data sources
+![Datasources configuration](images/datasources-conf.png "Datasources configuration")
