@@ -8,9 +8,9 @@ subtitle: |
 author: |
   | Marc Cenon
   |
-  | marc.cenon33@gmail.com
+  | [marc.cenon33@gmail.com](marc.cenon33@gmail.com)
   |
-  | marc-cenon.github.io/my_resume/
+  | [marc-cenon.github.io/my_resume/](https://marc-cenon.github.io/my_resume/)
 date: 1 Septembre 2021
 output: pdf_document
 header-includes:
@@ -1401,7 +1401,7 @@ Lorsqu'une tache est exécutée, il y a plusieurs états possibles :
 - **UNREACHABLE**:  
   C'est quand la machine cliente n'est pas joignable (machine éteinte, port ssh bloqué, …) La machine est alors marquée comme **injoignable** est Ansible la retire de la liste des machines actives pour le reste du Playbook.
 
-# Paramétrage de Grafana
+# Configuration de Grafana
 
 ## Ajout des data sources dans Grafana
 
@@ -1603,7 +1603,7 @@ nginx_vhosts:
   - listen: "80 default_server"
     servername: "grafana.support-ent.fr"
     return 301 https://$server_name$request_uri;
-```    
+```
     
 Ici, je défini le Vhost en **80** avec redirection automatique ainsi que le Vhost en **443**. Les certificats sont référencés en variables. Il ne reste plus qu'à relancer le Playbook. Vu que la seule modification et l'ajout du rôle Nginx, les autres tâches apparaîtront en **OK** car aucun changement n'est réalisé. 
 
