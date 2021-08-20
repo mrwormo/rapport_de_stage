@@ -2,7 +2,6 @@
 
 Bienvenue dans le dépot GitHub de mon rapport de stage et de la présentation pour la soutenance pour la licence LPRO ADSILLH
 
-
 Le rapport de stage a été rédigé en Markdown, avec quelques éléments de Latex pour la mise en page.
 Pandoc est utilisé pour générer le **PDF**
 
@@ -31,16 +30,13 @@ vous pouvez consulter et télécharger le rapport au format **pdf** [ici](files/
 
 Pour générer un pdf à partir du rapport en markdown, il est possible d'utiliser pandoc (installation [ici](http://pandoc.org/installing.html))
 
-pour générer un pdf, on peut utiliser par exemple la commande suivante: 
+pour générer le pdf, on peut utiliser par exemple la commande suivante: 
 
 ```shell
 pandoc --listings -H text.tex rapport.md -o files/rapport.pdf --pdf-engine=xelatex
 ```
- ou
+Le fichier **text.tex** contient des variable en latex pour la mise en forme.
 
-```shell
-cat pdf_built.txt | sh
-```
 
 ## Présentation pour la soutenance
 La présentation est également disponible aux formats **.odp** et **.pdf**  dans le dossier **files**
