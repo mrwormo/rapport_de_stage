@@ -1,6 +1,6 @@
 ---
 title: |
-  Automatisation dans un S.I et mise en place d'une Solution de Monitoring
+  Automatisation dans un S.I et mise en place d'une solution de Monitoring
   ![icons](images/testTT.png "icons")\
 subtitle: |
   | Université de Bordeaux 
@@ -38,7 +38,7 @@ J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur 
 
 Je les remercie également pour la bonne humeur qu'ils ont su me communiquer et l'envie qu'ils m'ont donné de travailler au sein de leur équipe.
 
-Je tiens à remercier également le corps enseignant de l'Université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutiens et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle grâces à leurs conseils, à leurs excellents cours.
+Je tiens à remercier également le corps enseignant de l'Université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutiens et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle grâces à leurs conseils, et à leurs excellents cours.
 
 \pagebreak
 
@@ -172,7 +172,7 @@ Quelqu'un des projets sur lesquels j'ai pu participer :
 - Création d'un Playbook Ansible Apache
 - Création d'un Playbook Ansible pour le déploiement d'un établissement de formation avec différentes briques logicielles
 - Utilisation de VSphere et NSXEDGE pour créer des Vlans, Firewalls, Loadbalancing, TLS, ...
-- Installation de divers serveurs d’applications : Moodle, Peertube, Drupal, BigBlueButton, …
+- Installation de divers serveurs d’applications : Moodle, Peertube, Drupal, BigBlueButton
 - Installation de différentes Bases de données : Maria, PostgreSQL, InfuxDB
 - Mise a jours de messagerie Zimbra pour diverses Régions
 - Création d'un Playbook pour l'automatisation de la création et le paramétrage de VM dans vSphere
@@ -236,7 +236,7 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 - Permet de déployer des configurations plus spécifiques : on peut cibler une machine ou un groupe de machines
 - Utilisation de SSH pour communiquer les tâches d'exécutions sur les machines cibles (pas besoins d'ouvrir de ports spécifiques)
 - Utilisation de YAML comme langage
-– Grande communauté
+-  Grande communauté  
   Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
 - Ansible Galaxy: collection de rôles pour un grand nombre de tâches. Plus besoin de faire de Script Bash
   Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
@@ -259,6 +259,9 @@ Il existe de nombreuses solution pour automatiser des tâches. Nous pouvons cite
 - Puppet
 - Chef  
 
+
+**Saltstack**  est une solution d'automatisation très performante et rapide. A la différence d'Ansible, Saltstack utilise le protocol **ZMPT: ZeroMQ Message Transfert Protocol**, qui permet de pouvoir effectuer des échanger entre applications sur la couche réseau TCP avec une grande rapidité et efficacité.  
+
 **Puppet** est une solution largement répendue. Sont fonctionnement nécessite la connaissance du language spécifique utilisé par Puppet. Ansible utilise le format YAML, ce qui est bien plus facile à utiliser.  
 
 **Chef**, une autre solution bien connue, s'appuis sur le langage **Ruby** et necessite l'installation d'un agent sur les machines clientes. Ansible n'a besoin d'aucuns agents et utilise le langage **Python** qui est un langage très répendu.  
@@ -277,7 +280,7 @@ Pour illustrer ces propos, je vais prendre l’exemple d’un script bash qui va
 
 Le script shell :  
 
-```bash
+```sh
 # Installation clé PGP
 gpg --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
 gpg --armor --export 561F9B9CAC40B2F7 | apt-key add -
@@ -389,12 +392,13 @@ Ansible 2.9.6
 Ansible a besoin que le port SSH soit ouvertert que l'authentification par clé plutôt que par mot de passe soit activée.
 
 ```bash
-sudo firewall-cmd --list-services <- pour verifier que le service est ouvert
+sudo firewall-cmd --list-services
 ```
+Nous pouvons vérifier avec cette commande que le port 22 / service SSH est bien ouvert dans le firewall. Il nous reste plus qu'à générer une clé ssh et à la copier sur les machines clientes avec les deux commandes ci dessous.
 
 ```bash
-ssh-keygen <- on génère une clé ssh
-ssh-copy-id "MACHINE_CLIENTE" <- on la copie sur les machines
+ssh-keygen
+ssh-copy-id "MACHINE_CLIENTE"
 ```
 
 Il est également recommandé d’accorder les droits nécessaires à l’utilisateur qui exécutera les commandes Ansible. Cet utilisateur doit être présent sur les machines clientes.
@@ -403,15 +407,27 @@ Il est également recommandé d’accorder les droits nécessaires à l’utilis
 echo "UTILISATEUR_ANSIBLE ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/UTILISATEUR
 ```
 
-L’environnement de base est configuré. Plusieurs fichiers peuvent être modifié afin de changer le comportement d’Ansible.
+En rajoutant un fichier avec la bonne configuration plutôt que de modifier le fichier directement, on évite de **casser sa configuration** au risque de ne plus pouvoir exécuter de commande en root.  
+
+
+Nous pouvons également mettre à jours le fichier **/etc/hosts** du serveur Ansible avec la liste des machines qu'il va gérer. Le but est d'avoir l'ensemble des machines de connu par le serveur Ansible afin d'éviter de rentrer leur **IP/HOSTNAME** plus tard.
+
+Cette étape n'est pas obligatoire et n'est pas forcément recommandé si on travaille avec un grand nombre de machines et beaucoup de projets différents. Dans ce cas, on pourra gérer l'inventaire projet par projet avec un inventaire par projet.
+
+Je présenterai plus tard comment Ansible Gère les inventaires car il est possible d'avoir un inventaire statique, idéal quand pas beaucoup de machine à gérer ou dynamique, qui permet de gérer efficacement une flotte de machine dans le cloud avec des addresses IPs qui peuvent changer au fur et à mesure que les machines se montent et se démontent.
+
+L’environnement de base est configuré. Plusieurs fichiers peuvent être modifié afin de changer le comportement d’Ansible. J'en présenterai quelques uns un peu plus tard dans le rapport.  
+
+Il peut être souhaitable par exemple de sauvegarder un paramêtre dans un fichier de configuration si il fait référence à une action fréquente, afin d'éviter de devoir définir cette action à chaque fois que nous en avons besoin. (ex: définition de la méthode d'élévation des privèges).
 
 
 
 ## Concepts de base
 
-Avant de présenter le Playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.
+Avant de présenter le Playbook que j'ai réalisé, il est important de comprendre quelques éléments d'Ansible.  
 
 ![Ansible](images/ansible_architecture.png "Fonctionnement d'Ansible")
+Ce schéma ci dessus illustre l'architecture d'Ansible.
 
 On définit des **rôles**, qui contiennent des **tâches** à exécuter à l'aide de différents **modules**, le tout regroupé dans un **Playbook**, qui va réunir les différents rôles et ou tâches. Le Playbook va donc executer un ensemble de **tache** , appelé également un **Play** sur un groupe de machines, définies dans un **inventaire**.
 
@@ -476,7 +492,7 @@ Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regroupe
 - Un dossier **rôle** avec des sous dossiers pour les différents rôles. Chaque sous dossiers peut contenir les sous-dossiers suivants :
 
   - **/tasks/main.yml** : C’est ici que sont écrites l’ensemble des tâches que le rôle exécute
-  - **/Template/NOM_DU_TEMPLATE.j2** : le dossier Template regroupe le/les Templates nécessaires pour le rôle
+  - **/template/NOM_DU_TEMPLATE.j2** : contient le/les Templates utilisés par le rôle
   - **/handlers/main.yml** : un handler est une tache inactive qui sera active seulement si elle est invoquée dans le fichier /tasks/main.yml grâce au mot clé **notify**
   - **/files** : ce dossier contient les fichiers nécessaires au fonctionnement du rôles comme des script bash, des liste csv, ….
   - **/default/main.yml** : contient les valeurs des variables par défaut du rôle
@@ -1186,7 +1202,7 @@ On source le fichier template qui se trouve dans le sous dossier template dans l
 
 Le template pour la configuration de Loki tronqué :
 
-```bash
+```yaml
 ingester:
   wal:
     enabled: true
@@ -1303,15 +1319,12 @@ Le dossier **group_vars** contient l’ensemble des variables du projet. Il y a 
 # remote user account 
 user: marc
 
-
 ###############################
 #        grafana              #
 ###############################
-
 # keep in mind to check that the template is still valid when upgrading
 
 grafana_account_name: grafana
-grafana_account_shell: /bin/bash
 grafana_account_group: monitoring
 grafana_main_folder: /appli/monitoring/grafana
 grafana_download_url: https://dl.grafana.com/oss/release/grafana-7.5.4.linux-amd64.tar.gz
@@ -1319,7 +1332,7 @@ grafana_download_url: https://dl.grafana.com/oss/release/grafana-7.5.4.linux-amd
 grafana_protocol: http
 grafana_domain_name: monitoring-vm.fr
 grafana_default_login: admin
-grafana_default_password: admin_pass
+grafana_default_password: *******
 
 ### SMTP configuration for grafana ###
 grafana_email: grafana-monitoring@admin.fr
@@ -1329,7 +1342,6 @@ grafana_email: grafana-monitoring@admin.fr
 ###############################
 
 influxdb_account_name: influxdb
-influxdb_account_shell: /bin/bash
 influxdb_account_group: monitoring
 influxdb_main_folder: /appli/monitoring/influxdb
 influxdb_download_url: https://dl.influxdata.com/influxdb/releases/influxdb2-2.0.6-linux-amd64.tar.gz 
@@ -1338,9 +1350,9 @@ influxdb_download_url: https://dl.influxdata.com/influxdb/releases/influxdb2-2.0
 influxdb_organization: organization-bucket1
 influxdb_bucket: bucket-bdd
 influxdb_username: influxdb
-influxdb_password: influxdb
+influxdb_password: ********
 influxdb_access_url: http://localhost:8086
-influxdb_token: tokentokentokentokentokentokentoken 
+influxdb_token: ***********
 ```
 
 On définie les variables sous forme clé:valeur. Il est tout à fait possible de définir une variable avec une liste ou dictionnaire comme valeur. Cela est très utile par exemple pour créer plusieurs utilisateurs. 
@@ -1504,8 +1516,7 @@ Le serveur étant configuré, il ne reste plus qu'a mettre en place les alertes 
 - Utilisation de la Mémoire
 - Surveillance des nodes du cluster
 
-En Annexe, vous trouverez la capture d’écran qui illustre la configuration des alertes dans le dashboard.  
-Lien [ici](#alerte-grafana)
+En Annexe, vous trouverez la capture d’écran qui illustre la configuration des alertes dans le dashboard. [Lien](#alerte-grafana)
 
 Par exemple, pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85%.
 
@@ -1526,7 +1537,6 @@ Notifications Send to marc.cenon33@gmail.com
 Message : alerte dépassement mémoire
 ```
 
-En Annexe, vous trouverez la capture d’écran qui illustre cette configuration.
 
 Un outil de monitoring n'est utile que s’il est bien configuré. Un AdminSys ne va pas passer son temps à regarder des graphs de monitoring. 
 
@@ -1536,7 +1546,6 @@ Cela peut également nous permettre d’anticiper certaines actions comme par ex
 
 Cet outil de monitoring nous permet d’avoir une grande visibilité sur l’infrastructure et sur les actions à entreprendre pour anticiper les problèmes.
 
-\pagebreak
 
 # Paramétrages supplémentaires
 ## Rendre le service accessible depuis l'extérieur
@@ -1580,7 +1589,6 @@ Sans rentrer dans les détails car ce n'est pas le sujet de ce rapport de stage,
 
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en HTTPS.
 
-\pagebreak
 # Evolutions et améliorations
 
 Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans VSphere. Le Playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge). 
@@ -1642,11 +1650,10 @@ Ici, je défini le Vhost en **80** avec redirection automatique ainsi que le Vho
 Sur le rôle Nginx, les taches apparaîtront en **changed** car il y a eu un changement. Le rôle va également vérifier la configuration du Nginx, redémarrer le service grâce à un handler.
 
 Une fois l'exécution terminée, nous pouvons accéder à Grafana en HTTPS sans avoir à passer par NSX Edge.
-Une autre évolution possible sera de gérer la montée de version automatiquement avec des tests unitaires. Cela peut être dangereux et causé des problèmes sur des infrastructures importantes. C'est pourquoi nous testons d'abord sur un environnement de pré-production avant de passer à la production. Il est important de faire les mises à jour afin de corriger les failles de sécurités quand des services sont exposés sur le web.
 
 Il sera également intéressant de créer un Dashboard pour l'analyse des logs ainsi que la mise en place d'un système d'alerting. Comme Loki est développé par les même développeurs que Grafana, la mise en place d'un tel système est identique à celle décrite plus haut.
 
-Une autre amélioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passe, token et autres éléments d'identification.
+Une autre amélioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passe, token et autres éléments d'identification qui sont souvent stockés dans les fichiers de variables.
 
 Son fonctionnement est relativement simple. Il suffit de chiffrer les fichiers contenant des éléments sensible avec la commande :  
 
@@ -1708,34 +1715,34 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 # Annexes
 
 
-## image ENT
+## Image ENT
 ![ENT](images/ent.png "ENT")
 
-## influxdb bucket
+## Influxdb Bucket
 ![bucket Influxdb](images/bucket.png "bucket Influxdb")
 
 \pagebreak
 
-## grafana dashboard
+## Grafana Dashboard
 ![Grafana dashboard](images/grafana-dash.png "Grafana Dashboard")
 
-## grafana data sources
+## Grafana Data Sources
 ![Grafana datasources](images/grafana-datasources.png "Grafana Datasources")
 
 \pagebreak
 
 
-## requête influxdb
+## Requête Influxdb
 ![Influxdb query](images/influxdb-query.png "Influxdb Query")
 
 \pagebreak
 
-## alerte grafana
+## Alerte Grafana
 ![Alerte](images/alerte.png "Alertes Grafana")
 
 \pagebreak
 
-## tableau du travail semaine par semaine
+## Tableau du travail semaine par semaine
 
 |semaine| actions |
 |-------- | ------------- |
@@ -1758,6 +1765,7 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 |Semaine 17| Montée en version de Moodle, Ansible pour mise à jours Zimbra, <br /> modification des specs des machines Zimbra dans Vsphere, Mise en Place de Jupyter Hub sous Kubernetes |
 |Semaine 18| Mise à jours Zimbra, <br /> troubleshooting Moodle authentification CAS - Jupyter Hub sous Kubernetes |
 |Semaine 19| Troubleshooting Moodle et BDD -  Script Ansible pour la configuration des VMs à partir des templates |
+|Semaine 20| Troubleshooting Moodle et monté de version Moodle - transition des années scolaires sur les instances Moodle |
 
-## configuration data sources
+## Configuration Data Sources
 ![Datasources configuration](images/datasources-conf.png "Datasources configuration")
