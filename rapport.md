@@ -46,8 +46,7 @@ Je tiens à remercier également le corps enseignant de l'Université, notamment
 
 Dans le cadre de la Licence professionnelle Administration et Développement de Systèmes Informatiques à base de Logiciels Libres et Hybrides **ADSILLH**, j'ai effectué un stage de 6 mois au sein de l'équipe **ENT** (Espace Numérique de Travail) / **Local GOV** (Gouvernement Local) dans la Bussiness Unit **TPSHR** (Transport, Secteur Public, Ressources Humaines)dans l'entreprise CGI (Conseillers en Gestion Informatique ou Consultants to Government and Industry en anglais) au Haillan.
 
-Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez en  annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.  
-Lien [ici](#tableau-du-travail-semaine-par-semaine)
+Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez en  annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.   ( [lien](#tableau-du-travail-semaine-par-semaine))
 
 J’ai eu l’occasion de pouvoir travailler sur pleins de projets différents mais avec comme fil conducteur l’automatisation et c’est pourquoi j'ai choisi comme thème de rapport de stage **l'automatisation dans un S.I** avec un focus sur le déploiement d'une solution de **monitoring** avec **Ansible** car c’est l’un des projet qui m’a beaucoup plus. J’utilisai cette solution de monitoring chez moi pour mon infrastructure. Le fait de devoir travailler dessus m’a beaucoup plus et m’a vraiment fait progresser sur le monitoring et m’a permis d’améliorer mon installation.
 
@@ -182,10 +181,7 @@ Quelqu'un des projets sur lesquels j'ai pu participer :
 
 # Présentation de l'ENT
 
-Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition d'un ou plusieurs établissements scolaires dans une ou plusieurs régions de France.
-En annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposées. 
-
-lien [ici](#image-ent)
+Un espace numérique de travail (ENT) est un ensemble de services numériques choisis et mis à disposition d'un ou plusieurs établissements scolaires dans une ou plusieurs régions de France. En annexe, vous trouverez un exemple d’ENT pour la région Nouvelle Aquitaine avec les différentes applications qui sont proposées. ([lien](#image-ent))
 
 ## Les services proposés
 En fonction des régions et des besoins, plusieurs services sont disponibles dans l’ENT. Voici une liste des plus important :
@@ -218,11 +214,6 @@ En fonction des régions et des besoins, plusieurs services sont disponibles dan
   LOOL est une suite bureautique très complète en ligne.
 
 L’ensemble des solutions utilisées par les ENT sont Open Source (avec des versions payantes disponibles pour certaines des applications). Les scripts Ansible nous permettent de déployer rapidement ces services à la demande en fonction du besoin des régions car chaque région utilise une base commune et des services spécifiques.
-
-
-
-
-
 
 
 # L’automatisation
@@ -274,7 +265,7 @@ Il existe de nombreuses solution pour automatiser des tâches. Nous pouvons cite
 
 Chaques solutions à ses avantages/inconvenients. On peut comprendre l'atrait d'Ansible par son large eventail de module, sa simplicité d'utilisation grâce au Yaml et à Python et au protocol SSH pour envoyer les commandes sur les machines ciblées.
 
-## Différence entre Ansible et Script Bash
+## Différences entre Ansible et Script Bash
 
 Les scripts Bash sont fréquemment utilisés pour configurer voir automatiser certaines actions. Écrire des Script en Bash nécessite une bonne connaissance de ce langage de Scripting.  De mon point de vue :
 
@@ -748,9 +739,16 @@ Telegraf est un agent de récupération de métriques. Un seul agent est nécess
 - Push : la métrique est poussée dans Telegraf par le composant qui l’expose
 - Pull : Telegraf récupère la métrique en interrogeant le composant qui l’expose (le mode le plus utilisé)
 
-Les métriques sont par la suite insérées dans la Base de données Influxdb
+Les métriques sont par la suite insérées dans la Base de données Influxdb qui permettra d'alimenter Grafana pour la visualisation des métriques. Sa force réside dans la grande bibliothèque de plugins disponible afin de pouvoir récupérer les informations. Il peut récupérer des données depuis:  
 
-Sa force réside dans la grande bibliothèque de plugins disponible afin de pouvoir récupérer les informations. Il peut récupérer des données depuis des Bases de données, des IoT, des sondes (températures, pression de l’air, ...) et des applications. C'est là que les plugins vont être très avantageux afin de paramétrer facilement la récupération des informations.
+- Des Bases de données
+- Des IoT
+- Des sondes (températures, pression de l’air, ...)
+- Des plateformes cloud comme Azure ou Amazon Cloud
+- Des serveurs Web comme Nginx, Apache, Traefik
+- Docker, Kubernetes, Jenkins, ....
+
+C'est là que les plugins vont être très avantageux afin de paramétrer facilement la récupération des informations.
 
 Telegraf est écrit en Go et il est disponible dans un seul binaire sans besoins de dépendances ou besoin d'outils des gestionnaires de paquets (npm, pip, gem, ...) 
 
@@ -760,7 +758,29 @@ Il est souvent associé à Influxdb (même prestataire) ou Nagios, Prometheus, G
 
 ## Les autres Solutions de monitoring
 
-D’autres solutions existes comme **Zabbix**, **Elastic Search**, **Centreon**, …
+D’autres solutions existes comme **Zabbix**, **Kibana**, **Centreon**, ... 
+Je vais rapidement présenter ces solutions afin d'avoir une vue d'ensemble des solutions qui sont proposées sur le marché.
+
+### Centreon
+Centreon est un dérivé **français** de Nagios et développé par la société Merethis. Il s’agit d’une couche applicative Web venant se greffer à Nagios pour offrir une administration plus intuitive que celle de Nagios.  
+
+Centreon est une solution AIO (All In One, Toute en Un) et open source. C'es à dire qu'il comprends les outils nécessaires pour la collecte, le stockage et la visualisation des metriques. Centreon utilise le protocol **SNMP** pour echanger avec les autres machines sur le réseau pour collecter les informations. 
+
+
+### Zabbix
+Zabbix, également une solution open source, un un outil de monitoring qui, à la différence de la solution que nous allons mettre en place, utilise des bases de données relationnelles pour stocker les métriques. 
+
+Elle va donc pouvoir utiliser par exemple MySQL, MariaDB, PostgreSQL, plutôt qu'Influxdb qui est spécialement optimiser pour gérer la collecte de métriques du fait de la quantité d'information qu'elle va recevoir. (ex: récupération des métriques toutes les 5s va générer un volumes importants de données qu'il va pouvoir stocker et redistribuer rapidement et précisément).  
+
+Tout comme Grafana, Zabbix peut recolter des metriques, créer des alertes, détecter des problèmes, envoyer des notifications. Cependant la visualition des données n'est pas le point fort de cette solution. Grafana permet d'avoir un espace de visualition nettement supérieur à cette solution.
+
+### Kibana
+Kibana est le **K** dans ce qui est plus connu sous le nom de **ELK Stack** pour  Elasticsearch, Logstash, et Kibana. C'est l'une des solution open source est plus utilisé pour la collecte de logs.  
+
+Elasticsearch est un moteur de recherche et d'analyse qui se base sur des **données textuelles**. Logstash est un agrégateur de logs, comme Grafana Loki et Kibana est un outil de visualisation.  
+
+Cette stack utilise l'agent Beats, déployés sour les machines a surveiller pour envoyer les données dans la stack ELK.  
+Cette stack utlise des concepts complexes qu'il faut maitriser avant de pouvoir s'en servir correctement et elle est plus spécialisé dans l'analyse de logs alors que la soltions qu nous mettons en place va utiser plusieurs data stores (influxdb et loki) et va pouvoir analyser un ensemble de données beaucoup plus large.
 
 
 # Mise en place du projet
@@ -777,7 +797,7 @@ Notre projet peut se résumer en :
 - 1 dossier projet
 - 1 Playbook
 - 1 inventaire
-- 1 dossier pour la gestion des variables avec des sous dossiers pour surcharger les variables pour les sous-groupes/
+- 1 dossier pour la gestion des variables avec des sous dossiers pour surcharger les variables pour les sous-groupes
 - 1 dossier rôles avec les **5** rôles d’installation des **5** briques logicielles
 
 ## Arborescence de notre projet
@@ -871,7 +891,7 @@ https://github.com/marc-cenon/rapport_de_stage/tree/master/files/monitoring_stac
 Il est fonctionnel, idempotent et peut être utilisé avec peu de modification pour monitorer sa propre infrastructure.
 
 
-# Creation  des différents éléments du projet
+# Création des différents éléments du projet
 
 ## Les différents rôles
 
@@ -1048,8 +1068,7 @@ from(bucket: "bucket-vm")
 
 Influxdb dispose également d'une **WEBUI** qui permet de faciliter grandement la création de requêtes complexes. Il suffit de choisir les critères dans le menu et d'importer la requête dans Grafana, qui nous permettra de visualiser le résultat avec un graphique très customisable.
 
-L'ensemble des requêtes du Playbook est également disponible dans le fichier **dashboard.json**. Egalement en annexe un exexemple de requete avec Influxdv
-Lien (ici)[#requête-influxdb]
+L'ensemble des requêtes du Playbook est également disponible dans le fichier **dashboard.json**. Egalement en annexe un exemple de requete avec Influxdb [lien](#requête-influxdb)
 
 Flux est un langage très puissant mais l’interface d'Influxdb permet d'arriver au même résultat rapidement et de gérer les buckets (équivalent à une database) et la politique de rétention des données très facilement sans avoir à maîtriser Flux. 
 
@@ -1214,7 +1233,7 @@ Quelques élements pour la compréhension pour la configuration de Loki :
   Ce service est est chargée d'évaluer en permanence un ensemble de requêtes configurables et d'effectuer une action en fonction du résultat.
 
 
-### conclusion sur les rôles
+### Conclusion sur les rôles
 
 Ansible s’appuie sur des modules. Il se peut que dans certains cas la configuration d’un service ne puisse se faire avec un module car il n’existe pas. Ansible dispose alors de 3 modules qui vont permettre de contourner ce problème. Il s’agit des modules :
 
@@ -1519,7 +1538,7 @@ Cet outil de monitoring nous permet d’avoir une grande visibilité sur l’inf
 
 \pagebreak
 
-# Paramétrage supplémentaire
+# Paramétrages supplémentaires
 ## Rendre le service accessible depuis l'extérieur
 
 Le dernier point important de ce projet à été de rendre Grafana accessible depuis l'extérieur afin d'avoir accès au monitoring même en dehors du réseau interne. 
@@ -1562,7 +1581,7 @@ Sans rentrer dans les détails car ce n'est pas le sujet de ce rapport de stage,
 Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne url en HTTPS.
 
 \pagebreak
-# Evolution et améliorations
+# Evolutions et améliorations
 
 Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans VSphere. Le Playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge). 
 Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. 
@@ -1724,22 +1743,21 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 |Semaine 2| creation de machines BBB <br />  et configuration (Openstack - BigBlueButton) | 
 |Semaine 3| creation de machines BBB <br />  et configuration (Openstack - BigBlueButton) | 
 |Semaine 4| scrit Ansible pour la modification <br />  de la configuration des BBB | 
-|Semaine 5| script Ansible Monitoring Grafana Influxdv Promtail Loki Telegraf | 
-|Semaine 6| script Ansible Monitoring Grafana Influxdv Promtail Loki Telegraf | 
+|Semaine 5| script Ansible Monitoring Grafana Influxdb Promtail Loki Telegraf | 
+|Semaine 6| script Ansible Monitoring Grafana Influxdb Promtail Loki Telegraf | 
 |Semaine 7| script Ansible Apache | 
 |Semaine 8| script Bash, Python et Ansible pour déploiement centre de formation | 
 |Semaine 9| script Python et Ansible pour centre de formation - suppression mail Zimbra | 
 |Semaine 10| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
 |Semaine 11| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
-|Semaine 12| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
-|Semaibe 13| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
-|Semaine 14| créationde VLANS dans VSPHERE et NSX Edge, firewall, <br /> et VM - installation de Jupyter hub |
-|Semaine 15| renouvellement certificats sur vm et sur NSX Edge, <br /> creation de vm Moodle et Jupyter |
-|Semaine 16| création d'instances moodle preprod et prod  (Postgres, Apache, Moodle) |
-|Semaine 17| Montée en version de Peertube - <br /> Mise à jour docker Riot - Jupyter Hub sous Kubernetes | 
-|Semaine 18| Création d'un proxy pour BigBlueButton, configuration php pour Moodle - configuration NSX Edge -  troubleshooting Jupyter |
-|Semaine 19| Montée en version de Moodle, Ansible pour mise à jours Zimbra, <br /> modification des specs des machines Zimbra dans Vsphere, Mise en Place de Jupyter Hub sous Kubernetes |
-|Semaine 20| Mise à jours Zimbra, <br /> troubleshooting Moodle authentification CAS -  Jupyter Hub sous Kubernetes |
+|Semaine 12| créationde VLANS dans VSPHERE et NSX Edge, firewall, <br /> et VM - installation de Jupyter hub |
+|Semaine 13| renouvellement certificats sur vm et sur NSX Edge, <br /> creation de vm Moodle et Jupyter |
+|Semaine 14| création d'instances moodle preprod et prod  (Postgres, Apache, Moodle) |
+|Semaine 15| Montée en version de Peertube - <br /> Mise à jour docker Riot - Jupyter Hub sous Kubernetes | 
+|Semaine 16| Création d'un proxy pour BigBlueButton, configuration php pour Moodle - configuration NSX Edge -  troubleshooting Jupyter |
+|Semaine 17| Montée en version de Moodle, Ansible pour mise à jours Zimbra, <br /> modification des specs des machines Zimbra dans Vsphere, Mise en Place de Jupyter Hub sous Kubernetes |
+|Semaine 18| Mise à jours Zimbra, <br /> troubleshooting Moodle authentification CAS - Jupyter Hub sous Kubernetes |
+|Semaine 19| Troubleshooting Moodle et BDD -  Script Ansible pour la configuration des VMs à partir des templates |
 
 ## configuration data sources
 ![Datasources configuration](images/datasources-conf.png "Datasources configuration")
