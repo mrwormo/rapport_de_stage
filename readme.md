@@ -12,7 +12,7 @@ La soutenance est disponible aux formats **odp** et **pdf**
 J'ai choisi le theme de **l'automatisation**, plus présicément l'utilisation d'**Ansible** et le déploiement d'une **solution de monitoring** pour surveiller une infrastructure.
 
 
-# Lecture du rapport
+## Lecture du rapport
 
 Le rapport est disponible en **mardown** et en **pdf**
 
@@ -38,11 +38,12 @@ pandoc --listings -H text.tex rapport.md -o files/rapport.pdf --pdf-engine=xelat
 Le fichier **text.tex** contient des variable en latex pour la mise en forme.
 
 
-## Présentation pour la soutenance
+# Présentation pour la soutenance
+
 La présentation est également disponible aux formats **.odp** et **.pdf**  dans le dossier **files**
 Vous pouvez accéder au **PDF** directement [ici](files/prez.pdf "présentation")
 
-## Playbook
+# Playbook
 
 Le Playbook utilisé dans ce rapport de stage est disponible dans le dossier **files**
 
