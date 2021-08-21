@@ -19,6 +19,7 @@ header-includes:
   - \usepackage[usefilenames,DefaultFeatures={Ligatures=Common}]{plex-otf}
   - \renewcommand*\familydefault{\ttdefault}
 ---
+
 \thispagestyle{empty}
 \pagebreak
 \tableofcontents
@@ -79,14 +80,14 @@ Cette immersion au sein d'un environnement complexe m'a également appris à êt
 
 Ce rapport est disponible sur mon Github personnel en Markdown :
 
-```bash
+```sh
 https://github.com/marc-cenon/rapport_de_stage/blob/master/rapport.md
 ```
 
 Vous y trouverez le Playbook de monitoring que je vais présenter dans mon rapport. Ce PDF a été généré à partir du rapport en Markdown grâce à **Pandoc** et au fichier **text.tex** qui comprend les différentes variables utilisées pour le bon formatage de ce dernier.
 Vous pouvez compiler le rapport avec la commande suivante, à condition d'avoir installé Pandoc.
 
-```bash
+```sh
 git clone https://github.com/marc-cenon/rapport_de_stage.git
 
 cd rapport_de_stage
@@ -310,7 +311,7 @@ service nginx restart
 Le script Ansible :  
 
 
-```bash
+```yaml
 ---
 - hosts: all
   tasks:
@@ -414,7 +415,7 @@ Nous pouvons également mettre à jours le fichier **/etc/hosts** du serveur Ans
 
 Cette étape n'est pas obligatoire et n'est pas forcément recommandé si on travaille avec un grand nombre de machines et beaucoup de projets différents. Dans ce cas, on pourra gérer l'inventaire projet par projet avec un inventaire par projet.
 
-Je présenterai plus tard comment Ansible Gère les inventaires car il est possible d'avoir un inventaire statique, idéal quand pas beaucoup de machine à gérer ou dynamique, qui permet de gérer efficacement une flotte de machine dans le cloud avec des addresses IPs qui peuvent changer au fur et à mesure que les machines se montent et se démontent.
+Je présenterai plus tard comment Ansible gère les inventaires car il est possible d'avoir un inventaire statique, idéal quand on n'a pas beaucoup de machines à gérer, ou dynamique, qui permet de gérer efficacement une flotte de machines dans le cloud avec des adresses IPs qui peuvent changer au fur et à mesure que les machines sont créées et supprimées.
 
 L’environnement de base est configuré. Plusieurs fichiers peuvent être modifié afin de changer le comportement d’Ansible. J'en présenterai quelques uns un peu plus tard dans le rapport.  
 
@@ -772,7 +773,7 @@ Il est souvent associé à Influxdb (même prestataire) ou Nagios, Prometheus, G
 
 
 
-## Les autres Solutions de monitoring
+## Les autres solutions de monitoring
 
 D’autres solutions existes comme **Zabbix**, **Kibana**, **Centreon**, ... 
 Je vais rapidement présenter ces solutions afin d'avoir une vue d'ensemble des solutions qui sont proposées sur le marché.
@@ -801,9 +802,9 @@ Cette stack utlise des concepts complexes qu'il faut maitriser avant de pouvoir 
 
 # Mise en place du projet
 
-Afin de réaliser ce projet, nous allons créer un dossier avec tout les éléments nécessaire au bon déroulement du script Ansible. Afin de pouvoir contrôler et versionner ce projet, il sera mis en place avec Gitlab. 
+Afin de réaliser ce projet, nous allons créer un dossier avec tout les éléments nécessaires au bon déroulement du script Ansible. Afin de pouvoir contrôler et versionner ce projet, nous utiliserons Gitlab. 
 
-Cela permettra également un e meilleure collaboration avec les différentes personnes de l’équipe.
+Cela permettra également une meilleure collaboration avec les différentes personnes de l’équipe et de contrôler tout les changements, et par qui, dans le projet.
 
 
 ## Création du Projet
@@ -981,7 +982,7 @@ Le risque est qu’avec trop de fichiers de variables, il peut être difficile d
 
 En fonction d'où se trouve le fichier qui contient les variables dans l’arborescence du projet, il y a une hiérarchie qui, si ignorée peut poser des problèmes.
 
-Nous pouvons utiliser des "boucle" **loop**, comme dans un langage de programmation, pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
+Nous pouvons utiliser des **boucle** avec la fonction **loop** ou **with_items**, comme dans un langage de programmation, pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
 
 
 ```bash
@@ -1254,7 +1255,7 @@ Quelques élements pour la compréhension pour la configuration de Loki :
 Ansible s’appuie sur des modules. Il se peut que dans certains cas la configuration d’un service ne puisse se faire avec un module car il n’existe pas. Ansible dispose alors de 3 modules qui vont permettre de contourner ce problème. Il s’agit des modules :
 
 - **raw** :  
-  Exécute une commande de bas niveau. Très utile pour déployer de la configuration sur des machines dépourvu d’interpréteur, ou sur des machines spécifiques comment des switchs, routeurs, …
+  Exécute une commande de bas niveau. Très utile pour déployer de la configuration sur des machines dépourvu d’interpréteur, ou sur des machines spécifiques comment des switchs, routeurs, ...
 
 - **shell** :  
   Exécute une commande sur une machine distante dans un SHELL en s’appuyant sur la force du SHELL (ex : le **pipe** n’est pas possible avec command)
@@ -1675,12 +1676,14 @@ Cela a été pour moi un projet très enrichissant car j'ai pu construire sur de
 
 Ansible est une technologie qui m'intéresse beaucoup et je suis très content d'avoir pu travailler dessus durant mon stage. J'ai par la suite créé d'autres script Ansible du type :
 
-- installation / configuration d'un serveur Apache
+- Installation / configuration d'un serveur Apache
 - Configuration d'un pool de machine Big Blue Button
-- Déploiement de machines à partir d'un template dans vSphere avec configuration du de base (ip, interface, hostname, lvm, ...
+- Déploiement de VMs à partir d'un template dans vSphere avec configuration de base (ip, interface, hostname, lvm, ...
 - Déploiement d'une infrastructure complexe (Nginx, Apache, Drupal, Mariabd, Moodle, Python)
 
-Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne. Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible notamment sur les notions de programmation en Python et sur la manipulation du format JSON. Ce sont ses notions qui m’ont manqué pour finir ce Playbook.
+Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne.  
+Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible notamment sur les notions de programmation en Python et sur la manipulation du format JSON.  
+Ce sont ses notions qui m’ont manqué pour finir ce Playbook.
 
 \pagebreak
 
@@ -1701,7 +1704,7 @@ En parallèle de ce stage, j'ai choisi de passer des certifications afin de vali
 - **CKA : Certified Kubernetes Administrator**. Une certification pour l’administration de clusters sous Kubernetes  
 - **RHCSA : Red Hat Certified System Administrator** : Administration système sur Red Hat / CentOS / Fedora  
 
-Je passe fin Septembre la certification **RHCE : Red Hat Certified Engeneer**.
+Je passe début octobre la certification **RHCE : Red Hat Certified Engeneer**.
 
 Cette dernière certification est le prolongement logique de ce que j’ai fait durant mon stage. Elle est très pointue et elle est orientée sur l’automatisation et la très bonne maitrise d’Ansible pour administrer un S.I.
 
