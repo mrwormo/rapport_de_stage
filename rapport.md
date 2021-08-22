@@ -107,7 +107,7 @@ Durant la fin des années 80 et début 90, CGI commença à acquérir des socié
 Dans les 20 dernières années, CGI chercha à atteindre une taille critique sur les marchés géographiques de ses clients, d’acquérir une croissance approfondie de leurs secteurs d’activités ainsi que de développer des pratiques spécialisées et des solutions novatrices.
 En 2010, CGI fait l’acquisition de Stanley Inc. et de ses filiales Oberon et Techrizon dans le but de doubler la taille de ses activités aux États-Unis. Deux années plus tard, CGI réalisa sa plus grosse acquisition en fusionnant avec l’entreprise Logica faisant passer son nombre de collaborateurs de 31 000 à 68000.
 
-Au cours de son histoire, CGI a réussi une expansion imprésionnante et continue pendant 35 ans grâce à une stratégie de rachat et de conquête des différents marchés comme en témoigne le tableau 
+Au cours de son histoire, CGI a réussi une expansion impressionnante et continue pendant 35 ans grâce à une stratégie de rachat et de conquête des différents marchés comme en témoigne le tableau 
 
 CGI est l'un des leaders mondiaux du conseil et des services numériques. Avec plus de 40 ans d'expertise et de savoir-faire et présent dans plus de 40 pays, le groupe CGI est implanté dans 21 villes en France avec environs 11 000 salariés.
 
@@ -172,7 +172,7 @@ Quelqu'un des projets sur lesquels j'ai pu participer :
 - Création d'un Playbook Ansible pour le Monitoring
 - Création d'un Playbook Ansible Apache
 - Création d'un Playbook Ansible pour le déploiement d'un établissement de formation avec différentes briques logicielles
-- Utilisation de VSphere et NSXEDGE pour créer des Vlans, Firewalls, Loadbalancing, TLS, ...
+- Utilisation de vSphere et NSXEDGE pour créer des Vlans, Firewalls, Loadbalancing, TLS, ...
 - Installation de divers serveurs d’applications : Moodle, Peertube, Drupal, BigBlueButton
 - Installation de différentes Bases de données : Maria, PostgreSQL, InfuxDB
 - Mise a jours de messagerie Zimbra pour diverses Régions
@@ -240,7 +240,7 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 -  Grande communauté  
   Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
 - Ansible Galaxy: collection de rôles pour un grand nombre de tâches. Plus besoin de faire de Script Bash
-  Pour des tâches comme installer un serveur NGINX, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
+  Pour des tâches comme installer un serveur Nginx, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM, Cloud). 
 
@@ -263,21 +263,21 @@ Il existe de nombreuses solution pour automatiser des tâches. Nous pouvons cite
 
 **Saltstack**  est une solution d'automatisation très performante et rapide. A la différence d'Ansible, Saltstack utilise le protocol **ZMPT: ZeroMQ Message Transfert Protocol**, qui permet de pouvoir effectuer des échanger entre applications sur la couche réseau TCP avec une grande rapidité et efficacité.  
 
-**Puppet** est une solution largement répendue. Sont fonctionnement nécessite la connaissance du language spécifique utilisé par Puppet. Ansible utilise le format YAML, ce qui est bien plus facile à utiliser.  
+**Puppet** est une solution largement répandue. Sont fonctionnement nécessite la connaissance du langage spécifique utilisé par Puppet. Ansible utilise le format YAML, ce qui est bien plus facile à utiliser.  
 
-**Chef**, une autre solution bien connue, s'appuis sur le langage **Ruby** et necessite l'installation d'un agent sur les machines clientes. Ansible n'a besoin d'aucuns agents et utilise le langage **Python** qui est un langage très répendu.  
+**Chef**, une autre solution bien connue, s'appuie sur le langage **Ruby** et nécessite l'installation d'un agent sur les machines clientes. Ansible n'a besoin d'aucuns agents et utilise le langage **Python** qui est un langage très répandu.  
 
-Chaques solutions à ses avantages/inconvenients. On peut comprendre l'atrait d'Ansible par son large eventail de module, sa simplicité d'utilisation grâce au Yaml et à Python et au protocol SSH pour envoyer les commandes sur les machines ciblées.
+Chaque solutions à ses avantages/inconvénients. On peut comprendre l'attrait d'Ansible par son large éventail de module, sa simplicité d'utilisation grâce au Yaml et à Python et au protocol SSH pour envoyer les commandes sur les machines ciblées.
 
 ## Différences entre Ansible et Script Bash
 
 Les scripts Bash sont fréquemment utilisés pour configurer voir automatiser certaines actions. Écrire des Script en Bash nécessite une bonne connaissance de ce langage de Scripting.  De mon point de vue :
 
 - Bash décrit des **actions**. (ex : copie tel fichier, réalise telle action, n’autorise pas telle action ….)
-- Ansible est accés sur **l'état de la machine** avant l'action. Il réalisera une tache si cela implique un changement d'état, sinon il ne l'executera pas.
+- Ansible est accès sur **l'état de la machine** avant l'action. Il réalisera une tache si cela implique un changement d'état, sinon il ne l'éxecutera pas.
 
 
-Pour illustrer ces propos, je vais prendre l’exemple d’un script bash qui va installer **nginx** avec le module **passenger** qui permet de déployer des applications **Ruby on Rails**  et transposer cela avec Ansible
+Pour illustrer ces propos, je vais prendre l’exemple d’un script Bash qui va installer **Nginx** avec le module **Passenger** qui permet de déployer des applications **Ruby on Rails**  et transposer cela avec Ansible.
 
 Le script shell :  
 
@@ -316,7 +316,7 @@ Le script Ansible :
 - hosts: all
   tasks:
 
-  - name: Garantir que la cle PGP est installé
+  - name: Garantir que la clé PGP est installé
     apt_key: >
       state=present
       id=AC40B2F7
@@ -355,7 +355,7 @@ Le script Ansible :
 ```
 Le script Bash va réaliser une **suite d’actions** sans contrôler l’état des actions du script. Si on relance le script, il va a nouveau effectuer toutes ces actions.
 
-Ansible s’assure de **l’état désiré de la machine** grace à l’instruction **state** (état) qui est utilisée a chaque tâches. Si on relance, le script, Ansible ne changera rien car il vérifie l’état avant d’agir et comme il n’y aura pas eu de changement d’état, les tâches ne seront pas à nouveau exécutées.
+Ansible s’assure de **l’état désiré de la machine** grâce à l’instruction **state** (état) qui est utilisée a chaque tâches. Si on relance, le script, Ansible ne changera rien car il vérifie l’état avant d’agir et comme il n’y aura pas eu de changement d’état, les tâches ne seront pas à nouveau exécutées.
 
 
 Ansible, à l’inverse de Bash, se soucis donc plus de l’état que de l’action. Cela permet d’avoir une gestion de la configuration en mode déclarative et idempotente et permet une gestion fiable de l'exécution à distance, avec des nouvelles tentatives, logiques évolutive, …
@@ -390,12 +390,12 @@ Ansible 2.9.6
   python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
 ```
 
-Ansible a besoin que le port SSH soit ouvertert que l'authentification par clé plutôt que par mot de passe soit activée.
+Ansible a besoin que le port SSH soit ouvert et que l'authentification par clé plutôt que par mot de passe soit activée.
 
 ```bash
 sudo firewall-cmd --list-services
 ```
-Nous pouvons vérifier avec cette commande que le port 22 / service SSH est bien ouvert dans le firewall. Il nous reste plus qu'à générer une clé ssh et à la copier sur les machines clientes avec les deux commandes ci dessous.
+Nous pouvons vérifier avec cette commande que le port 22 / service SSH est bien ouvert dans le firewall. Il nous reste plus qu'à générer une clé SSH et à la copier sur les machines clientes avec les deux commandes ci dessous:
 
 ```bash
 ssh-keygen
@@ -419,7 +419,7 @@ Je présenterai plus tard comment Ansible gère les inventaires car il est possi
 
 L’environnement de base est configuré. Plusieurs fichiers peuvent être modifié afin de changer le comportement d’Ansible. J'en présenterai quelques uns un peu plus tard dans le rapport.  
 
-Il peut être souhaitable par exemple de sauvegarder un paramêtre dans un fichier de configuration si il fait référence à une action fréquente, afin d'éviter de devoir définir cette action à chaque fois que nous en avons besoin. (ex: définition de la méthode d'élévation des privèges).
+Il peut être souhaitable par exemple de sauvegarder un paramètre dans un fichier de configuration si il fait référence à une action fréquente, afin d'éviter de devoir définir cette action à chaque fois que nous en avons besoin. (ex: définition de la méthode d'élévation des privèges).
 
 
 
@@ -430,15 +430,15 @@ Avant de présenter le Playbook que j'ai réalisé, il est important de comprend
 ![Ansible](images/ansible_architecture.png "Fonctionnement d'Ansible")
 Ce schéma ci dessus illustre l'architecture d'Ansible.
 
-On définit des **rôles**, qui contiennent des **tâches** à exécuter à l'aide de différents **modules**, le tout regroupé dans un **Playbook**, qui va réunir les différents rôles et ou tâches. Le Playbook va donc executer un ensemble de **tache** , appelé également un **Play** sur un groupe de machines, définies dans un **inventaire**.
+On définit des **rôles**, qui contiennent des **tâches** à exécuter à l'aide de différents **modules**, le tout regroupé dans un **Playbook**, qui va réunir les différents rôles et ou tâches. Le Playbook va donc exécuter un ensemble de **tâches** , appelé également un **Play** sur un groupe de machines, définies dans un **inventaire**.
 
-Il existe de nombreux modules et plugins qui permettent de réaliser presque toutes les action envisagable.  
+Il existe de nombreux modules et plugins qui permettent de réaliser presque toutes les actions envisageables.  
 
 On trouve également des plugins et modules complémentaire sur **Ansible Galaxy** qui sont en libre téléchargement.  
 
 Pour ceux qui on une licence **Red Hat**, ils ont également accès à un large panel de rôles, modules et plugins spécialement consus pour les plateformes Red Hat.  
 
-Ansible utilise également des Templates, au format **Jinja2** afin de facilité la création de fichiers de configurations et la gestion des variables.
+Ansible utilise également des templates, au format **Jinja2** afin de facilité la création de fichiers de configurations et la gestion des variables.
 
 Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir plusieurs éléments. 
 
@@ -463,7 +463,7 @@ roles/
             main.yml      
         handlers/        
             main.yml      
-        Templates/        
+        templates/        
             ntp.conf.j2   
         files/           
             foo.txt     
@@ -493,14 +493,14 @@ Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regroupe
 - Un dossier **rôle** avec des sous dossiers pour les différents rôles. Chaque sous dossiers peut contenir les sous-dossiers suivants :
 
   - **/tasks/main.yml** : C’est ici que sont écrites l’ensemble des tâches que le rôle exécute
-  - **/template/NOM_DU_TEMPLATE.j2** : contient le/les Templates utilisés par le rôle
+  - **/template/NOM_DU_template.j2** : contient le/les templates utilisés par le rôle
   - **/handlers/main.yml** : un handler est une tache inactive qui sera active seulement si elle est invoquée dans le fichier /tasks/main.yml grâce au mot clé **notify**
   - **/files** : ce dossier contient les fichiers nécessaires au fonctionnement du rôles comme des script bash, des liste csv, ….
   - **/default/main.yml** : contient les valeurs des variables par défaut du rôle
   - **/vars/main.yml** : contient d’autres variables, qui peuvent surcharger celle du /defaults/main.yml
   - **/meta/main.yml** : contient les métadata sur le rôle (auteur, licence, dépendances, ...)
 
-Le dossier **role** a une architecture qu'il convient de respecter. Il est possible de générer cette architecture avec la commande suivante:
+Le dossier **rôle** a une architecture qu'il convient de respecter. Il est possible de générer cette architecture avec la commande suivante:
 
 ```bash
 ansible-galaxy init NOM_DU_ROLE
@@ -514,7 +514,7 @@ Il y a également un fichier **ansible.cfg**, que l’on peut créer à la racin
 host_key_checking = False
 ```
 
-On peut également définir les paramètre pour l’élevage des privilège de la facon suivante :
+On peut également définir les paramètre pour l’élevage des privilège de la façon suivante :
 
 ```bash
 remote_user: Ansible
@@ -540,7 +540,7 @@ ansible-inventory --graph --vars
 
 Cette commande va nous fournir la liste des hosts ainsi que les variables qui leurs sont attribuées.
 
-Le site D'Ansible dispose de nombreuses informations sur les modules et leur utilisation. Cependant une commande existe qui permet d'avoir de la documentation rapidement dans le terminal
+Le site d'Ansible dispose de nombreuses informations sur les modules et leur utilisation. Cependant une commande existe qui permet d'avoir de la documentation rapidement dans le terminal
 
 ```bash
 ansible-doc
@@ -568,7 +568,7 @@ Par défaut si nous ne précisons pas de module dans la commande, le module par 
 ```bash
 ansible all -a "free -m" 
 ```
-Avec cette commande, on peut très rapidement obtenir des informations sur la mémoire libre de toutes les machines. On comprend très vite le gain de temps pour faire du debuggage sur un parc de machines. En une commande on a récupéré les informations sur le parc de machines, sans avoir à faire de ssh et de taper la commande, sur chaque machine...
+Avec cette commande, on peut très rapidement obtenir des informations sur la mémoire libre de toutes les machines. On comprend très vite le gain de temps pour faire du debuggage sur un parc de machines. En une commande on a récupéré les informations sur le parc de machines, sans avoir à se connecter en SSH et à taper la commande sur chaque machines...
 
 Une autre commande très utile pour un administrateur réseau :
 
@@ -673,7 +673,7 @@ Grafana Labs est une entreprise spécialisé dans la création d’outils de vis
 ```bash
 github.com/grafana/grafana
 ```
-Grafana est un outil supervision moderne et open source. Il permet d'exposer sous formes de **dashboards** (tableau de bord) les métriques brutes ou agrégées provenant d’un **datasource** comme Influxdb pour les métriques Loki pour les logs.   
+Grafana est un outil supervision moderne et open source. Il permet d'exposer sous formes de **dashboards** (tableau de bord) les métriques brutes ou agrégées provenant d’un **data source** comme Influxdb pour les métriques Loki pour les logs.   
 
 L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
 
@@ -716,7 +716,7 @@ Promtail est très customisable. Nous verrons plus loin quelques exemples de con
 
 ## Influxdata
 
-Influxdata est la société qui développe des solution de monitoring Influxdb et Telegraf. Elle est spécialisé dans la collecte et la gestion de metriques.
+Influxdata est la société qui développe des solution de monitoring Influxdb et Telegraf. Elle est spécialisé dans la collecte et la gestion de métriques.
 
 ### Influxdb
 
@@ -732,7 +732,7 @@ Influxdb intègre un service qui repose sur le protocole NTP Network Time Protoc
 Ces principaux avantages sont :
 
 - Les performances : Elle peut gérer un volume massif d’information
-- La durée de rétention importante : capable de gérer la gestion des donnée sur une longue période grace à une excellente gestion des données (taille, compression, ...)
+- La durée de rétention importante : capable de gérer la gestion des donnée sur une longue période grâce à une excellente gestion des données (taille, compression, ...)
 - La scalabilité : facilement adaptable pour gérer la charge
 
 
@@ -781,7 +781,7 @@ Je vais rapidement présenter ces solutions afin d'avoir une vue d'ensemble des 
 ### Centreon
 Centreon est un dérivé **français** de Nagios et développé par la société Merethis. Il s’agit d’une couche applicative Web venant se greffer à Nagios pour offrir une administration plus intuitive que celle de Nagios.  
 
-Centreon est une solution AIO (All In One, Toute en Un) et open source. C'es à dire qu'il comprends les outils nécessaires pour la collecte, le stockage et la visualisation des metriques. Centreon utilise le protocol **SNMP** pour echanger avec les autres machines sur le réseau pour collecter les informations. 
+Centreon est une solution AIO (All In One, Toute en Un) et open source. C'es à dire qu'il comprends les outils nécessaires pour la collecte, le stockage et la visualisation des métriques. Centreon utilise le protocol **SNMP** pour échanger avec les autres machines sur le réseau pour collecter les informations. 
 
 
 ### Zabbix
@@ -789,15 +789,15 @@ Zabbix, également une solution open source, un un outil de monitoring qui, à l
 
 Elle va donc pouvoir utiliser par exemple MySQL, MariaDB, PostgreSQL, plutôt qu'Influxdb qui est spécialement optimiser pour gérer la collecte de métriques du fait de la quantité d'information qu'elle va recevoir. (ex: récupération des métriques toutes les 5s va générer un volumes importants de données qu'il va pouvoir stocker et redistribuer rapidement et précisément).  
 
-Tout comme Grafana, Zabbix peut recolter des metriques, créer des alertes, détecter des problèmes, envoyer des notifications. Cependant la visualition des données n'est pas le point fort de cette solution. Grafana permet d'avoir un espace de visualition nettement supérieur à cette solution.
+Tout comme Grafana, Zabbix peut récolter des métriques, créer des alertes, détecter des problèmes, envoyer des notifications. Cependant la visualisation des données n'est pas le point fort de cette solution. Grafana permet d'avoir un espace de visualisation nettement supérieur à cette solution.
 
 ### Kibana
 Kibana est le **K** dans ce qui est plus connu sous le nom de **ELK Stack** pour  Elasticsearch, Logstash, et Kibana. C'est l'une des solution open source est plus utilisé pour la collecte de logs.  
 
 Elasticsearch est un moteur de recherche et d'analyse qui se base sur des **données textuelles**. Logstash est un agrégateur de logs, comme Grafana Loki et Kibana est un outil de visualisation.  
 
-Cette stack utilise l'agent Beats, déployés sour les machines a surveiller pour envoyer les données dans la stack ELK.  
-Cette stack utlise des concepts complexes qu'il faut maitriser avant de pouvoir s'en servir correctement et elle est plus spécialisé dans l'analyse de logs alors que la soltions qu nous mettons en place va utiser plusieurs data stores (influxdb et loki) et va pouvoir analyser un ensemble de données beaucoup plus large.
+Cette stack utilise l'agent **Beats**, déployés sur les machines à surveiller pour envoyer les données dans la stack ELK.  
+Cette stack utilise des concepts complexes qu'il faut maîtriser avant de pouvoir s'en servir correctement et elle est plus spécialisé dans l'analyse de logs alors que la solution que nous mettons en place va utiliser plusieurs data stores (influxdb et loki) et va pouvoir analyser un ensemble de données beaucoup plus large.
 
 
 # Mise en place du projet
@@ -927,21 +927,21 @@ Dans ces rôles, je fait appels à des **handlers** pour le redémarrage des ser
 
 Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des modules adéquats d'Ansible, les étapes pour l'installation et la configuration (les différentes tâches du rôles) de Grafana sont les suivantes :
 
-- création du groupe et du compte grafana:monitoring
-- création des dossiers nécessaires
-- téléchargement du programme et extraction dans le dossier d'installation définie au préalable
-- création d'un fichier de configuration grâce à un Template
-- import d'un dashboard existant que j’ai créé
-- ouverture des ports dans le firewall
-- création du fichier .service à l'aide d'un Template
-- activation du service et redémarrage
+- Création du groupe et du compte grafana:monitoring
+- Création des dossiers nécessaires
+- Téléchargement du programme et extraction dans le dossier d'installation définie au préalable
+- Création d'un fichier de configuration grâce à un template
+- Importation d'un dashboard existant que j’ai créé en amont
+- Ouverture des ports dans le firewall
+- Création du fichier .service à l'aide d'un template
+- Activation du service et redémarrage
 
-Pour ce rôle, l'utilisation de **Templates** pour générer le fichier de configuration de Grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml. 
+Pour ce rôle, l'utilisation de **templates** pour générer le fichier de configuration de Grafana et le service associé permettent de simplifier le processus d'installation. Cela permet également de pouvoir modifier rapidement et facilement le rôle en ajustant les variable adéquate dans le fichier /inventory/group_vars/all.yml. 
 
-Voici la tâche du rôle Grafana qui utilise le Template crée pour générer le fichier service :
+Voici la tâche du rôle Grafana qui utilise le template crée pour générer le fichier service :
 
 ```yaml
-- name: "copy Grafana systemd service from Template"
+- name: "copy Grafana systemd service from template"
   template:                                     
     src: Grafana.service.j2                     
     dest: /etc/systemd/system/Grafana.service   
@@ -949,7 +949,7 @@ Voici la tâche du rôle Grafana qui utilise le Template crée pour générer le
 
 On utilise le module **template**, qui va chercher le fichier Grafana.service.j2 dans le dossier **grafana.service.j2** et qui va utiliser les valeurs définis dans le fichiers de variable dans /inventory/group_vars/all.yml.
 
-Voici le Template utilisé pour créer le service :
+Voici le template utilisé pour créer le service :
 
 ```bash
 [Unit]
@@ -972,7 +972,7 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
-Les parties intéressantes de ce Template sont les parties entre les accolades **{{ }}**. La variable {{ grafana_account_name }} va être remplie par la valeur dans le fichier de variable dans **/inventory/group_vars/all.yml**
+Les parties intéressantes de ce template sont les parties entre les accolades **{{ }}**. La variable {{ grafana_account_name }} va être remplie par la valeur dans le fichier de variable dans **/inventory/group_vars/all.yml**
 
 Bien que Grafana (comme Loki et Influxdb) sont installés sur une seule machine, afin de simplifier le Playbook et pour éviter d’avoir trop de fichiers d’inventaire, un groupe comportant une seule machine, celle du monitoring est créée dans l’inventaire. 
 
@@ -982,7 +982,7 @@ Le risque est qu’avec trop de fichiers de variables, il peut être difficile d
 
 En fonction d'où se trouve le fichier qui contient les variables dans l’arborescence du projet, il y a une hiérarchie qui, si ignorée peut poser des problèmes.
 
-Nous pouvons utiliser des **boucle** avec la fonction **loop** ou **with_items**, comme dans un langage de programmation, pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
+Nous pouvons utiliser des **boucle** avec la fonction **loop** ou **with_items)u**, comme dans un langage de programmation, pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
 
 
 ```bash
@@ -1010,7 +1010,7 @@ Les étapes pour l'installation d'Influxdb (la liste des tâches) sont sensiblem
 - création du groupe et du compte influxdb:monitoring
 - créations des dossiers nécessaires
 - téléchargement du programme et extraction dans le bon dossier
-- création d'un fichier de configuration et du service à partir d'un Template
+- création d'un fichier de configuration et du service à partir d'un template
 - ouverture des ports dans le firewall
 - activation du service
 - pause de quelques secondes, le temps que la BDD soit opérationnelle
@@ -1051,9 +1051,9 @@ Flux est une alternative à InfluxQL et à d'autres langages de requête de type
 
 Quelques notions importantes pour pouvoir écrire des requêtes avec Flux :
 
-- Utilisation de **pipe forward" |>** pour enchainer des actions
+- Utilisation de **pipe forward" |>** pour enchaîner des actions
 - Toutes les données sont structuré sous forme de tableau.
-- Un regroupement de tableaux avec une politique de rétention est un Bucket. 
+- Un regroupement de tableaux avec une politique de rétention est un bucket. 
 
 Voici quelques exemples de requêtes en langage Flux :
 
@@ -1085,7 +1085,7 @@ from(bucket: "bucket-vm")
 
 Influxdb dispose également d'une **WEBUI** qui permet de faciliter grandement la création de requêtes complexes. Il suffit de choisir les critères dans le menu et d'importer la requête dans Grafana, qui nous permettra de visualiser le résultat avec un graphique très customisable.
 
-L'ensemble des requêtes du Playbook est également disponible dans le fichier **dashboard.json**. Egalement en annexe un exemple de requete avec Influxdb [lien](#requête-influxdb)
+L'ensemble des requêtes du Playbook est également disponible dans le fichier **dashboard.json**. Également en annexe un exemple de requête avec Influxdb [lien](#requête-influxdb)
 
 Flux est un langage très puissant mais l’interface d'Influxdb permet d'arriver au même résultat rapidement et de gérer les buckets (équivalent à une database) et la politique de rétention des données très facilement sans avoir à maîtriser Flux. 
 
@@ -1099,7 +1099,7 @@ Pour compléter notre stack TIG, il faut également déployer nos agents grâce 
 - Création du groupe et du compte telegraf:monitoring
 - Création des dossiers nécessaires
 - Téléchargement et extraction dans le bon dossier
-- Création d'un fichier de configuration et d’un service avec un Template
+- Création d'un fichier de configuration et d’un service avec un template
 - Activation du service
 
 Les étapes sont sensiblement les mêmes que pour Grafana et Influxdb. Le point important ici est le fichier de configuration. Une partie de la configuration sera la même pour toutes les machines. On va récupérer par exemple :  
@@ -1138,7 +1138,7 @@ L'installation de Promtail suit le même schéma que Telegraf. Comme cet agent s
 La configuration spécifique se trouve dans le même fichier que pour les configurations spécifiques de Télégraf.
 
 
-La configuration de Promtail utilise des **Scrape Job**. On va configurer dans un fichier yaml exactement ce que Promtail doit récupérer comme logs, l’endroit, le nom que l’on donne au scrape job ainsi qu’un label qui sera utilisé plus tard pour classer les logs et appliquer des règles de trie par exemple pour pouvoir les regrouper avec d’autres logs ou avec des métriques de Telegraf.
+La configuration de Promtail utilise des **scrape jobs**, c'est à dire des actions de récupérations de logs. On va configurer dans un fichier YAML exactement ce que Promtail doit récupérer comme logs, l’endroit, le nom que l’on donne au scrape job ainsi qu’un label qui sera utilisé plus tard pour classer les logs et appliquer des règles de trie par exemple pour pouvoir les regrouper avec d’autres logs ou avec des métriques de Telegraf.
 
 On peut créer un dashboard pour Loki qui va regrouper par exemple dans une fenêtre tous les logs d’erreurs de toute les machines, une autre fenêtre avec tous les logs cron de toute les machines.
 
@@ -1171,11 +1171,11 @@ En voici un autre pour les logs Nginx :
           __path__: /var/log/nginx/*log
  ```
 
-Dans notre infrastructure à surveiller, plusieurs serveurs Nginx sont déployés. Grâce au label que nous allons utliser pour les logs Nginx (nginx) on va pouvoir regrouper tous les logs qui on ce label dans une même fenêtre. La valeur **targets:localhost** prendra le nom de la machine **/etc/hostname** afin de savoir a quelle machine appartient quel log.
+Dans notre infrastructure à surveiller, plusieurs serveurs Nginx sont déployés. Grâce au label que nous allons utiliser pour les logs Nginx (nginx) on va pouvoir regrouper tous les logs qui on ce label dans une même fenêtre. La valeur **targets:localhost** prendra le nom de la machine **/etc/hostname** afin de savoir à quelle machine appartient quel log.
 
-Il est également possible de filtrer et de formater les logs avec des règles spécifiques a définir dans les scrape jobs. Le github de Promtail regorge d’information sur la configuration et le paramétrage de la récupération des logs.
+Il est également possible de filtrer et de formater les logs avec des règles spécifiques à définir dans les scrape jobs. Le github de Promtail regorge d’informations sur la configuration et le paramétrage de la récupération des logs.
  
-Un Template est utilisé pour deployer les **Scrape Jobs** en fonction des différents groupes de machine. Le Template est dans le dossier **template** du rôle Promtail et les variables sont définies dans les sous-dossiers qui portent le nom de chaque groupe, dans le dossier **group_vars**.
+Un template est utilisé pour déployer les **scrape jobs** en fonction des différents groupes de machine. Le template est dans le dossier **template** du rôle Promtail et les variables sont définies dans les sous-dossiers qui portent le nom de chaque groupe, dans le dossier **group_vars**.
 
 Il faut s'assurer que Promtail a les **droits nécessaires** pour lire les logs que nous voulons remonter dans Loki puis Grafana. Bien souvent les logs système sont définis avec un **mod 640**.
 
@@ -1183,7 +1183,7 @@ Il faut donc penser à configurer les autorisations nécessaires pour Promtail.
 
 ### Loki
 
-L'installation de Loki est identique à celle de Grafana et de Promtail. Il n'y a pas de difficultés majeures. Le point intéressant dans le rôle est le fichier de configuration de Loki qui est déployé grâce à un Template. 
+L'installation de Loki est identique à celle de Grafana et de Promtail. Il n'y a pas de difficultés majeures. Le point intéressant dans le rôle est le fichier de configuration de Loki qui est déployé grâce à un template. 
 
 Voici la tâche qui utilise le module **template** pour déployer le fichier de configuration :
 
@@ -1457,7 +1457,7 @@ En Annexe, vous trouverez la capture d’écran qui illustre le paramétrage des
 Lien [ici](#configuration-data-sources)
 
 
-## Importation du Dashboard
+## Importation du dashboard
 
 Le Playbook contient également un **dashboard** (tableau de bord)  que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu à gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
 Il contient des commandes génériques qui vont pouvoir récupérer les informations sur le CPU, le % de RAM de libre, le %de disque de libre, ...
@@ -1480,14 +1480,14 @@ Plutôt qu'un mail, il est possible de créer des alertes dans Teams, ou Slack e
 
 ## Exemple de configuration pour une alerte
 
-Grafana inclut un server SMTP qu'il faut paramétrer dans son fichier principal de configuration. Afin de simplifier les changements de configuration et pour éviter de devoir réécrire des rôles pour modifier le fichier de configuration, il est plus simple et pratique d'utiliser un Template pour modifier ce dernier.
+Grafana inclut un server SMTP qu'il faut paramétrer dans son fichier principal de configuration. Afin de simplifier les changements de configuration et pour éviter de devoir réécrire des rôles pour modifier le fichier de configuration, il est plus simple et pratique d'utiliser un template pour modifier ce dernier.
 
-Dans le rôle d'installation de Grafana, j'utilise une tâche qui crée le fichier de configuration selon ce que j'aurai défini dans le fichier de Template.
+Dans le rôle d'installation de Grafana, j'utilise une tâche qui crée le fichier de configuration selon ce que j'aurai défini dans le fichier de template.
 
 Voici la tâche que j'ai utilisé et qui va créer le fichier de configuration avec la bonne configuration :
 
 ```yaml
-- name: "create custom Grafana configuration file from Template"
+- name: "create custom Grafana configuration file from template"
   template:
     src: Grafana_conf.j2
     dest: "{{ Grafana_main_folder  }}/Grafana/conf/custom.ini"
@@ -1499,7 +1499,7 @@ Voici la tâche que j'ai utilisé et qui va créer le fichier de configuration a
 ```
  
 
-Voici une partie de la configuration du serveur SMTP dans le Template :
+Voici une partie de la configuration du serveur SMTP dans le template :
 
 ```bash
 ########## SMTP / Emailing ##########
@@ -1561,9 +1561,9 @@ CGI utilise OVH pour la majeure partie de son infrastructure. J'ai dû configure
 
 ## Configuration dans vSphere
 
-L'infrastructure tourne sous ESXI avec NSX et VSphere pour fournir une interface graphique et les API REST pour la création, la configuration et la surveillance des composants tels que les contrôleurs, commutateurs logiques, ....
+L'infrastructure tourne sous ESXI avec NSX et vSphere pour fournir une interface graphique et les API REST pour la création, la configuration et la surveillance des composants tels que les contrôleurs, commutateurs logiques, ....
 
-Grâce à VSphere et NSX, on peut configurer depuis un navigateur Web les VM, Firewall, Règles NAT, LoadBalancing, Vlan, .... 
+Grâce à vSphere et NSX, on peut configurer depuis un navigateur Web les VM, Firewall, Règles NAT, LoadBalancing, Vlan, .... 
 
 C'est avec cet outils que j'ai créé la VM de Monitoring où est installé Grafana - Influxdb - Loki (ainsi que Telegraf et Promtail pour exposer les informations de la machine de monitoring dans Grafana)
 
@@ -1595,7 +1595,7 @@ Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne u
 Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans VSphere. Le Playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge). 
 Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. 
 
-Je choisi d'installer NGINX. Pour cela, nous pouvons modifier notre Playbook de 2 façons :
+Je choisi d'installer Nginx. Pour cela, nous pouvons modifier notre Playbook de 2 façons :
 
 - Écrire un rôle qui va installer et configurer. Cela peut être une bonne solution lorsqu'on a une configuration atypique mais cela peut demander du temps pour l'écrire.
 
@@ -1619,7 +1619,7 @@ De cette façon, le rôle sera exécuté sur la VM ou sont installés Graphana, 
 
 Nous avons juste besoin de créer la configuration nécessaire pour Grafana et Influxdb.
 
-Dans ce fichier, nous avons besoin de configurer les **Vhosts** et nous pouvons donner une liste d'argument dans la variable **nginx_vhosts**. Voici ce que nous pouvons lui ajouter par exemple.
+Dans ce fichier, nous avons besoin de configurer les **vhosts** et nous pouvons donner une liste d'argument dans la variable **nginx_vhosts**. Voici ce que nous pouvons lui ajouter par exemple.
 
 ```yaml
 nginx_vhosts:
@@ -1646,13 +1646,13 @@ nginx_vhosts:
     return 301 https://$server_name$request_uri;
 ```
     
-Ici, je défini le Vhost en **80** avec redirection automatique ainsi que le Vhost en **443**. Les certificats sont référencés en variables. Il ne reste plus qu'à relancer le Playbook. Vu que la seule modification et l'ajout du rôle Nginx, les autres tâches apparaîtront en **OK** car aucun changement n'est réalisé. 
+Ici, je défini le vhost en **80** avec redirection automatique ainsi que le vhost en **443**. Les certificats sont référencés en variables. Il ne reste plus qu'à relancer le Playbook. Vu que la seule modification et l'ajout du rôle Nginx, les autres tâches apparaîtront en **OK** car aucun changement n'est réalisé. 
 
 Sur le rôle Nginx, les taches apparaîtront en **changed** car il y a eu un changement. Le rôle va également vérifier la configuration du Nginx, redémarrer le service grâce à un handler.
 
 Une fois l'exécution terminée, nous pouvons accéder à Grafana en HTTPS sans avoir à passer par NSX Edge.
 
-Il sera également intéressant de créer un Dashboard pour l'analyse des logs ainsi que la mise en place d'un système d'alerting. Comme Loki est développé par les même développeurs que Grafana, la mise en place d'un tel système est identique à celle décrite plus haut.
+Il sera également intéressant de créer un dashboard pour l'analyse des logs ainsi que la mise en place d'un système d'alerting. Comme Loki est développé par les même développeurs que Grafana, la mise en place d'un tel système est identique à celle décrite plus haut.
 
 Une autre amélioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passe, token et autres éléments d'identification qui sont souvent stockés dans les fichiers de variables.
 
@@ -1706,7 +1706,7 @@ En parallèle de ce stage, j'ai choisi de passer des certifications afin de vali
 
 Je passe début octobre la certification **RHCE : Red Hat Certified Engeneer**.
 
-Cette dernière certification est le prolongement logique de ce que j’ai fait durant mon stage. Elle est très pointue et elle est orientée sur l’automatisation et la très bonne maitrise d’Ansible pour administrer un S.I.
+Cette dernière certification est le prolongement logique de ce que j’ai fait durant mon stage. Elle est très pointue et elle est orientée sur l’automatisation et la très bonne maîtrise d’Ansible pour administrer un S.I.
 
 Pour terminer, j'ai eu une proposition d'embauche en CDI en tant que Cadre Ingénieur et j'ai accepté. 
 
@@ -1721,15 +1721,15 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 ## Image ENT
 ![ENT](images/ent.png "ENT")
 
-## Influxdb Bucket
+## Influxdb bucket
 ![bucket Influxdb](images/bucket.png "bucket Influxdb")
 
 \pagebreak
 
-## Grafana Dashboard
-![Grafana dashboard](images/grafana-dash.png "Grafana Dashboard")
+## Grafana dashboard
+![Grafana dashboard](images/grafana-dash.png "Grafana dashboard")
 
-## Grafana Data Sources
+## Grafana data sources
 ![Grafana datasources](images/grafana-datasources.png "Grafana Datasources")
 
 \pagebreak
@@ -1760,15 +1760,15 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 |Semaine 9| script Python et Ansible pour centre de formation - suppression mail Zimbra | 
 |Semaine 10| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
 |Semaine 11| script Ansible pour Nginx, Apache, Moodle, Drupal, Mariadb, Python |
-|Semaine 12| créationde VLANS dans VSPHERE et NSX Edge, firewall, <br /> et VM - installation de Jupyter hub |
+|Semaine 12| créationde VLANS dans vSphere et NSX Edge, firewall, <br /> et VM - installation de Jupyter hub |
 |Semaine 13| renouvellement certificats sur vm et sur NSX Edge, <br /> creation de vm Moodle et Jupyter |
 |Semaine 14| création d'instances moodle preprod et prod  (Postgres, Apache, Moodle) |
 |Semaine 15| Montée en version de Peertube - <br /> Mise à jour docker Riot - Jupyter Hub sous Kubernetes | 
 |Semaine 16| Création d'un proxy pour BigBlueButton, configuration php pour Moodle - configuration NSX Edge -  troubleshooting Jupyter |
-|Semaine 17| Montée en version de Moodle, Ansible pour mise à jours Zimbra, <br /> modification des specs des machines Zimbra dans Vsphere, Mise en Place de Jupyter Hub sous Kubernetes |
+|Semaine 17| Montée en version de Moodle, Ansible pour mise à jours Zimbra, <br /> modification des specs des machines Zimbra dans vSphere, Mise en Place de Jupyter Hub sous Kubernetes |
 |Semaine 18| Mise à jours Zimbra, <br /> troubleshooting Moodle authentification CAS - Jupyter Hub sous Kubernetes |
 |Semaine 19| Troubleshooting Moodle et BDD -  Script Ansible pour la configuration des VMs à partir des templates |
 |Semaine 20| Troubleshooting Moodle et monté de version Moodle - transition des années scolaires sur les instances Moodle |
 
-## Configuration Data Sources
+## Configuration data sources
 ![Datasources configuration](images/datasources-conf.png "Datasources configuration")
