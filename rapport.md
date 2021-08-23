@@ -47,7 +47,7 @@ Je tiens à remercier également le corps enseignant de l'Université, notamment
 
 Dans le cadre de la Licence professionnelle Administration et Développement de Systèmes Informatiques à base de Logiciels Libres et Hybrides **ADSILLH**, j'ai effectué un stage de 6 mois au sein de l'équipe **ENT** (Espace Numérique de Travail) / **Local GOV** (Gouvernement Local) dans la Bussiness Unit **TPSHR** (Transport, Secteur Public, Ressources Humaines)dans l'entreprise CGI (Conseillers en Gestion Informatique ou Consultants to Government and Industry en anglais) au Haillan.
 
-Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez en  annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.   ( [lien](#tableau-du-travail-semaine-par-semaine))
+Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez en annexes [ici](#tableau-du-travail-semaine-par-semaine)  un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.  
 
 J’ai eu l’occasion de pouvoir travailler sur plein de projets différents mais avec comme fil conducteur l’automatisation et c’est pourquoi j'ai choisi comme thème de rapport de stage **l'automatisation dans un S.I** avec un focus sur le déploiement d'une solution de **monitoring** avec **Ansible** car c’est l’un des projet qui m’a beaucoup plus. J’utilisai cette solution de monitoring chez moi pour mon infrastructure. Le fait de devoir travailler dessus m’a beaucoup plus et m’a vraiment fait progresser sur le monitoring et m’a permis d’améliorer mon installation.
 
@@ -378,7 +378,7 @@ Lorsqu'une tache est exécutée dans Ansible, il y a plusieurs états possibles 
 ## Installation d'Ansible
 
 Ansible est disponible sur de nombreuses Distributions Linux. Il peut être installé par un gestionnaire de paquet ou par PIP car Ansible s’appuie majoritairement sur le langage Python. Pour l'installer sur CentOS, il faut configurer le contrôleur en ajoutant le bon répo puis en installant le bon paquet, qui va se charger d’installer les dépendances nécessaires.  
-Les étapes d'installation et de configuration de l'environnement sont en annexe.
+Les étapes d'installation et de configuration de l'environnement sont en annexe [ici](#installation)
 
 
 ## Concepts de base
@@ -610,7 +610,9 @@ On veut également pouvoir analyser des logs important suivants :
 - Logs serveurs web (seulement Nginx dans le playbook que je présente)
 - Logs applicatifs (Peertube, Moodle pour le moment)
 
-Dans un second temps, on configurera la récupérations des logs des autres applications.
+Dans un second temps, on configurera la récupérations des logs des autres applications.  
+
+L'infrastructure ne sera pas un ENT de l'éducation nationale mais celle d'un autre client, qui utilise les même solutions que celles que j'ai présenté plus haut. Je les ai présenté afin de comprendre le type de logiciels que nous devons surveiller
 
 
 ## La solution de monitoring
@@ -649,9 +651,6 @@ Grafana Labs est une entreprise spécialisé dans la création d’outils de vis
 ```bash
 github.com/grafana/grafana
 ```
-
-
-<sup>github.com/grafana/grafana</sup>
 
 Grafana est un outil supervision moderne et open source. Il permet d'exposer sous formes de **dashboards** (tableau de bord) les métriques brutes ou agrégées provenant d’un **data source** comme Influxdb pour les métriques Loki pour les logs.   
 
@@ -716,13 +715,19 @@ Ces principaux avantages sont :
 - La scalabilité : facilement adaptable pour gérer la charge
 
 
-Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySQL ou Mariadb. Ce type de base de données est idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes. 
+Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySQL ou Mariadb. Ce type de base de données est idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes.  
+
+C'est **l'ingestion** des données qui est important dans Influxdb et qui peut varier dans une base de données relationnelle. L'ingestion consiste en la réception et l'importation des données afin de pouvoir les utiliser immédiatement.  
+
+Quand on ajoute des nouvelle entrée dans une base de données relationnelle et si la table contients des indexes, ce qui est généralement le cas, la reindexation des données peut faire varier la vitesse d'ingestion des données.  
+
+Nous n'avons pas ce problème dans une base de données temporelle, la vitesse d'ingestion est d'environ 50k / 100k lignes par secondes alors qu'une base de données relationnelle est d'environ 20k / 80K lignes par secondes.
 
 Ce type de BDD permet de traiter une très grande quantité d'informations, et dans un temps très courts, la gestion des données est différente à celle d’une base de données relationnelle. 
 
 Les bases de données temporelles disposent de règles de retentions que l'administrateur décide afin de choisir la quantité d'information à stocker/recycler.
 
-Une version Cloud et payante sont également disponibles.
+Une version Cloud et  une version payante sont également disponibles.
 
 
 ### Telegraf
@@ -873,7 +878,7 @@ Cette stack peut être très facilement installé grâce à Docker et par ailleu
 
 Personnellement, j'utilise cette solution conteneurisée, le tout orchestré avec K8S pour monitorer mon homelab.
 
-Le choix fait par CGI et d'éviter la conteneurisation pour les environnements de production dans un soucis de sécurité et de stabilité. Nous sommes donc partis sur une installation en dur des différentes briques de cette solution qui sera déployée par Ansible.
+Le choix fait par CGI et d'éviter la conteneurisation pour les environnements de production pour des raisons de sécurité et de stabilité. Nous sommes donc partis sur une installation en dur des différentes briques de cette solution qui sera déployée par Ansible.
 
 Afin de ne pas divulguer d’informations sensible (mots de passes, tokens, nom des machines, architecture précise,...), j'illustrerai par des graphiques de mon homelab et présenterez dans ce rapport des morceaux du Playbook que je juge important pour la compréhension du déploiement de cette solution de monitoring. 
 
@@ -1370,7 +1375,7 @@ Le Playbook va regrouper les différents rôles afin de les exécuter à la suit
 
 ```yaml
 - name: "install Grafana"
-  remote_user: "{{ user  }}"  
+  remote_user: "{{ user }}"  
   become: true                
   hosts: monit                
   tags: [Grafana]             
@@ -1446,7 +1451,7 @@ C'est très utile pour surveiller l'espace disque. L'administrateur va définir 
 Plutôt qu'un mail, il est possible de créer des alertes dans Teams, ou Slack en configurant des **webhooks**.
 
 
-## Configuration d'une alerte
+## Configuration des alertes
 
 Grafana inclut un server SMTP qu'il faut paramétrer dans son fichier principal de configuration. Afin de simplifier les changements de configuration et pour éviter de devoir réécrire des rôles pour modifier le fichier de configuration, il est plus simple et pratique d'utiliser un template pour modifier ce dernier.
 
@@ -1460,8 +1465,8 @@ Voici la tâche que j'ai utilisé et qui va créer le fichier de configuration a
     src: Grafana_conf.j2
     dest: "{{ Grafana_main_folder  }}/Grafana/conf/custom.ini"
     mode: 0755
-    owner: "{{ Grafana_account_name  }}"
-    group: "{{ Grafana_account_group  }}"
+    owner: "{{ Grafana_account_name }}"
+    group: "{{ Grafana_account_group }}"
   notify:
     - restart Grafana
 ```
@@ -1474,7 +1479,7 @@ Voici une partie de la configuration du serveur SMTP dans le template :
 [smtp]
 enabled = true  <- on active le serveur SMTP par défaut
 host = localhost:25
-from_address = "{{ Grafana_email  }}" <- une variable ici pour pouvoir changer le mail qui sera utiliser pour envoyer les notifications
+from_address = "{{ Grafana_email }}" <- une variable ici pour pouvoir changer le mail qui sera utiliser pour envoyer les notifications
 from_name = Grafana-monitoring
 ```
 
@@ -1485,7 +1490,7 @@ Le serveur étant configuré, il ne reste plus qu'a mettre en place les alertes 
 - Utilisation de la Mémoire
 - Surveillance des nodes du cluster
 
-En Annexe, vous trouverez la capture d’écran qui illustre la configuration des alertes dans le dashboard. [Lien](#alerte-grafana)
+En Annexe, vous trouverez la capture d’écran qui illustre la configuration des alertes dans le dashboard. [lien](#alerte-grafana)
 
 Pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85%.
 
@@ -1494,10 +1499,10 @@ Le WEBUI de Grafana facilite grandement la création d'alertes.
 Voici comment cela se traduit:
 
 ```SQL
-Rule Name Memory Usage alert
-Evaluate every 60s For 0m
+Rule Name: Memory Usage alert
+Evaluate: every 60s For 0m
 
-Conditions
+Conditions:
 WHEN max () OF query (B, 5m, now) IS ABOVE 0,85
 No Data & Error Handling
 
@@ -1506,6 +1511,19 @@ Notifications Send to marc.cenon33@gmail.com
 Message : alerte dépassement mémoire
 ```
 
+Voici une seconde alerte pour surveiller que la température du CPU ne dépasse pas les 55 degrées:
+
+```SQL
+Rule Name: CPU Temperature alert
+Evaluate every: 60s For 0m
+Conditions WHEN avg () OF query (A, 1m, now) IS ABOVE 55
+No Data & Error Handling
+If execution error or timeout
+
+Alerting
+Notifications Send to marc.cenon33@gmail.com
+Message : amerte dépassement température CPU
+```
 
 Un outil de monitoring n'est utile que s’il est bien configuré. Un AdminSys ne va pas passer son temps à regarder des graphs de monitoring. 
 
@@ -1746,7 +1764,11 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 
 ![Datasources configuration](images/datasources-conf.png "Datasources configuration")
 
-## Installation d'Ansible
+\pagebreak
+
+## Installation
+Voici les différentes étapes pour l'installation et la configuration d'Ansible.
+
 
 ```bash
 sudo yum install epel-release && sudo yum update
