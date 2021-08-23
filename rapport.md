@@ -29,7 +29,7 @@ header-includes:
 
 Tout d’abord, je voudrais remercier mon maître de stage, **Mr Thomas Coleno**. Il a su me faire confiance et a partagé ses connaissances de manière très pédagogique. Je le remercie aussi pour sa disponibilité et la qualité de son encadrement en entreprise.
 
-Je tiens à remercier également **Mr Arthur Bertinetti** et **Mr Laurent Potou** pour leur patience et leur grande pédagogie. Ils ont su m’aider sur pleins de problématiques. 
+Je tiens à remercier également **Mr Arthur Bertinetti** et **Mr Laurent Potou** pour leur patience et leur grande pédagogie. Ils ont su m’aider sur plein de problématiques. 
 
 J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne montée en compétence.
 
@@ -49,7 +49,7 @@ Dans le cadre de la Licence professionnelle Administration et Développement de 
 
 Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez en  annexes un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.   ( [lien](#tableau-du-travail-semaine-par-semaine))
 
-J’ai eu l’occasion de pouvoir travailler sur pleins de projets différents mais avec comme fil conducteur l’automatisation et c’est pourquoi j'ai choisi comme thème de rapport de stage **l'automatisation dans un S.I** avec un focus sur le déploiement d'une solution de **monitoring** avec **Ansible** car c’est l’un des projet qui m’a beaucoup plus. J’utilisai cette solution de monitoring chez moi pour mon infrastructure. Le fait de devoir travailler dessus m’a beaucoup plus et m’a vraiment fait progresser sur le monitoring et m’a permis d’améliorer mon installation.
+J’ai eu l’occasion de pouvoir travailler sur plein de projets différents mais avec comme fil conducteur l’automatisation et c’est pourquoi j'ai choisi comme thème de rapport de stage **l'automatisation dans un S.I** avec un focus sur le déploiement d'une solution de **monitoring** avec **Ansible** car c’est l’un des projet qui m’a beaucoup plus. J’utilisai cette solution de monitoring chez moi pour mon infrastructure. Le fait de devoir travailler dessus m’a beaucoup plus et m’a vraiment fait progresser sur le monitoring et m’a permis d’améliorer mon installation.
 
 Je présenterai dans un premier temps Ansible, son fonctionnement et quelques commandes utiles. Le but est de comprendre Ansible avant de présenter la solution de monitoring. 
 
@@ -89,9 +89,7 @@ Vous pouvez compiler le rapport avec la commande suivante, à condition d'avoir 
 
 ```sh
 git clone https://github.com/marc-cenon/rapport_de_stage.git
-
 cd rapport_de_stage
-
 pandoc --listings -H text.tex rapport.md -o files/rapport.pdf --pdf-engine=xelatex
 ```
 
@@ -151,33 +149,32 @@ Le télétravail m’a permis de trouver un certain confort pour équilibrer le 
 ## Mes missions
 
 J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur **l'ENT** : Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. 
-Dans le contexte sanitaire actuel, l'équipe a dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développent du télé-enseignement. Je présenterai rapidement les principaux outils de cet ENT afin de comprendre les différentes applications sur lesquelles j’ai pu travailler.  
+Dans le contexte sanitaire actuel, l'équipe a dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développement du télé-enseignement. Je présenterai rapidement les principaux outils de cet ENT afin de comprendre les différentes applications sur lesquelles j’ai pu travailler.  
 
 Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Je peux définir mon travail durant le stage en 3 axes :
 
 - **Prévention** :  
-  Tous les jours je rédigé un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure. Je relevé également les anomalies sur les différentes machines remontées par l’antivirus CLAMAV
+  Tous les jours je rédigais un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure. Je relevais également les anomalies sur les différentes machines remontées par l’antivirus CLAMAV
   Le but étant de surveiller les différentes infrastructures en place afin d’être proactif dans la résolution d’incidents.  
   
 - **Action** :  
   Une bonne partie de mon travail a consisté à automatiser des tâches qui aurait été très chronophages. Mon tuteur **Mr Thomas Coleno** a une excellente maîtrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs scripts Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
-  J'ai également aidé l'équipe sur toutes les tâches qu'ils ont pu me confier. J'ai eu la chance d'avoir un stage avec des missions très variés. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.  
+  J'ai également aidé l'équipe sur toutes les tâches qu'ils ont pu me confier. J'ai eu la chance d'avoir un stage avec des missions très variées. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.  
     
 - **Montée en Compétences** :  
-  La diversité des briques logicielles a fait que j’ai grandement appris et je suis monté en compétences sur beaucoup de domaines comme Ansible, la gestion de BBD ou la mise en place de serveurs web. Cela m’a amené à faire beaucoup de troubleshooting sur différentes technologies afin de savoir comment elles fonctionnent..  
+  La diversité des briques logicielles a fait que j’ai grandement appris et je suis monté en compétences sur beaucoup de domaines comme Ansible, la gestion de BBD ou la mise en place de serveurs web. Cela m’a amené à faire beaucoup de troubleshooting sur différentes technologies afin de savoir comment elles fonctionnent.  
   
-Quelqu'un des projets sur lesquels j'ai pu participer :  
+Quelque uns des projets sur lesquels j'ai pu participer :  
 
 - Création d'un Playbook Ansible pour le déploiement de la configuration de BBB
 - Création d'un Playbook Ansible pour le Monitoring
 - Création d'un Playbook Ansible Apache
 - Création d'un Playbook Ansible pour le déploiement d'un établissement de formation avec différentes briques logicielles
-- Utilisation de vSphere et NSXEDGE pour créer des Vlans, Firewalls, Loadbalancing, TLS, ...
+- Utilisation de vSphere et NSXEDGE pour créer des Vlans, Firewalls, Loadbalancing, TLS, 
 - Installation de divers serveurs d’applications : Moodle, Peertube, Drupal, BigBlueButton
 - Installation de différentes Bases de données : Maria, PostgreSQL, InfuxDB
 - Mise a jours de messagerie Zimbra pour diverses Régions
 - Création d'un Playbook pour l'automatisation de la création et le paramétrage de VM dans vSphere
-- Installation d'un WAF (Web Application Firewall)
 
 
 # Présentation de l'ENT
@@ -228,7 +225,7 @@ L'automatisation est un élément clé de l'optimisation de l'environnement info
 
 En automatisant le processus, on aura le même résultat sur toutes les machines.
 
-Cela également peut permettre à une personne d’utiliser un script de configuration simplement sans pour autant avoir les compétences techniques pour configurer un service complexe.  
+Cela peut également permettre à une personne d’utiliser un script de configuration simplement sans pour autant avoir les compétences techniques pour configurer un service complexe.  
 
 Ansible est un outil libre qui sert à automatiser la gestion de la configuration, du déploiement et de l’orchestration. Ses points forts :
 
@@ -240,11 +237,11 @@ Ansible est un outil libre qui sert à automatiser la gestion de la configuratio
 -  Grande communauté  
   Lancé en 2013 et acquis par Red Hat en 2015. Avec plus d’un quart de millions de téléchargements, il est actuellement l’outil d’automatisation de logiciel libre le plus populaire sur GitHub. 
 - Ansible Galaxy: collection de rôles pour un grand nombre de tâches. Plus besoin de faire de Script Bash
-  Pour des tâches comme installer un serveur Nginx, des rôles sont disponibles où seul un paramétrage des variables du Playbook permet d'obtenir un résultat reproductible, prévisible et fiable.
+  Pour des tâches comme installer un serveur Nginx, des rôles sont disponibles où seul un paramétrage de quelques variables permet d'obtenir un résultat reproductible, prévisible et fiable.
 
 Ansible permet d'automatiser la configuration à plusieurs différents niveaux (systèmes d’exploitation, composantes d’application), et peut être appliqué à différents équipements (serveur, stockage, réseau) ou infrastructures (Bare-metal, VM, Cloud). 
 
-Ansible s'inscrit dans la mouvance **IaC : Infrastructure as Code**, c'est à dire gérer la configuration d'une Infrastructure à l'aide de fichiers de configuration stockable, et versionable.
+Ansible s'inscrit dans la mouvance **IaC : Infrastructure as Code**, c'est à dire gérer la configuration d'une Infrastructure à l'aide de fichiers de configuration stockables, et versionables.
 
 Avec le développement des Infrastructure Cloud, Ansible, couplé à des outils comme Terraform et Packer, permet de gérer un infrastructure Cloud en mode IaC.
 
@@ -274,7 +271,7 @@ Chaque solutions à ses avantages/inconvénients. On peut comprendre l'attrait d
 Les scripts Bash sont fréquemment utilisés pour configurer voir automatiser certaines actions. Écrire des Script en Bash nécessite une bonne connaissance de ce langage de Scripting.  De mon point de vue :
 
 - Bash décrit des **actions**. (ex : copie tel fichier, réalise telle action, n’autorise pas telle action ….)
-- Ansible est accès sur **l'état de la machine** avant l'action. Il réalisera une tache si cela implique un changement d'état, sinon il ne l'éxecutera pas.
+- Ansible est axé sur **l'état de la machine** avant l'action. Il réalisera une tache si cela implique un changement d'état, sinon il ne l'éxecutera pas.
 
 
 Pour illustrer ces propos, je vais prendre l’exemple d’un script Bash qui va installer **Nginx** avec le module **Passenger** qui permet de déployer des applications **Ruby on Rails**  et transposer cela avec Ansible.
@@ -362,65 +359,26 @@ Ansible, à l’inverse de Bash, se soucis donc plus de l’état que de l’act
 
 De plus le fait de pouvoir relancer le même Playbook plusieurs fois permet de surveiller les écarts de configurations. 
 
-Si un utilisateur venait à modifier la configuration d’un service, le fait de repasser le script Ansible va permettre de remettre la machine à l’état décris dans le script Ansible.
+Par exemple, si un utilisateur venait à modifier la configuration d’un service, le fait de repasser le script Ansible va permettre de remettre la machine à l’état décrit dans le script Ansible.  
+
+Lorsqu'une tache est exécutée dans Ansible, il y a plusieurs états possibles qui vont nous permettre de voir **l'état de l'action** sur la machine et ainsi de comprendre ce qui à changé, ce qui à échoué, ou encore si rien n'a changé. Nous aurons les indicateurs suivants:
+
+- **OK**:  
+  La tâche a été exécutée correctement mais aucuns changements n'a été réalisés  C'est le cas lorsqu'on relance un Playbook ou des taches n'ont pas été modifiée.
+- **CHANGED**:  
+  La tâche a été exécutée correctement et un changement a été appliqué.
+- **FAILED**:  
+  la tâche n'a pas été exécutée correctement. Généralement cela signifie que le Playbook ne sera pas déroulé dans son intégralité sauf si nous gérons la gestion des erreurs en utilisant comme paramètre à une tâches **ignore_errors: yes** avec également **force_handlers: yes**. Si par exemple on demande un redémarrage d'un service avec le paramètre **notify** et **force_handlers: yes** , le Playbook continuera même si le démarrage du service échoue.
+- **IGNORED**:  
+  C'est le résultat d’une tâche qui ne s'est pas déroulée correctement mais qui permet au Playbook de poursuivre son exécution.
+- **UNREACHABLE**:  
+  C'est quand la machine cliente n'est pas joignable (machine éteinte, port ssh bloqué, …) La machine est alors marquée comme **injoignable** est Ansible la retire de la liste des machines actives pour le reste du Playbook.
 
 
 ## Installation d'Ansible
 
-Ansible est disponible sur de nombreuses Distributions Linux. Il peut être installé par un gestionnaire de paquet ou par PIP car Ansible s’appuie majoritairement sur le langage Python. Pour l'installer sur CentOS, il faut configurer le contrôleur en ajoutant le bon répo puis en installant le bon paquet, qui va se charger d’installer les dépendances nécessaires
-
-```bash
-sudo yum install epel-release && sudo yum update
-sudo yum install Ansible 
-```
-
-On vérifie la bonne installation d'Ansible et des dépendances :
-
-```bash
-Ansible –version
-```
-et le resultat de cette commande :
-
-```bash
-Ansible 2.9.6
-  config file = /etc/Ansible/Ansible.cfg
-  configured module search path = ['/home/marc/.Ansible/plugins/modules', '/usr/share/Ansible/plugins/modules']
-  Ansible python module location = /usr/lib/python3/dist-packages/Ansible
-  executable location = /usr/bin/Ansible
-  python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
-```
-
-Ansible a besoin que le port SSH soit ouvert et que l'authentification par clé plutôt que par mot de passe soit activée.
-
-```bash
-sudo firewall-cmd --list-services
-```
-Nous pouvons vérifier avec cette commande que le port 22 / service SSH est bien ouvert dans le firewall. Il nous reste plus qu'à générer une clé SSH et à la copier sur les machines clientes avec les deux commandes ci dessous:
-
-```bash
-ssh-keygen
-ssh-copy-id "MACHINE_CLIENTE"
-```
-
-Il est également recommandé d’accorder les droits nécessaires à l’utilisateur qui exécutera les commandes Ansible. Cet utilisateur doit être présent sur les machines clientes.
-
-```bash
-echo "UTILISATEUR_ANSIBLE ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/UTILISATEUR
-```
-
-En rajoutant un fichier avec la bonne configuration plutôt que de modifier le fichier directement, on évite de **casser sa configuration** au risque de ne plus pouvoir exécuter de commande en root.  
-
-
-Nous pouvons également mettre à jours le fichier **/etc/hosts** du serveur Ansible avec la liste des machines qu'il va gérer. Le but est d'avoir l'ensemble des machines de connu par le serveur Ansible afin d'éviter de rentrer leur **IP/HOSTNAME** plus tard.
-
-Cette étape n'est pas obligatoire et n'est pas forcément recommandé si on travaille avec un grand nombre de machines et beaucoup de projets différents. Dans ce cas, on pourra gérer l'inventaire projet par projet avec un inventaire par projet.
-
-Je présenterai plus tard comment Ansible gère les inventaires car il est possible d'avoir un inventaire statique, idéal quand on n'a pas beaucoup de machines à gérer, ou dynamique, qui permet de gérer efficacement une flotte de machines dans le cloud avec des adresses IPs qui peuvent changer au fur et à mesure que les machines sont créées et supprimées.
-
-L’environnement de base est configuré. Plusieurs fichiers peuvent être modifié afin de changer le comportement d’Ansible. J'en présenterai quelques uns un peu plus tard dans le rapport.  
-
-Il peut être souhaitable par exemple de sauvegarder un paramètre dans un fichier de configuration si il fait référence à une action fréquente, afin d'éviter de devoir définir cette action à chaque fois que nous en avons besoin. (ex: définition de la méthode d'élévation des privèges).
-
+Ansible est disponible sur de nombreuses Distributions Linux. Il peut être installé par un gestionnaire de paquet ou par PIP car Ansible s’appuie majoritairement sur le langage Python. Pour l'installer sur CentOS, il faut configurer le contrôleur en ajoutant le bon répo puis en installant le bon paquet, qui va se charger d’installer les dépendances nécessaires.  
+Les étapes d'installation et de configuration de l'environnement sont en annexe.
 
 
 ## Concepts de base
@@ -440,7 +398,7 @@ Pour ceux qui on une licence **Red Hat**, ils ont également accès à un large 
 
 Ansible utilise également des templates, au format **Jinja2** afin de facilité la création de fichiers de configurations et la gestion des variables.
 
-Il est de bonne pratique de créé un dossier par projet. Ce dossier va contenir plusieurs éléments. 
+Il est de bonne pratique de créer un dossier par projet. Ce dossier va contenir plusieurs éléments. 
 
 Voici un exemple simple d'arborescence d'un projet, que j'ai adapté depuis la documentation officielle d’Ansible :  
 
@@ -490,7 +448,7 @@ Il est important de respecter une structure et de s'y tenir car un projet peut c
 Les inventaires sont des fichiers en **.yml** ou **.ini** qui regroupe la liste des machines. Une machine peut appartenir à un groupe de machine, ou plusieurs groupes, ou aucuns.
 Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regrouper des variables qui seront appliquées à un group (group_vars) ou à une machine (host_vars).
 
-- Un dossier **rôle** avec des sous dossiers pour les différents rôles. Chaque sous dossiers peut contenir les sous-dossiers suivants :
+- Un dossier **roles** avec des sous dossiers pour les différents rôles. Chaque sous dossiers peut contenir les sous dossiers suivants et les fichiers suivants :
 
   - **/tasks/main.yml** : C’est ici que sont écrites l’ensemble des tâches que le rôle exécute
   - **/template/NOM_DU_template.j2** : contient le/les templates utilisés par le rôle
@@ -498,7 +456,7 @@ Les dossiers **group_vars** et **host_vars** sont des dossiers qui vont regroupe
   - **/files** : ce dossier contient les fichiers nécessaires au fonctionnement du rôles comme des script bash, des liste csv, ….
   - **/default/main.yml** : contient les valeurs des variables par défaut du rôle
   - **/vars/main.yml** : contient d’autres variables, qui peuvent surcharger celle du /defaults/main.yml
-  - **/meta/main.yml** : contient les métadata sur le rôle (auteur, licence, dépendances, ...)
+  - **/meta/main.yml** : contient les metadata (méta-données) sur le rôle (auteur, licence, dépendances, ...)
 
 Le dossier **rôle** a une architecture qu'il convient de respecter. Il est possible de générer cette architecture avec la commande suivante:
 
@@ -538,7 +496,20 @@ Ansible dispose de nombreuses commandes qui permettent de debugger, trouver des 
 ansible-inventory --graph --vars
 ```
 
-Cette commande va nous fournir la liste des hosts ainsi que les variables qui leurs sont attribuées.
+Cette commande va nous fournir la liste des hosts ainsi que les variables qui leurs sont attribuées. En voici un bref extrait (la sortie de cette commande fournie beaucoup d'information)':
+
+```bash
+@all:
+  |--@clients:
+  |  |--@apache:
+  |  |  |--moodle-campus-re7-apache01
+  |  |  |  |--{activatenginxmonitoring = # [[inputs.nginx]]}
+  |  |  |  |--{ansible_host = 192.168.131.16}
+  |  |  |  |--{grafanaaccountname = grafana}
+  |  |  |  |--{grafanaaccountshell = /bin/bash}
+  |  |  |  |--{grafanadomainname = monitoring-campus-re7.support-ent.fr}
+  |  |  |  |--{grafanadownloadurl = https://dl.grafana.com/oss/release/grafana-7.5.4.linux-amd64.tar.gz}
+```
 
 Le site d'Ansible dispose de nombreuses informations sur les modules et leur utilisation. Cependant une commande existe qui permet d'avoir de la documentation rapidement dans le terminal
 
@@ -563,7 +534,7 @@ Les commandes ad-hoc d'Ansible on généralement la même syntaxe :
 - **-m** pour préciser le module que nous voulons utiliser, ici le module **copy** pour copier un fichier du contrôleur sur la/les machines ou **yum** pour installer Nginx sur toutes les machines
 - entre parenthèse les **arguments** du module à exécuter
 
-Par défaut si nous ne précisons pas de module dans la commande, le module par défaut utilisé sera le module **command** , qui permet de lancer des commande BASH (sans pouvoir utiliser la puissance du Bash comme le pipe, ...)
+Par défaut si nous ne précisons pas de module dans la commande, le module par défaut utilisé sera le module **command** , qui permet de lancer des commande BASH (sans pouvoir utiliser toutes les fonctionnalités de Bash comme le pipe "|", ...)
 
 ```bash
 ansible all -a "free -m" 
@@ -575,7 +546,7 @@ Une autre commande très utile pour un administrateur réseau :
 ```bash
 ansible all -m listen_ports_facts -i prod-ansible-hosts
 ```
-Ici, on utilise la puissance du module **listen_ports_facts** afin de trouver les informations sur les ports ouverts sur chaque machine. C’est l'équivalent d'une commande Netstat, SS ou NMAP.
+Ici, le  module **listen_ports_facts** nous permet de trouver les informations sur les ports ouverts sur chaque machine. C’est l'équivalent d'une commande Netstat, SS ou NMAP.
 
 Un dernier exemple très utile :
 
@@ -583,7 +554,7 @@ Un dernier exemple très utile :
 ansible all -m setup
 ```
 
-Cette commande va nous retourner énormément d'information sur les machines ou seront exécuté la commande. La sortie de cette commande est en **JSON**. Ce qui permets de pouvoir filtrer cette commande afin de recherche précisément une information. 
+Cette commande va nous retourner énormément d'information sur les machines où seront exécuté la commande. La sortie de cette commande est en **JSON**. Ce qui nous permet de filtrer cette commande afin de rechercher précisément une information. 
 
 
 **JSON est le format principal** de sortie pour toutes les commandes d'Ansible.
@@ -597,7 +568,11 @@ Cette commande va nous retourner énormément d'information sur les machines ou 
 
 Afin de s’assurer de la bonne santé d’une infrastructure, il est important de la surveiller, de mettre des alertes sur des seuils que l’administrateur va définir afin d’être prévenu de tout changement d’état. Cela permet de voir venir un problème et d’anticiper plutôt que de corriger dans l’urgence et le stress.
 
-Il m’a été demandé de travailler sur le déploiement d’une solution de monitoring utilisant des logiciels open sources, moderne, robuste et facilement scalable au cas ou infrastructure devait évoluer.
+Il m’a été demandé de travailler sur le déploiement d’une solution de monitoring utilisant des logiciels open sources, moderne, robuste et facilement scalable au cas ou infrastructure devait évoluer.  
+
+Le projet doit pouvoir être **réutilisable** sur une autre infrastructure sans trop de modifications, à part les variables et les critères de surveillances.  
+
+La solution que j'ai produite est donc transposable.
 
 ## L’infrastructure à surveiller
 
@@ -635,7 +610,7 @@ On veut également pouvoir analyser des logs important suivants :
 - Logs serveurs web (seulement Nginx dans le playbook que je présente)
 - Logs applicatifs (Peertube, Moodle pour le moment)
 
-Dans un second temps, on configurera la récupérations des logs ded autres applications.
+Dans un second temps, on configurera la récupérations des logs des autres applications.
 
 
 ## La solution de monitoring
@@ -658,14 +633,15 @@ Cette solution est facilement transposable pour une autre infrastructure. Je vai
 
 Grafana Labs est une entreprise spécialisé dans la création d’outils de visualisation de métrique Open source. Elle propose également des services pour la gestion et la collectes de logs. Voici une liste de service proposé par Grafana Labs :
 
- - Grafana
+ - **Grafana**
  - Graphite
- - Loki
+ - **Loki**
  - Metrictank
  - Prometheus
  - Tanka
  - Tempo
  - k6
+ - **Promtail**
 
 
 ### Grafana
@@ -673,6 +649,10 @@ Grafana Labs est une entreprise spécialisé dans la création d’outils de vis
 ```bash
 github.com/grafana/grafana
 ```
+
+
+<sup>github.com/grafana/grafana</sup>
+
 Grafana est un outil supervision moderne et open source. Il permet d'exposer sous formes de **dashboards** (tableau de bord) les métriques brutes ou agrégées provenant d’un **data source** comme Influxdb pour les métriques Loki pour les logs.   
 
 L'une de ses grandes forces est qu'il permet de créer très facilement des seuils d’alertes et les actions associées comme l'envoie de mail pour alerter l'administrateur du S.I
@@ -736,7 +716,7 @@ Ces principaux avantages sont :
 - La scalabilité : facilement adaptable pour gérer la charge
 
 
-Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySQL ou Mariadb. Ce type de base de données idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes. 
+Influxdb est une base de données temporelle, à la différence des bases de données relationnelles comme MySQL ou Mariadb. Ce type de base de données est idéal quand on doit manipuler des données temporelles comme la mesure de la température du CPU toutes les 10 secondes. 
 
 Ce type de BDD permet de traiter une très grande quantité d'informations, et dans un temps très courts, la gestion des données est différente à celle d’une base de données relationnelle. 
 
@@ -817,8 +797,8 @@ Notre projet peut se résumer en :
 - 1 dossier pour la gestion des variables avec des sous dossiers pour surcharger les variables pour les sous-groupes
 - 1 dossier rôles avec les **5** rôles d’installation des **5** briques logicielles
 
-## Arborescence de notre projet
-voici l’arborescence de notre projet
+## Arborescence du projet
+voici l’arborescence du projet de monitoring:
 
 ```bash
 .
@@ -895,7 +875,7 @@ Personnellement, j'utilise cette solution conteneurisée, le tout orchestré ave
 
 Le choix fait par CGI et d'éviter la conteneurisation pour les environnements de production dans un soucis de sécurité et de stabilité. Nous sommes donc partis sur une installation en dur des différentes briques de cette solution qui sera déployée par Ansible.
 
-Afin de ne pas divulguer d’informations sensible, j'illustrerai par des graphiques de mon homelab et présenterez dans ce rapport des morceaux du Playbook que je juge important pour la compréhension du déploiement de cette solution de monitoring. 
+Afin de ne pas divulguer d’informations sensible (mots de passes, tokens, nom des machines, architecture précise,...), j'illustrerai par des graphiques de mon homelab et présenterez dans ce rapport des morceaux du Playbook que je juge important pour la compréhension du déploiement de cette solution de monitoring. 
 
 Ansible utilise le format **YAML** qui permet une lecture facile des différents éléments du Playbook.
 
@@ -905,7 +885,7 @@ Une version du Playbook est disponible sur mon compte Github.
 https://github.com/marc-cenon/rapport_de_stage/tree/master/files/monitoring_stack/ansible_grafana_v2
 ```
 
-Il est fonctionnel, idempotent et peut être utilisé avec peu de modification pour monitorer sa propre infrastructure.
+Il est fonctionnel, idempotent et peut être utilisé avec peu de modification pour monitorer sa propre infrastructure.  Il suffit de modifier les fichiers de variables avec les valeurs souhaitées pour adapter à son infrastructure.
 
 
 # Création des différents éléments du projet
@@ -927,9 +907,9 @@ Dans ces rôles, je fait appels à des **handlers** pour le redémarrage des ser
 
 Les étapes du rôle d'installation de Grafana sont simples. Avec l'aide des modules adéquats d'Ansible, les étapes pour l'installation et la configuration (les différentes tâches du rôles) de Grafana sont les suivantes :
 
-- Création du groupe et du compte grafana:monitoring
+- Création du groupe et du compte grafana: monitoring
 - Création des dossiers nécessaires
-- Téléchargement du programme et extraction dans le dossier d'installation définie au préalable
+- Téléchargement du programme et extraction dans le dossier d'installation défini au préalable
 - Création d'un fichier de configuration grâce à un template
 - Importation d'un dashboard existant que j’ai créé en amont
 - Ouverture des ports dans le firewall
@@ -947,7 +927,7 @@ Voici la tâche du rôle Grafana qui utilise le template crée pour générer le
     dest: /etc/systemd/system/Grafana.service   
 ```
 
-On utilise le module **template**, qui va chercher le fichier Grafana.service.j2 dans le dossier **grafana.service.j2** et qui va utiliser les valeurs définis dans le fichiers de variable dans /inventory/group_vars/all.yml.
+On utilise le module **template**, qui va chercher le fichier Grafana.service.j2 dans le dossier **grafana.service.j2** et qui va utiliser les valeurs définies dans le fichiers de variable dans /inventory/group_vars/all.yml.
 
 Voici le template utilisé pour créer le service :
 
@@ -982,7 +962,7 @@ Le risque est qu’avec trop de fichiers de variables, il peut être difficile d
 
 En fonction d'où se trouve le fichier qui contient les variables dans l’arborescence du projet, il y a une hiérarchie qui, si ignorée peut poser des problèmes.
 
-Nous pouvons utiliser des **boucle** avec la fonction **loop** ou **with_items)u**, comme dans un langage de programmation, pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
+Nous pouvons utiliser des **boucle** avec la fonction **loop** ou **with_items**, comme dans un langage de programmation, pour répéter une même action dans une tâche avec des variables différentes. Voici un exemple pour l'ouverture des ports dans le firewall :
 
 
 ```bash
@@ -1016,7 +996,7 @@ Les étapes pour l'installation d'Influxdb (la liste des tâches) sont sensiblem
 - pause de quelques secondes, le temps que la BDD soit opérationnelle
 - configuration d'Influxdb en passant une commande shell avec les paramètres définis dans le fichier de variable
 
-La difficulté ici et la dernière étape pour automatiser la configuration d'Influxdb, on passe une commande shell, avec des arguments issus de variables définis dans group_vars/all.yml pour la création des éléments nécessaires à Influxdb. 
+La difficulté ici et la dernière étape pour automatiser la configuration d'Influxdb, on passe une commande shell, avec des arguments issus de variables définies dans group_vars/all.yml pour la création des éléments nécessaires à Influxdb. 
 
 
 ```bash
@@ -1036,7 +1016,7 @@ La condition **when** est intéressante. Elle permet de s'assurer que le rôle s
 
 La valeur de la condition **when** est **not folder_exist.stat**. Dans la tâche du dessus, on utilise le module **stat** afin de récupérer des informations sur le dossier de configuration d’Influxdb et on stocke le résultat dans la variable **folder_exist** grâce à la commande **register**
 
-Et comme le format de sortie de toutes les instructions d’Ansible est le JSON, il suffit de filtrer la variable **folder_exist** pour récupérer la valeur de la clé **stat** qui contient la location du dossier de configuration.
+Et comme le format de sortie de toutes les instructions d’Ansible est le JSON, il suffit de filtrer la variable **folder_exist** pour récupérer la valeur de la clé **stat** qui contient la l'emplacement du dossier de configuration.
 
 La tâche est donc lancée quand le dossier de configuration n’est pas présent.
 
@@ -1091,12 +1071,21 @@ Flux est un langage très puissant mais l’interface d'Influxdb permet d'arrive
 
 En effet, il est important de gérer la rotation du stockage des données car en fonction du nombre de machines, du nombre de critères de monitoring et de l'intervalle de récupération des métriques, le volume de donnée stocké peut rapidement être important.
 
+J’ai découvert récemment qu’il existe un package « communautaire » disponible sur Ansible Galaxy qui rajoute des modules à la liste par défaut. Il est possible de l’installer avec la commande suivante :  
+
+```yaml
+ansible-galaxy collection install community.general
+```
+
+Dans le pack de module supplémentaire, on peut trouver le module **community.general.influxdb_database** qui peut également nous permettre de configurer Influxdb.
+
+
 
 ### Telegraf
 
 Pour compléter notre stack TIG, il faut également déployer nos agents grâce en charge de récupérer les différents métriques grâce au rôle Telegraf. Il installera sur toutes les machines à surveiller l’agent. Les étapes du rôle sont les suivantes :
 
-- Création du groupe et du compte telegraf:monitoring
+- Création du groupe et du compte telegraf: monitoring
 - Création des dossiers nécessaires
 - Téléchargement et extraction dans le bon dossier
 - Création d'un fichier de configuration et d’un service avec un template
@@ -1104,12 +1093,12 @@ Pour compléter notre stack TIG, il faut également déployer nos agents grâce 
 
 Les étapes sont sensiblement les mêmes que pour Grafana et Influxdb. Le point important ici est le fichier de configuration. Une partie de la configuration sera la même pour toutes les machines. On va récupérer par exemple :  
 
-- %CPU
-- %RAM
+- Utilisation du CPU
+- Utilisation de la RAM
 - Uptime
-- %SDD
+- Espace disque (disponible et total)
 
-En fonction des spécificités des machines, la configuration sera à affiner pour récupérer des métriques spécifiques comme des métriques sur Nginx, Apache, Mariadb, PostgreSQL, Moodle, Peertube, ...
+En fonction des spécificités des machines, la configuration sera à affiner pour récupérer des métriques spécifiques comme des métriques sur Nginx, Apache, Mariadb, PostgreSQL, Moodle, Peertube, ...  
 
 Pour cela, deux stratégies sont possibles :
 
@@ -1133,7 +1122,7 @@ C'est également ce fonctionnement qui sera utilisé pour le déploiement de la 
 
 ### Promtail
 
-L'installation de Promtail suit le même schéma que Telegraf. Comme cet agent sera déployer sur toute les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
+L'installation de Promtail suit le même schéma que Telegraf. Comme cet agent sera déployer sur toutes les machines, il y aura un bout de configuration commune et un autre spécifique à un groupe de machine.
 
 La configuration spécifique se trouve dans le même fichier que pour les configurations spécifiques de Télégraf.
 
@@ -1171,7 +1160,7 @@ En voici un autre pour les logs Nginx :
           __path__: /var/log/nginx/*log
  ```
 
-Dans notre infrastructure à surveiller, plusieurs serveurs Nginx sont déployés. Grâce au label que nous allons utiliser pour les logs Nginx (nginx) on va pouvoir regrouper tous les logs qui on ce label dans une même fenêtre. La valeur **targets:localhost** prendra le nom de la machine **/etc/hostname** afin de savoir à quelle machine appartient quel log.
+Dans notre infrastructure à surveiller, plusieurs serveurs Nginx sont déployés. Grâce au label que nous allons utiliser pour les logs Nginx (nginx) on va pouvoir regrouper tous les logs qui on ce label dans une même fenêtre. La valeur **targets: localhost** prendra le nom de la machine **/etc/hostname** afin de savoir à quelle machine appartient quel log.
 
 Il est également possible de filtrer et de formater les logs avec des règles spécifiques à définir dans les scrape jobs. Le github de Promtail regorge d’informations sur la configuration et le paramétrage de la récupération des logs.
  
@@ -1247,7 +1236,7 @@ Quelques élements pour la compréhension pour la configuration de Loki :
  Il s’agit d’un module, specifique à boltd-shipper afin d’améliorer ses performances. Grafana Loki conseille d’activer ce service.
 
 - **ruler** :  
-  Ce service est est chargée d'évaluer en permanence un ensemble de requêtes configurables et d'effectuer une action en fonction du résultat.
+  Ce service est chargé d'évaluer en permanence un ensemble de requêtes configurables et d'effectuer une action en fonction du résultat.
 
 
 ### Conclusion sur les rôles
@@ -1258,21 +1247,12 @@ Ansible s’appuie sur des modules. Il se peut que dans certains cas la configur
   Exécute une commande de bas niveau. Très utile pour déployer de la configuration sur des machines dépourvu d’interpréteur, ou sur des machines spécifiques comment des switchs, routeurs, ...
 
 - **shell** :  
-  Exécute une commande sur une machine distante dans un SHELL en s’appuyant sur la force du SHELL (ex : le **pipe** n’est pas possible avec command)
+  Exécute une commande sur une machine distante dans un SHELL en s’appuyant sur les fonctionnalités du SHELL (ex : le **pipe** n’est pas possible avec command)
 
 - **command** :  
   Exécute une commande sur une machine distante
 
 Dans le cas du rôle Influxdb, la configuration ne peut se faire qu’avec une commande **SHELL** et la condition **WHEN** permet de s’assurer que le Playbook n’échoue s’il est relancé car la BDD est déjà configurée.
-
-Cependant, j’ai découvert récemment qu’il existe un package « communautaire » disponible sur Ansible Galaxy qui rajoute des modules à la liste par défaut. Il est possible de l’installer avec la commande suivante :  
-
-```yaml
-ansible-galaxy collection install community.general
-```
-
-Dans le pack de module supplémentaire, on peut trouver le module **community.general.influxdb_database** qui peut également nous permettre de configurer Influxdb.
-
 
 ## L’inventaire
 
@@ -1401,7 +1381,7 @@ Le Playbook va regrouper les différents rôles afin de les exécuter à la suit
 Plusieurs éléments sont importants quand on appelle un rôle dans un Playbook :
 
 - **remote_user** :  
-  C’est l’utilisateur qui est utilisé pour se connecter à distance et effectuer les actions qui ne demande pas de privilège.
+  C’est l’utilisateur qui est utilisé pour se connecter à distance et effectuer les actions qui ne demandent pas de privilèges spécifiques.
 - **become: true** :  
   Cela nous permet de passer root, ce dont nous avons besoins pour copier le fichier service dans le bon répertoire et pour l’activer.
 - **host** :  
@@ -1433,26 +1413,14 @@ On peut complexifier la commande et utiliser plusieurs paramètres ensemble. Par
 ```bash
 Ansible-Playbook Playbook.yml -i inventory/host.yaml --tags="NOM_DU_ROLE" –limit "NOM_DU_GROUPE"
 ```
-Lorsqu'une tache est exécutée, il y a plusieurs états possibles :
-
-- **OK**:  
-  La tâche a été exécutée correctement mais aucuns changements n'a été réalisés  C'est le cas lorsqu'on relance un Playbook ou des taches n'ont pas été modifiée.
-- **CHANGED**:  
-  La tâche a été exécutée correctement et un changement a été appliqué.
-- **FAILED**:  
-  la tâche n'a pas été exécutée correctement. Généralement cela signifie que le Playbook ne sera pas déroulé dans son intégralité sauf si nous gérons la gestion des erreurs en utilisant comme paramètre à une tâches **ignore_errors: yes** avec également **force_handlers: yes**. Si par exemple on demande un redémarrage d'un service avec le paramètre **notify** et **force_handlers: yes** , le Playbook continuera même si le démarrage du service échoue.
-- **IGNORED**:  
-  C'est le résultat d’une tâche qui ne s'est pas déroulée correctement mais qui permet au Playbook de poursuivre son exécution.
-- **UNREACHABLE**:  
-  C'est quand la machine cliente n'est pas joignable (machine éteinte, port ssh bloqué, …) La machine est alors marquée comme **injoignable** est Ansible la retire de la liste des machines actives pour le reste du Playbook.
-
 # Configuration de Grafana
 
 ## Ajout des data sources dans Grafana
 
 Une fois les agents Promtail et Telegraf configurés pour envoyer les données à Influxdb et Loki, il faut par la suite ajouter dans Grafana les **data sources**, c'est à dire Influxdb et Loki.
 
-Cette action est réalisée dans les options de Grafana en lui indiquant le chemin d'accès pour Influxdb et Loki ainsi que les éléments d'identification nécessaires. 
+Cette action est réalisée dans les options de Grafana en lui indiquant le chemin d'accès pour Influxdb et Loki ainsi que les éléments d'identification nécessaires.  
+
 En Annexe, vous trouverez la capture d’écran qui illustre le paramétrage des data sources.  
 Lien [ici](#configuration-data-sources)
 
@@ -1460,7 +1428,7 @@ Lien [ici](#configuration-data-sources)
 ## Importation du dashboard
 
 Le Playbook contient également un **dashboard** (tableau de bord)  que j'ai créé précédemment et qui peut être réutilisé pour chaque nouveau déploiement. Il suffit de le charger dans le menu à gauche et nous avons les graphiques correspondant à chaque requêtes d'Influxdb.
-Il contient des commandes génériques qui vont pouvoir récupérer les informations sur le CPU, le % de RAM de libre, le %de disque de libre, ...
+Il contient des commandes génériques qui vont pouvoir récupérer les informations sur le CPU, le % de RAM de libre, le % de disque de libre, ...
 
 En Annexe, vous trouverez la capture d’écran qui illustre l’utilisation du dashboard.  
 Lien [ici](#grafana-dashboard)
@@ -1478,7 +1446,7 @@ C'est très utile pour surveiller l'espace disque. L'administrateur va définir 
 Plutôt qu'un mail, il est possible de créer des alertes dans Teams, ou Slack en configurant des **webhooks**.
 
 
-## Exemple de configuration pour une alerte
+## Configuration d'une alerte
 
 Grafana inclut un server SMTP qu'il faut paramétrer dans son fichier principal de configuration. Afin de simplifier les changements de configuration et pour éviter de devoir réécrire des rôles pour modifier le fichier de configuration, il est plus simple et pratique d'utiliser un template pour modifier ce dernier.
 
@@ -1519,7 +1487,7 @@ Le serveur étant configuré, il ne reste plus qu'a mettre en place les alertes 
 
 En Annexe, vous trouverez la capture d’écran qui illustre la configuration des alertes dans le dashboard. [Lien](#alerte-grafana)
 
-Par exemple, pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85%.
+Pour surveiller l'utilisation de la mémoire, il suffit d'écrire une requête qui va déclencher l'envoie d'un mail si l'utilisation de la mémoire dépasse 85%.
 
 Le WEBUI de Grafana facilite grandement la création d'alertes.
 
@@ -1554,12 +1522,12 @@ Cet outil de monitoring nous permet d’avoir une grande visibilité sur l’inf
 Le dernier point important de ce projet à été de rendre Grafana accessible depuis l'extérieur afin d'avoir accès au monitoring même en dehors du réseau interne. 
 Plusieurs éléments étaient à prendre en compte pour y arriver :
 
-## Configuration d'OVH
+### Configuration d'OVH
 
 CGI utilise OVH pour la majeure partie de son infrastructure. J'ai dû configurer :  
 - Dans la zone DNS, la création d'une entrée A qui lie une IP publique au nom de domaine choisi pour accéder à Grafana.
 
-## Configuration dans vSphere
+### Configuration dans vSphere
 
 L'infrastructure tourne sous ESXI avec NSX et vSphere pour fournir une interface graphique et les API REST pour la création, la configuration et la surveillance des composants tels que les contrôleurs, commutateurs logiques, ....
 
@@ -1595,19 +1563,19 @@ Une fois ces étapes terminées, nous pouvons accéder à Grafana sur la bonne u
 Dans ce schéma d'installation, les différentes briques sont installés et la configuration TLS est supporté par NSX Edge dans VSphere. Le Playbook dans son état actuel permet de déployer la stack de monitoring sans support TLS (car géré par NSX Edge). 
 Il peut être intéressant d'installer un reverse proxy du type Apache ou Nginx afin de ne pas exposer trop de port et de gérer les certificats sur la machine. 
 
-Je choisi d'installer Nginx. Pour cela, nous pouvons modifier notre Playbook de 2 façons :
+Pour cela, nous pouvons modifier notre Playbook de 2 façons pour intégrer Nginx :
 
 - Écrire un rôle qui va installer et configurer. Cela peut être une bonne solution lorsqu'on a une configuration atypique mais cela peut demander du temps pour l'écrire.
 
 - Utiliser un des nombreux rôles disponibles dans Ansible Galaxy et simplement modifier les variables nécessaires pour la configuration des services.
 
-Je fais le choix d'utiliser la deuxième option. Cela me permet de tirer bénéfice d'Ansible Galaxy sans avoir à réécrire un rôle en entier. Je vais le choix d'utiliser le rôle de **geerlinguy**. Dans un premier temps, je télécharge le rôle depuis Ansible Galaxy :
+ Cette deuxième option nous permettrai de tirer bénéfice d'Ansible Galaxy sans avoir à réécrire un rôle en entier. Nous pouvons utiliser par exemple le rôle de **geerlinguy**. Dans un premier temps, il faut  télécharger le rôle depuis Ansible Galaxy :
 
 ```yaml
 ansible-galaxy install geerlingguy.nginx
 ```
 
-Dans mon Playbook, j'ai besoin d'appeler ce nouveau rôle :
+Dans le Playbook, On appelle ce nouveau rôle de la manière suiviante:
 
 ```yaml
 - hosts: monit
@@ -1652,9 +1620,9 @@ Sur le rôle Nginx, les taches apparaîtront en **changed** car il y a eu un cha
 
 Une fois l'exécution terminée, nous pouvons accéder à Grafana en HTTPS sans avoir à passer par NSX Edge.
 
-Il sera également intéressant de créer un dashboard pour l'analyse des logs ainsi que la mise en place d'un système d'alerting. Comme Loki est développé par les même développeurs que Grafana, la mise en place d'un tel système est identique à celle décrite plus haut.
+Il serait également intéressant de créer un dashboard pour l'analyse des logs ainsi que la mise en place d'un système d'alerting. Comme Loki est développé par les même développeurs que Grafana, la mise en place d'un tel système est identique à celle décrite plus haut.
 
-Une autre amélioration consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passe, token et autres éléments d'identification qui sont souvent stockés dans les fichiers de variables.
+Une autre amélioration importante afin d'améliorer la sécurité du projet consisterai à utiliser **Ansible-Vault** afin de chiffrer les informations sensibles tels que les mots de passe, token et autres éléments d'identification qui sont souvent stockés dans les fichiers de variables.
 
 Son fonctionnement est relativement simple. Il suffit de chiffrer les fichiers contenant des éléments sensible avec la commande :  
 
@@ -1668,28 +1636,32 @@ Un dernier point intéressant serait d’utiliser le module pour la configuratio
 
 # Conclusion sur ce projet
 
-Nous avons ici un système de monitoring complet (métriques + logs système et applicatifs) avec des graphiques facilement compréhensibles et avec un système d'alerte en place. Ce qui est rassurant pour l'administrateur qui a définit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquence.
+Nous avons ici un système de monitoring complet (métriques + logs système et applicatifs) avec des graphiques facilement compréhensibles et avec un système d'alertes en place. Ce qui est rassurant pour l'administrateur qui a définit ses seuils d'alertes afin de se laisser une marge de temps pour agir en conséquence.
 
 En plus, comme Grafana est accessible depuis un simple navigateur internet, cela permet à l'Administrateur de pouvoir surveiller à distance l'infrastructure.
 
-Cela a été pour moi un projet très enrichissant car j'ai pu construire sur des bases que j'avais en Ansible pour arriver à produire un script fonctionnel avec plusieurs briques logiciels. J'ai rencontré certaines difficultés dans la compréhension du fonctionnement de certain module d'Ansible mais en persévérant et avec l'aide de **Mr Thomas Coleno** et **Mr Arthur Bertinetti** j'ai pu réussir mes tâches.
+Cela a été pour moi un projet très enrichissant car j'ai pu construire sur des bases que j'avais en Ansible pour arriver à produire un script fonctionnel avec plusieurs briques logiciels. J'ai rencontré certaines difficultés dans la compréhension du fonctionnement de certains modules d'Ansible mais en persévérant et avec l'aide de **Mr Thomas Coleno** et **Mr Arthur Bertinetti** j'ai pu réussir mes tâches.
 
-Ansible est une technologie qui m'intéresse beaucoup et je suis très content d'avoir pu travailler dessus durant mon stage. J'ai par la suite créé d'autres script Ansible du type :
+Ansible est une technologie qui m'intéresse beaucoup et je suis très content d'avoir pu travailler dessus durant mon stage.  
+
+J'ai par la suite créé d'autres script Ansible du type :
 
 - Installation / configuration d'un serveur Apache
 - Configuration d'un pool de machine Big Blue Button
 - Déploiement de VMs à partir d'un template dans vSphere avec configuration de base (ip, interface, hostname, lvm, ...
-- Déploiement d'une infrastructure complexe (Nginx, Apache, Drupal, Mariabd, Moodle, Python)
+- Déploiement d'un centre de formation (Nginx, Apache, Drupal, Mariabd, Moodle, Python)
 
-Sur cette dernière j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne.  
+Sur le projet du déploiement d'un centre de formation, j'ai rencontré des difficultés sur certains points. Mon responsable a pu utiliser une partie du travail que j'ai fait pour arriver à un script qui fonctionne.  
+
 Grâce à lui, j'ai appris de mes erreurs et pu grandement et efficacement améliorer mes compétences en Ansible notamment sur les notions de programmation en Python et sur la manipulation du format JSON.  
+
 Ce sont ses notions qui m’ont manqué pour finir ce Playbook.
 
 \pagebreak
 
 # Conclusion 
 
-Ce stage correspondait parfaitement à ce que je recherché. Il m'a permis d'apprendre et de perfectionner certaines de mes connaissances, notamment tout ce qui touche à l'automatisation, au Scripting, et à la gestion de plusieurs VM. J’ai également pu faire un peu de programmation en Python. 
+Ce stage correspondait parfaitement à ce que je recherchais. Il m'a permis d'apprendre et de perfectionner certaines de mes connaissances, notamment tout ce qui touche à l'automatisation, au Scripting, et à la gestion de plusieurs VM. J’ai également pu faire un peu de programmation en Python. 
 
 Sur ce dernier point, j’ai encore beaucoup de travail à faire car je n’ai pas les connaissances suffisantes pour pouvoir travailler efficacement avec ce langage et je pense qu’il est important de savoir exploiter ce langage qui est un excellent langage de Scripting pour tout AdminSys.
 
@@ -1768,7 +1740,59 @@ Je vais pouvoir évoluer au sein d'une équipe dynamique, sur des projets et des
 |Semaine 17| Montée en version de Moodle, Ansible pour mise à jours Zimbra, <br /> modification des specs des machines Zimbra dans vSphere, Mise en Place de Jupyter Hub sous Kubernetes |
 |Semaine 18| Mise à jours Zimbra, <br /> troubleshooting Moodle authentification CAS - Jupyter Hub sous Kubernetes |
 |Semaine 19| Troubleshooting Moodle et BDD -  Script Ansible pour la configuration des VMs à partir des templates |
-|Semaine 20| Troubleshooting Moodle et monté de version Moodle - transition des années scolaires sur les instances Moodle |
+|Semaine 20| Troubleshooting Moodle et montée de version Moodle - transition des années scolaires sur les instances Moodle |
 
 ## Configuration data sources
+
 ![Datasources configuration](images/datasources-conf.png "Datasources configuration")
+
+## Installation d'Ansible
+
+```bash
+sudo yum install epel-release && sudo yum update
+sudo yum install Ansible 
+```
+
+On vérifie la bonne installation d'Ansible et des dépendances :
+
+```bash
+Ansible –version
+```
+et le resultat de cette commande :
+
+```bash
+Ansible 2.9.6
+  config file = /etc/Ansible/Ansible.cfg
+  configured module search path = ['/home/marc/.Ansible/plugins/modules', '/usr/share/Ansible/plugins/modules']
+  Ansible python module location = /usr/lib/python3/dist-packages/Ansible
+  executable location = /usr/bin/Ansible
+  python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
+```
+
+Ansible a besoin que le port SSH soit ouvert et que l'authentification par clé plutôt que par mot de passe soit activée.
+
+```bash
+sudo firewall-cmd --list-services
+```
+Nous pouvons vérifier avec cette commande que le port 22 / service SSH est bien ouvert dans le firewall. Il nous reste plus qu'à générer une clé SSH et à la copier sur les machines clientes avec les deux commandes ci dessous:
+
+```bash
+ssh-keygen
+ssh-copy-id "MACHINE_CLIENTE"
+```
+
+Il est également recommandé d’accorder les droits nécessaires à l’utilisateur qui exécutera les commandes Ansible. Cet utilisateur doit être présent sur les machines clientes.
+
+```bash
+echo "UTILISATEUR_ANSIBLE ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/UTILISATEUR
+```
+
+En rajoutant un fichier avec la bonne configuration plutôt que de modifier le fichier directement, on évite de **casser sa configuration** au risque de ne plus pouvoir exécuter de commande en root.  
+
+Nous pouvons également mettre à jours le fichier **/etc/hosts** du serveur Ansible avec la liste des machines qu'il va gérer. Le but est d'avoir l'ensemble des machines de connu par le serveur Ansible afin d'éviter de rentrer leur **IP/HOSTNAME** plus tard.
+
+Cette étape n'est pas obligatoire et n'est pas forcément recommandé si on travaille avec un grand nombre de machines et beaucoup de projets différents. Dans ce cas, on pourra gérer l'inventaire projet par projet avec un inventaire par projet.
+
+L’environnement de base est configuré. Plusieurs fichiers peuvent être modifié afin de changer le comportement d’Ansible. 
+
+Il peut être souhaitable par exemple de sauvegarder un paramètre dans un fichier de configuration si il fait référence à une action fréquente, afin d'éviter de devoir définir cette action à chaque fois que nous en avons besoin. (ex: définition de la méthode d'élévation des privèges).
