@@ -27,37 +27,37 @@ header-includes:
 
 # Remerciements
 
-Tout d’abord, je voudrais remercier mon maître de stage, **Mr Thomas Coleno**. Il a su me faire confiance et a partagé ses connaissances de manière très pédagogique. Je le remercie aussi pour sa disponibilité et la qualité de son encadrement en entreprise.
+Tout d’abord, je veux remercier mon maître de stage, **Mr Thomas Coleno**. Il a su me faire confiance et a partagé ses connaissances de manière très pédagogique. Je le remercie aussi pour sa disponibilité et la qualité de son encadrement en entreprise.
 
 Je tiens à remercier également **Mr Arthur Bertinetti** et **Mr Laurent Potou** pour leur patience et leur grande pédagogie. Ils ont su m’aider sur plein de problématiques. 
 
 J'ai pu ainsi bénéficier de leur grande expérience, ce qui m'a permis d'avoir une bonne montée en compétence.
 
-En effet, chacune des personnes de l'équipe à su me consacre du temps et partager avec moi leur expertise, méthodes et connaissances tout au long de ce stage. Ils m’ont permis de rendre cette expérience de 6 mois enrichissante et pleine d'intérêt.
+En effet, chacune des personnes de l'équipe à su me consacrer du temps et partager avec moi leurs expertises, méthodes et connaissances, tout au long de ce stage. Ils m’ont permis de rendre cette expérience de 6 mois enrichissante et pleine d'intérêt.
 
 J'ai énormément appris. Ils m'ont fait confiance pour travailler avec eux sur plein de projets et avec une grande autonomie et je les en remercie vivement.
 
 Je les remercie également pour la bonne humeur qu'ils ont su me communiquer et l'envie qu'ils m'ont donné de travailler au sein de leur équipe.
 
-Je tiens à remercier également le corps enseignant de l'Université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutiens et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle grâces à leurs conseils, et à leurs excellents cours.
+Je tiens à remercier également le corps enseignant de l'Université, notamment **Mr Samuel Thibault** et **Mr Olivier Delmas** pour leurs soutiens et leurs enseignements. Ils m'ont permis de mener à bien ma reconversion professionnelle grâce à leurs conseils, et à leurs excellents cours.
 
 \pagebreak
 
 # Introduction
 
-Dans le cadre de la Licence professionnelle Administration et Développement de Systèmes Informatiques à base de Logiciels Libres et Hybrides **ADSILLH**, j'ai effectué un stage de 6 mois au sein de l'équipe **ENT** (Espace Numérique de Travail) / **Local GOV** (Gouvernement Local) dans la Bussiness Unit **TPSHR** (Transport, Secteur Public, Ressources Humaines)dans l'entreprise CGI (Conseillers en Gestion Informatique ou Consultants to Government and Industry en anglais) au Haillan.
+Dans le cadre de la Licence Professionnelle Administration et Développement de Systèmes Informatiques à base de Logiciels Libres et Hybrides **ADSILLH**, j'ai effectué un stage de 6 mois au sein de l'équipe **ENT** (Espace Numérique de Travail) / **Local GOV** (Gouvernement Local) dans la Bussiness Unit **TPSHR** (Transport, Secteur Public, Ressources Humaines) dans l'entreprise CGI (Conseillers en Gestion Informatique ou Consultants to Government and Industry en anglais) au Haillan.
 
-Je vais vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe où j'ai réalisé mon stage. Vous trouverez en annexes [ici](#tableau-du-travail-semaine-par-semaine)  un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.  
+Je vais tout d'abord vous présenter dans ce rapport l'entreprise qui m'a accueilli et plus précisément l'équipe avec qui j'ai réalisé mon stage. Vous trouverez en annexes [ici](#tableau-du-travail-semaine-par-semaine)  un tableau qui reprend les tâches sur lesquelles j'ai travaillé, semaine après semaine.  
 
-J’ai eu l’occasion de pouvoir travailler sur plein de projets différents mais avec comme fil conducteur l’automatisation et c’est pourquoi j'ai choisi comme thème de rapport de stage **l'automatisation dans un S.I** avec un focus sur le déploiement d'une solution de **monitoring** avec **Ansible** car c’est l’un des projet qui m’a beaucoup plus. J’utilisai cette solution de monitoring chez moi pour mon infrastructure. Le fait de devoir travailler dessus m’a beaucoup plus et m’a vraiment fait progresser sur le monitoring et m’a permis d’améliorer mon installation.
+J’ai eu l’occasion de pouvoir travailler sur plein de projets différents mais avec comme fil conducteur l’automatisation et c’est pourquoi j'ai choisi comme thème de rapport de stage **l'automatisation dans un S.I** avec un focus sur le déploiement d'une solution de **monitoring** avec **Ansible** car c’est l’un des projets qui m’a beaucoup plus. J’utilisais cette solution de monitoring chez moi pour mon infrastructure. Le fait de devoir travailler dessus m’a beaucoup plu et m’a vraiment fait progresser sur le monitoring et m’a permis d’améliorer mon installation.
 
-Je présenterai dans un premier temps Ansible, son fonctionnement et quelques commandes utiles. Le but est de comprendre Ansible avant de présenter la solution de monitoring. 
+Je présenterai en suivant Ansible, son fonctionnement et quelques commandes utiles. Le but est de comprendre Ansible avant de présenter la solution de monitoring. 
 
-Je présenterai en suivant les différents élément de la solution de monitoring, et l’infrastructure sur laquelle elle sera déployée. 
+Je continuerai sur les différents éléments de la solution de monitoring, et l’infrastructure sur laquelle elle sera déployée. 
 
-J’illustrerai avec des morceaux de codes les différents point important du projet
+J’illustrerai tout le long, avec des morceaux de codes, les différents points importants du projet.
 
-Et avant la conclusion, je parlerai de la configuration supplémentaires possible des des différentes évolution set amélioration qui pourront êtres mis en place.
+Enfin, avant de conclure, je parlerai de la configuration supplémentaire possible et des différentes évolutions et améliorations qui pourront être mises en place.
 
 Aucunes données confidentielles ne seront présentées dans ce rapport.
 
@@ -102,10 +102,10 @@ Fondé en juin 1976 par Serge Godin à Québec, Canada, CGI est un groupe canadi
 
 Durant la fin des années 80 et début 90, CGI commença à acquérir des sociétés proposant des services d’externalisation. Dès lors, CGI est en mesure d’offrir à ses clients des services informatiques complets tels que des services en TI (Technologies de l’Information) et en gestion, des services d’intégrations de système et d’externalisation.
 
-Dans les 20 dernières années, CGI chercha à atteindre une taille critique sur les marchés géographiques de ses clients, d’acquérir une croissance approfondie de leurs secteurs d’activités ainsi que de développer des pratiques spécialisées et des solutions novatrices.
+Dans les vingts dernières années, CGI chercha à atteindre une taille critique sur les marchés géographiques de ses clients, d’acquérir une croissance approfondie de leurs secteurs d’activités ainsi que de développer des pratiques spécialisées et des solutions novatrices.
 En 2010, CGI fait l’acquisition de Stanley Inc. et de ses filiales Oberon et Techrizon dans le but de doubler la taille de ses activités aux États-Unis. Deux années plus tard, CGI réalisa sa plus grosse acquisition en fusionnant avec l’entreprise Logica faisant passer son nombre de collaborateurs de 31 000 à 68000.
 
-Au cours de son histoire, CGI a réussi une expansion impressionnante et continue pendant 35 ans grâce à une stratégie de rachat et de conquête des différents marchés comme en témoigne le tableau 
+Au cours de son histoire, CGI a réussi une expansion impressionnante et continue pendant 35 ans grâce à une stratégie de croissance externe et de conquête des différents marchés comme en témoigne le tableau.
 
 CGI est l'un des leaders mondiaux du conseil et des services numériques. Avec plus de 40 ans d'expertise et de savoir-faire et présent dans plus de 40 pays, le groupe CGI est implanté dans 21 villes en France avec environs 11 000 salariés.
 
@@ -115,16 +115,16 @@ L’entreprise est actuellement dirigée par trois personnes :
 - André Imbeau : Fondateur et membre du conseil d’administration
 - George D. Schindler : Président et chef de la direction
 
-Avec une présence dans 40 pays, une solide expertise dans tous ses marchés cibles et un éventail complet de service en IT, la priorité de CGI reste de satisfaire ses clients. Grace à une approche cohérente, disciplinée et responsable en matière de prestation de services, CGI affiche un bilan inégalé de 95% de projets réalisés dans le respect des échéances prévues et affiche un indice de satisfaction des clients qui est constamment supérieur à 9 sur 10. 
+Avec une présence dans 40 pays, une solide expertise dans tous ses marchés cibles et un éventail complet de service en IT, la priorité de CGI reste de satisfaire ses clients. Grace à une approche cohérente, disciplinée et responsable en matière de prestation de services, CGI affiche un bilan inégalé de 95% de projets réalisés dans le respect des échéances prévues et affiche un indice de satisfaction client qui est constamment supérieur à 9 sur 10. 
 Ce score de satisfaction couplé à la croissance continue de CGI témoigne de la confiance que ses clients accordent à CGI et du dévouement de ses collaborateurs. 
 
 Ceci dans le but de devenir un fournisseur de services complets, d’atteindre des résultats grâce à des ressources mondiales, à une connaissance approfondie de l’industrie, à une stabilité et des professionnels motivés. CGI possède maintenant 6 domaines d’expertises métiers qui sont le Business Consulting, l’intégration de systèmes, l’Outsourcing IT, les Services d’infrastructures, l’Application management et les Business procès services. 
 Ces 6 domaines d’expertises sont répartis dans pas moins de 9 secteurs d’activités.
 
 
-CGI est la cinquième plus importante entreprise indépendante en services IT et en gestion des processus d'affaires au monde au service avec plus de 10 000 clients dans le monde dont 500 en France.
+CGI est la cinquième plus importante entreprise indépendante en services IT et en gestion des processus d'affaires au monde, avec plus de 10 000 clients dans le monde, dont plus de 500 en France.
 
-Le groupe est composé de 70 000 membres répartis sur 400 bureaux répartis dans 40 pays dont 22 en France et réalise 7,6 milliards € de revenus mondiaux dont 1 milliard en France, au travers de projets intégration de système, d'outsourcing IT et également plus de 100 solutions exclusives soutenant les activités critiques de nos clients.
+Le groupe est composé de 70 000 membres répartis sur 400 bureaux situés dans 40 pays dont 22 en France et réalise 7,6 milliards € de revenus mondiaux dont 1 milliard en France, au travers de projets intégration de système, d'outsourcing IT et également plus de 100 solutions exclusives soutenant les activités critiques de nos clients.
 
 L’implantation de CGI en France résulte de la fusion de CGI avec Logica en 2012. Au niveau national, la filiale française de CGI est dirigée par Jean-Michel Baticle, entré dans le groupe en 1969. Son implantation dans la plupart des grandes villes françaises lui procure une implantation homogène pour couvrir l’ensemble du territoire métropolitain.
 
@@ -134,37 +134,37 @@ La structure de direction de CGI France est centrée autour des clients et chacu
 
 En France, CGI est organisé en différentes Business Units **B.U**. J'ai réalisé mon stage dans la B.U TPSHR, plus précisément dans le groupe **Local GOV**, au service des collectivités locales. 
 
-Local Gov a pour but de proposer aux collectivités territoriales des solutions de services visant à faciliter le quotidien du citoyen, rendre les accès plus directs aux services et permettre un plus grand bénéfice de la dématérialisation.
+Local Gov a pour but de proposer aux collectivités territoriales, des solutions de services visant à faciliter le quotidien du citoyen, rendre les accès aux services plus directs et **permettre un plus grand bénéfice de la dématérialisation.**
 
-Mon maitre de stage **Mr Thomas Coleno** ainsi que **Mr Laurent Potou** et **Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire actuel a fait que 99% de mon temps de travail été à distance. Grâce aux outils collaboratifs comme Teams et Slack ainsi que la visioconférence ont permis de pouvoir communiquer dans de bonnes conditions. 
+Mon maitre de stage **Mr Thomas Coleno** ainsi que **Mr Laurent Potou** et **Mr Arthur Bertinetti** m'ont accueilli dans leur équipe. Le contexte sanitaire actuel a fait que 99% de mon temps de travail étais à distance. Grâce aux outils collaboratifs comme Teams et Slack ainsi que la visioconférence, nous avons pu communiquer dans de bonnes conditions. 
 
-Ce contexte m’a forcé à travailler sur mon autonomie. Cela a été pour moi très important car cela m’a poussé à chercher par moi-même et à solliciter mes collègues seulement en cas de difficultés.  Dans un sens, cela a été très formateur. A partir du mois de Juillet, nous avons pu nous réunir une fois par semaine dans les locaux de CGI au Haillan.
+Ce contexte m’a forcé à travailler sur mon autonomie. Cela a été pour moi très important car cela m’a poussé à chercher par moi-même et à solliciter mes collègues seulement en cas de difficultés. Dans un sens, cela a été très formateur. A partir du mois de Juillet, nous avons pu nous réunir une fois par semaine en présentiel dans les locaux de CGI au Haillan.
 
-Le fait de pouvoir télétravailler pour moi a été une réelle découverte comparée à mes postes précédant où, en tant que courtier en vin j’étais en déplacement constant et ne pouvais pas travailler depuis mon domicile.
+Le fait de pouvoir télétravailler a été pour moi une réelle découverte comparée à mes postes précédent où, en tant que courtier en vin j’étais en déplacement constant et ne pouvais pas travailler depuis mon domicile.
 
-Le télétravail m’a permis de trouver un certain confort pour équilibrer le contexte professionnel et personnel.
+Le télétravail m’a permis de trouver un certain confort pour équilibrer ma vie professionnelle et personnelle.
 
 \pagebreak
 
 ## Mes missions
 
-J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur **l'ENT** : Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet fournis des solutions clés en mains au collégiens et lycéens mais également aux professeurs et parents d'élève. 
+J'ai été recruté pour rejoindre l'équipe qui travaille dans le secteur de l'éducation nationale et particulièrement sur **l'ENT** : Espace Numérique de Travail, qui est utilisé par plusieurs régions de France. Cet ENT, très complet, fournit des solutions clés en mains aux collégiens et lycéens mais également aux professeurs et parents d'élèves. 
 Dans le contexte sanitaire actuel, l'équipe a dû s'adapter très rapidement pour fournir une solution performante et robuste afin de pouvoir supporter le fort développement du télé-enseignement. Je présenterai rapidement les principaux outils de cet ENT afin de comprendre les différentes applications sur lesquelles j’ai pu travailler.  
 
-Je suis donc arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Je peux définir mon travail durant le stage en 3 axes :
+Je suis arrivé en Avril 2021 afin de pouvoir accompagner l'équipe en place dans leur travail au quotidien. Je peux classer mes missions durant le stage en 3 axes :
 
 - **Prévention** :  
-  Tous les jours je rédigais un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure. Je relevais également les anomalies sur les différentes machines remontées par l’antivirus CLAMAV
+  Tous les jours je rédigeais un rapport sur les alertes de la veille. Ce rapport utilise la solution de monitoring CENTREON, avec des sondes et des paramètres spécifiques à la surveillance de l'infrastructure. Je relevais également les anomalies sur les différentes machines remontées par l’antivirus CLAMAV
   Le but étant de surveiller les différentes infrastructures en place afin d’être proactif dans la résolution d’incidents.  
   
 - **Action** :  
   Une bonne partie de mon travail a consisté à automatiser des tâches qui aurait été très chronophages. Mon tuteur **Mr Thomas Coleno** a une excellente maîtrise de cet outil et il m'a permis d'apprendre en réalisant plusieurs scripts Ansible, particulièrement le déploiement d'une stack de monitoring que je présenterai dans la partie 2 de ce rapport.
-  J'ai également aidé l'équipe sur toutes les tâches qu'ils ont pu me confier. J'ai eu la chance d'avoir un stage avec des missions très variées. Ce qui a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.  
+  J'ai également aidé l'équipe sur toutes les tâches qu'ils ont pu me confier. J'ai eu la chance d'avoir un stage avec des missions très variées. Cela a été très formateur sur beaucoup de technologies différentes et avec des problématiques différentes.  
     
 - **Montée en Compétences** :  
   La diversité des briques logicielles a fait que j’ai grandement appris et je suis monté en compétences sur beaucoup de domaines comme Ansible, la gestion de BBD ou la mise en place de serveurs web. Cela m’a amené à faire beaucoup de troubleshooting sur différentes technologies afin de savoir comment elles fonctionnent.  
   
-Quelque uns des projets sur lesquels j'ai pu participer :  
+Quelques-uns des projets sur lesquels j'ai pu participer :  
 
 - Création d'un Playbook Ansible pour le déploiement de la configuration de BBB
 - Création d'un Playbook Ansible pour le Monitoring
